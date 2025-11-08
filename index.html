@@ -268,29 +268,41 @@
       });
 
 
+      // document.getElementById('contact-form').addEventListener('submit', function (e) {
+      //   e.preventDefault();
+      
+      //   const templateParams = {
+      //     user_name: this.user_name.value,
+      //     user_email: this.user_email.value,
+      //     message: this.message.value
+      //   };
+
+      //   emailjs.send('service_dvw390e', 'template_sl08jz5', templateParams, 'nsDdnPJNDAREkIPXo')
+      //     .then(
+      //       function (response) {
+      //         console.log('SUCCESS!', response.status, response.text);
+      //         alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+      //         document.getElementById('contact-form').reset();
+      //       },
+      //       function (error) {
+      //         console.log('FAILED...', error);
+      //         alert('Erro ao enviar. Por favor, tente novamente ou me envie um e-mail diretamente para jonasaugustoprofissional@gmail.com.');
+      //       }
+      //     );
+      // });
+
       document.getElementById('contact-form').addEventListener('submit', function (e) {
         e.preventDefault();
-      
-        const templateParams = {
-          user_name: this.user_name.value,
-          user_email: this.user_email.value,
-          message: this.message.value
-        };
 
-        emailjs.send('service_dvw390e', 'template_sl08jz5', templateParams, 'nsDdnPJNDAREkIPXo')
-          .then(
-            function (response) {
-              console.log('SUCCESS!', response.status, response.text);
-              alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-              document.getElementById('contact-form').reset();
-            },
-            function (error) {
-              console.log('FAILED...', error);
-              alert('Erro ao enviar. Por favor, tente novamente ou me envie um e-mail diretamente para jonasaugustoprofissional@gmail.com.');
-            }
-          );
+        const formData = new FormData(this);
+        const name = formData.get('user_name');
+        const email = formData.get('user_email');
+        const message = formData.get('message');
+        const emailBody = `Nome: ${name}\nE-mail: ${email}\nMensagem: ${message}`;
+        window.location.href = `mailto:jonasaugustoprofissional@gmail.com?subject=Mensagem do Portfólio de ${name}&body=${encodeURIComponent(emailBody)}`;
+
+        this.reset();
       });
-
       const menuButton = document.getElementById('mobile-menu-button');
       const menu = document.getElementById('mobile-menu');
       if (menuButton && menu) {
