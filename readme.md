@@ -10,7 +10,7 @@ Repositório do meu portfólio pessoal hospedado em [jonasaugustosantos.github.i
   - **AOS:** Animações ao rolar a página
   - **GSAP:** Animações avançadas
   - **Typed.js:** Efeito de digitação no Hero
-  - **EmailJS:** Envio de e-mails pelo formulário de contato
+  - **Formspark:** Envio de e-mails pelo formulário de contato
 
 ## Funcionalidades
 
