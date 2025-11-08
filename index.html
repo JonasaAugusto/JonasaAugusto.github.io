@@ -28,7 +28,7 @@
         <li><a href="#experiencia" class="hover:text-blue-400 text-gray-200">Experiência</a></li>
         <li><a href="#projetos" class="hover:text-blue-400 text-gray-200">Projetos</a></li>
         <li><a href="#habilidades" class="hover:text-blue-400 text-gray-200">Habilidades</a></li>
-        <li><a href="#cursos" class="hover:text-blue-400 text-gray-200">Cursos</a></li> <!-- Novo link -->
+        <li><a href="#cursos" class="hover:text-blue-400 text-gray-200">Cursos</a></li>
         <li><a href="#contato" class="hover:text-blue-400 text-gray-200">Contato</a></li>
       </ul>
       <div class="md:hidden">
@@ -45,7 +45,7 @@
         <li><a href="#experiencia" class="block hover:text-blue-400 text-gray-200">Experiência</a></li>
         <li><a href="#projetos" class="block hover:text-blue-400 text-gray-200">Projetos</a></li>
         <li><a href="#habilidades" class="block hover:text-blue-400 text-gray-200">Habilidades</a></li>
-        <li><a href="#cursos" class="block hover:text-blue-400 text-gray-200">Cursos</a></li> <!-- Novo link -->
+        <li><a href="#cursos" class="block hover:text-blue-400 text-gray-200">Cursos</a></li>
         <li><a href="#contato" class="block hover:text-blue-400 text-gray-200">Contato</a></li>
       </ul>
     </div>
@@ -57,16 +57,17 @@
       <h1 class="text-4xl md:text-6xl font-bold mb-4">
         Desenvolvedor <span id="typed" class="text-blue-400"></span>
       </h1>
-            <p class="text-lg md:text-xl mb-8 text-gray-200">
-              Back-End Dev | C# .NET | Python | IA Generativa | Automação de Processos
+      <p class="text-lg md:text-xl mb-8 text-gray-200">
+        Back-End Dev | C# .NET | Python | IA Generativa | Automação de Processos
       </p>
-      <div class="space-x-4">
-        <a href="#contato" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contato" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition text-center">
           Fale comigo
-          <a href="jonasaugusto_cv.pdf" download
-            class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition">
-            Baixar Currículo
-          </a>
+        </a>
+        <a href="jonasaugusto_cv.pdf" download
+          class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition text-center">
+          Baixar Currículo
+        </a>
       </div>
     </div>
   </section>
@@ -128,9 +129,8 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-gray-700 p-6 rounded-lg shadow text-gray-100">
           <h3 class="text-xl font-bold text-blue-300">Chatbot Automatizado</h3>
-          <p class="text-gray-200">Bot para Discord com 20+ comandos, moderação automática e sistema de banco de dados.
-          </p>
-          <div class="flex flex-wrap gap-2 mt-3"> <!-- Ícones de Stack -->
+          <p class="text-gray-200">Bot para Discord com 20+ comandos, moderação automática e sistema de banco de dados.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
             <span class="bg-gray-600 px-2 py-1 rounded text-xs">Python</span>
             <span class="bg-gray-600 px-2 py-1 rounded text-xs">Discord.py</span>
             <span class="bg-gray-600 px-2 py-1 rounded text-xs">SQLite</span>
@@ -141,7 +141,7 @@
         <div class="bg-gray-700 p-6 rounded-lg shadow text-gray-100">
           <h3 class="text-xl font-bold text-blue-300">Gerador de QR Code Avançado</h3>
           <p class="text-gray-200">Aplicação desktop em Python com interface gráfica e geração em lote.</p>
-          <div class="flex flex-wrap gap-2 mt-3"> <!-- Ícones de Stack -->
+          <div class="flex flex-wrap gap-2 mt-3">
             <span class="bg-gray-600 px-2 py-1 rounded text-xs">Python</span>
             <span class="bg-gray-600 px-2 py-1 rounded text-xs">Tkinter</span>
             <span class="bg-gray-600 px-2 py-1 rounded text-xs">qrcode</span>
@@ -152,7 +152,7 @@
         <div class="bg-gray-700 p-6 rounded-lg shadow text-gray-100">
           <h3 class="text-xl font-bold text-blue-300">Bot de Interação em Mídia Social (RPA)</h3>
           <p class="text-gray-200">Automação de interações contínuas em redes sociais com lógica anti-deteção.</p>
-          <div class="flex flex-wrap gap-2 mt-3"> <!-- Ícones de Stack -->
+          <div class="flex flex-wrap gap-2 mt-3">
             <span class="bg-gray-600 px-2 py-1 rounded text-xs">Python</span>
             <span class="bg-gray-600 px-2 py-1 rounded text-xs">PyAutoGUI</span>
             <span class="bg-gray-600 px-2 py-1 rounded text-xs">RPA</span>
@@ -220,19 +220,17 @@
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-8">Contato</h2>
       <p class="text-center mb-6 text-gray-200">Preencha o formulário abaixo ou me encontre nas redes:</p>
-      <form action="https://submit-form.com/1pIuu489V">
-        <label for="name">Nome</label>
-        <input type="text" id="name" name="name" placeholder="Name" required="" />
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email" required="" />
-        <label for="message">Mensagem</label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Message"
-          required=""
-        ></textarea>
-        <button type="submit">Enviar</button>
+      <form id="contact-form" class="space-y-4">
+        <input type="text" name="name" placeholder="Nome" required
+          class="w-full p-3 rounded bg-gray-700 text-white" />
+        <input type="email" name="email" placeholder="E-mail" required
+          class="w-full p-3 rounded bg-gray-700 text-white" />
+        <textarea name="message" placeholder="Mensagem" required
+          class="w-full p-3 rounded bg-gray-700 text-white h-32"></textarea>
+        <button type="submit"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition">
+          Enviar Mensagem
+        </button>
       </form>
       <div class="flex justify-center space-x-6 mt-8">
         <a href="mailto:jonasaugustoprofissional@gmail.com" class="text-xl hover:text-blue-300">📧 E-mail</a>
@@ -246,6 +244,20 @@
     <p>&copy; 2025 Jonas Augusto. Todos os direitos reservados.</p>
   </footer>
 
+  <!-- Modal de Sucesso -->
+  <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4 text-center shadow-2xl transform transition-all duration-300 scale-95 opacity-0">
+      <div class="text-4xl mb-4">✅</div>
+      <h3 class="text-xl font-bold text-blue-400 mb-2">Mensagem enviada!</h3>
+      <p class="text-gray-200 mb-4">
+        Obrigado pelo contato. Responderei em breve!
+      </p>
+      <button id="close-modal" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
+        Fechar
+      </button>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -255,8 +267,8 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       AOS.init();
-
       gsap.registerPlugin(ScrollTrigger);
+
       gsap.from("header", { y: -100, opacity: 0, duration: 1, ease: "power2.out" });
       gsap.from("#hero", { opacity: 0, duration: 1.5, ease: "power2.out" });
 
@@ -267,14 +279,66 @@
         loop: true
       });
 
-      // Mobile menu toggle
+      // Mobile menu
       const menuButton = document.getElementById('mobile-menu-button');
       const menu = document.getElementById('mobile-menu');
       if (menuButton && menu) {
-        menuButton.addEventListener('click', function () {
-          menu.classList.toggle('hidden');
+        menuButton.addEventListener('click', () => menu.classList.toggle('hidden'));
+      }
+
+      // Formulário com popup
+      const contactForm = document.getElementById('contact-form');
+      const modal = document.getElementById('success-modal');
+      const closeModalBtn = document.getElementById('close-modal');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(contactForm);
+          const data = Object.fromEntries(formData);
+
+          try {
+            const res = await fetch('https://submit-form.com/1pIuu489V', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            });
+
+            if (res.ok) {
+              contactForm.reset();
+              // Mostrar modal com animação
+              modal.classList.remove('hidden');
+              const content = modal.querySelector('div');
+              content.style.opacity = '0';
+              content.style.transform = 'scale(0.95)';
+              gsap.to(content, { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" });
+            } else {
+              alert('Ocorreu um erro. Tente novamente.');
+            }
+          } catch (err) {
+            console.error(err);
+            alert('Erro de conexão. Verifique sua internet.');
+          }
         });
       }
+
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', () => {
+          const content = modal.querySelector('div');
+          gsap.to(content, {
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.2,
+            ease: "power2.in",
+            onComplete: () => modal.classList.add('hidden')
+          });
+        });
+      }
+
+      // Fechar modal ao clicar fora
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) closeModalBtn?.click();
+      });
     });
   </script>
 </body>
