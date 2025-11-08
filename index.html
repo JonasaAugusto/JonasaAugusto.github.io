@@ -220,17 +220,19 @@
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-8">Contato</h2>
       <p class="text-center mb-6 text-gray-200">Preencha o formulário abaixo ou me encontre nas redes:</p>
-      <form class="space-y-4" action="https://submit-form.com/1pIuu489V" method="POST">
-        <input type="text" name="name" placeholder="Nome" required
-          class="w-full p-3 rounded bg-gray-700 text-white" />
-        <input type="email" name="email" placeholder="E-mail" required
-          class="w-full p-3 rounded bg-gray-700 text-white" />
-        <textarea name="message" placeholder="Mensagem" required
-          class="w-full p-3 rounded bg-gray-700 text-white h-32"></textarea>
-        <button type="submit"
-          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition">
-          Enviar Mensagem
-        </button>
+      <form action="https://submit-form.com/1pIuu489V">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" placeholder="Name" required="" />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Email" required="" />
+        <label for="message">Mensagem</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Message"
+          required=""
+        ></textarea>
+        <button type="submit">Enviar</button>
       </form>
       <div class="flex justify-center space-x-6 mt-8">
         <a href="mailto:jonasaugustoprofissional@gmail.com" class="text-xl hover:text-blue-300">📧 E-mail</a>
