@@ -227,8 +227,12 @@
           class="w-full p-3 rounded bg-gray-700 text-white" />
         <textarea name="message" placeholder="Mensagem" required
           class="w-full p-3 rounded bg-gray-700 text-white h-32"></textarea>
-        <button type="submit"
-          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition">
+        <button type="submit" id="submit-btn"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition flex items-center justify-center">
+          <svg class="hidden animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V6a6 6 0 616 6h2a6 6 0 016 6v2a6 6 0 01-6 6H6a6 6 0 01-6-6v-2z"></path>
+          </svg>
           Enviar Mensagem
         </button>
       </form>
@@ -287,10 +291,17 @@
       const contactForm = document.getElementById('contact-form');
       const modal = document.getElementById('success-modal');
       const closeModalBtn = document.getElementById('close-modal');
+      const submitBtn = document.getElementById('submit-btn');
+      const spinner = submitBtn.querySelector('svg');
 
       if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
           e.preventDefault();
+
+          // Mostrar spinner e desabilitar botão
+          submitBtn.disabled = true;
+          spinner.classList.remove('hidden');
+
           const formData = new FormData(contactForm);
 
           try {
@@ -316,6 +327,10 @@
             content.style.opacity = '0';
             content.style.transform = 'scale(0.95)';
             gsap.to(content, { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" });
+          } finally {
+            // Reativar botão e esconder spinner
+            submitBtn.disabled = false;
+            spinner.classList.add('hidden');
           }
         });
       }
