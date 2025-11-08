@@ -179,7 +179,7 @@
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-8">Contato</h2>
       <p class="text-center mb-6 text-gray-200">Preencha o formulário abaixo ou me encontre nas redes:</p>
-      <form id="contact-form" action="https://submit-form.com/1pIuu489V" method="POST" target="_blank" class="space-y-4">
+      <form id="contact-form" action="https://submit-form.com/1pIuu489V" method="POST" class="space-y-4">
         <input type="text" name="name" placeholder="Nome" required class="w-full p-3 rounded bg-gray-700 text-white" />
         <input type="email" name="email" placeholder="E-mail" required class="w-full p-3 rounded bg-gray-700 text-white" />
         <textarea name="message" placeholder="Mensagem" required class="w-full p-3 rounded bg-gray-700 text-white h-32"></textarea>
@@ -193,8 +193,8 @@
       </form>
       <div class="flex justify-center space-x-6 mt-8">
         <a href="mailto:jonasaugustoprofissional@gmail.com" class="text-xl hover:text-blue-300">📧 E-mail</a>
-        <a href="https://linkedin.com/in/jonasaugustosantos" target="_blank" class="text-xl hover:text-blue-300">💼 LinkedIn</a>
-        <a href="https://github.com/JonasaAugusto" target="_blank" class="text-xl hover:text-blue-300">🐙 GitHub</a>
+        <a href="https://linkedin.com/in/jonasaugustosantos" target="_blank" class="text-xl hover:text-blue-400">💼 LinkedIn</a>
+        <a href="https://github.com/JonasaAugusto" target="_blank" class="text-xl hover:text-blue-400">🐙 GitHub</a>
       </div>
     </div>
   </section>
@@ -202,15 +202,6 @@
   <footer class="bg-gray-900 text-gray-400 text-center py-6">
     <p>&copy; 2025 Jonas Augusto. Todos os direitos reservados.</p>
   </footer>
-
-  <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-    <div class="bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4 text-center shadow-2xl">
-      <div class="text-4xl mb-4">✅</div>
-      <h3 class="text-xl font-bold text-blue-400 mb-2">Mensagem enviada!</h3>
-      <p class="text-gray-200 mb-4">Obrigado pelo contato. Responderei em breve!</p>
-      <button id="close-modal" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">Fechar</button>
-    </div>
-  </div>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -237,9 +228,7 @@
       const contactForm = document.getElementById('contact-form');
       const submitBtn = document.getElementById('submit-btn');
       const spinner = submitBtn.querySelector('svg');
-      const modal = document.getElementById('success-modal');
-      const closeModalBtn = document.getElementById('close-modal');
-      if (contactForm && submitBtn && spinner && modal && closeModalBtn) {
+      if (contactForm && submitBtn && spinner) {
         contactForm.addEventListener('submit', (e) => {
           submitBtn.disabled = true;
           spinner.classList.remove('hidden');
@@ -260,32 +249,6 @@
               Enviar Mensagem
             `;
           }, 2000);
-          setTimeout(() => {
-            modal.classList.remove('hidden');
-            const content = modal.querySelector('.bg-gray-800');
-            if (content) {
-              gsap.set(content, { scale: 0.9, opacity: 0 });
-              gsap.to(content, { scale: 1, opacity: 1, duration: 0.3, ease: "power2.out" });
-            }
-            contactForm.reset();
-          }, 500);
-        });
-      }
-      if (closeModalBtn && modal) {
-        closeModalBtn.addEventListener('click', () => {
-          const content = modal.querySelector('.bg-gray-800');
-          if (content) {
-            gsap.to(content, {
-              scale: 0.9,
-              opacity: 0,
-              duration: 0.2,
-              ease: "power2.in",
-              onComplete: () => modal.classList.add('hidden')
-            });
-          }
-        });
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) closeModalBtn.click();
         });
       }
     });
