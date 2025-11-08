@@ -220,10 +220,10 @@
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-8">Contato</h2>
       <p class="text-center mb-6 text-gray-200">Preencha o formulário abaixo ou me encontre nas redes:</p>
-      <form class="space-y-4" id="contact-form">
-        <input type="text" name="user_name" placeholder="Nome" required
+      <form class="space-y-4" action="https://submit.formspark.io/1pIuu489V" method="POST">
+        <input type="text" name="name" placeholder="Nome" required
           class="w-full p-3 rounded bg-gray-700 text-white" />
-        <input type="email" name="user_email" placeholder="E-mail" required
+        <input type="email" name="email" placeholder="E-mail" required
           class="w-full p-3 rounded bg-gray-700 text-white" />
         <textarea name="message" placeholder="Mensagem" required
           class="w-full p-3 rounded bg-gray-700 text-white h-32"></textarea>
@@ -234,8 +234,7 @@
       </form>
       <div class="flex justify-center space-x-6 mt-8">
         <a href="mailto:jonasaugustoprofissional@gmail.com" class="text-xl hover:text-blue-300">📧 E-mail</a>
-        <a href="https://linkedin.com/in/jonasaugustosantos" target="_blank" class="text-xl hover:text-blue-300">💼
-          LinkedIn</a>
+        <a href="https://linkedin.com/in/jonasaugustosantos" target="_blank" class="text-xl hover:text-blue-300">💼 LinkedIn</a>
         <a href="https://github.com/JonasaAugusto" target="_blank" class="text-xl hover:text-blue-300">🐙 GitHub</a>
       </div>
     </div>
@@ -250,11 +249,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       AOS.init();
-
 
       gsap.registerPlugin(ScrollTrigger);
       gsap.from("header", { y: -100, opacity: 0, duration: 1, ease: "power2.out" });
@@ -267,42 +265,7 @@
         loop: true
       });
 
-
-      // document.getElementById('contact-form').addEventListener('submit', function (e) {
-      //   e.preventDefault();
-      
-      //   const templateParams = {
-      //     user_name: this.user_name.value,
-      //     user_email: this.user_email.value,
-      //     message: this.message.value
-      //   };
-
-      //   emailjs.send('service_dvw390e', 'template_sl08jz5', templateParams, 'nsDdnPJNDAREkIPXo')
-      //     .then(
-      //       function (response) {
-      //         console.log('SUCCESS!', response.status, response.text);
-      //         alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-      //         document.getElementById('contact-form').reset();
-      //       },
-      //       function (error) {
-      //         console.log('FAILED...', error);
-      //         alert('Erro ao enviar. Por favor, tente novamente ou me envie um e-mail diretamente para jonasaugustoprofissional@gmail.com.');
-      //       }
-      //     );
-      // });
-
-      document.getElementById('contact-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const formData = new FormData(this);
-        const name = formData.get('user_name');
-        const email = formData.get('user_email');
-        const message = formData.get('message');
-        const emailBody = `Nome: ${name}\nE-mail: ${email}\nMensagem: ${message}`;
-        window.location.href = `mailto:jonasaugustoprofissional@gmail.com?subject=Mensagem do Portfólio de ${name}&body=${encodeURIComponent(emailBody)}`;
-
-        this.reset();
-      });
+      // Mobile menu toggle
       const menuButton = document.getElementById('mobile-menu-button');
       const menu = document.getElementById('mobile-menu');
       if (menuButton && menu) {
