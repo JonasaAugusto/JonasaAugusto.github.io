@@ -298,7 +298,6 @@
         contactForm.addEventListener('submit', async (e) => {
           e.preventDefault();
 
-          // Mostrar spinner e desabilitar botão
           submitBtn.disabled = true;
           spinner.classList.remove('hidden');
 
@@ -307,10 +306,9 @@
           try {
             const res = await fetch('https://submit-form.com/1pIuu489V', {
               method: 'POST',
-              body: formData // ⬅️ Enviando como FormData, não JSON
+              body: formData 
             });
 
-            // Mostrar modal de sucesso independentemente do status
             contactForm.reset();
             modal.classList.remove('hidden');
             const content = modal.querySelector('div');
@@ -320,7 +318,6 @@
 
           } catch (err) {
             console.error('Erro de rede ou envio falhou:', err);
-            // Mesmo em erro de rede, mostrar modal de sucesso
             contactForm.reset();
             modal.classList.remove('hidden');
             const content = modal.querySelector('div');
@@ -328,9 +325,8 @@
             content.style.transform = 'scale(0.95)';
             gsap.to(content, { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" });
           } finally {
-            // Reativar botão e esconder spinner
-            submitBtn.disabled = false;
-            spinner.classList.add('hidden');
+             submitBtn.disabled = false;
+             spinner.classList.add('hidden');
           }
         });
       }
