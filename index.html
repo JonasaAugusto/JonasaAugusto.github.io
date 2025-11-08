@@ -244,8 +244,9 @@
     <p>&copy; 2025 Jonas Augusto. Todos os direitos reservados.</p>
   </footer>
 
+  <!-- Modal de Sucesso -->
   <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-    <div class="bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4 text-center shadow-2xl transform transition-all duration-300 scale-95 opacity-0">
+    <div class="bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4 text-center shadow-2xl">
       <div class="text-4xl mb-4">✅</div>
       <h3 class="text-xl font-bold text-blue-400 mb-2">Mensagem enviada!</h3>
       <p class="text-gray-200 mb-4">
@@ -283,58 +284,68 @@
       if (menuButton && menu) {
         menuButton.addEventListener('click', () => menu.classList.toggle('hidden'));
       }
-
       const contactForm = document.getElementById('contact-form');
       const modal = document.getElementById('success-modal');
       const closeModalBtn = document.getElementById('close-modal');
+      const submitButton = contactForm.querySelector('button[type="submit"]');
 
-      if (contactForm) {
+      let isSubmitting = false;
+
+      if (contactForm && submitButton && modal && closeModalBtn) {
         contactForm.addEventListener('submit', async (e) => {
           e.preventDefault();
+
+          if (isSubmitting) return;
+          isSubmitting = true;
+          submitButton.disabled = true;
+          submitButton.classList.add('opacity-75', 'cursor-not-allowed');
+
           const formData = new FormData(contactForm);
-          const data = Object.fromEntries(formData);
 
           try {
             const res = await fetch('https://submit-form.com/1pIuu489V', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(data)
+              body: formData
             });
 
-            if (res.ok) {
+            if (res.ok || res.redirected) {
               contactForm.reset();
 
               modal.classList.remove('hidden');
-              const content = modal.querySelector('div');
-              content.style.opacity = '0';
-              content.style.transform = 'scale(0.95)';
-              gsap.to(content, { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" });
+              const content = modal.querySelector('.bg-gray-800');
+              if (content) {
+                gsap.set(content, { scale: 0.9, opacity: 0 });
+                gsap.to(content, { scale: 1, opacity: 1, duration: 0.3, ease: "power2.out" });
+              }
             } else {
-              alert('Ocorreu um erro. Tente novamente.');
+              console.error('Erro no envio:', res.status);
             }
           } catch (err) {
-            console.error(err);
-            alert('Mensagem Enviada!');
+            console.error('Erro de rede:', err);
+          } finally {
+            isSubmitting = false;
+            submitButton.disabled = false;
+            submitButton.classList.remove('opacity-75', 'cursor-not-allowed');
           }
         });
-      }
 
-      if (closeModalBtn) {
         closeModalBtn.addEventListener('click', () => {
-          const content = modal.querySelector('div');
-          gsap.to(content, {
-            opacity: 0,
-            scale: 0.95,
-            duration: 0.2,
-            ease: "power2.in",
-            onComplete: () => modal.classList.add('hidden')
-          });
+          const content = modal.querySelector('.bg-gray-800');
+          if (content) {
+            gsap.to(content, {
+              scale: 0.9,
+              opacity: 0,
+              duration: 0.2,
+              ease: "power2.in",
+              onComplete: () => modal.classList.add('hidden')
+            });
+          }
+        });
+
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModalBtn.click();
         });
       }
-
-      modal?.addEventListener('click', (e) => {
-        if (e.target === modal) closeModalBtn?.click();
-      });
     });
   </script>
 </body>
