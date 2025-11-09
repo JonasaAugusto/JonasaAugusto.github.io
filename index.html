@@ -81,6 +81,7 @@
         <li><a href="#desafios" class="hover:text-red-400 font-semibold text-gray-200">Desafios</a></li>
         <li><a href="#habilidades" class="hover:text-blue-400 text-gray-200">Habilidades</a></li>
         <li><a href="#formacao" class="hover:text-blue-400 text-gray-200">Formação</a></li>
+        <li><a href="#cursos" class="hover:text-blue-400 text-gray-200">Cursos</a></li>
         <li><a href="#contato" class="hover:text-blue-400 text-gray-200">Contato</a></li>
       </ul>
       <div class="md:hidden">
@@ -99,26 +100,25 @@
         <li><a href="#desafios" class="block hover:text-red-400 font-semibold text-gray-200">Desafios</a></li>
         <li><a href="#habilidades" class="block hover:text-blue-400 text-gray-200">Habilidades</a></li>
         <li><a href="#formacao" class="block hover:text-blue-400 text-gray-200">Formação</a></li>
+        <li><a href="#cursos" class="block hover:text-blue-400 text-gray-200">Cursos</a></li>
         <li><a href="#contato" class="block hover:text-blue-400 text-gray-200">Contato</a></li>
       </ul>
     </div>
   </header>
-
+  
   <section id="hero"
     class="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black text-white text-center pt-16">
     <div class="max-w-3xl px-4">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">
-        O tempo não faz o adulto; o problema resolvido, sim. A complexidade que você abraça hoje é o pilar da sua resiliência de amanhã.
-      </h1>
-      <p class="text-lg md:text-xl mb-8 text-gray-300">
-        Desenvolvedor Back-End | Solucionador de Problemas | Especialista em Superar Obstáculos Técnicos
+      <h1>Olá, eu sou Jonas Augusto.<br><span id="typed"></span></h1>
+      <p class="text-lg md:text-xl mb-8 text-gray-200">
+        Back-End Dev | C# .NET | Python | IA Generativa | Automação de Processos
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#desafios" class="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white font-bold py-3 px-6 rounded-lg transition text-center shadow-lg">
+        <a href="#desafios" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition text-center">
           Meus Desafios
         </a>
         <a href="#contato" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition text-center">
-          Vamos Conversar
+          Fale comigo
         </a>
         <a href="jonasaugusto_cv.pdf" download
           class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition text-center">
@@ -127,7 +127,7 @@
       </div>
       <div class="mt-8 bg-gray-800/50 rounded-lg p-4 border border-red-500/30">
         <p class="text-sm text-gray-300 italic">
-          "O verdadeiro teste de um desenvolvedor não está em construir algo simples, mas em resolver problemas que parecem impossíveis." - Jonas Augusto
+          "O tempo não faz o adulto; o problema resolvido, sim. A complexidade que você abraça hoje é o pilar da sua resiliência de amanhã."
         </p>
       </div>
     </div>
@@ -627,7 +627,13 @@
       gsap.from("#hero .flex", { opacity: 0, y: 20, duration: 1, delay: 0.7 });
 
       new Typed('#typed', {
-        strings: ["Problemas Complexos", "Desafios Técnicos", "Sistemas Críticos", "Automação Inteligente", "Soluções Criativas"],
+        strings: [
+          "Desenvolvedor Python",
+          "Desenvolvedor C#",
+          "Especialista em Automação",
+          "Engenheiro de Prompt",
+          "Desenvolvedor Back-End"
+        ],
         typeSpeed: 50,
         backSpeed: 30,
         loop: true,
@@ -691,7 +697,6 @@
         yoyo: true,
         ease: "power1.inOut"
       });
-    });
   </script>
 </body>
 
