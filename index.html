@@ -643,10 +643,15 @@
       const spinner = submitBtn.querySelector('svg');
 
       if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
+        contactForm.addEventListener('submit', async (e) => {
+          e.preventDefault(); // evita recarregar a página
+      
+          const formData = new FormData(contactForm);
+          const submitBtn = document.getElementById('submit-btn');
+          const originalHTML = submitBtn.innerHTML;
+      
+          // Ativar spinner
           submitBtn.disabled = true;
-          spinner.classList.remove('hidden');
           submitBtn.innerHTML = `
             <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -654,13 +659,52 @@
             </svg>
             Enviando...
           `;
-          setTimeout(() => {
-            contactForm.reset();
+      
+          try {
+            const response = await fetch(contactForm.action, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+      
+            if (response.ok) {
+              // Limpar formulário
+              contactForm.reset();
+      
+              // Mostrar mensagem de sucesso SEM alert
+              const successMsg = document.createElement('div');
+              successMsg.className = 'mt-4 p-3 bg-green-900 text-green-200 rounded text-center';
+              successMsg.textContent = 'Mensagem enviada! Responderei em breve.';
+              contactForm.parentNode.insertBefore(successMsg, contactForm.nextSibling);
+      
+              // Opcional: remover mensagem após 5 segundos
+              setTimeout(() => {
+                if (successMsg.parentNode) {
+                  successMsg.parentNode.removeChild(successMsg);
+                }
+              }, 5000);
+            } else {
+              throw new Error('Erro no envio');
+            }
+          } catch (error) {
+            // Mostrar erro SEM alert
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'mt-4 p-3 bg-red-900 text-red-200 rounded text-center';
+            errorMsg.textContent = 'Ops! Ocorreu um erro. Tente novamente.';
+            contactForm.parentNode.insertBefore(errorMsg, contactForm.nextSibling);
+      
+            setTimeout(() => {
+              if (errorMsg.parentNode) {
+                errorMsg.parentNode.removeChild(errorMsg);
+              }
+            }, 5000);
+          } finally {
+            // Restaurar botão
             submitBtn.disabled = false;
-            spinner.classList.add('hidden');
-            submitBtn.innerHTML = 'Enviar';
-            alert('Mensagem enviada com sucesso! Responderei em breve.');
-          }, 2000);
+            submitBtn.innerHTML = originalHTML;
+          }
         });
       }
 
