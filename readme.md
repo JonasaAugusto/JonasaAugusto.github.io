@@ -1,6 +1,6 @@
 # Portfólio Jonas Augusto
 
-Repositório do meu portfólio pessoal hospedado em [jonasaugustosantos.github.io](https://jonasaaugusto.github.io)
+Repositório do meu portfólio pessoal hospedado em [jonasaaugusto.github.io](https://jonasaaugusto.github.io)
 
 ## Tecnologias Utilizadas
 
