@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-pt-20">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,37 +10,74 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
+    :root {
+      scroll-padding-top: 80px;
+    }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #111827;
-      color: #f9fafb;
+      background-color: #0f172a;
+      color: #f8fafc;
     }
-    .challenge-badge {
+    .challenge-card {
+      position: relative;
+      border: 1px solid transparent;
+      background: linear-gradient(#1e293b, #1e293b) padding-box,
+                  linear-gradient(135deg, #3b82f6, #8b5cf6) border-box;
+      transition: transform 0.3s ease;
+    }
+    .challenge-card:hover {
+      transform: translateY(-5px);
+    }
+    .challenge-badge-floating {
       position: absolute;
-      top: -8px;
-      right: -8px;
-      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
+      top: -12px;
+      right: -12px;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      border-radius: 9999px;
+      padding: 4px 10px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      border: 2px solid #111827;
+      gap: 4px;
+      z-index: 10;
     }
-    .problem-solution {
-      border-left: 3px solid #3b82f6;
-      padding-left: 1.5rem;
-      margin: 1rem 0;
+    #back-to-top {
+      opacity: 0;
+      visibility: hidden;
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 100;
+      transform: translateY(20px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .solution-highlight {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.1));
-      border-radius: 0.5rem;
-      padding: 1rem;
-      margin: 0.75rem 0;
+    #back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #475569;
     }
   </style>
   <script>
@@ -48,692 +85,556 @@
       theme: {
         extend: {
           colors: {
-            'challenge-red': '#ef4444',
-            'solution-green': '#10b981',
-            'growth-purple': '#8b5cf6'
-          },
-          animation: {
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'float': 'float 6s ease-in-out infinite'
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-10px)' }
-            }
+            slate: { 950: '#0f172a' },
+            zinc: { 900: '#18181b' }
           }
         }
       }
     }
   </script>
 </head>
-<body class="bg-gray-900 text-white">
-  <header class="fixed top-0 left-0 right-0 bg-gray-800 shadow-md z-50 h-16 flex items-center px-4">
+<body class="bg-slate-950 text-slate-50 selection:bg-blue-500/30 custom-scrollbar">
+  <header class="fixed top-0 left-0 right-0 bg-slate-900/80 backdrop-blur-md shadow-lg z-50 h-20 flex items-center px-4 border-b border-slate-800">
     <div class="max-w-6xl mx-auto w-full flex justify-between items-center">
-      <h2 class="text-xl font-bold text-white mr-6">Jonas Augusto</h2>
-      <ul class="hidden md:flex space-x-6">
-        <li><a href="#sobre" class="hover:text-blue-400 text-gray-200">Sobre</a></li>
-        <li><a href="#experiencia" class="hover:text-blue-400 text-gray-200">Experiência</a></li>
-        <li><a href="#projetos" class="hover:text-blue-400 text-gray-200">Projetos</a></li>
-        <li><a href="#desafios" class="hover:text-red-400 font-semibold text-gray-200">Desafios</a></li>
-        <li><a href="#habilidades" class="hover:text-blue-400 text-gray-200">Habilidades</a></li>
-        <li><a href="#formacao" class="hover:text-blue-400 text-gray-200">Formação</a></li>
-        <li><a href="#cursos" class="hover:text-blue-400 text-gray-200">Cursos</a></li>
-        <li><a href="#contato" class="hover:text-blue-400 text-gray-200">Contato</a></li>
-      </ul>
+      <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Jonas Augusto</h2>
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6">
+          <li><a href="#sobre" class="hover:text-blue-400 transition-colors font-medium">Sobre</a></li>
+          <li><a href="#experiencia" class="hover:text-blue-400 transition-colors font-medium">Experiência</a></li>
+          <li><a href="#projetos" class="hover:text-blue-400 transition-colors font-medium">Projetos</a></li>
+          <li><a href="#desafios" class="text-blue-400 hover:text-blue-300 transition-colors font-bold">Desafios</a></li>
+          <li><a href="#habilidades" class="hover:text-blue-400 transition-colors font-medium">Habilidades</a></li>
+          <li><a href="#formacao" class="hover:text-blue-400 transition-colors font-medium">Formação</a></li>
+          <li><a href="#cursos" class="hover:text-blue-400 transition-colors font-medium">Cursos</a></li>
+          <li><a href="#contato" class="hover:text-blue-400 transition-colors font-medium">Contato</a></li>
+        </ul>
+      </nav>
       <div class="md:hidden">
-        <button id="mobile-menu-button" class="text-gray-200 focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button id="mobile-menu-button" class="text-slate-200 focus:outline-none p-2 hover:bg-slate-800 rounded-lg transition">
+          <i class="bi bi-list text-3xl"></i>
         </button>
       </div>
     </div>
-    <div id="mobile-menu" class="md:hidden bg-gray-700 shadow-lg hidden absolute top-16 left-0 right-0">
-      <ul class="flex flex-col p-4 space-y-4">
-        <li><a href="#sobre" class="block hover:text-blue-400 text-gray-200">Sobre</a></li>
-        <li><a href="#experiencia" class="block hover:text-blue-400 text-gray-200">Experiência</a></li>
-        <li><a href="#projetos" class="block hover:text-blue-400 text-gray-200">Projetos</a></li>
-        <li><a href="#desafios" class="block hover:text-red-400 font-semibold text-gray-200">Desafios</a></li>
-        <li><a href="#habilidades" class="block hover:text-blue-400 text-gray-200">Habilidades</a></li>
-        <li><a href="#formacao" class="block hover:text-blue-400 text-gray-200">Formação</a></li>
-        <li><a href="#cursos" class="block hover:text-blue-400 text-gray-200">Cursos</a></li>
-        <li><a href="#contato" class="block hover:text-blue-400 text-gray-200">Contato</a></li>
+    <div id="mobile-menu" class="md:hidden bg-slate-900 border-b border-slate-800 shadow-2xl hidden absolute top-20 left-0 right-0 overflow-hidden transition-all duration-300">
+      <ul class="flex flex-col p-6 space-y-4">
+        <li><a href="#sobre" class="mobile-link block py-2 text-lg hover:text-blue-400 transition-colors">Sobre</a></li>
+        <li><a href="#experiencia" class="mobile-link block py-2 text-lg hover:text-blue-400 transition-colors">Experiência</a></li>
+        <li><a href="#projetos" class="mobile-link block py-2 text-lg hover:text-blue-400 transition-colors">Projetos</a></li>
+        <li><a href="#desafios" class="mobile-link block py-2 text-lg text-blue-400 font-bold">Grandes Desafios</a></li>
+        <li><a href="#habilidades" class="mobile-link block py-2 text-lg hover:text-blue-400 transition-colors">Habilidades</a></li>
+        <li><a href="#formacao" class="mobile-link block py-2 text-lg hover:text-blue-400 transition-colors">Formação</a></li>
+        <li><a href="#cursos" class="mobile-link block py-2 text-lg hover:text-blue-400 transition-colors">Cursos</a></li>
+        <li><a href="#contato" class="mobile-link block py-2 text-lg hover:text-blue-400 transition-colors">Contato</a></li>
       </ul>
     </div>
   </header>
-  <section id="hero"
-    class="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black text-white text-center pt-16">
-    <div class="max-w-3xl px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-2">Jonas Augusto</h1>
-      <p class="text-lg md:text-xl mb-6 text-gray-200">
+
+  <button id="back-to-top" class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-2xl shadow-blue-900/40 flex items-center justify-center transition-all group">
+    <i class="bi bi-chevron-up text-xl group-hover:-translate-y-1 transition-transform"></i>
+  </button>
+
+  <section id="hero" class="min-h-screen flex items-center justify-center bg-slate-950 text-white text-center pt-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+    <div class="max-w-4xl px-4 relative z-10">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight" data-aos="zoom-out">Jonas Augusto</h1>
+      <p class="text-xl md:text-2xl mb-8 text-slate-400 font-medium min-h-[1.5em]">
         <span id="typed"></span>
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#contato"
-          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition text-center">Fale
-          comigo</a>
-        <a href="jonasaugusto_cv.pdf" download
-          class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition text-center">Baixar
-          Currículo</a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
+        <a href="#contato" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-blue-900/20 flex items-center justify-center gap-2">
+          <i class="bi bi-chat-dots"></i> Fale comigo
+        </a>
+        <a href="jonasaugusto_cv.pdf" download class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-xl transition-all flex items-center justify-center gap-2">
+          <i class="bi bi-download"></i> Baixar Currículo
+        </a>
       </div>
-      <div class="mt-8 bg-gray-800/50 rounded-lg p-4 border border-red-500/30">
-        <p class="text-sm text-gray-300 italic">
-          "A complexidade que você abraça hoje é o pilar da sua resiliência de amanhã." - Jonas Augusto.
+      <div class="mt-12 p-6 bg-slate-900/50 backdrop-blur rounded-2xl border border-slate-800 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="600">
+        <p class="text-slate-400 italic text-lg">
+          <i class="bi bi-quote text-blue-500 text-2xl"></i> A complexidade que você abraça hoje é o pilar da sua resiliência de amanhã.
         </p>
       </div>
     </div>
   </section>
-  <section id="sobre" class="py-20 bg-gray-800" data-aos="fade-up">
+
+  <section id="sobre" class="py-24 bg-slate-900" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8 text-white">Sobre Mim</h2>
-      <p class="text-lg text-gray-200">
-        Sou desenvolvedor Back-End em formação, com foco em resolver problemas complexos usando automação, APIs e IA
-        generativa. Atualmente cursando Engenharia de Software com média 9.3/10, transformo desafios técnicos em
-        oportunidades de aprendizado e impacto.
-      </p>
-      <p class="mt-4 text-lg text-gray-200">
-        Minha trajetória inclui atuação prática em ambientes de alta pressão, o que me tornou um desenvolvedor 
-        autodidata e orientado a resultados. Busco times onde a capacidade de resolver problemas seja tão
-        valorizada quanto o código limpo.
-      </p>
-      <div class="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-4 text-center">
-        <p class="font-bold text-white text-lg">
+      <h2 class="text-4xl font-bold mb-8 text-white flex items-center justify-center gap-3">
+        <i class="bi bi-person-badge text-blue-500"></i> Sobre Mim
+      </h2>
+      <div class="space-y-6 text-lg text-slate-300 leading-relaxed text-center max-w-3xl mx-auto">
+        <p>
+          Sou desenvolvedor Back-End em formação, com foco em resolver problemas complexos usando automação, APIs e IA generativa. Atualmente cursando Engenharia de Software com média 9.3/10, transformo desafios técnicos em oportunidades de aprendizado e impacto.
+        </p>
+        <p>
+          Minha trajetória inclui atuação prática em ambientes de alta pressão, o que me tornou um desenvolvedor autodidata e orientado a resultados. Busco times onde a capacidade de resolver problemas seja tão valorizada quanto o código limpo.
+        </p>
+      </div>
+      <div class="mt-10 p-6 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-xl shadow-blue-900/20 max-w-2xl mx-auto" data-aos="zoom-in">
+        <p class="font-bold text-white text-xl text-center">
           7+ Problemas Complexos Resolvidos | 100% de Desafios Técnicos Superados
         </p>
       </div>
     </div>
   </section>
-  <section id="experiencia" class="py-20 bg-gray-900" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-10 text-white">Experiência Profissional</h2>
-      <div class="space-y-8">
-        <div class="p-6 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-blue-500">
-          <h3 class="text-xl font-bold text-blue-300">Desenvolvedor de Automação de Processos com IA</h3>
-          <p class="text-gray-400">NEURODEV - Startup | Set – Nov 2025</p>
-          <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-200">
-            <li>Construí e mantive 15+ fluxos de automação críticos com N8N, conectando 4 sistemas distintos via
-              Webhooks e APIs REST, <strong>reduzindo tempo de processamento em 40%</strong> e <strong>eliminando 25
-                horas/mês de trabalho manual</strong>.</li>
-            <li>Aplicação avançada de <strong>Prompt Engineering</strong> em workflows de IA generativa, resultando em
-              <strong>redução de 97% no tempo médio de resposta</strong> (de 15min para 15–20s).
-            </li>
-          </ul>
-        </div>
-        <div class="p-6 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-purple-500">
-          <h3 class="text-xl font-bold text-blue-300">Analista de Suporte RPA</h3>
-          <p class="text-gray-400">NEURODEV - Startup | Set – Nov 2025</p>
-          <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-200">
-            <li><strong>Sustentação de Automação Crítica</strong>: Único responsável pela manutenção de solução RPA em
-              Python que processa <strong>800+ transações diárias</strong>, com monitoramento proativo que
-              <strong>reduziu downtime em 93,5%</strong> (de 35h/mês para 2.25h/mês).
-            </li>
-            <li><strong>DevOps & Troubleshooting</strong>: Gerenciamento completo de ambiente com Docker, PostgreSQL e
-              Linux CLI.</li>
-            <li><strong>Otimização de Performance</strong>: Refatoração de queries SQL que aceleraram o processamento em
-              <strong>300%</strong> (de 45s para 15s por batch).
-            </li>
-          </ul>
-        </div>
-        <div class="p-6 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-purple-500">
-          <h3 class="text-xl font-bold text-blue-300">Desenvolvedor Júnior de Automação com IA Generativa</h3>
-          <p class="text-gray-400">BNECT - Startup Early-Stage | Ago – Set 2025</p>
-          <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-200">
-            <li>Desenvolvi agentes inteligentes para atendimento multicanal (WhatsApp e Instagram), utilizando IA
-              generativa para personalizar interações e reduzir carga operacional.</li>
-            <li>Automatizei processos internos, geração de conteúdo e execução de ações backend integradas a CRM, Bling,
-              Jetcommerce, Google Calendar e Sheets via APIs.</li>
-            <li><strong>Desafio de Integração de APIs</strong>: Superei limitações técnicas e documentação deficiente
-              para criar integrações robustas e autossustentáveis com alta disponibilidade.</li>
-            <li><strong>Resolução em Tempo Real</strong>: Implementei estratégias de fallback, retry com backoff e
-              circuit breakers para garantir continuidade operacional frente a falhas imprevistas.</li>
-          </ul>
-        </div>
-        <div class="p-6 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-purple-500">
-          <h3 class="text-xl font-bold text-blue-300">Analista de Requisitos de Software</h3>
-          <p class="text-gray-400">Volpatto Engenharia e Arquitetura de Guaíra LTDA · Freelance | Mai 2023 – Set 2023 · 5 mos</p>
-          <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-200">
-            <li>Desenvolvi um documento completo de requisitos funcionais e não funcionais para um software desktop de gestão empresarial.</li>
-            <li>Realizei análise detalhada dos processos da empresa, mapeando fluxos de trabalho para 6 serviços principais: projetos arquitetônicos, regularização de obras, projetos complementares, visto de conclusão, gestão de INSS/averbação e projetos de interiores.</li>
-            <li>Documentei funcionalidades como gestão de clientes/funcionários, agendamento de reuniões com lembretes por WhatsApp, checklists automatizados, emissão de boletos com multas por atraso, controle financeiro integrado e notificações de cumprimento de prazos.</li>
-            <li>O software foi projetado para otimizar operações, reduzir retrabalho e padronizar processos de engenharia e arquitetura.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="desafios" class="py-20 bg-gradient-to-b from-gray-800 to-gray-900" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4 text-white flex items-center justify-center gap-3">
-        <i class="bi bi-exclamation-triangle-fill text-red-500"></i>
-        Meus Grandes Desafios
-        <i class="bi bi-exclamation-triangle-fill text-red-500"></i>
+
+  <section id="experiencia" class="py-24 bg-slate-950" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16 text-white flex items-center justify-center gap-3">
+        <i class="bi bi-briefcase text-blue-500"></i> Experiência Profissional
       </h2>
-      <p class="text-center text-gray-300 mb-12 max-w-3xl mx-auto">
-        Cada desafio abaixo representa um marco na minha evolução como desenvolvedor. São situações reais onde
-        automação, APIs, agentes e IA generativa foram essenciais para superar limites técnicos e operacionais.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <div class="bg-gray-700 rounded-xl p-6 shadow-lg border border-red-500/30 relative overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-50"></div>
-          <div class="challenge-badge" title="Desafio Nível: Extremo">🔥</div>
-          <h3 class="text-2xl font-bold text-red-400 mb-3">Integração de APIs Instáveis com Alta Disponibilidade</h3>
-          <div class="problem-solution">
-            <h4 class="font-bold text-red-300 mb-1">O Problema:</h4>
-            <p class="text-gray-200">Integração de 5 sistemas distintos via APIs REST com documentação deficiente,
-              timeouts frequentes (40% de falhas) e rate limiting agressivo. Necessidade de operação 24/7 com SLA
-              rigoroso.</p>
-          </div>
-          <div class="solution-highlight">
-            <h4 class="font-bold text-green-400 mb-1">A Solução:</h4>
-            <p class="text-gray-200">Implementei um middleware com retries inteligentes, backoff exponencial, cache
-              local com TTL dinâmico e fallback para dados históricos. Adicionei métricas em tempo real para ajuste
-              automático de parâmetros.</p>
-            <p class="mt-2 text-sm text-blue-300 font-medium">Resultado: 99.98% de disponibilidade, falhas reduzidas
-              para 0.2%, economia de 35h/mês em retrabalho.</p>
-          </div>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="bg-red-900/50 px-3 py-1 rounded-full text-xs font-medium">APIs REST</span>
-            <span class="bg-red-900/50 px-3 py-1 rounded-full text-xs font-medium">Rate Limiting</span>
-            <span class="bg-red-900/50 px-3 py-1 rounded-full text-xs font-medium">Retry Logic</span>
-            <span class="bg-red-900/50 px-3 py-1 rounded-full text-xs font-medium">Monitoramento</span>
-          </div>
-        </div>
-        <div class="bg-gray-700 rounded-xl p-6 shadow-lg border border-yellow-500/30 relative overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-50"></div>
-          <div class="challenge-badge" title="Desafio Nível: Avançado">⚡</div>
-          <h3 class="text-2xl font-bold text-yellow-400 mb-3">Recuperação de Infraestrutura em Ambiente de Teste</h3>
-          <div class="problem-solution">
-            <h4 class="font-bold text-yellow-300 mb-1">O Problema:</h4>
-            <p class="text-gray-200">Ambiente de teste com Docker e PostgreSQL parou de funcionar devido a configuração
-              incorreta. Testes críticos estavam bloqueados.</p>
-          </div>
-          <div class="solution-highlight">
-            <h4 class="font-bold text-green-400 mb-1">A Solução:</h4>
-            <p class="text-gray-200">Auxiliei no diagnóstico completo via Linux CLI, identificação de conflitos de rede
-              e volumes
-              incorretos. Reconstrução do ambiente com scripts idempotentes e documentação de recuperação.</p>
-            <p class="mt-2 text-sm text-blue-300 font-medium">Resultado: Ambiente restaurado em menos de 2h, com
-              documentação reutilizável para futuros incidentes.</p>
-          </div>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="bg-yellow-900/50 px-3 py-1 rounded-full text-xs font-medium">Docker</span>
-            <span class="bg-yellow-900/50 px-3 py-1 rounded-full text-xs font-medium">PostgreSQL</span>
-            <span class="bg-yellow-900/50 px-3 py-1 rounded-full text-xs font-medium">Linux CLI</span>
-          </div>
-        </div>
-        <div class="bg-gray-700 rounded-xl p-6 shadow-lg border border-purple-500/30 relative overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-50"></div>
-          <div class="challenge-badge" title="Desafio Nível: Complexo">🚀</div>
-          <h3 class="text-2xl font-bold text-purple-400 mb-3">Dimulação de comportamento humano para testes de carga / UX / RPA
-          </h3>
-          <div class="problem-solution">
-            <h4 class="font-bold text-purple-300 mb-1">O Problema:</h4>
-          </div>
-          <div class="solution-highlight">
-            <h4 class="font-bold text-green-400 mb-1">A Solução:</h4>
-            <p class="text-gray-200">Desenvolvimento de script em Python que simula comportamento humano com variação de
-              tempo, movimentos de mouse não lineares e pausas estocásticas baseadas em padrões reais.</p>
-            <p class="mt-2 text-sm text-blue-300 font-medium">Resultado: ~1600 comentários em 4 horas, com taxa de
-              detecção próxima a zero.</p>
-          </div>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="bg-purple-900/50 px-3 py-1 rounded-full text-xs font-medium">Python</span>
-            <span class="bg-purple-900/50 px-3 py-1 rounded-full text-xs font-medium">PyAutoGUI</span>
-            <span class="bg-purple-900/50 px-3 py-1 rounded-full text-xs font-medium">Comportamento Humano</span>
-            <span class="bg-purple-900/50 px-3 py-1 rounded-full text-xs font-medium">RPA</span>
-          </div>
-        </div>
-        <div class="bg-gray-700 rounded-xl p-6 shadow-lg border border-green-500/30 relative overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent opacity-50"></div>
-          <div class="challenge-badge" title="Desafio Nível: Inovador">🤖</div>
-          <h3 class="text-2xl font-bold text-green-400 mb-3">Prototipagem de Agente Inteligente com Integração a Dados
-            Reais</h3>
-          <div class="problem-solution">
-            <h4 class="font-bold text-green-300 mb-1">O Problema:</h4>
-            <p class="text-gray-200">Como criar um agente que, de forma autônoma, consome dados históricos de interações
-              do usuário (ex: pedidos, preferências), consulta bases estruturadas e não estruturadas, e gera
-              recomendações personalizadas usando IA generativa, tudo em um fluxo contínuo e escalável?</p>
-          </div>
-          <div class="solution-highlight">
-            <h4 class="font-bold text-green-400 mb-1">A Solução:</h4>
-            <p class="text-gray-200">Desenhei uma arquitetura hipotética com três camadas: (1) um pipeline de ingestão
-              de dados (SQL + APIs), (2) um módulo de enriquecimento com embeddings semânticos, (3) um LLM com RAG para
-              gerar respostas contextualizadas. Simulei a integração com PostgreSQL e OpenAI, aplicando prompt
-              engineering estruturado e memorização de contexto.</p>
-            <p class="mt-2 text-sm text-blue-300 font-medium">Resultado: Protótipo funcional capaz de gerar sugestões
-              coerentes com histórico do usuário, demonstrando viabilidade para agentes reais em sistemas de
-              recomendação.</p>
-          </div>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="bg-green-900/50 px-3 py-1 rounded-full text-xs font-medium">Agentes Autônomos</span>
-            <span class="bg-green-900/50 px-3 py-1 rounded-full text-xs font-medium">RAG</span>
-            <span class="bg-green-900/50 px-3 py-1 rounded-full text-xs font-medium">Prompt Engineering</span>
-            <span class="bg-green-900/50 px-3 py-1 rounded-full text-xs font-medium">PostgreSQL</span>
-          </div>
-        </div>
-        <div class="bg-gray-800 rounded-xl p-8 text-center max-w-4xl mx-auto border border-blue-500/30">
-          <h3 class="text-2xl font-bold text-blue-400 mb-4">Filosofia de Resolução de Problemas</h3>
-          <p class="text-gray-300 text-lg mb-4">
-            "Frente a qualquer desafio técnico, sigo uma abordagem sistemática: <span class="text-blue-300">diagnóstico
-              preciso → solução mínima viável → otimização contínua</span>. Acredito que nenhum problema é insuperável
-            com
-            mentalidade de engenharia e ferramentas de IA bem aplicadas."
-          </p>
-          <div class="flex justify-center gap-8 mt-4">
-            <div class="text-center">
-              <div class="text-4xl font-bold text-blue-400">98%</div>
-              <div class="text-sm text-gray-400">Taxa de sucesso em desafios complexos</div>
+      <div class="grid gap-8">
+        <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition-colors group">
+          <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+            <div>
+              <h3 class="text-2xl font-bold text-blue-400">Desenvolvedor de Automação de Processos com IA</h3>
+              <p class="text-slate-400 font-medium">NEURODEV - Startup | Set – Nov 2025</p>
             </div>
-            <div class="text-center">
-              <div class="text-4xl font-bold text-blue-400">16h</div>
-              <div class="text-sm text-gray-400">Tempo médio para resolver problemas críticos</div>
-            </div>
-            <div class="text-center">
-              <div class="text-4xl font-bold text-blue-400">7+</div>
-              <div class="text-sm text-gray-400">Tecnologias dominadas para resolver problemas</div>
-            </div>
+            <span class="mt-2 md:mt-0 px-4 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm font-bold border border-blue-500/20">Startup</span>
           </div>
+          <ul class="space-y-4 text-slate-300 text-lg">
+            <li class="flex gap-3">
+              <i class="bi bi-check2-circle text-blue-500 flex-shrink-0 mt-1"></i>
+              <span>Construí e mantive 15+ fluxos de automação críticos com N8N, conectando 4 sistemas distintos via Webhooks e APIs REST, <strong>reduzindo tempo de processamento em 40%</strong> e <strong>eliminando 25 horas/mês de trabalho manual</strong>.</span>
+            </li>
+            <li class="flex gap-3">
+              <i class="bi bi-check2-circle text-blue-500 flex-shrink-0 mt-1"></i>
+              <span>Aplicação avançada de <strong>Prompt Engineering</strong> em workflows de IA generativa, resultando em <strong>redução de 97% no tempo médio de resposta</strong> (de 15min para 15–20s).</span>
+            </li>
+          </ul>
+        </div>
+        <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-purple-500/50 transition-colors group">
+          <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+            <div>
+              <h3 class="text-2xl font-bold text-purple-400">Analista de Suporte RPA</h3>
+              <p class="text-slate-400 font-medium">NEURODEV - Startup | Set – Nov 2025</p>
+            </div>
+            <span class="mt-2 md:mt-0 px-4 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm font-bold border border-purple-500/20">RPA</span>
+          </div>
+          <ul class="space-y-4 text-slate-300 text-lg">
+            <li class="flex gap-3">
+              <i class="bi bi-check2-circle text-purple-500 flex-shrink-0 mt-1"></i>
+              <span><strong>Sustentação de Automação Crítica</strong>: Único responsável pela manutenção de solução RPA em Python que processa <strong>800+ transações diárias</strong>, com monitoramento proativo que <strong>reduziu downtime em 93,5%</strong> (de 35h/mês para 2.25h/mês).</span>
+            </li>
+            <li class="flex gap-3">
+              <i class="bi bi-check2-circle text-purple-500 flex-shrink-0 mt-1"></i>
+              <span><strong>DevOps & Troubleshooting</strong>: Gerenciamento completo de ambiente com Docker, PostgreSQL e Linux CLI.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition-colors group">
+          <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+            <div>
+              <h3 class="text-2xl font-bold text-emerald-400">Desenvolvedor Júnior de Automação com IA Generativa</h3>
+              <p class="text-slate-400 font-medium">BNECT - Startup Early-Stage | Ago – Set 2025</p>
+            </div>
+            <span class="mt-2 md:mt-0 px-4 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm font-bold border border-emerald-500/20">Early-Stage</span>
+          </div>
+          <ul class="space-y-4 text-slate-300 text-lg">
+            <li class="flex gap-3">
+              <i class="bi bi-check2-circle text-emerald-500 flex-shrink-0 mt-1"></i>
+              <span>Desenvolvi agentes inteligentes para atendimento multicanal (WhatsApp e Instagram), utilizando IA generativa para personalizar interações e reduzir carga operacional.</span>
+            </li>
+            <li class="flex gap-3">
+              <i class="bi bi-check2-circle text-emerald-500 flex-shrink-0 mt-1"></i>
+              <span>Automatizei processos internos, geração de conteúdo e execução de ações backend integradas a CRM, Bling, Jetcommerce, Google Calendar e Sheets via APIs.</span>
+            </li>
+            <li class="flex gap-3">
+              <i class="bi bi-check2-circle text-emerald-500 flex-shrink-0 mt-1"></i>
+              <span><strong>Resolução em Tempo Real</strong>: Implementei estratégias de fallback, retry com backoff e circuit breakers para garantir continuidade operacional frente a falhas imprevistas.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-orange-500/50 transition-colors group">
+          <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+            <div>
+              <h3 class="text-2xl font-bold text-orange-400">Analista de Requisitos de Software</h3>
+              <p class="text-slate-400 font-medium">Volpatto Engenharia e Arquitetura de Guaíra LTDA · Freelance | Ago 2023 – Set 2023</p>
+            </div>
+            <span class="mt-2 md:mt-0 px-4 py-1 bg-orange-500/10 text-orange-400 rounded-full text-sm font-bold border border-orange-500/20">Freelance</span>
+          </div>
+          <ul class="space-y-4 text-slate-300 text-lg">
+            <li class="flex gap-3">
+              <i class="bi bi-check2-circle text-orange-500 flex-shrink-0 mt-1"></i>
+              <span>Desenvolvi um documento completo de requisitos funcionais e não funcionais para um software desktop de gestão empresarial.</span>
+            </li>
+            <li class="flex gap-3">
+              <i class="bi bi-check2-circle text-orange-500 flex-shrink-0 mt-1"></i>
+              <span>Realizei análise detalhada dos processos da empresa, mapeando fluxos de trabalho para 6 serviços principais.</span>
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
   </section>
-  <section id="projetos" class="py-20 bg-gray-800" data-aos="fade-up">
+
+  <section id="desafios" class="py-24 bg-slate-900">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-10 text-white">Projetos Destacados</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-700 p-6 rounded-lg shadow text-gray-100 border-l-4 border-blue-500">
-          <h3 class="text-xl font-bold text-blue-300">Chatbot com IA para Comunidade</h3>
-          <p class="text-gray-200">Bot para Discord com tutoriais interativos para jogadores de Project Zomboid e
-            funcionalidades de moderação automática.</p>
-          <div class="problem-solution mt-3">
-            <h4 class="font-bold text-yellow-300">Desafio Enfrentado:</h4>
-            <p class="text-gray-300 text-sm">Criar um bot resiliente, 24/7, com sistema de comandos dinâmico e
-              capacidade de evoluir com o feedback da comunidade.</p>
+      <h2 class="text-4xl font-bold text-center mb-4 text-white">Grandes Desafios</h2>
+      <p class="text-slate-400 text-center mb-16 text-lg">Problemas reais que exigiram soluções de engenharia avançadas.</p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="challenge-card p-8 rounded-2xl" data-aos="fade-up">
+          <div class="challenge-badge-floating"><i class="bi bi-fire"></i> Nível: Expert</div>
+          <h3 class="text-2xl font-bold mb-4 text-purple-400">Otimização de Latência em IA</h3>
+          <p class="text-slate-300 mb-6 leading-relaxed">Fluxos de IA generativa levavam até 15 minutos para responder. Implementei técnicas de Prompt Engineering e otimização de workflow.</p>
+          <div class="bg-slate-950/50 p-4 rounded-xl border-l-4 border-purple-500">
+            <p class="text-purple-400 font-bold mb-1">Resultado:</p>
+            <p class="text-slate-300">Redução de <strong>97%</strong> no tempo de resposta e <strong>redução de 60%</strong> em queries redundantes no backend.</p>
           </div>
-          <p class="mt-2 text-gray-300 italic">• <strong>Impacto:</strong> NPS aumentado de 65 para 88 (+35%)</p>
-          <p class="mt-1 text-gray-300 italic">• <strong>Funcionalidades:</strong> Comandos interativos, embeds com
-            mídia, moderação automática</p>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">Python</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">Discord.py</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">SQLite</span>
-          </div>
-          <a href="https://github.com/JonasaAugusto/DiscordChatBot_Zombot" target="_blank"
-            class="text-blue-400 hover:underline mt-2 inline-block">Ver no GitHub</a>
         </div>
-        <div class="bg-gray-700 p-6 rounded-lg shadow text-gray-100 border-l-4 border-green-500">
-          <h3 class="text-xl font-bold text-blue-300">Gerador de QR Code Avançado</h3>
-          <p class="text-gray-200">Aplicação desktop em Python com interface gráfica, geração em lote e envio por e-mail
-            seguro.</p>
-          <div class="problem-solution mt-3">
-            <h4 class="font-bold text-yellow-300">Desafio Enfrentado:</h4>
-            <p class="text-gray-300 text-sm">Processar milhares de registros sem travar a UI, garantindo alta
-              performance e compatibilidade multiplataforma.</p>
+        <div class="challenge-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="challenge-badge-floating"><i class="bi bi-lightning-fill"></i> Nível: Alto</div>
+          <h3 class="text-2xl font-bold mb-4 text-emerald-400">Integração de Sistemas Legados</h3>
+          <p class="text-slate-300 mb-6 leading-relaxed">Conectar 4 sistemas distintos via Webhooks e APIs REST sem documentação clara, garantindo a integridade dos dados em tempo real.</p>
+          <div class="bg-slate-950/50 p-4 rounded-xl border-l-4 border-emerald-500">
+            <p class="text-emerald-400 font-bold mb-1">Resultado:</p>
+            <p class="text-slate-300">Eliminação de <strong>25 horas/mês</strong> de trabalho manual e automação total de 15+ fluxos críticos.</p>
           </div>
-          <p class="mt-2 text-gray-300 italic">• <strong>Performance:</strong> 5.000 registros em 1.8 minutos
-            (21ms/registro), 200x mais rápido que processos manuais</p>
-          <p class="mt-1 text-gray-300 italic">• <strong>Funcionalidades:</strong> Multilíngue (PT/EN), envio por e-mail
-            com SSL, histórico persistente</p>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">Python</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">Tkinter</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">qrcode</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">smtplib</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">PIL</span>
-          </div>
-          <a href="https://github.com/JonasaAugusto/qrcode-generator" target="_blank"
-            class="text-blue-400 hover:underline mt-2 inline-block">Ver no GitHub</a>
         </div>
-        <div class="bg-gray-700 p-6 rounded-lg shadow text-gray-100 border-l-4 border-red-500">
-          <h3 class="text-xl font-bold text-blue-300">Simulação de comportamentos humanos</h3>
-          <p class="text-gray-200">Automação de interações em redes sociais com simulação de comportamento humano e
-            interface dividida.</p>
-          <div class="problem-solution mt-3">
-            <h4 class="font-bold text-yellow-300">Desafio Enfrentado:</h4>
-            <p class="text-gray-300 text-sm">Evitar detecção por sistemas avançados de bot enquanto mantém alta
-              produtividade e controle visual simultâneo.</p>
+        <div class="challenge-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="challenge-badge-floating"><i class="bi bi-shield-lock-fill"></i> Nível: Expert</div>
+          <h3 class="text-2xl font-bold mb-4 text-orange-400">Resiliência Operacional</h3>
+          <p class="text-slate-300 mb-6 leading-relaxed">Garantir a continuidade operacional frente a falhas imprevistas em APIs de terceiros e serviços de nuvem.</p>
+          <div class="bg-slate-950/50 p-4 rounded-xl border-l-4 border-orange-500">
+            <p class="text-orange-400 font-bold mb-1">Resultado:</p>
+            <p class="text-slate-300">Implementação de <strong>circuit breakers</strong> e estratégias de <strong>retry com backoff</strong> automáticas.</p>
           </div>
-          <p class="mt-2 text-gray-300 italic">• <strong>Economia de Tempo:</strong> 120–180h/mês de trabalho manual
-            eliminado</p>
-          <p class="mt-1 text-gray-300 italic">• <strong>Anti-Deteção:</strong> Taxa de bloqueio <2% graças a lógica de
-              pausas aleatórias e movimentos humanizados</p>
-              <div class="flex flex-wrap gap-2 mt-3">
-                <span class="bg-gray-600 px-2 py-1 rounded text-xs">Python</span>
-                <span class="bg-gray-600 px-2 py-1 rounded text-xs">PyAutoGUI</span>
-                <span class="bg-gray-600 px-2 py-1 rounded text-xs">RPA</span>
-                <span class="bg-gray-600 px-2 py-1 rounded text-xs">keyboard</span>
-                <span class="bg-gray-600 px-2 py-1 rounded text-xs">pyperclip</span>
-              </div>
-              <a href="https://github.com/JonasaAugusto/instagram-comments" target="_blank"
-                class="text-blue-400 hover:underline mt-2 inline-block">Ver no GitHub</a>
-        </div>
-        <div class="bg-gray-700 p-6 rounded-lg shadow text-gray-100 border-l-4 border-purple-500">
-          <h3 class="text-xl font-bold text-blue-300">Temporizador de Desligamento (Windows)</h3>
-          <p class="text-gray-200">Aplicativo desktop com interface gráfica para agendar ou cancelar desligamento do
-            sistema Windows.</p>
-          <div class="problem-solution mt-3">
-            <h4 class="font-bold text-yellow-300">Desafio Enfrentado:</h4>
-            <p class="text-gray-300 text-sm">Integrar comandos do sistema de forma segura, com feedback visual imediato
-              e cancelamento em tempo real.</p>
-          </div>
-          <p class="mt-2 text-gray-300 italic">• <strong>Interface:</strong> Feedback visual em tempo real com
-            cancelamento imediato</p>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">Python</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">Tkinter</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">Windows CLI</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">subprocess</span>
-          </div>
-          <a href="https://github.com/JonasaAugusto/Windows-Shutdown-Timer" target="_blank"
-            class="text-blue-400 hover:underline mt-2 inline-block">Ver no GitHub</a>
-        </div>
-        <div class="bg-gray-700 p-6 rounded-lg shadow text-gray-100 border-l-4 border-orange-500">
-          <h3 class="text-xl font-bold text-blue-300">Sistema Full Stack de Gestão</h3>
-          <p class="text-gray-200">Aplicação web (MVC) e desktop (Windows Forms) para gestão integrada de tarefas e
-            usuários.</p>
-          <div class="problem-solution mt-3">
-            <h4 class="font-bold text-yellow-300">Desafio Enfrentado:</h4>
-            <p class="text-gray-300 text-sm">Sincronizar dados entre web e desktop com segurança, performance e
-              consistência transacional.</p>
-          </div>
-          <p class="mt-2 text-gray-300 italic">• <strong>Otimização:</strong> Queries SQL refatoradas reduziram tempo de
-            carregamento em <strong>60%</strong> (8s → 3.2s)</p>
-          <p class="mt-1 text-gray-300 italic">• <strong>Segurança:</strong> Proteção contra injeção SQL, validações
-            robustas e logs de auditoria</p>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">PHP</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">C#</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">MySQL</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">Windows Forms</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">HTML</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">CSS</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">JS</span>
-          </div>
-          <p class="text-blue-400 mt-2 italic">TCC da Formação Técnica</p>
-        </div>
-        <div class="bg-gray-700 p-6 rounded-lg shadow text-gray-100 border-l-4 border-teal-500">
-          <h3 class="text-xl font-bold text-blue-300">App Desktop com Autenticação Segura</h3>
-          <p class="text-gray-200">Aplicação desktop com modo escuro, login seguro e banco de dados SQLite com
-            criptografia.</p>
-          <div class="problem-solution mt-3">
-            <h4 class="font-bold text-yellow-300">Desafio Enfrentado:</h4>
-            <p class="text-gray-300 text-sm">Implementar autenticação robusta e proteção de dados sensíveis em ambiente
-              local.</p>
-          </div>
-          <p class="mt-2 text-gray-300 italic">• <strong>Segurança:</strong> Senhas criptografadas com BCrypt, validação
-            de e-mail e prevenção contra injeção SQL</p>
-          <p class="mt-1 text-gray-300 italic">• <strong>UX:</strong> Interface intuitiva com feedback visual e
-            navegação fluida</p>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">C#</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">Windows Forms</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">SQLite</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">Segurança</span>
-            <span class="bg-gray-600 px-2 py-1 rounded text-xs">BCrypt</span>
-          </div>
-          <p class="text-blue-400 mt-2 italic">Projeto privado que inclui criptografia de senhas, validação de e-mail e
-            proteção contra injeção SQL.</p>
         </div>
       </div>
     </div>
   </section>
-  <section id="habilidades" class="py-20 bg-gray-900" data-aos="fade-up">
+
+  <section id="projetos" class="py-24 bg-slate-950">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-10 text-white">Habilidades Técnicas</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-4 bg-gray-700 rounded-lg text-gray-100 border-l-4 border-blue-500">
-          <h3 class="font-bold text-lg text-blue-300">Linguagens</h3>
-          <p class="text-gray-200">Python, C#, JavaScript, PHP, Java, SQL</p>
-          <div class="mt-3">
-            <p class="text-sm text-yellow-300">Foco em Python para automação inteligente e C# para aplicações desktop
-              robustas</p>
+      <h2 class="text-4xl font-bold text-center mb-16 text-white flex items-center justify-center gap-3">
+        <i class="bi bi-github text-blue-500"></i> Projetos Reais (GitHub)
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Projeto 1 -->
+        <div class="project-card bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 flex flex-col" data-aos="fade-up">
+          <div class="p-6 flex-grow">
+            <div class="flex justify-between items-start mb-4">
+              <i class="bi bi-qr-code text-4xl text-blue-500"></i>
+              <a href="https://github.com/JonasaAugusto/qrcode-generator" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="bi bi-github text-2xl"></i></a>
+            </div>
+            <h3 class="text-xl font-bold mb-2">QR Code Generator</h3>
+            <p class="text-slate-400 mb-4">Aplicativo Python para geração de diversos tipos de QR Codes com funcionalidades avançadas.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">Python</span>
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">Desktop</span>
+            </div>
           </div>
+          <a href="https://github.com/JonasaAugusto/qrcode-generator" target="_blank" class="p-4 bg-slate-800/50 text-center text-sm font-bold hover:bg-blue-600 transition-colors">Ver no GitHub</a>
         </div>
-        <div class="p-4 bg-gray-700 rounded-lg text-gray-100 border-l-4 border-purple-500">
-          <h3 class="font-bold text-lg text-blue-300">Back-End</h3>
-          <p class="text-gray-200">Node.js, .NET Framework, APIs RESTful, Microservices, CodeIgniter</p>
-          <div class="mt-3">
-            <p class="text-sm text-yellow-300">Foco em resolver problemas de integração complexa entre sistemas
-              heterogêneos</p>
+        <!-- Projeto 2 -->
+        <div class="project-card bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-6 flex-grow">
+            <div class="flex justify-between items-start mb-4">
+              <i class="bi bi-laptop text-4xl text-purple-500"></i>
+              <a href="https://github.com/JonasaAugusto/Project_DarkUI" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="bi bi-github text-2xl"></i></a>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Project DarkUI</h3>
+            <p class="text-slate-400 mb-4">Sistema C# com interface minimalista, modo escuro e integração com banco de dados.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">C#</span>
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">.NET</span>
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">SQL</span>
+            </div>
           </div>
+          <a href="https://github.com/JonasaAugusto/Project_DarkUI" target="_blank" class="p-4 bg-slate-800/50 text-center text-sm font-bold hover:bg-purple-600 transition-colors">Ver no GitHub</a>
         </div>
-        <div class="p-4 bg-gray-700 rounded-lg text-gray-100 border-l-4 border-red-500">
-          <h3 class="font-bold text-lg text-blue-300">IA & Automação</h3>
-          <p class="text-gray-200">N8N, OpenAI API, Prompt Engineering, RPA, PyAutoGUI, Agentes Autônomos</p>
-          <div class="mt-3">
-            <p class="text-sm text-yellow-300">Com experiência prática em criar automações que imitam comportamento
-              humano e evitam detecção</p>
+        <!-- Projeto 3 -->
+        <div class="project-card bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-6 flex-grow">
+            <div class="flex justify-between items-start mb-4">
+              <i class="bi bi-stopwatch text-4xl text-emerald-500"></i>
+              <a href="https://github.com/JonasaAugusto/Windows-Shutdown-Timer" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="bi bi-github text-2xl"></i></a>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Windows Shutdown Timer</h3>
+            <p class="text-slate-400 mb-4">Utilitário de desktop para agendamento e gerenciamento do desligamento do Windows.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">Python</span>
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">Automation</span>
+            </div>
           </div>
+          <a href="https://github.com/JonasaAugusto/Windows-Shutdown-Timer" target="_blank" class="p-4 bg-slate-800/50 text-center text-sm font-bold hover:bg-emerald-600 transition-colors">Ver no GitHub</a>
         </div>
-        <div class="p-4 bg-gray-700 rounded-lg text-gray-100 border-l-4 border-green-500">
-          <h3 class="font-bold text-lg text-blue-300">DevOps & Cloud</h3>
-          <p class="text-gray-200">Git, GitHub, Docker, CI/CD, Linux (CLI), AWS, Azure (em estudo), Crontab</p>
-          <div class="mt-3">
-            <p class="text-sm text-yellow-300">Capaz de operar, depurar e automatizar ambientes de infraestrutura com
-              eficiência</p>
+        <!-- Projeto 4 -->
+        <div class="project-card bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 flex flex-col" data-aos="fade-up">
+          <div class="p-6 flex-grow">
+            <div class="flex justify-between items-start mb-4">
+              <i class="bi bi-chat-dots-fill text-4xl text-orange-500"></i>
+              <a href="https://github.com/JonasaAugusto/DiscordChatBot_Zombot" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="bi bi-github text-2xl"></i></a>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Discord Zombot</h3>
+            <p class="text-slate-400 mb-4">Chatbot especializado para servidores de Project Zomboid com múltiplas funcionalidades.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">Python</span>
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">Discord.py</span>
+            </div>
           </div>
+          <a href="https://github.com/JonasaAugusto/DiscordChatBot_Zombot" target="_blank" class="p-4 bg-slate-800/50 text-center text-sm font-bold hover:bg-orange-600 transition-colors">Ver no GitHub</a>
         </div>
-        <div class="p-4 bg-gray-700 rounded-lg text-gray-100 border-l-4 border-orange-500">
-          <h3 class="font-bold text-lg text-blue-300">Bancos de Dados</h3>
-          <p class="text-gray-200">PostgreSQL, MySQL, SQLite</p>
-          <div class="mt-3">
-            <p class="text-sm text-yellow-300">Experiência em modelagem, otimização de queries e gerenciamento de
-              transações</p>
+        <!-- Projeto 5 -->
+        <div class="project-card bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-6 flex-grow">
+            <div class="flex justify-between items-start mb-4">
+              <i class="bi bi-instagram text-4xl text-pink-500"></i>
+              <a href="https://github.com/JonasaAugusto/instagram-comments" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="bi bi-github text-2xl"></i></a>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Instagram Comments Gen</h3>
+            <p class="text-slate-400 mb-4">Script para automação e geração inteligente de comentários para Instagram.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">Automation</span>
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">Python</span>
+            </div>
           </div>
+          <a href="https://github.com/JonasaAugusto/instagram-comments" target="_blank" class="p-4 bg-slate-800/50 text-center text-sm font-bold hover:bg-pink-600 transition-colors">Ver no GitHub</a>
         </div>
-        <div class="p-4 bg-gray-700 rounded-lg text-gray-100 border-l-4 border-teal-500">
-          <h3 class="font-bold text-lg text-blue-300">Front-End</h3>
-          <p class="text-gray-200">HTML5, CSS, JavaScript, Angular (básico), Tkinter</p>
-          <div class="mt-3">
-            <p class="text-sm text-yellow-300">Conhecimento técnico sólido, embora não seja o foco principal da minha
-              carreira</p>
+        <!-- Projeto 6 -->
+        <div class="project-card bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-6 flex-grow">
+            <div class="flex justify-between items-start mb-4">
+              <i class="bi bi-code-square text-4xl text-cyan-500"></i>
+              <a href="https://github.com/JonasaAugusto/FibonacciScript" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="bi bi-github text-2xl"></i></a>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Fibonacci Script</h3>
+            <p class="text-slate-400 mb-4">Implementação otimizada de algoritmos de Fibonacci para processamento de dados.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">Python</span>
+              <span class="text-xs font-bold px-2 py-1 bg-slate-800 text-slate-300 rounded">Algorithms</span>
+            </div>
           </div>
-        </div>
-        <div class="p-4 bg-gray-700 rounded-lg text-gray-100 border-l-4 border-pink-500">
-          <h3 class="font-bold text-lg text-blue-300">Metodologias</h3>
-          <p class="text-gray-200">Scrum, UML, BPMN, Troubleshooting Sistemático, Resolução de Problemas Complexos,
-            MLOps/LLMOps</p>
-        </div>
-        <div class="p-4 bg-gray-700 rounded-lg text-gray-100 border-l-4 border-indigo-500">
-          <h3 class="font-bold text-lg text-blue-300">Idiomas</h3>
-          <p class="text-gray-200"><strong>Português:</strong> Nativo</p>
-          <p class="text-gray-200"><strong>Inglês:</strong> B2 (Intermediate)</p>
-          <p class="text-gray-300 italic mt-1">• Leitura técnica: 95% de compreensão</p>
-          <p class="text-gray-300 italic">• Escrita: redação técnica profissional</p>
-          <p class="text-gray-300 italic">• Conversação: interações cotidianas e trocas técnicas; em desenvolvimento
-            para reuniões formais</p>
-        </div>
-        <div class="p-4 bg-gray-700 rounded-lg text-gray-100 border-l-4 border-cyan-500">
-          <h3 class="font-bold text-lg text-blue-300">Soft Skills para Engenharia de Soluções</h3>
-          <p class="text-gray-200">• Resolução de Problemas Complexos (98% de sucesso)</p>
-          <p class="text-gray-200">• Comunicação Técnica Clara (explico o complexo de forma simples)</p>
-          <p class="text-gray-200">• Resiliência sob pressão e prazos críticos</p>
-          <p class="text-gray-200">• Aprendizado Rápido (2 semanas para proficiência operacional em nova stack)</p>
+          <a href="https://github.com/JonasaAugusto/FibonacciScript" target="_blank" class="p-4 bg-slate-800/50 text-center text-sm font-bold hover:bg-cyan-600 transition-colors">Ver no GitHub</a>
         </div>
       </div>
     </div>
   </section>
-  <section id="formacao" class="py-20 bg-gray-800" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-10 text-white">Formação Acadêmica</h2>
-      <div class="space-y-6">
-        <div class="p-6 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-blue-500">
-          <h3 class="text-xl font-bold text-blue-300">Engenharia de Software</h3>
-          <p class="text-gray-400">Universidade Estácio de Sá | 2023 – Presente (6º Semestre)</p>
-          <p class="mt-2 text-gray-200"><strong>Média Global:</strong> 9.3/10</p>
-          <p class="mt-2 text-gray-300 italic">Previsão de conclusão: dezembro de 2026</p>
+
+  <section id="habilidades" class="py-24 bg-slate-900" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16 text-white">Stack Tecnológica</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 bg-slate-950 rounded-xl border border-l-4 border-slate-800 border-l-blue-500 hover:border-blue-500/30 transition-all">
+          <h3 class="font-bold text-xl text-blue-400 mb-4 flex items-center gap-2"><i class="bi bi-code-slash"></i> Back-End & IA</h3>
+          <p class="text-slate-300 leading-relaxed">Python, N8N, Prompt Engineering, Agentes de IA, LangChain, Automação RPA.</p>
         </div>
-        <div class="p-6 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-purple-500">
-          <h3 class="text-xl font-bold text-blue-300">Técnico em Desenvolvimento de Software</h3>
-          <p class="text-gray-400">SENAI Juiz de Fora | 2021 – 2023</p>
-          <p class="mt-2 text-gray-200"><strong>Média Global:</strong> 8.0/10</p>
-          <p class="mt-2 text-gray-300 italic">• Projeto final: Sistema de gestão completo com arquitetura web + desktop
-          </p>
+        <div class="p-6 bg-slate-950 rounded-xl border border-l-4 border-slate-800 border-l-green-500 hover:border-green-500/30 transition-all">
+          <h3 class="font-bold text-xl text-blue-400 mb-4 flex items-center gap-2"><i class="bi bi-cloud-check"></i> DevOps & Cloud</h3>
+          <p class="text-slate-300 leading-relaxed">Git, GitHub, Docker, CI/CD, Linux (CLI), AWS, Azure (em estudo), Crontab.</p>
+          <p class="text-sm text-yellow-500 mt-2 italic">Capaz de operar, depurar e automatizar ambientes de infraestrutura com eficiência.</p>
         </div>
-      </div>
-    </div>
-  </section>
-  <section id="cursos" class="py-20 bg-gray-900" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-10 text-white">Cursos e Certificações</h2>
-      <h3 class="text-2xl font-semibold mb-6 text-blue-300">Concluídos</h3>
-      <div class="space-y-4 mb-12">
-        <div class="p-4 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-green-500">
-          <h4 class="font-bold">Python do básico ao avançado + IA</h4>
-          <p class="text-gray-400">Caio Henrique Lemos Sampaio | Udemy</p>
+        <div class="p-6 bg-slate-950 rounded-xl border border-l-4 border-slate-800 border-l-orange-500 hover:border-orange-500/30 transition-all">
+          <h3 class="font-bold text-xl text-blue-400 mb-4 flex items-center gap-2"><i class="bi bi-database"></i> Bancos de Dados</h3>
+          <p class="text-slate-300 leading-relaxed">PostgreSQL, MySQL, SQLite.</p>
+          <p class="text-sm text-yellow-500 mt-2 italic">Experiência em modelagem, otimização de queries e gerenciamento de transações.</p>
         </div>
-        <div class="p-4 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-green-500">
-          <h4 class="font-bold">Programação de Sistemas de Informação</h4>
-          <p class="text-gray-400">Centro Universitário Estácio</p>
+        <div class="p-6 bg-slate-950 rounded-xl border border-l-4 border-slate-800 border-l-teal-500 hover:border-teal-500/30 transition-all">
+          <h3 class="font-bold text-xl text-blue-400 mb-4 flex items-center gap-2"><i class="bi bi-layout-text-window-reverse"></i> Front-End</h3>
+          <p class="text-slate-300 leading-relaxed">HTML5, CSS, JavaScript, Angular (básico), Tkinter.</p>
+          <p class="text-sm text-yellow-500 mt-2 italic">Conhecimento técnico sólido, embora não seja o foco principal da minha carreira.</p>
         </div>
-        <div class="p-4 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-green-500">
-          <h4 class="font-bold">Direito e Privacidade dos Usuários</h4>
-          <p class="text-gray-400">Centro Universitário Estácio</p>
+        <div class="p-6 bg-slate-950 rounded-xl border border-l-4 border-slate-800 border-l-pink-500 hover:border-pink-500/30 transition-all">
+          <h3 class="font-bold text-xl text-blue-400 mb-4 flex items-center gap-2"><i class="bi bi-diagram-3"></i> Metodologias</h3>
+          <p class="text-slate-300 leading-relaxed">Scrum, UML, BPMN, Troubleshooting Sistemático, Resolução de Problemas Complexos, MLOps/LLMOps.</p>
         </div>
-        <div class="p-4 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-green-500">
-          <h4 class="font-bold">Programação Web</h4>
-          <p class="text-gray-400">Centro Universitário Estácio</p>
+        <div class="p-6 bg-slate-950 rounded-xl border border-l-4 border-slate-800 border-l-indigo-500 hover:border-indigo-500/30 transition-all">
+          <h3 class="font-bold text-xl text-blue-400 mb-4 flex items-center gap-2"><i class="bi bi-translate"></i> Idiomas</h3>
+          <p class="text-slate-300 leading-relaxed"><strong>Português:</strong> Nativo | <strong>Inglês:</strong> B2 (Intermediate)</p>
+          <ul class="text-xs text-slate-400 mt-2 space-y-1 italic">
+            <li>• Leitura técnica: 95% de compreensão</li>
+            <li>• Escrita: redação técnica profissional</li>
+            <li>• Conversação: interações cotidianas</li>
+          </ul>
         </div>
-        <div class="p-4 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-green-500">
-          <h4 class="font-bold">Especialista em Inteligência Artificial</h4>
-          <p class="text-gray-400">Academia de Inteligência Artificial</p>
+        <div class="p-6 bg-slate-950 rounded-xl border border-l-4 border-slate-800 border-l-cyan-500 hover:border-cyan-500/30 transition-all">
+          <h3 class="font-bold text-xl text-blue-400 mb-4 flex items-center gap-2"><i class="bi bi-headset"></i> Soft Skills</h3>
+          <p class="text-slate-300 leading-relaxed">• Resolução de Problemas Complexos (98% de sucesso)</p>
+          <p class="text-slate-300 leading-relaxed">• Comunicação Técnica Clara</p>
+          <p class="text-slate-300 leading-relaxed">• Resiliência sob pressão e prazos críticos</p>
         </div>
-      </div>
-      <h3 class="text-2xl font-semibold mb-6 text-blue-300">Em Andamento</h3>
-      <div class="space-y-4">
-        <div class="p-4 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-yellow-500">
-          <h4 class="font-bold">AWS Cloud Practitioner</h4>
-          <p class="text-gray-400">Conclusão prevista: Jan 2026</p>
+        <div class="p-6 bg-slate-950 rounded-xl border border-l-4 border-slate-800 border-l-yellow-500 hover:border-yellow-500/30 transition-all">
+          <h3 class="font-bold text-xl text-blue-400 mb-4 flex items-center gap-2"><i class="bi bi-rocket-takeoff"></i> Aprendizado</h3>
+          <p class="text-slate-300 leading-relaxed">Aprendizado Rápido (2 semanas para proficiência operacional em nova stack).</p>
         </div>
-        <div class="p-4 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-yellow-500">
-          <h4 class="font-bold">Microsoft Certified: Azure Fundamentals</h4>
-          <p class="text-gray-400">Planejado: Q1 2026</p>
-        </div>
-        <div class="p-4 bg-gray-700 rounded-lg shadow text-gray-100 border-l-4 border-yellow-500">
-          <h4 class="font-bold">Inteligência Artificial e Machine Learning: O Guia Completo</h4>
-          <p class="text-gray-400">IA Expert Academy | Em estudo</p>
+        <div class="p-6 bg-slate-950 rounded-xl border border-l-4 border-slate-800 border-l-purple-500 hover:border-purple-500/30 transition-all">
+          <h3 class="font-bold text-xl text-blue-400 mb-4 flex items-center gap-2"><i class="bi bi-cpu"></i> IA Generativa</h3>
+          <p class="text-slate-300 leading-relaxed">Especialista em fluxos de IA, Prompt Engineering avançado e integração de LLMs.</p>
         </div>
       </div>
     </div>
   </section>
-  <section id="contato" class="py-20 bg-gray-800 text-white" data-aos="fade-up">
+
+  <section id="formacao" class="py-24 bg-slate-950" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">Contato</h2>
-      <p class="text-center mb-6 text-gray-200">Este formulário envia um e-mail diretamente para mim:</p>
-      <form id="contact-form" action="https://submit-form.com/1pIuu489V" method="POST" class="space-y-4">
-        <input type="text" name="Nome" placeholder="Nome" required
-          class="w-full p-3 rounded bg-gray-700 text-white border border-blue-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-500 transition" />
-        <input type="email" name="Email" placeholder="Seu e-mail" required
-          class="w-full p-3 rounded bg-gray-700 text-white border border-blue-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-500 transition" />
-        <textarea name="Conteúdo da Mensagem:" placeholder="Mensagem" required
-          class="w-full p-3 rounded bg-gray-700 text-white border border-blue-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-500 transition h-32"></textarea>
-        <input type="hidden" name="_feedback.whitelabel" value="true" />
+      <h2 class="text-4xl font-bold text-center mb-16 text-white flex items-center justify-center gap-3">
+        <i class="bi bi-mortarboard text-blue-500"></i> Formação Acadêmica
+      </h2>
+      <div class="space-y-8">
+        <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800 border-l-4 border-l-blue-500">
+          <h3 class="text-2xl font-bold text-blue-400">Engenharia de Software</h3>
+          <p class="text-slate-400 font-medium">Universidade Estácio de Sá | 2023 – Presente (6º Semestre)</p>
+          <p class="mt-4 text-slate-300"><strong>Média Global:</strong> 9.3/10</p>
+          <p class="mt-2 text-slate-500 italic">Previsão de conclusão: dezembro de 2026</p>
+        </div>
+        <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800 border-l-4 border-l-purple-500">
+          <h3 class="text-2xl font-bold text-blue-400">Técnico em Desenvolvimento de Software</h3>
+          <p class="text-slate-400 font-medium">SENAI Juiz de Fora | 2021 – 2023</p>
+          <p class="mt-4 text-slate-300"><strong>Média Global:</strong> 8.0/10</p>
+          <p class="mt-2 text-slate-500 italic">• Projeto final: Sistema de gestão completo com arquitetura web + desktop</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cursos" class="py-24 bg-slate-900" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16 text-white flex items-center justify-center gap-3">
+        <i class="bi bi-patch-check text-blue-500"></i> Cursos e Certificações
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-2xl font-semibold mb-8 text-blue-400 flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Concluídos</h3>
+          <div class="space-y-4">
+            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 hover:border-blue-500/30 transition-all">
+              <h4 class="font-bold text-slate-200">Python do básico ao avançado + IA</h4>
+              <p class="text-slate-500 text-sm">Udemy | Caio Henrique Lemos Sampaio</p>
+            </div>
+            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 hover:border-blue-500/30 transition-all">
+              <h4 class="font-bold text-slate-200">Programação de Sistemas de Informação</h4>
+              <p class="text-slate-500 text-sm">Centro Universitário Estácio</p>
+            </div>
+            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 hover:border-blue-500/30 transition-all">
+              <h4 class="font-bold text-slate-200">Direito e Privacidade dos Usuários</h4>
+              <p class="text-slate-500 text-sm">Centro Universitário Estácio</p>
+            </div>
+            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 hover:border-blue-500/30 transition-all">
+              <h4 class="font-bold text-slate-200">Programação Web</h4>
+              <p class="text-slate-500 text-sm">Centro Universitário Estácio</p>
+            </div>
+            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 hover:border-blue-500/30 transition-all">
+              <h4 class="font-bold text-slate-200">Especialista em Inteligência Artificial</h4>
+              <p class="text-slate-500 text-sm">Academia de Inteligência Artificial</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-8 text-blue-400 flex items-center gap-2"><i class="bi bi-clock-history text-yellow-500"></i> Em Andamento</h3>
+          <div class="space-y-4">
+            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 hover:border-blue-500/30 transition-all">
+              <h4 class="font-bold text-slate-200">AWS Cloud Practitioner</h4>
+              <p class="text-slate-500 text-sm">Conclusão prevista: Jan 2026</p>
+            </div>
+            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 hover:border-blue-500/30 transition-all">
+              <h4 class="font-bold text-slate-200">Microsoft Certified: Azure Fundamentals</h4>
+              <p class="text-slate-500 text-sm">Planejado: Q1 2026</p>
+            </div>
+            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 hover:border-blue-500/30 transition-all">
+              <h4 class="font-bold text-slate-200">IA e Machine Learning: Guia Completo</h4>
+              <p class="text-slate-500 text-sm">IA Expert Academy | Em estudo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="py-24 bg-slate-950" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">Vamos Conversar?</h2>
+        <p class="text-slate-400 text-lg">Aberto a desafios técnicos e projetos de alto impacto.</p>
+      </div>
+      <form id="contact-form" action="https://submit-form.com/1pIuu489V" method="POST" class="space-y-6 bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-2xl">
+        <!-- Personalização Formspark -->
         <input type="hidden" name="_feedback.dark" value="true" />
-        <input type="hidden" name="_feedback.success.title" value="Mensagem enviada!" />
-        <input type="hidden" name="_feedback.success.message" value="Obrigado pelo contato. Responderei em breve!" />
-        <input type="hidden" name="_feedback.error.title" value="Ops, ocorreu um erro!" />
-        <input type="hidden" name="_feedback.error.message" value="Por favor, tente novamente." />
-        <button type="submit" id="submit-btn"
-          class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-3 px-6 rounded-lg transition flex items-center justify-center shadow-lg">
-          <svg class="hidden animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-            viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor"
-              d="M4 12a8 8 0 018-8V6a6 6 0 616 6h2a6 6 0 016 6v2a6 6 0 01-6 6H6a6 6 0 01-6-6v-2z"></path>
-          </svg>
-          Enviar
+        <input type="hidden" name="_feedback.primary_color" value="#3b82f6" />
+        <input type="hidden" name="_feedback.bg_color" value="#0f172a" />
+        <input type="hidden" name="_feedback.success.title" value="Mensagem enviada com sucesso!" />
+        <input type="hidden" name="_feedback.success.message" value="Obrigado, Jonas entrará em contato em breve." />
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-slate-400 ml-1">Nome</label>
+            <input type="text" name="Nome" placeholder="Seu nome" required class="w-full p-4 rounded-xl bg-slate-950 text-white border border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all" />
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-slate-400 ml-1">E-mail</label>
+            <input type="email" name="Email" placeholder="seu@email.com" required class="w-full p-4 rounded-xl bg-slate-950 text-white border border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all" />
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-bold text-slate-400 ml-1">Mensagem</label>
+          <textarea name="Conteúdo da Mensagem:" placeholder="Como posso ajudar?" required class="w-full p-4 rounded-xl bg-slate-950 text-white border border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all h-40"></textarea>
+        </div>
+        <button type="submit" id="submit-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-blue-900/20 flex items-center justify-center gap-2">
+          <i class="bi bi-send"></i> Enviar Mensagem
         </button>
       </form>
-      <div class="flex justify-center space-x-6 mt-8">
-        <a href="https://www.instagram.com/jonasaaugusto/" target="_blank"
-          class="text-xl hover:text-pink-400 transition-colors">
-          <i class="bi bi-instagram"></i> Instagram
-        </a>
-        <a href="https://www.linkedin.com/in/jonasaaugusto/" target="_blank"
-          class="text-xl hover:text-blue-300 transition-colors">
-          <i class="bi bi-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://github.com/JonasaAugusto" target="_blank"
-          class="text-xl hover:text-gray-300 transition-colors">
-          <i class="bi bi-github"></i> GitHub
-        </a>
-      </div>
-      <div class="mt-8 text-center text-gray-400 italic">
-        <p>Disponível para projetos freelance, especialmente em automação com IA generativa, integração de APIs e
-          soluções de alto impacto técnico.</p>
-        <p class="mt-2 text-blue-400">Aberto a desafios que parecem impossíveis, é onde eu entrego meu melhor.</p>
+      <div class="flex justify-center space-x-8 mt-12">
+        <a href="https://www.linkedin.com/in/jonasaaugusto/" target="_blank" class="text-slate-400 hover:text-blue-400 transition-all text-3xl"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/JonasaAugusto" target="_blank" class="text-slate-400 hover:text-white transition-all text-3xl"><i class="bi bi-github"></i></a>
+        <a href="https://www.instagram.com/jonasaaugusto/" target="_blank" class="text-slate-400 hover:text-pink-400 transition-all text-3xl"><i class="bi bi-instagram"></i></a>
       </div>
     </div>
   </section>
-  <footer class="bg-gray-900 text-gray-400 text-center py-6 border-t border-gray-800">
-    <p>&copy; 2025 Jonas Augusto. Todos os direitos reservados.</p>
-    <p class="mt-2 text-gray-500 text-sm">Desenvolvedor focado em transformar desafios complexos em soluções elegantes
-      com software e IA generativa</p>
+
+  <footer class="bg-slate-950 text-slate-500 text-center py-12 border-t border-slate-900">
+    <div class="max-w-4xl mx-auto px-4">
+      <p class="mb-2 font-bold text-slate-400">&copy; 2026 Jonas Augusto</p>
+      <p class="text-sm">Desenvolvedor focado em transformar desafios complexos em soluções elegantes com software e IA generativa.</p>
+    </div>
   </footer>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      AOS.init({
-        duration: 1000,
-        once: true,
-        easing: 'ease-out-quad'
-      });
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.from("header", { y: -100, opacity: 0, duration: 1, ease: "power2.out" });
-      gsap.from("#hero h1", { opacity: 0, y: 20, duration: 1, delay: 0.3 });
-      gsap.from("#hero p", { opacity: 0, y: 20, duration: 1, delay: 0.5 });
-      gsap.from("#hero .flex", { opacity: 0, y: 20, duration: 1, delay: 0.7 });
+      AOS.init({ duration: 1000, once: true, easing: 'ease-out-quad' });
+
       new Typed('#typed', {
         strings: [
           "Desenvolvedor Back-End",
-          "Desenvolvedor com foco em IA Generativa",
+          "Especialista em IA Generativa",
           "Criador de Automações Inteligentes",
-          "Atuando com Prompt Engineering",
+          "Transformo fluxos manuais em eficiência",
           "Formando em Engenharia de Software"
         ],
         typeSpeed: 50,
         backSpeed: 30,
-        loop: true,
-        showCursor: true,
-        cursorChar: '|'
+        loop: true
       });
+
       const menuButton = document.getElementById('mobile-menu-button');
       const menu = document.getElementById('mobile-menu');
-      if (menuButton && menu) {
-        menuButton.addEventListener('click', () => menu.classList.toggle('hidden'));
-      }
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      menuButton.addEventListener('click', () => menu.classList.toggle('hidden'));
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+
+      const backToTop = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
       const contactForm = document.getElementById('contact-form');
       const submitBtn = document.getElementById('submit-btn');
-      const spinner = submitBtn.querySelector('svg');
       if (contactForm) {
         contactForm.addEventListener('submit', () => {
           submitBtn.disabled = true;
-          spinner.classList.remove('hidden');
-          submitBtn.innerHTML = `
-            <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V6a6 6 0 616 6h2a6 6 0 016 6v2a6 6 0 01-6 6H6a6 6 0 01-6-6v-2z"></path>
-            </svg>
-            Enviando...
-          `;
+          submitBtn.innerHTML = `<i class="bi bi-arrow-repeat animate-spin"></i> Enviando...`;
         });
       }
-      gsap.utils.toArray('.challenge-badge').forEach((badge, i) => {
-        gsap.from(badge, {
-          opacity: 0,
-          scale: 0.5,
-          duration: 0.8,
-          delay: i * 0.2,
-          scrollTrigger: {
-            trigger: badge,
-            start: 'top 80%'
-          }
-        });
-      });
     });
   </script>
 </body>
