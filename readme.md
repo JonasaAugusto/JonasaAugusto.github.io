@@ -33,7 +33,7 @@ Meu portfólio reflete minha jornada como desenvolvedor Back-End Júnior com res
 - **87% de eficiência** em automação de processos e implementação de soluções de IA generativa
 - **Redução de 40% no tempo de processamento** de fluxos críticos através de automação
 - **Economia de 25+ horas/mês** em trabalho manual através de RPA
-- **93,5% de redução em downtime** sistemas críticos através de monitoramento proativo
+- **93,5% de redução em downtime** de sistemas críticos através de monitoramento proativo
 
 ## Hospedagem
 
