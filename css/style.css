@@ -1,0 +1,297 @@
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #0d0d0d;
+  --border-subtle: #1f1f1f;
+  --border-default: #262626;
+  --border-hover: #404040;
+  scroll-padding-top: 80px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: #e5e5e5;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+body::-webkit-scrollbar { width: 6px; }
+body::-webkit-scrollbar-track { background: var(--bg-primary); }
+body::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 10px; }
+body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+/* ============================================================
+   HERO BACKGROUND
+   ============================================================ */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.hero-orb-1 {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 65%);
+  border-radius: 50%;
+  top: 0;
+  left: 40%;
+  transform: translate(-50%, -30%);
+  animation: float-orb 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-orb-2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 65%);
+  border-radius: 50%;
+  bottom: 5%;
+  right: 5%;
+  animation: float-orb 13s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0); }
+  33%       { transform: translate(-24px, -18px); }
+  66%       { transform: translate(16px, 12px); }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header-blur {
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ============================================================
+   CARDS — BASE
+   ============================================================ */
+.minimal-card {
+  background: #141414;
+  border: 1px solid var(--border-default);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.minimal-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -10px rgba(0,0,0,0.55);
+}
+
+/* ============================================================
+   ANCHOR CARDS (Projetos Principais)
+   ============================================================ */
+.anchor-card {
+  background: #141414;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.anchor-card:hover { transform: translateY(-6px); }
+
+/* Blue — LogiTrackAPI */
+.anchor-card.card-blue      { border: 1px solid rgba(59,130,246,0.25); }
+.anchor-card.card-blue:hover {
+  border-color: rgba(59,130,246,0.5);
+  box-shadow: 0 20px 40px -15px rgba(59,130,246,0.22), 0 0 0 1px rgba(59,130,246,0.12);
+}
+
+/* Violet — NotaME */
+.anchor-card.card-violet      { border: 1px solid rgba(139,92,246,0.25); }
+.anchor-card.card-violet:hover {
+  border-color: rgba(139,92,246,0.5);
+  box-shadow: 0 20px 40px -15px rgba(139,92,246,0.22), 0 0 0 1px rgba(139,92,246,0.12);
+}
+
+/* Cyan — Hub de Mídia */
+.anchor-card.card-cyan      { border: 1px solid rgba(6,182,212,0.25); }
+.anchor-card.card-cyan:hover {
+  border-color: rgba(6,182,212,0.5);
+  box-shadow: 0 20px 40px -15px rgba(6,182,212,0.22), 0 0 0 1px rgba(6,182,212,0.12);
+}
+
+/* ============================================================
+   LANG SWITCH
+   ============================================================ */
+.lang-switch {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid var(--border-default);
+}
+
+.lang-switch:hover { background: #1f1f1f; }
+
+[data-lang="en"] { display: none; }
+
+/* ============================================================
+   EXPERIENCE ITEMS
+   ============================================================ */
+.experience-item {
+  padding: 2rem;
+  border-left: 3px solid #404040;
+  transition: all 0.3s ease;
+}
+
+.experience-item:hover               { border-left-color: #ffffff; }
+.experience-item.item-indigo:hover   { border-left-color: #818cf8; }
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+.project-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ============================================================
+   SKILLS
+   ============================================================ */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+#back-to-top {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   BADGES
+   ============================================================ */
+
+/* Estágio Atual — pulsing dot */
+.badge-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.3);
+  color: #a5b4fc;
+  white-space: nowrap;
+}
+
+.badge-current::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #818cf8;
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.65); }
+}
+
+/* Em Desenvolvimento */
+.badge-dev {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border-radius: 4px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(234,179,8,0.08);
+  border: 1px solid rgba(234,179,8,0.2);
+  color: #a16207;
+}
+
+/* Projeto Principal */
+.badge-main-blue   { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); color: #60a5fa; }
+.badge-main-violet { background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.2); color: #a78bfa; }
+.badge-main-cyan   { background: rgba(6,182,212,0.08);  border: 1px solid rgba(6,182,212,0.2);  color: #22d3ee; }
+
+.badge-main-blue, .badge-main-violet, .badge-main-cyan {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 4px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   SECTION DIVIDER
+   ============================================================ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #262626 20%, #262626 80%, transparent 100%);
+  margin: 3.5rem 0;
+}
+
+/* ============================================================
+   SUBSECTION TITLE
+   ============================================================ */
+.subsection-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d4d4d4;
+  margin-bottom: 2rem;
+}
+
+.subsection-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #2a2a2a, transparent);
+}
+
+/* ============================================================
+   TYPED CURSOR
+   ============================================================ */
+.typed-cursor { color: #6366f1; }
+
+/* ============================================================
+   SCROLL REVEAL (add smoothness for AOS)
+   ============================================================ */
+[data-aos] { will-change: transform, opacity; }

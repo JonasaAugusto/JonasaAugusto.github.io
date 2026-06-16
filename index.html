@@ -5,149 +5,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jonas Augusto | Fullstack Developer (Backend Focus)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <style>
-    :root {
-      scroll-padding-top: 80px;
-    }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0a0a0a;
-      color: #e5e5e5;
-    }
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    .minimal-card {
-      background: #141414;
-      border: 1px solid #262626;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .minimal-card:hover {
-      border-color: #404040;
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-    }
-
-    #back-to-top {
-      opacity: 0;
-      visibility: hidden;
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 100;
-      transform: translateY(20px);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    #back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: #0a0a0a;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #262626;
-      border-radius: 10px;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #404040;
-    }
-
-    .lang-switch {
-      cursor: pointer;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: background 0.2s;
-      font-size: 0.875rem;
-      font-weight: 600;
-      border: 1px solid #262626;
-    }
-
-    .lang-switch:hover {
-      background: #1f1f1f;
-    }
-
-    [data-lang="en"] {
-      display: none;
-    }
-
-    .experience-item {
-      padding: 2rem;
-      border-left: 3px solid #404040;
-      transition: all 0.3s ease;
-    }
-
-    .experience-item:hover {
-      border-left-color: #ffffff;
-    }
-
-    .project-item {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .skill-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-  </style>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             brand: {
-              50: '#f0f7ff',
-              100: '#e0effe',
-              200: '#badffd',
-              300: '#7cc2fc',
-              400: '#36a2f8',
-              500: '#0c87eb',
-              600: '#0069c7',
-              700: '#0154a1',
-              800: '#064885',
-              900: '#0a3d6f',
-              950: '#072749',
+              50: '#f0f7ff', 100: '#e0effe', 200: '#badffd',
+              300: '#7cc2fc', 400: '#36a2f8', 500: '#0c87eb',
+              600: '#0069c7', 700: '#0154a1', 800: '#064885',
+              900: '#0a3d6f', 950: '#072749'
             }
           }
         }
       }
     }
   </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="selection:bg-brand-500/30 custom-scrollbar">
-  <header
-    class="fixed top-0 left-0 right-0 bg-[#0a0a0a]/80 backdrop-blur-md z-50 h-20 flex items-center px-4 border-b border-[#1f1f1f]">
+<body class="selection:bg-indigo-500/20">
+
+  <!-- ============================================================
+       HEADER / NAV
+       ============================================================ -->
+  <header class="header-blur fixed top-0 left-0 right-0 z-50 h-20 flex items-center px-4 border-b border-[#1f1f1f]">
     <div class="max-w-6xl mx-auto w-full flex justify-between items-center">
+
       <h2 class="text-xl font-bold tracking-tight text-white">Jonas Augusto</h2>
-      
+
       <nav class="hidden md:block">
         <ul class="flex space-x-8 text-sm font-medium text-neutral-400">
-          <li><a href="#sobre" class="hover:text-white transition-colors" data-pt="Sobre" data-en="About">Sobre</a></li>
-          <li><a href="#experiencia" class="hover:text-white transition-colors" data-pt="Experiência" data-en="Experience">Experiência</a></li>
-          <li><a href="#desafios" class="hover:text-white transition-colors" data-pt="Desafios" data-en="Challenges">Desafios</a></li>
-          <li><a href="#projetos" class="hover:text-white transition-colors" data-pt="Projetos" data-en="Projects">Projetos</a></li>
+          <li><a href="#sobre"      class="hover:text-white transition-colors" data-pt="Sobre"        data-en="About">Sobre</a></li>
+          <li><a href="#experiencia" class="hover:text-white transition-colors" data-pt="Experiência"  data-en="Experience">Experiência</a></li>
+          <li><a href="#desafios"   class="hover:text-white transition-colors" data-pt="Desafios"     data-en="Challenges">Desafios</a></li>
+          <li><a href="#projetos"   class="hover:text-white transition-colors" data-pt="Projetos"     data-en="Projects">Projetos</a></li>
           <li><a href="#habilidades" class="hover:text-white transition-colors" data-pt="Habilidades" data-en="Skills">Habilidades</a></li>
-          <li><a href="#formacao" class="hover:text-white transition-colors" data-pt="Formação" data-en="Education">Formação</a></li>
-          <li><a href="#cursos" class="hover:text-white transition-colors" data-pt="Cursos" data-en="Courses">Cursos</a></li>
-          <li><a href="#contato" class="hover:text-white transition-colors" data-pt="Contato" data-en="Contact">Contato</a></li>
+          <li><a href="#formacao"   class="hover:text-white transition-colors" data-pt="Formação"     data-en="Education">Formação</a></li>
+          <li><a href="#cursos"     class="hover:text-white transition-colors" data-pt="Cursos"       data-en="Courses">Cursos</a></li>
+          <li><a href="#contato"    class="hover:text-white transition-colors" data-pt="Contato"      data-en="Contact">Contato</a></li>
         </ul>
       </nav>
 
@@ -163,35 +74,48 @@
       </div>
     </div>
 
+    <!-- Mobile dropdown -->
     <div id="mobile-menu" class="md:hidden bg-[#0a0a0a] border-b border-[#1f1f1f] hidden absolute top-20 left-0 right-0 p-6 overflow-y-auto max-h-96">
       <ul class="flex flex-col space-y-4 text-neutral-400">
-        <li><a href="#sobre" class="mobile-link" data-pt="Sobre" data-en="About">Sobre</a></li>
-        <li><a href="#experiencia" class="mobile-link" data-pt="Experiência" data-en="Experience">Experiência</a></li>
-        <li><a href="#desafios" class="mobile-link" data-pt="Desafios" data-en="Challenges">Desafios</a></li>
-        <li><a href="#projetos" class="mobile-link" data-pt="Projetos" data-en="Projects">Projetos</a></li>
-        <li><a href="#habilidades" class="mobile-link" data-pt="Habilidades" data-en="Skills">Habilidades</a></li>
-        <li><a href="#formacao" class="mobile-link" data-pt="Formação" data-en="Education">Formação</a></li>
-        <li><a href="#cursos" class="mobile-link" data-pt="Cursos" data-en="Courses">Cursos</a></li>
-        <li><a href="#contato" class="mobile-link" data-pt="Contato" data-en="Contact">Contato</a></li>
+        <li><a href="#sobre"       class="mobile-link" data-pt="Sobre"        data-en="About">Sobre</a></li>
+        <li><a href="#experiencia" class="mobile-link" data-pt="Experiência"  data-en="Experience">Experiência</a></li>
+        <li><a href="#desafios"    class="mobile-link" data-pt="Desafios"     data-en="Challenges">Desafios</a></li>
+        <li><a href="#projetos"    class="mobile-link" data-pt="Projetos"     data-en="Projects">Projetos</a></li>
+        <li><a href="#habilidades" class="mobile-link" data-pt="Habilidades"  data-en="Skills">Habilidades</a></li>
+        <li><a href="#formacao"    class="mobile-link" data-pt="Formação"     data-en="Education">Formação</a></li>
+        <li><a href="#cursos"      class="mobile-link" data-pt="Cursos"       data-en="Courses">Cursos</a></li>
+        <li><a href="#contato"     class="mobile-link" data-pt="Contato"      data-en="Contact">Contato</a></li>
       </ul>
     </div>
   </header>
 
+  <!-- Back to top -->
   <button id="back-to-top"
     class="bg-neutral-800 hover:bg-neutral-700 text-white p-4 rounded-full shadow-xl flex items-center justify-center transition-all group">
     <i class="bi bi-chevron-up text-xl group-hover:-translate-y-1 transition-transform"></i>
   </button>
 
-  <section id="hero" class="min-h-screen flex items-center justify-center text-center pt-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(64,64,64,0.1),transparent_70%)]"></div>
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section id="hero" class="hero-grid min-h-screen flex items-center justify-center text-center pt-20 relative overflow-hidden">
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
+
     <div class="max-w-4xl px-4 relative z-10">
-      <h1 class="text-6xl md:text-7xl font-bold mb-6 tracking-tighter text-white" data-aos="fade-up">Jonas Augusto</h1>
-      <p class="text-xl md:text-2xl mb-12 text-neutral-500 font-light tracking-wide">
+      <p class="text-xs uppercase tracking-[0.35em] text-indigo-400 mb-6 font-semibold" data-aos="fade-up">
+        Juiz de Fora, MG
+      </p>
+      <h1 class="text-6xl md:text-7xl font-extrabold mb-6 tracking-tighter text-white" data-aos="fade-up" data-aos-delay="50">
+        Jonas Augusto
+      </h1>
+      <p class="text-xl md:text-2xl mb-12 text-neutral-500 font-light tracking-wide" data-aos="fade-up" data-aos-delay="100">
         <span id="typed"></span>
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
         <a href="#contato"
-          class="bg-white text-black font-semibold py-4 px-10 rounded-full hover:bg-neutral-200 transition-all flex items-center justify-center gap-2">
+          class="bg-white text-black font-semibold py-4 px-10 rounded-full hover:bg-neutral-100 transition-all flex items-center justify-center gap-2 shadow-lg">
+          <i class="bi bi-chat-dots"></i>
           <span data-pt="Fale comigo" data-en="Get in touch">Fale comigo</span>
         </a>
         <a href="https://github.com/JonasaAugusto" target="_blank"
@@ -202,73 +126,132 @@
     </div>
   </section>
 
-  <!-- SOBRE SECTION -->
+  <!-- ============================================================
+       SOBRE
+       ============================================================ -->
   <section id="sobre" class="py-32" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-16">
-        <h2 class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-4" data-pt="Introdução" data-en="Introduction">Introdução</h2>
+        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Introdução" data-en="Introduction">Introdução</h2>
         <h3 class="text-4xl font-bold text-white" data-pt="Sobre Mim" data-en="About Me">Sobre Mim</h3>
       </div>
       <div class="space-y-8 text-lg text-neutral-400 leading-relaxed text-center max-w-3xl mx-auto font-light">
-        <p data-pt="Desenvolvedor Fullstack com sólida base técnica e foco estratégico em arquitetura Backend. Especialista em construir sistemas escaláveis, integrando APIs complexas e otimizando fluxos de trabalho com tecnologias modernas." 
+        <p data-pt="Desenvolvedor Fullstack com sólida base técnica e foco estratégico em arquitetura Backend. Especialista em construir sistemas escaláveis, integrando APIs complexas e otimizando fluxos de trabalho com tecnologias modernas."
            data-en="Fullstack Developer with a solid technical foundation and a strategic focus on Backend architecture. Specialist in building scalable systems, integrating complex APIs, and optimizing workflows with modern technologies.">
           Desenvolvedor Fullstack com sólida base técnica e foco estratégico em arquitetura Backend. Especialista em construir sistemas escaláveis, integrando APIs complexas e otimizando fluxos de trabalho com tecnologias modernas.
         </p>
-        <p data-pt="Minha abordagem combina a eficiência do desenvolvimento Fullstack com a robustez do Backend, garantindo que cada linha de código contribua para a performance global da aplicação. Atuo também com LLMOps e IA para elevar o nível de automação técnica." 
+        <p data-pt="Minha abordagem combina a eficiência do desenvolvimento Fullstack com a robustez do Backend, garantindo que cada linha de código contribua para a performance global da aplicação. Atuo também com LLMOps e IA para elevar o nível de automação técnica."
            data-en="My approach combines Fullstack development efficiency with Backend robustness, ensuring every line of code contributes to overall application performance. I also work with LLMOps and AI to raise the level of technical automation.">
           Minha abordagem combina a eficiência do desenvolvimento Fullstack com a robustez do Backend, garantindo que cada linha de código contribua para a performance global da aplicação. Atuo também com LLMOps e IA para elevar o nível de automação técnica.
         </p>
         <div class="pt-8 flex flex-wrap justify-center gap-4 text-sm text-neutral-500 italic">
           <span>📍 Juiz de Fora, MG</span>
-          <span class="hidden md:inline">•</span>
+          <span class="hidden md:inline">·</span>
           <span>📧 jonasaugustosantosoliveira@gmail.com</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIÊNCIA SECTION -->
+  <!-- ============================================================
+       EXPERIÊNCIA
+       ============================================================ -->
   <section id="experiencia" class="py-32 bg-[#0d0d0d]" data-aos="fade-up">
     <div class="max-w-5xl mx-auto px-4">
       <div class="text-center mb-20">
-        <h2 class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-4" data-pt="Trajetória" data-en="Career">Trajetória</h2>
+        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Trajetória" data-en="Career">Trajetória</h2>
         <h3 class="text-4xl font-bold text-white" data-pt="Experiência Profissional" data-en="Professional Experience">Experiência Profissional</h3>
       </div>
-      
+
       <div class="space-y-8">
+
+        <!-- F5 TECNOLOGIA — Estágio Atual -->
+        <div class="experience-item item-indigo minimal-card rounded-2xl" data-aos="fade-up">
+          <div class="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-3">
+            <div>
+              <h4 class="text-2xl font-bold text-indigo-300 mb-2"
+                  data-pt="Estagiário em Desenvolvimento e Automação"
+                  data-en="Intern Developer – Automation & AI">
+                Estagiário em Desenvolvimento e Automação
+              </h4>
+              <p class="text-neutral-500 font-medium"
+                 data-pt="F5 Tecnologia | Mai 2026 – Presente · Remoto"
+                 data-en="F5 Tecnologia | May 2026 – Present · Remote">
+                F5 Tecnologia | Mai 2026 – Presente · Remoto
+              </p>
+            </div>
+            <span class="badge-current self-start mt-1 flex-shrink-0"
+                  data-pt="Estágio Atual" data-en="Current Internship">Estágio Atual</span>
+          </div>
+          <ul class="space-y-4 text-neutral-400 font-light">
+            <li class="flex gap-4">
+              <span class="text-indigo-400 mt-1 flex-shrink-0">•</span>
+              <span data-pt="Desenvolvimento e Configuração de Agentes: Desenvolvimento e configuração de agentes de inteligência artificial e pesquisa sobre novas tecnologias aplicadas ao negócio."
+                    data-en="Agent Development & Configuration: Development and configuration of artificial intelligence agents and research on new technologies applied to the business.">
+                <strong class="text-neutral-300">Desenvolvimento e Configuração de Agentes:</strong> Desenvolvimento e configuração de agentes de inteligência artificial e pesquisa sobre novas tecnologias aplicadas ao negócio.
+              </span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-indigo-400 mt-1 flex-shrink-0">•</span>
+              <span data-pt="Integrações e APIs: Suporte técnico na integração entre plataformas e consumo de APIs para viabilizar comunicação entre sistemas."
+                    data-en="Integrations & APIs: Technical support in platform integration and API consumption to enable seamless communication between systems.">
+                <strong class="text-neutral-300">Integrações e APIs:</strong> Suporte técnico na integração entre plataformas e consumo de APIs para viabilizar comunicação entre sistemas.
+              </span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-indigo-400 mt-1 flex-shrink-0">•</span>
+              <span data-pt="Automação de Processos: Análise e melhoria contínua de fluxos automatizados visando ganho de eficiência operacional."
+                    data-en="Process Automation: Continuous analysis and improvement of automated workflows aimed at operational efficiency gains.">
+                <strong class="text-neutral-300">Automação de Processos:</strong> Análise e melhoria contínua de fluxos automatizados visando ganho de eficiência operacional.
+              </span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-indigo-400 mt-1 flex-shrink-0">•</span>
+              <span data-pt="Qualidade e Documentação: Participação em testes de validação, manutenção de soluções tecnológicas e elaboração de documentação técnica."
+                    data-en="Quality & Documentation: Participation in validation testing, maintenance of technological solutions, and technical documentation drafting.">
+                <strong class="text-neutral-300">Qualidade e Documentação:</strong> Participação em testes de validação, manutenção de soluções tecnológicas e elaboração de documentação técnica.
+              </span>
+            </li>
+          </ul>
+        </div>
+
         <!-- NEURODEV -->
-        <div class="experience-item minimal-card rounded-2xl">
+        <div class="experience-item minimal-card rounded-2xl" data-aos="fade-up">
           <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
             <div>
-              <h4 class="text-2xl font-bold text-white mb-2" data-pt="Estagiário Desenvolvedor de Automação de Processos e Analista de Suporte RPA" data-en="Intern Automation Developer & RPA Support Analyst">Estagiário Desenvolvedor de Automação de Processos e Analista de Suporte RPA</h4>
+              <h4 class="text-2xl font-bold text-white mb-2"
+                  data-pt="Estagiário Desenvolvedor de Automação de Processos e Analista de Suporte RPA"
+                  data-en="Intern Automation Developer & RPA Support Analyst">
+                Estagiário Desenvolvedor de Automação de Processos e Analista de Suporte RPA
+              </h4>
               <p class="text-neutral-500 font-medium">NEURODEV - Startup | Set – Nov 2025</p>
             </div>
           </div>
           <ul class="space-y-4 text-neutral-400 font-light">
             <li class="flex gap-4">
               <span class="text-white mt-1 flex-shrink-0">•</span>
-              <span data-pt="Desenvolvi 15+ fluxos de integração em Python e N8N, conectando APIs e reduzindo gargalos manuais em 40%, processando 800+ transações/dia." 
+              <span data-pt="Desenvolvi 15+ fluxos de integração em Python e N8N, conectando APIs e reduzindo gargalos manuais em 40%, processando 800+ transações/dia."
                     data-en="Developed 15+ integration flows in Python and N8N, connecting APIs and reducing manual bottlenecks by 40%, processing 800+ transactions/day.">
                 Desenvolvi 15+ fluxos de integração em Python e N8N, conectando APIs e reduzindo gargalos manuais em 40%, processando 800+ transações/dia.
               </span>
             </li>
             <li class="flex gap-4">
               <span class="text-white mt-1 flex-shrink-0">•</span>
-              <span data-pt="Refatorei código RPA em Python com Docker, reduzindo downtime mensal de 35h para 2,25h (-93,5%)." 
+              <span data-pt="Refatorei código RPA em Python com Docker, reduzindo downtime mensal de 35h para 2,25h (-93,5%)."
                     data-en="Refactored RPA code in Python with Docker, reducing monthly downtime from 35h to 2.25h (-93.5%).">
                 Refatorei código RPA em Python com Docker, reduzindo downtime mensal de 35h para 2,25h (-93,5%).
               </span>
             </li>
             <li class="flex gap-4">
               <span class="text-white mt-1 flex-shrink-0">•</span>
-              <span data-pt="Monitorei e otimizei sistemas via Linux CLI e BitVise, implementando estratégias de retry e fallback para alta disponibilidade." 
+              <span data-pt="Monitorei e otimizei sistemas via Linux CLI e BitVise, implementando estratégias de retry e fallback para alta disponibilidade."
                     data-en="Monitored and optimized systems via Linux CLI and BitVise, implementing retry and fallback strategies for high availability.">
                 Monitorei e otimizei sistemas via Linux CLI e BitVise, implementando estratégias de retry e fallback para alta disponibilidade.
               </span>
             </li>
             <li class="flex gap-4">
               <span class="text-white mt-1 flex-shrink-0">•</span>
-              <span data-pt="DevOps & Troubleshooting: Gerenciamento completo de ambiente com Docker, PostgreSQL e Linux CLI." 
+              <span data-pt="DevOps & Troubleshooting: Gerenciamento completo de ambiente com Docker, PostgreSQL e Linux CLI."
                     data-en="DevOps & Troubleshooting: Complete environment management with Docker, PostgreSQL, and Linux CLI.">
                 DevOps & Troubleshooting: Gerenciamento completo de ambiente com Docker, PostgreSQL e Linux CLI.
               </span>
@@ -277,31 +260,35 @@
         </div>
 
         <!-- BNECT -->
-        <div class="experience-item minimal-card rounded-2xl">
+        <div class="experience-item minimal-card rounded-2xl" data-aos="fade-up">
           <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
             <div>
-              <h4 class="text-2xl font-bold text-white mb-2" data-pt="Desenvolvedor Júnior de Automação de Processos com IA" data-en="Junior Process Automation Developer with AI">Desenvolvedor Júnior de Automação de Processos com IA</h4>
+              <h4 class="text-2xl font-bold text-white mb-2"
+                  data-pt="Desenvolvedor Júnior de Automação de Processos com IA"
+                  data-en="Junior Process Automation Developer with AI">
+                Desenvolvedor Júnior de Automação de Processos com IA
+              </h4>
               <p class="text-neutral-500 font-medium">BNECT - Startup Early-Stage | Ago – Set 2025</p>
             </div>
           </div>
           <ul class="space-y-4 text-neutral-400 font-light">
             <li class="flex gap-4">
               <span class="text-white mt-1 flex-shrink-0">•</span>
-              <span data-pt="Criei agentes inteligentes em Python para canais de mensageria (WhatsApp/Instagram), integrando CRM/ERP via APIs e reduzindo a carga operacional." 
+              <span data-pt="Criei agentes inteligentes em Python para canais de mensageria (WhatsApp/Instagram), integrando CRM/ERP via APIs e reduzindo a carga operacional."
                     data-en="Created intelligent agents in Python for messaging channels (WhatsApp/Instagram), integrating CRM/ERP via APIs and reducing operational load.">
                 Criei agentes inteligentes em Python para canais de mensageria (WhatsApp/Instagram), integrando CRM/ERP via APIs e reduzindo a carga operacional.
               </span>
             </li>
             <li class="flex gap-4">
               <span class="text-white mt-1 flex-shrink-0">•</span>
-              <span data-pt="Implementei lógica escalável com tratamento de falhas, garantindo estabilidade em integração com Google Calendar/Sheets." 
+              <span data-pt="Implementei lógica escalável com tratamento de falhas, garantindo estabilidade em integração com Google Calendar/Sheets."
                     data-en="Implemented scalable logic with error handling, ensuring stability in Google Calendar/Sheets integration.">
                 Implementei lógica escalável com tratamento de falhas, garantindo estabilidade em integração com Google Calendar/Sheets.
               </span>
             </li>
             <li class="flex gap-4">
               <span class="text-white mt-1 flex-shrink-0">•</span>
-              <span data-pt="Desenvolvi estratégias de tratamento de erro (retry com backoff e fallback) para aumentar a estabilidade de integrações com APIs externas." 
+              <span data-pt="Desenvolvi estratégias de tratamento de erro (retry com backoff e fallback) para aumentar a estabilidade de integrações com APIs externas."
                     data-en="Developed error handling strategies (retry with backoff and fallback) to increase stability of external API integrations.">
                 Desenvolvi estratégias de tratamento de erro (retry com backoff e fallback) para aumentar a estabilidade de integrações com APIs externas.
               </span>
@@ -310,52 +297,61 @@
         </div>
 
         <!-- VOLPATTO -->
-        <div class="experience-item minimal-card rounded-2xl">
+        <div class="experience-item minimal-card rounded-2xl" data-aos="fade-up">
           <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
             <div>
-              <h4 class="text-2xl font-bold text-white mb-2" data-pt="Analista de Requisitos de Software" data-en="Software Requirements Analyst">Analista de Requisitos de Software</h4>
+              <h4 class="text-2xl font-bold text-white mb-2"
+                  data-pt="Analista de Requisitos de Software"
+                  data-en="Software Requirements Analyst">
+                Analista de Requisitos de Software
+              </h4>
               <p class="text-neutral-500 font-medium">Volpatto Engenharia e Arquitetura de Guaíra LTDA · Freelance | Ago – Set 2023</p>
             </div>
           </div>
           <ul class="space-y-4 text-neutral-400 font-light">
             <li class="flex gap-4">
               <span class="text-white mt-1 flex-shrink-0">•</span>
-              <span data-pt="Desenvolvi requisitos funcionais/não funcionais para software de gestão, mapeando fluxos em UML/BPMN para 6 serviços." 
+              <span data-pt="Desenvolvi requisitos funcionais/não funcionais para software de gestão, mapeando fluxos em UML/BPMN para 6 serviços."
                     data-en="Developed functional/non-functional requirements for management software, mapping flows in UML/BPMN for 6 services.">
                 Desenvolvi requisitos funcionais/não funcionais para software de gestão, mapeando fluxos em UML/BPMN para 6 serviços.
               </span>
             </li>
             <li class="flex gap-4">
               <span class="text-white mt-1 flex-shrink-0">•</span>
-              <span data-pt="Objetivo: reduzir retrabalho e padronizar processos de engenharia através de documentação técnica completa." 
+              <span data-pt="Objetivo: reduzir retrabalho e padronizar processos de engenharia através de documentação técnica completa."
                     data-en="Objective: reduce rework and standardize engineering processes through complete technical documentation.">
                 Objetivo: reduzir retrabalho e padronizar processos de engenharia através de documentação técnica completa.
               </span>
             </li>
           </ul>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- DESAFIOS SECTION -->
+  <!-- ============================================================
+       DESAFIOS
+       ============================================================ -->
   <section id="desafios" class="py-32" data-aos="fade-up">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-20">
-        <h2 class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-4" data-pt="Atividades" data-en="Activities">Atividades</h2>
+        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Atividades" data-en="Activities">Atividades</h2>
         <h3 class="text-4xl font-bold text-white" data-pt="Principais Desafios Técnicos" data-en="Key Technical Challenges">Principais Desafios Técnicos</h3>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="minimal-card p-8 rounded-3xl" data-aos="fade-up">
           <h4 class="text-xl font-bold text-white mb-4" data-pt="Otimização de Latência em IA" data-en="AI Latency Optimization">Otimização de Latência em IA</h4>
-          <p class="text-neutral-500 mb-6 leading-relaxed font-light" data-pt="Fluxos de IA generativa levavam até 15 minutos para responder. Implementei técnicas de Prompt Engineering e otimização de workflow." 
+          <p class="text-neutral-500 mb-6 leading-relaxed font-light"
+             data-pt="Fluxos de IA generativa levavam até 15 minutos para responder. Implementei técnicas de Prompt Engineering e otimização de workflow."
              data-en="Generative AI flows took up to 15 minutes to respond. I implemented Prompt Engineering techniques and workflow optimization.">
             Fluxos de IA generativa levavam até 15 minutos para responder. Implementei técnicas de Prompt Engineering e otimização de workflow.
           </p>
           <div class="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800">
             <p class="text-white font-semibold mb-2" data-pt="Resultado:" data-en="Result:">Resultado:</p>
-            <p class="text-neutral-400 text-sm font-light" data-pt="Redução de 97% no tempo de resposta e redução de 60% em queries redundantes no backend." 
+            <p class="text-neutral-400 text-sm font-light"
+               data-pt="Redução de 97% no tempo de resposta e redução de 60% em queries redundantes no backend."
                data-en="97% reduction in response time and 60% reduction in redundant backend queries.">
               Redução de 97% no tempo de resposta e redução de 60% em queries redundantes no backend.
             </p>
@@ -364,13 +360,15 @@
 
         <div class="minimal-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
           <h4 class="text-xl font-bold text-white mb-4" data-pt="Integração de Sistemas Legados" data-en="Legacy Systems Integration">Integração de Sistemas Legados</h4>
-          <p class="text-neutral-500 mb-6 leading-relaxed font-light" data-pt="Conectar 4 sistemas distintos via Webhooks e APIs REST sem documentação clara, garantindo a integridade dos dados em tempo real." 
+          <p class="text-neutral-500 mb-6 leading-relaxed font-light"
+             data-pt="Conectar 4 sistemas distintos via Webhooks e APIs REST sem documentação clara, garantindo a integridade dos dados em tempo real."
              data-en="Connect 4 distinct systems via Webhooks and REST APIs without clear documentation, ensuring real-time data integrity.">
             Conectar 4 sistemas distintos via Webhooks e APIs REST sem documentação clara, garantindo a integridade dos dados em tempo real.
           </p>
           <div class="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800">
             <p class="text-white font-semibold mb-2" data-pt="Resultado:" data-en="Result:">Resultado:</p>
-            <p class="text-neutral-400 text-sm font-light" data-pt="Eliminação de 25 horas/mês de trabalho manual e automação total de 15+ fluxos críticos." 
+            <p class="text-neutral-400 text-sm font-light"
+               data-pt="Eliminação de 25 horas/mês de trabalho manual e automação total de 15+ fluxos críticos."
                data-en="Elimination of 25 hours/month of manual work and complete automation of 15+ critical flows.">
               Eliminação de 25 horas/mês de trabalho manual e automação total de 15+ fluxos críticos.
             </p>
@@ -379,13 +377,15 @@
 
         <div class="minimal-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
           <h4 class="text-xl font-bold text-white mb-4" data-pt="Redução de Downtime em RPA" data-en="RPA Downtime Reduction">Redução de Downtime em RPA</h4>
-          <p class="text-neutral-500 mb-6 leading-relaxed font-light" data-pt="Atuei na estabilização de integrações com APIs de terceiros, implementando monitoramento e tratamento de falhas para evitar interrupções no serviço." 
+          <p class="text-neutral-500 mb-6 leading-relaxed font-light"
+             data-pt="Atuei na estabilização de integrações com APIs de terceiros, implementando monitoramento e tratamento de falhas para evitar interrupções no serviço."
              data-en="Worked on stabilizing third-party API integrations, implementing monitoring and error handling to prevent service interruptions.">
             Atuei na estabilização de integrações com APIs de terceiros, implementando monitoramento e tratamento de falhas para evitar interrupções no serviço.
           </p>
           <div class="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800">
             <p class="text-white font-semibold mb-2" data-pt="Resultado:" data-en="Result:">Resultado:</p>
-            <p class="text-neutral-400 text-sm font-light" data-pt="Redução de downtime de 35h para 2,25h/mês (-93,5%) com gestão de ambiente Docker e PostgreSQL." 
+            <p class="text-neutral-400 text-sm font-light"
+               data-pt="Redução de downtime de 35h para 2,25h/mês (-93,5%) com gestão de ambiente Docker e PostgreSQL."
                data-en="Downtime reduction from 35h to 2.25h/month (-93.5%) with Docker and PostgreSQL environment management.">
               Redução de downtime de 35h para 2,25h/mês (-93,5%) com gestão de ambiente Docker e PostgreSQL.
             </p>
@@ -395,160 +395,336 @@
     </div>
   </section>
 
-  <!-- PROJETOS SECTION -->
+  <!-- ============================================================
+       PROJETOS
+       ============================================================ -->
   <section id="projetos" class="py-32 bg-[#0d0d0d]" data-aos="fade-up">
     <div class="max-w-6xl mx-auto px-4">
+
+      <!-- Header -->
       <div class="text-center mb-20">
-        <h2 class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-4" data-pt="Portfólio" data-en="Portfolio">Portfólio</h2>
-        <h3 class="text-4xl font-bold text-white" data-pt="Projetos em Destaque" data-en="Featured Projects">Projetos em Destaque</h3>
+        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Portfólio" data-en="Portfolio">Portfólio</h2>
+        <h3 class="text-4xl font-bold text-white" data-pt="Projetos Reais (GitHub)" data-en="Real Projects (GitHub)">Projetos Reais (GitHub)</h3>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- QR CODE GENERATOR -->
-        <div class="minimal-card rounded-3xl overflow-hidden project-item">
-          <div class="p-8 flex-grow flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <div class="bg-neutral-800 p-3 rounded-2xl">
-                <i class="bi bi-qr-code text-2xl text-white"></i>
-              </div>
-              <a href="https://github.com/JonasaAugusto/qrcode-generator" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
-                <i class="bi bi-github text-2xl"></i>
-              </a>
-            </div>
-            <h4 class="text-xl font-bold text-white mb-3" data-pt="QR Code Generator" data-en="QR Code Generator">QR Code Generator</h4>
-            <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow" 
-               data-pt="Aplicação Fullstack para geração dinâmica de QR Codes com suporte a todos os tipos disponíveis. Inclui histórico de geração no app, salvamento local de QR Codes e geração em lote para sistemas de bater ponto corporativo. Testes de performance: 30 funcionários em 0,65 segundos | 5 mil funcionários em 1,8 minutos." 
-               data-en="Fullstack application for dynamic QR Code generation supporting all available types. Includes generation history in app, local QR Code saving, and batch generation for corporate time-tracking systems. Performance tests: 30 employees in 0.65 seconds | 5,000 employees in 1.8 minutes.">
-              Aplicação Fullstack para geração dinâmica de QR Codes com suporte a todos os tipos disponíveis. Inclui histórico de geração no app, salvamento local de QR Codes e geração em lote para sistemas de bater ponto corporativo. Testes de performance: 30 funcionários em 0,65 segundos | 5 mil funcionários em 1,8 minutos.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">QRcode</span>
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Pillow</span>
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Threading</span>
-            </div>
-          </div>
-          <a href="https://github.com/JonasaAugusto/qrcode-generator" target="_blank" class="p-4 bg-neutral-900 text-center text-sm font-bold hover:bg-neutral-800 transition-colors border-t border-neutral-800" data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
+      <!-- ─── SUB-SEÇÃO 1: Projetos Principais ─── -->
+      <div class="mb-4">
+        <div class="subsection-title">
+          <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+          <span data-pt="Projetos Principais" data-en="Main Projects">Projetos Principais</span>
         </div>
 
-        <!-- LOGITRACK API -->
-        <div class="minimal-card rounded-3xl overflow-hidden project-item">
-          <div class="p-8 flex-grow flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <div class="bg-neutral-800 p-3 rounded-2xl">
-                <i class="bi bi-truck text-2xl text-white"></i>
-              </div>
-              <a href="https://github.com/JonasaAugusto/logitrackAPI" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
-                <i class="bi bi-github text-2xl"></i>
-              </a>
-            </div>
-            <h4 class="text-xl font-bold text-white mb-3" data-pt="LogiTrack API" data-en="LogiTrack API">LogiTrack API</h4>
-            <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow" 
-               data-pt="API de logística com PostgreSQL e Docker Compose. Backend robusto para gerenciamento de fluxos logísticos com autenticação JWT e endpoints assíncronos." 
-               data-en="Logistics API with PostgreSQL and Docker Compose. Robust backend for managing logistics flows with JWT authentication and asynchronous endpoints.">
-              API de logística com PostgreSQL e Docker Compose. Backend robusto para gerenciamento de fluxos logísticos com autenticação JWT e endpoints assíncronos.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">FastAPI</span>
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">PostgreSQL</span>
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Docker</span>
-            </div>
-          </div>
-          <a href="https://github.com/JonasaAugusto/logitrackAPI" target="_blank" class="p-4 bg-neutral-900 text-center text-sm font-bold hover:bg-neutral-800 transition-colors border-t border-neutral-800" data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
-        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- DISCORD ZOMBOT -->
-        <div class="minimal-card rounded-3xl overflow-hidden project-item">
-          <div class="p-8 flex-grow flex flex-col">
-            <div class="flex justify-between items-start mb-6">
-              <div class="bg-neutral-800 p-3 rounded-2xl">
-                <i class="bi bi-chat-dots text-2xl text-white"></i>
+          <!-- LOGITRACK API -->
+          <div class="anchor-card card-blue rounded-3xl overflow-hidden project-item" data-aos="fade-up">
+            <div class="p-8 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-6">
+                <div class="bg-blue-500/10 p-3 rounded-2xl border border-blue-500/20">
+                  <i class="bi bi-truck text-2xl text-blue-400"></i>
+                </div>
+                <div class="flex flex-col items-end gap-2">
+                  <a href="https://github.com/JonasaAugusto/logitrackAPI" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                    <i class="bi bi-github text-2xl"></i>
+                  </a>
+                  <span class="badge-main-blue" data-pt="Projeto Principal" data-en="Main Project">Projeto Principal</span>
+                </div>
               </div>
-              <a href="https://github.com/JonasaAugusto/DiscordChatBot_Zombot" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
-                <i class="bi bi-github text-2xl"></i>
-              </a>
+              <h4 class="text-xl font-bold text-white mb-3" data-pt="LogiTrack API" data-en="LogiTrack API">LogiTrack API</h4>
+              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+                 data-pt="API RESTful de logística com FastAPI e PostgreSQL. Gerenciamento de frotas e entregas com rastreamento em tempo real, relatórios assíncronos, autenticação JWT e deploy containerizado via Docker Compose."
+                 data-en="RESTful logistics API built with FastAPI and PostgreSQL. Fleet and delivery management with real-time tracking, async reporting, JWT authentication, and containerized deployment via Docker Compose.">
+                API RESTful de logística com FastAPI e PostgreSQL. Gerenciamento de frotas e entregas com rastreamento em tempo real, relatórios assíncronos, autenticação JWT e deploy containerizado via Docker Compose.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">FastAPI</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">PostgreSQL</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Docker</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">JWT</span>
+              </div>
             </div>
-            <h4 class="text-xl font-bold text-white mb-3" data-pt="Discord Zombot" data-en="Discord Zombot">Discord Zombot</h4>
-            <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow" 
-               data-pt="Chatbot para servidores de jogos com moderação automática e tutoriais interativos; elevou NPS em 35%." 
-               data-en="Chatbot for gaming servers with automatic moderation and interactive tutorials; increased NPS by 35%.">
-              Chatbot para servidores de jogos com moderação automática e tutoriais interativos; elevou NPS em 35%.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Discord.py</span>
-              <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Automation</span>
-            </div>
+            <a href="https://github.com/JonasaAugusto/logitrackAPI" target="_blank"
+              class="p-4 bg-blue-500/5 hover:bg-blue-500/10 text-center text-sm font-bold transition-colors border-t border-blue-500/20 text-blue-400"
+              data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
           </div>
-          <a href="https://github.com/JonasaAugusto/DiscordChatBot_Zombot" target="_blank" class="p-4 bg-neutral-900 text-center text-sm font-bold hover:bg-neutral-800 transition-colors border-t border-neutral-800" data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
+
+          <!-- NOTAME -->
+          <div class="anchor-card card-violet rounded-3xl overflow-hidden project-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="p-8 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-6">
+                <div class="bg-violet-500/10 p-3 rounded-2xl border border-violet-500/20">
+                  <i class="bi bi-receipt text-2xl text-violet-400"></i>
+                </div>
+                <div class="flex flex-col items-end gap-2">
+                  <a href="https://github.com/JonasaAugusto/NotaME" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                    <i class="bi bi-github text-2xl"></i>
+                  </a>
+                  <span class="badge-main-violet" data-pt="Projeto Principal" data-en="Main Project">Projeto Principal</span>
+                </div>
+              </div>
+              <h4 class="text-xl font-bold text-white mb-3" data-pt="NotaME" data-en="NotaME">NotaME</h4>
+              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+                 data-pt="App mobile/desktop (EIS) para geração de recibos em PDF, emissão de NFS-e e gestão de clientes. Offline-first com SQLite e sincronização P2P em rede local com criptografia AES-256."
+                 data-en="Mobile/desktop app (EIS) for PDF receipt generation, NFS-e issuance, and client management. Offline-first with SQLite and P2P sync on local network with AES-256 encryption.">
+                App mobile/desktop (EIS) para geração de recibos em PDF, emissão de NFS-e e gestão de clientes. Offline-first com SQLite e sincronização P2P em rede local com criptografia AES-256.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">.NET MAUI</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">C#</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">SQLite</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">QuestPDF</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">AES-256</span>
+              </div>
+            </div>
+            <a href="https://github.com/JonasaAugusto/NotaME" target="_blank"
+              class="p-4 bg-violet-500/5 hover:bg-violet-500/10 text-center text-sm font-bold transition-colors border-t border-violet-500/20 text-violet-400"
+              data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
+          </div>
+
+          <!-- HUB DE MÍDIA E INTELIGÊNCIA LOCAL -->
+          <div class="anchor-card card-cyan rounded-3xl overflow-hidden project-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="p-8 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-6">
+                <div class="bg-cyan-500/10 p-3 rounded-2xl border border-cyan-500/20">
+                  <i class="bi bi-mic-fill text-2xl text-cyan-400"></i>
+                </div>
+                <div class="flex flex-col items-end gap-2">
+                  <a href="https://github.com/JonasaAugusto/HubMidiaInteligenciaLocal" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                    <i class="bi bi-github text-2xl"></i>
+                  </a>
+                  <div class="flex flex-col items-end gap-1">
+                    <span class="badge-main-cyan" data-pt="Projeto Principal" data-en="Main Project">Projeto Principal</span>
+                    <span class="badge-dev" data-pt="Em Desenvolvimento" data-en="In Development">Em Desenvolvimento</span>
+                  </div>
+                </div>
+              </div>
+              <h4 class="text-xl font-bold text-white mb-3"
+                  data-pt="Hub de Mídia e Inteligência Local"
+                  data-en="Local Media & Intelligence Hub">
+                Hub de Mídia e Inteligência Local
+              </h4>
+              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+                 data-pt="App multiplataforma (.NET MAUI) para transcrição offline de áudio e vídeo usando IA on-device (Whisper). Sem custo de servidor — processamento 100% local com notificações e histórico em SQLite."
+                 data-en="Cross-platform app (.NET MAUI) for offline audio/video transcription using on-device AI (Whisper). No server costs — 100% local processing with notifications and SQLite history.">
+                App multiplataforma (.NET MAUI) para transcrição offline de áudio e vídeo usando IA on-device (Whisper). Sem custo de servidor — processamento 100% local com notificações e histórico em SQLite.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">.NET MAUI</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">C#</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Whisper AI</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">FFmpeg</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">SQLite</span>
+              </div>
+            </div>
+            <a href="https://github.com/JonasaAugusto/HubMidiaInteligenciaLocal" target="_blank"
+              class="p-4 bg-cyan-500/5 hover:bg-cyan-500/10 text-center text-sm font-bold transition-colors border-t border-cyan-500/20 text-cyan-400"
+              data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
+          </div>
+
         </div>
       </div>
+
+      <!-- DIVIDER -->
+      <div class="section-divider"></div>
+
+      <!-- ─── SUB-SEÇÃO 2: Outros Projetos ─── -->
+      <div>
+        <div class="subsection-title">
+          <i class="bi bi-code-slash text-neutral-500 text-sm"></i>
+          <span data-pt="Outros Projetos" data-en="Other Projects">Outros Projetos</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- QR CODE GENERATOR -->
+          <div class="minimal-card rounded-3xl overflow-hidden project-item" data-aos="fade-up">
+            <div class="p-8 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-6">
+                <div class="bg-neutral-800 p-3 rounded-2xl">
+                  <i class="bi bi-qr-code text-2xl text-white"></i>
+                </div>
+                <a href="https://github.com/JonasaAugusto/qrcode-generator" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                  <i class="bi bi-github text-2xl"></i>
+                </a>
+              </div>
+              <h4 class="text-xl font-bold text-white mb-3" data-pt="QR Code Generator" data-en="QR Code Generator">QR Code Generator</h4>
+              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+                 data-pt="Aplicação Fullstack para geração dinâmica de QR Codes com suporte a todos os tipos disponíveis. Inclui histórico, salvamento local e geração em lote. Testes de performance: 30 usuários em 0,65s | 5 mil em 1,8min."
+                 data-en="Fullstack application for dynamic QR Code generation supporting all available types. Includes history, local saving, and batch generation. Performance: 30 users in 0.65s | 5,000 users in 1.8min.">
+                Aplicação Fullstack para geração dinâmica de QR Codes com suporte a todos os tipos disponíveis. Inclui histórico, salvamento local e geração em lote. Testes de performance: 30 usuários em 0,65s | 5 mil em 1,8min.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">QRcode</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Pillow</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Threading</span>
+              </div>
+            </div>
+            <a href="https://github.com/JonasaAugusto/qrcode-generator" target="_blank"
+              class="p-4 bg-neutral-900 text-center text-sm font-bold hover:bg-neutral-800 transition-colors border-t border-neutral-800"
+              data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
+          </div>
+
+          <!-- DISCORD ZOMBOT -->
+          <div class="minimal-card rounded-3xl overflow-hidden project-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="p-8 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-6">
+                <div class="bg-neutral-800 p-3 rounded-2xl">
+                  <i class="bi bi-chat-dots text-2xl text-white"></i>
+                </div>
+                <a href="https://github.com/JonasaAugusto/DiscordChatBot_Zombot" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                  <i class="bi bi-github text-2xl"></i>
+                </a>
+              </div>
+              <h4 class="text-xl font-bold text-white mb-3" data-pt="Discord Zombot" data-en="Discord Zombot">Discord Zombot</h4>
+              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+                 data-pt="Chatbot para servidores de jogos com moderação automática e tutoriais interativos; elevou NPS em 35%."
+                 data-en="Chatbot for gaming servers with automatic moderation and interactive tutorials; increased NPS by 35%.">
+                Chatbot para servidores de jogos com moderação automática e tutoriais interativos; elevou NPS em 35%.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Discord.py</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Automation</span>
+              </div>
+            </div>
+            <a href="https://github.com/JonasaAugusto/DiscordChatBot_Zombot" target="_blank"
+              class="p-4 bg-neutral-900 text-center text-sm font-bold hover:bg-neutral-800 transition-colors border-t border-neutral-800"
+              data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
+          </div>
+
+          <!-- INSTAGRAM COMMENTS GENERATOR -->
+          <div class="minimal-card rounded-3xl overflow-hidden project-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="p-8 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-6">
+                <div class="bg-neutral-800 p-3 rounded-2xl">
+                  <i class="bi bi-instagram text-2xl text-white"></i>
+                </div>
+                <a href="https://github.com/JonasaAugusto/instagram-comments-gen" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                  <i class="bi bi-github text-2xl"></i>
+                </a>
+              </div>
+              <h4 class="text-xl font-bold text-white mb-3" data-pt="Instagram Comments Gen" data-en="Instagram Comments Gen">Instagram Comments Gen</h4>
+              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+                 data-pt="Ferramenta de automação para geração de comentários no Instagram com templates variáveis, suporte a múltiplos perfis e execução em lote para gestão de engajamento."
+                 data-en="Automation tool for generating Instagram comments with variable templates, multi-profile support, and batch execution for engagement management.">
+                Ferramenta de automação para geração de comentários no Instagram com templates variáveis, suporte a múltiplos perfis e execução em lote para gestão de engajamento.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Instagrapi</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Threading</span>
+              </div>
+            </div>
+            <a href="https://github.com/JonasaAugusto/instagram-comments-gen" target="_blank"
+              class="p-4 bg-neutral-900 text-center text-sm font-bold hover:bg-neutral-800 transition-colors border-t border-neutral-800"
+              data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- HABILIDADES SECTION -->
+  <!-- ============================================================
+       HABILIDADES
+       ============================================================ -->
   <section id="habilidades" class="py-32" data-aos="fade-up">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-20">
-        <h2 class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-4" data-pt="Stack" data-en="Stack">Stack</h2>
+        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Stack" data-en="Stack">Stack</h2>
         <h3 class="text-4xl font-bold text-white" data-pt="Stack Tecnológica" data-en="Technology Stack">Stack Tecnológica</h3>
       </div>
 
       <div class="skill-grid">
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2"><i class="bi bi-code-slash"></i> <span data-pt="Linguagens de Programação" data-en="Programming Languages">Linguagens de Programação</span></h4>
+        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-indigo-500 transition-colors">
+          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
+            <i class="bi bi-code-slash text-indigo-400"></i>
+            <span data-pt="Linguagens de Programação" data-en="Programming Languages">Linguagens de Programação</span>
+          </h4>
           <p class="text-neutral-400 leading-relaxed font-light" data-pt="Python (Backend e Automação), C#, SQL, JavaScript, Java" data-en="Python (Backend and Automation), C#, SQL, JavaScript, Java">Python (Backend e Automação), C#, SQL, JavaScript, Java</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2"><i class="bi bi-cloud-check"></i> <span data-pt="Integração & Backend" data-en="Integration & Backend">Integração & Backend</span></h4>
+        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-blue-500 transition-colors">
+          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
+            <i class="bi bi-cloud-check text-blue-400"></i>
+            <span data-pt="Integração & Backend" data-en="Integration & Backend">Integração & Backend</span>
+          </h4>
           <p class="text-neutral-400 leading-relaxed font-light" data-pt="APIs RESTful (FastAPI), Webhooks, Microserviços, JSON, LangChain, Prompt Engineering" data-en="RESTful APIs (FastAPI), Webhooks, Microservices, JSON, LangChain, Prompt Engineering">APIs RESTful (FastAPI), Webhooks, Microserviços, JSON, LangChain, Prompt Engineering</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2"><i class="bi bi-tools"></i> <span data-pt="Ferramentas & Infraestrutura" data-en="Tools & Infrastructure">Ferramentas & Infraestrutura</span></h4>
+        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-emerald-500 transition-colors">
+          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
+            <i class="bi bi-tools text-emerald-400"></i>
+            <span data-pt="Ferramentas & Infraestrutura" data-en="Tools & Infrastructure">Ferramentas & Infraestrutura</span>
+          </h4>
           <p class="text-neutral-400 leading-relaxed font-light" data-pt="Git/GitHub, Docker, Docker Compose, Linux CLI, N8N (Workflows), RPA, CI/CD, Crontab" data-en="Git/GitHub, Docker, Docker Compose, Linux CLI, N8N (Workflows), RPA, CI/CD, Crontab">Git/GitHub, Docker, Docker Compose, Linux CLI, N8N (Workflows), RPA, CI/CD, Crontab</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2"><i class="bi bi-database"></i> <span data-pt="Bancos de Dados" data-en="Databases">Bancos de Dados</span></h4>
+        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-yellow-500 transition-colors">
+          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
+            <i class="bi bi-database text-yellow-400"></i>
+            <span data-pt="Bancos de Dados" data-en="Databases">Bancos de Dados</span>
+          </h4>
           <p class="text-neutral-400 leading-relaxed font-light" data-pt="PostgreSQL, MySQL, SQLite, modelagem e otimização de estruturas de dados" data-en="PostgreSQL, MySQL, SQLite, data structure modeling and optimization">PostgreSQL, MySQL, SQLite, modelagem e otimização de estruturas de dados</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2"><i class="bi bi-rocket"></i> <span data-pt="DevOps & Outros" data-en="DevOps & Others">DevOps & Outros</span></h4>
+        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-rose-500 transition-colors">
+          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
+            <i class="bi bi-rocket text-rose-400"></i>
+            <span data-pt="DevOps & Outros" data-en="DevOps & Others">DevOps & Outros</span>
+          </h4>
           <p class="text-neutral-400 leading-relaxed font-light" data-pt="Troubleshooting avançado, otimização de performance, MLOps/LLMOps" data-en="Advanced troubleshooting, performance optimization, MLOps/LLMOps">Troubleshooting avançado, otimização de performance, MLOps/LLMOps</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2"><i class="bi bi-diagram-3"></i> <span data-pt="Metodologias" data-en="Methodologies">Metodologias</span></h4>
+        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-purple-500 transition-colors">
+          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
+            <i class="bi bi-diagram-3 text-purple-400"></i>
+            <span data-pt="Metodologias" data-en="Methodologies">Metodologias</span>
+          </h4>
           <p class="text-neutral-400 leading-relaxed font-light" data-pt="Scrum, UML, BPMN, Documentação Técnica, Modelagem de Processos de Negócio" data-en="Scrum, UML, BPMN, Technical Documentation, Business Process Modeling">Scrum, UML, BPMN, Documentação Técnica, Modelagem de Processos de Negócio</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2"><i class="bi bi-layout-text-sidebar-reverse"></i> <span data-pt="Front-End & UI" data-en="Front-End & UI">Front-End & UI</span></h4>
+        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-sky-500 transition-colors">
+          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
+            <i class="bi bi-layout-text-sidebar-reverse text-sky-400"></i>
+            <span data-pt="Front-End & UI" data-en="Front-End & UI">Front-End & UI</span>
+          </h4>
           <p class="text-neutral-400 leading-relaxed font-light" data-pt="HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, React, Design Responsivo" data-en="HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, React, Responsive Design">HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, React, Design Responsivo</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2"><i class="bi bi-translate"></i> <span data-pt="Idiomas" data-en="Languages">Idiomas</span></h4>
-          <p class="text-neutral-400 leading-relaxed font-light"><strong data-pt="Português:" data-en="Portuguese:">Português:</strong> <span data-pt="Nativo" data-en="Native">Nativo</span> | <strong data-pt="Inglês:" data-en="English:">Inglês:</strong> C1 (Advanced)</p>
+        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-teal-500 transition-colors">
+          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
+            <i class="bi bi-translate text-teal-400"></i>
+            <span data-pt="Idiomas" data-en="Languages">Idiomas</span>
+          </h4>
+          <p class="text-neutral-400 leading-relaxed font-light">
+            <strong data-pt="Português:" data-en="Portuguese:">Português:</strong> <span data-pt="Nativo" data-en="Native">Nativo</span>
+            &nbsp;|&nbsp;
+            <strong data-pt="Inglês:" data-en="English:">Inglês:</strong> C1 (Advanced)
+          </p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2"><i class="bi bi-cpu"></i> <span data-pt="IA Generativa" data-en="Generative AI">IA Generativa</span></h4>
-          <p class="text-neutral-400 leading-relaxed font-light" data-pt="N8N, OpenAI API, Prompt Engineering, RPA, Chatbot Development, MLOps, LLMOps, Agentes Inteligentes" data-en="N8N, OpenAI API, Prompt Engineering, RPA, Chatbot Development, MLOps, LLMOps, Intelligent Agents">N8N, OpenAI API, Prompt Engineering, RPA, Chatbot Development, MLOps, LLMOps, Intelligent Agents</p>
+        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-violet-500 transition-colors">
+          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
+            <i class="bi bi-cpu text-violet-400"></i>
+            <span data-pt="IA Generativa" data-en="Generative AI">IA Generativa</span>
+          </h4>
+          <p class="text-neutral-400 leading-relaxed font-light" data-pt="N8N, OpenAI API, Prompt Engineering, RPA, Chatbot Development, MLOps, LLMOps, Agentes Inteligentes" data-en="N8N, OpenAI API, Prompt Engineering, RPA, Chatbot Development, MLOps, LLMOps, Intelligent Agents">N8N, OpenAI API, Prompt Engineering, RPA, Chatbot Development, MLOps, LLMOps, Agentes Inteligentes</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FORMAÇÃO SECTION -->
+  <!-- ============================================================
+       FORMAÇÃO
+       ============================================================ -->
   <section id="formacao" class="py-32 bg-[#0d0d0d]" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-20">
-        <h2 class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-4" data-pt="Educação" data-en="Education">Educação</h2>
+        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Educação" data-en="Education">Educação</h2>
         <h3 class="text-4xl font-bold text-white" data-pt="Formação Acadêmica" data-en="Academic Education">Formação Acadêmica</h3>
       </div>
 
@@ -570,17 +746,22 @@
     </div>
   </section>
 
-  <!-- CURSOS SECTION -->
+  <!-- ============================================================
+       CURSOS
+       ============================================================ -->
   <section id="cursos" class="py-32" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-20">
-        <h2 class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-4" data-pt="Desenvolvimento" data-en="Development">Desenvolvimento</h2>
+        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Desenvolvimento" data-en="Development">Desenvolvimento</h2>
         <h3 class="text-4xl font-bold text-white" data-pt="Cursos e Certificações" data-en="Courses & Certifications">Cursos e Certificações</h3>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
         <div>
-          <h4 class="text-2xl font-semibold mb-8 text-white flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> <span data-pt="Concluídos" data-en="Completed">Concluídos</span></h4>
+          <h4 class="text-2xl font-semibold mb-8 text-white flex items-center gap-2">
+            <i class="bi bi-check-circle-fill text-green-500"></i>
+            <span data-pt="Concluídos" data-en="Completed">Concluídos</span>
+          </h4>
           <div class="space-y-4">
             <div class="minimal-card p-4 rounded-2xl">
               <h5 class="font-bold text-neutral-200" data-pt="Python Avançado + IA Generativa" data-en="Advanced Python + Generative AI">Python Avançado + IA Generativa</h5>
@@ -606,7 +787,10 @@
         </div>
 
         <div>
-          <h4 class="text-2xl font-semibold mb-8 text-white flex items-center gap-2"><i class="bi bi-clock-history text-yellow-500"></i> <span data-pt="Em Andamento (2025-2026)" data-en="In Progress (2025-2026)">Em Andamento (2025-2026)</span></h4>
+          <h4 class="text-2xl font-semibold mb-8 text-white flex items-center gap-2">
+            <i class="bi bi-clock-history text-yellow-500"></i>
+            <span data-pt="Em Andamento (2025-2026)" data-en="In Progress (2025-2026)">Em Andamento (2025-2026)</span>
+          </h4>
           <div class="space-y-4">
             <div class="minimal-card p-4 rounded-2xl">
               <h5 class="font-bold text-neutral-200" data-pt="AWS Cloud Practitioner" data-en="AWS Cloud Practitioner">AWS Cloud Practitioner</h5>
@@ -634,24 +818,25 @@
     </div>
   </section>
 
-  <!-- CONTATO SECTION -->
-  <section id="contato" class="py-32" data-aos="fade-up">
+  <!-- ============================================================
+       CONTATO
+       ============================================================ -->
+  <section id="contato" class="py-32 bg-[#0d0d0d]" data-aos="fade-up">
     <div class="max-w-3xl mx-auto px-4">
       <div class="text-center mb-16">
-        <h2 class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-4" data-pt="Conexão" data-en="Connection">Conexão</h2>
+        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Conexão" data-en="Connection">Conexão</h2>
         <h3 class="text-4xl font-bold text-white" data-pt="Vamos Conversar?" data-en="Let's Talk?">Vamos Conversar?</h3>
         <p class="text-neutral-500 text-lg mt-4 font-light" data-pt="Aberto a desafios técnicos e projetos de alto impacto." data-en="Open to technical challenges and high-impact projects.">Aberto a desafios técnicos e projetos de alto impacto.</p>
       </div>
 
       <form id="contact-form" action="https://submit-form.com/1pIuu489V" method="POST"
         class="space-y-6 minimal-card p-10 rounded-3xl">
-        <!-- Personalização Formspark Minimalista -->
         <input type="hidden" name="_feedback.dark" value="true" />
         <input type="hidden" name="_feedback.primary_color" value="#ffffff" />
         <input type="hidden" name="_feedback.bg_color" value="#0a0a0a" />
         <input type="hidden" name="_feedback.success.title" value="Mensagem enviada!" />
         <input type="hidden" name="_feedback.success.message" value="Obrigado, Jonas entrará em contato em breve." />
-        
+
         <div class="grid md:grid-cols-2 gap-6">
           <div class="space-y-2">
             <label class="text-xs font-bold uppercase tracking-wider text-neutral-500 ml-1" data-pt="Nome" data-en="Name">Nome</label>
@@ -667,115 +852,43 @@
         <div class="space-y-2">
           <label class="text-xs font-bold uppercase tracking-wider text-neutral-500 ml-1" data-pt="Mensagem" data-en="Message">Mensagem</label>
           <textarea name="Conteúdo da Mensagem:" placeholder="Como posso ajudar?" required
-            class="w-full p-4 rounded-2xl bg-black text-white border border-neutral-800 focus:border-neutral-500 outline-none transition-all h-40 font-light"></textarea>
+            class="w-full p-4 rounded-2xl bg-black text-white border border-neutral-800 focus:border-neutral-500 outline-none transition-all h-40 font-light resize-none"></textarea>
         </div>
         <button type="submit" id="submit-btn"
-          class="w-full bg-white text-black font-bold py-4 rounded-2xl hover:bg-neutral-200 transition-all flex items-center justify-center gap-2">
-          <i class="bi bi-send"></i> <span data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</span>
+          class="w-full bg-white text-black font-bold py-4 rounded-2xl hover:bg-neutral-100 transition-all flex items-center justify-center gap-2">
+          <i class="bi bi-send"></i>
+          <span data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</span>
         </button>
       </form>
 
       <div class="flex justify-center space-x-10 mt-16">
-        <a href="https://www.linkedin.com/in/jonasaaugusto" target="_blank" class="text-neutral-500 hover:text-white transition-all text-2xl" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/JonasaAugusto" target="_blank" class="text-neutral-500 hover:text-white transition-all text-2xl" title="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/jonasaaugusto" target="_blank"
+          class="text-neutral-500 hover:text-white transition-all text-2xl" title="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="https://github.com/JonasaAugusto" target="_blank"
+          class="text-neutral-500 hover:text-white transition-all text-2xl" title="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
       </div>
 
       <div class="mt-12 text-center text-neutral-600 text-sm font-light">
-        <p data-pt="📍 Juiz de Fora, MG | 📧 jonasaugustosantosoliveira@gmail.com  Juiz de Fora, MG | 📧 jonasaugustosantosoliveira@gmail.com ">📍 Juiz de Fora, MG | 📧 jonasaugustosantosoliveira@gmail.com</p>
+        <p>📍 Juiz de Fora, MG · 📧 jonasaugustosantosoliveira@gmail.com</p>
       </div>
     </div>
   </section>
 
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
   <footer class="py-16 border-t border-neutral-900 text-center">
-    <p class="text-neutral-600 text-sm font-light">&copy; 2026 Jonas Augusto. Fullstack Developer (Backend Focus).</p>
+    <p class="text-neutral-600 text-sm font-light">&copy; 2026 Jonas Augusto · Fullstack Developer (Backend Focus)</p>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script>
-    
-    let currentLang = 'pt';
+  <script src="js/main.js"></script>
 
-    function toggleLanguage() {
-      currentLang = currentLang === 'pt' ? 'en' : 'pt';
-      document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
-      document.getElementById('lang-label').innerText = currentLang === 'pt' ? 'EN' : 'PT';
-      
-      document.querySelectorAll('[data-pt]').forEach(el => {
-        const text = el.getAttribute(`data-${currentLang}`);
-        if (el.tagName === 'A' || el.tagName === 'BUTTON' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'H5' || el.tagName === 'LABEL') {
-          el.innerText = text;
-        }
-      });
-
-      if (window.typedInstance) {
-        window.typedInstance.destroy();
-      }
-      initTyped();
-      
-      localStorage.setItem('preferredLang', currentLang);
-    }
-
-    
-    function initTyped() {
-      const strings = currentLang === 'pt' ? [
-        "Desenvolvedor Fullstack",
-        "Especialista Técnico",
-        "Foco em Backend & APIs",
-        "Engenharia de Software & IA"
-      ] : [
-        "Fullstack Developer",
-        "Technical Specialist",
-        "Backend & APIs Focus",
-        "Software Engineering & AI"
-      ];
-
-      window.typedInstance = new Typed('#typed', {
-        strings: strings,
-        typeSpeed: 60,
-        backSpeed: 40,
-        loop: true,
-        showCursor: true,
-        cursorChar: '_'
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      AOS.init({ duration: 800, once: true, easing: 'ease-out' });
-
-      const savedLang = localStorage.getItem('preferredLang');
-      if (savedLang && savedLang !== currentLang) {
-        toggleLanguage();
-      } else {
-        initTyped();
-      }
-
-      const menuButton = document.getElementById('mobile-menu-button');
-      const menu = document.getElementById('mobile-menu');
-      const mobileLinks = document.querySelectorAll('.mobile-link');
-
-      menuButton.addEventListener('click', () => menu.classList.toggle('hidden'));
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => menu.classList.add('hidden'));
-      });
-
-      const backToTop = document.getElementById('back-to-top');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) backToTop.classList.add('visible');
-        else backToTop.classList.remove('visible');
-      });
-
-      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-      const contactForm = document.getElementById('contact-form');
-      const submitBtn = document.getElementById('submit-btn');
-      if (contactForm) {
-        contactForm.addEventListener('submit', () => {
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = `<i class="bi bi-arrow-repeat animate-spin"></i> <span data-pt="Enviando..." data-en="Sending...">Enviando...</span>`;
-        });
-      }
-    });
-  </script>
 </body>
 </html>
