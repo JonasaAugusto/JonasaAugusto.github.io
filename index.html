@@ -909,11 +909,10 @@
     <div class="cv-modal-content">
       <div class="cv-modal-header">
         <div class="cv-header-left">
+          <button type="button" id="cv-lang-btn" class="cv-lang-switch" onclick="toggleCvLang()" aria-label="Alternar idioma do currículo">
+            <span id="cv-lang-label">EN</span>
+          </button>
           <span class="cv-modal-title" data-pt="Currículo" data-en="Resume">Currículo</span>
-          <div class="cv-lang-toggle" role="group" aria-label="Idioma do currículo">
-            <button type="button" id="cv-lang-pt" class="active" onclick="setCvLang('pt')">PT</button>
-            <button type="button" id="cv-lang-en" onclick="setCvLang('en')">EN</button>
-          </div>
         </div>
         <button id="cv-modal-close" onclick="closeCvModal()" aria-label="Fechar">
           <i class="bi bi-x-lg"></i>

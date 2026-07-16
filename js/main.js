@@ -58,8 +58,12 @@ function setCvLang(lang) {
   const dl = document.getElementById('cv-download');
   dl.setAttribute('href', file.src);
   dl.setAttribute('download', file.download);
-  document.getElementById('cv-lang-pt').classList.toggle('active', lang === 'pt');
-  document.getElementById('cv-lang-en').classList.toggle('active', lang === 'en');
+  // Button shows the language you can switch TO (same pattern as the site header)
+  document.getElementById('cv-lang-label').innerText = lang === 'pt' ? 'EN' : 'PT';
+}
+
+function toggleCvLang() {
+  setCvLang(cvLang === 'pt' ? 'en' : 'pt');
 }
 
 function openCvModal() {
