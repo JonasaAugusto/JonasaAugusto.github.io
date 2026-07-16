@@ -856,18 +856,18 @@
         <div class="grid md:grid-cols-2 gap-6">
           <div class="space-y-2">
             <label class="text-xs font-bold uppercase tracking-wider text-neutral-500 ml-1" data-pt="Nome" data-en="Name">Nome</label>
-            <input type="text" name="Nome" placeholder="Seu nome" required
+            <input type="text" name="Nome" placeholder="Seu nome" data-ph-pt="Seu nome" data-ph-en="Your name" required
               class="w-full p-4 rounded-2xl bg-black text-white border border-neutral-800 focus:border-neutral-500 outline-none transition-all font-light" />
           </div>
           <div class="space-y-2">
             <label class="text-xs font-bold uppercase tracking-wider text-neutral-500 ml-1" data-pt="E-mail" data-en="Email">E-mail</label>
-            <input type="email" name="Email" placeholder="seu@email.com" required
+            <input type="email" name="Email" placeholder="seu@email.com" data-ph-pt="seu@email.com" data-ph-en="you@email.com" required
               class="w-full p-4 rounded-2xl bg-black text-white border border-neutral-800 focus:border-neutral-500 outline-none transition-all font-light" />
           </div>
         </div>
         <div class="space-y-2">
           <label class="text-xs font-bold uppercase tracking-wider text-neutral-500 ml-1" data-pt="Mensagem" data-en="Message">Mensagem</label>
-          <textarea name="Conteúdo da Mensagem:" placeholder="Como posso ajudar?" required
+          <textarea name="Conteúdo da Mensagem:" placeholder="Como posso ajudar?" data-ph-pt="Como posso ajudar?" data-ph-en="How can I help?" required
             class="w-full p-4 rounded-2xl bg-black text-white border border-neutral-800 focus:border-neutral-500 outline-none transition-all h-40 font-light resize-none"></textarea>
         </div>
         <button type="submit" id="submit-btn"
@@ -908,14 +908,20 @@
     <div class="cv-modal-backdrop" onclick="closeCvModal()"></div>
     <div class="cv-modal-content">
       <div class="cv-modal-header">
-        <span class="cv-modal-title" data-pt="Currículo" data-en="Resume">Currículo</span>
+        <div class="cv-header-left">
+          <span class="cv-modal-title" data-pt="Currículo" data-en="Resume">Currículo</span>
+          <div class="cv-lang-toggle" role="group" aria-label="Idioma do currículo">
+            <button type="button" id="cv-lang-pt" class="active" onclick="setCvLang('pt')">PT</button>
+            <button type="button" id="cv-lang-en" onclick="setCvLang('en')">EN</button>
+          </div>
+        </div>
         <button id="cv-modal-close" onclick="closeCvModal()" aria-label="Fechar">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
       <iframe id="cv-frame" title="Currículo Jonas Augusto"></iframe>
       <div class="cv-modal-footer">
-        <a href="JonasAugusto_cv_m.pdf" download="JonasAugusto_CV.pdf" class="cv-download-btn">
+        <a id="cv-download" href="JonasAugusto_cv_m.pdf" download="JonasAugusto_CV_PT.pdf" class="cv-download-btn">
           <i class="bi bi-download"></i>
           <span data-pt="Baixar" data-en="Download">Baixar</span>
         </a>

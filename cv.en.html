@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Jonas Augusto | Resume</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #555;
+    --line: #d9d9d9;
+    --accent: #111;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #fff; color: var(--ink); font-family: Arial, Helvetica, sans-serif; font-size: 9pt; line-height: 1.28; }
+
+  @page { size: A4; margin: 0; }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 9mm 11mm 8mm;
+  }
+  @media screen {
+    body { background: #e5e5e5; }
+    .page { margin: 20px auto; box-shadow: 0 4px 24px rgba(0,0,0,.18); background: #fff; }
+  }
+  @media print {
+    .page { box-shadow: none; margin: 0; }
+  }
+
+  /* ---------- Header ---------- */
+  header { border-bottom: 2.5px solid var(--accent); padding-bottom: 2.5mm; margin-bottom: 3.5mm; }
+  header h1 { font-size: 19pt; letter-spacing: .01em; }
+  header .headline { font-size: 9.3pt; font-weight: bold; letter-spacing: .03em; margin-top: 1mm; }
+  header .contact { font-size: 8.2pt; color: var(--muted); margin-top: 1.2mm; }
+  header .contact b { color: var(--ink); }
+
+  /* ---------- Layout ---------- */
+  .columns::after { content: ""; display: table; clear: both; }
+  aside { float: left; width: 31%; }
+  main { float: right; width: 65%; }
+
+  /* ---------- Sections ---------- */
+  h2 {
+    font-size: 8.8pt; text-transform: uppercase; letter-spacing: .08em;
+    border-bottom: 1px solid var(--line); padding-bottom: .8mm; margin: 3.2mm 0 2mm;
+  }
+  aside h2:first-child, main h2:first-child { margin-top: 0; }
+
+  /* Sidebar */
+  .skill-group { margin-bottom: 2.2mm; }
+  .skill-group h3 { font-size: 8.5pt; margin-bottom: .4mm; }
+  .skill-group p { font-size: 8pt; color: var(--muted); }
+  aside .entry { margin-bottom: 2mm; }
+  aside .entry h3 { font-size: 8.5pt; }
+  aside .entry p { font-size: 8pt; color: var(--muted); }
+  aside ul { list-style: none; }
+  aside ul li { font-size: 8pt; color: var(--muted); margin-bottom: .7mm; padding-left: 3mm; position: relative; }
+  aside ul li::before { content: "•"; position: absolute; left: 0; color: var(--ink); }
+
+  /* Main */
+  .profile { font-size: 8.8pt; text-align: justify; }
+  .job { margin-bottom: 2.6mm; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+  .job-head h3 { font-size: 9.4pt; }
+  .job-head .period { font-size: 8pt; color: var(--muted); white-space: nowrap; }
+  .job .company { font-size: 8.4pt; font-style: italic; color: var(--muted); margin-bottom: .8mm; }
+  .job ul { list-style: none; }
+  .job ul li { font-size: 8.6pt; margin-bottom: .7mm; padding-left: 3.5mm; position: relative; }
+  .job ul li::before { content: "•"; position: absolute; left: 0; }
+
+  .project { margin-bottom: 2mm; }
+  .project h3 { font-size: 9pt; }
+  .project h3 span { font-weight: normal; color: var(--muted); font-size: 8.4pt; }
+  .project p { font-size: 8.4pt; color: #333; text-align: justify; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Jonas Augusto</h1>
+    <p class="headline">BACKEND DEVELOPER | AUTOMATION &amp; AI AGENTS | PYTHON · FASTAPI · ARTIFICIAL INTELLIGENCE</p>
+    <p class="contact">+55 32 99168-5954 &nbsp;|&nbsp; jonasaugustoprofissional@gmail.com &nbsp;|&nbsp; linkedin.com/in/jonasaaugusto &nbsp;|&nbsp; Juiz de Fora, Brazil &nbsp;|&nbsp; <b>jonasaaugusto.github.io</b></p>
+  </header>
+
+  <div class="columns">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside>
+      <h2>Skills</h2>
+
+      <div class="skill-group">
+        <h3>Applied AI</h3>
+        <p>Integration with OpenAI API, Anthropic, DeepSeek. LangChain, on-device Whisper AI, Prompt Engineering, LLMOps. LLM agents, intelligent search orchestration. MCP (Model Context Protocol) integrations.</p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Backend &amp; Frameworks</h3>
+        <p>FastAPI, RESTful APIs, JWT, Webhooks. Automation with n8n, RPA, Playwright. Retry, fallback, and smart-cache patterns.</p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Databases</h3>
+        <p>PostgreSQL, MySQL, SQLite, Supabase. Relational modeling, optimization, versioning.</p>
+      </div>
+
+      <div class="skill-group">
+        <h3>DevOps &amp; Infra</h3>
+        <p>Docker, Docker Compose, Linux CLI, CI/CD. VPS, monitoring, Git/GitHub.</p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Architecture &amp; Practices</h3>
+        <p>Clean Architecture, SOLID, Design Patterns. TDD, retry patterns, robust error handling.</p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <p>Python (focus), C#, SQL, JavaScript.</p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Other</h3>
+        <p>.NET MAUI, UML, BPMN, Scrum, HTML/CSS.</p>
+      </div>
+
+      <h2>Education</h2>
+      <div class="entry">
+        <h3>Software Engineering</h3>
+        <p>Estácio de Sá | 2023 – Dec 2026 (completing)<br><b>GPA 9.3/10</b></p>
+      </div>
+      <div class="entry">
+        <h3>Technical Degree, Software Dev.</h3>
+        <p>SENAI Juiz de Fora | 2023<br>GPA 8.0/10</p>
+      </div>
+
+      <h2>Languages</h2>
+      <div class="entry">
+        <p><b>Portuguese</b> Native<br><b>English</b> C1 (Advanced)</p>
+      </div>
+
+      <h2>Certifications</h2>
+      <div class="entry">
+        <h3>Completed</h3>
+        <ul>
+          <li>Advanced Python + Generative AI (Udemy)</li>
+          <li>Artificial Intelligence Specialist (Academia de IA)</li>
+          <li>Information Systems Programming (Estácio)</li>
+          <li>Web Programming (Estácio)</li>
+          <li>User Rights &amp; Privacy (Estácio)</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <h3>In Progress</h3>
+        <ul>
+          <li>AWS Cloud Practitioner (2026)</li>
+          <li>Microsoft Certified: Azure Fundamentals (2026)</li>
+          <li>AI &amp; Machine Learning: Complete Guide (Udemy)</li>
+          <li>Advanced FastAPI | TDD | PostgreSQL (Udemy)</li>
+          <li>Power Apps + Power Automate + SharePoint (Udemy)</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+    <main>
+      <h2>Professional Summary</h2>
+      <p class="profile">
+        Backend Developer specialized in intelligent orchestration and automation pipelines.
+        6 months in real production: 15+ integrations, 97% latency reduction, 93.5% downtime reduction.
+        I build agents with LLMs (OpenAI, DeepSeek, Anthropic), integrate legacy APIs, and optimize critical workflows.
+        Clean Architecture, SOLID, retry patterns.
+        Stack: Python, FastAPI, Docker, Supabase, n8n. Software Engineering (GPA 9.3, graduating Dec 2026).
+        Portfolio: <b>jonasaaugusto.github.io</b>.
+      </p>
+
+      <h2>Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>Development and Automation Intern</h3>
+          <span class="period">May 2026 – present · Remote</span>
+        </div>
+        <p class="company">F5 Tecnologia</p>
+        <ul>
+          <li>Development of AI agents for selling digital products (loans, internet and cable TV plans), handling storage and traffic of sensitive data in compliance with LGPD.</li>
+          <li>Integration with WhatsApp Business API and CRM systems via webhooks, with infrastructure monitoring and retry-pattern implementation.</li>
+          <li>Flow analysis, validation testing, and technical documentation of AI systems.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>Backend Development &amp; RPA Intern</h3>
+          <span class="period">Sep – Nov 2025 · Hybrid</span>
+        </div>
+        <p class="company">NEURODEV (Startup)</p>
+        <ul>
+          <li>Developed 15+ integrations in Python connecting external APIs, processing 800+ transactions per day.</li>
+          <li>Implemented retry patterns and fallback with monitoring via Linux CLI for high availability.</li>
+          <li>Optimized a pipeline with the OpenAI API, reducing latency from 15 minutes to 27 seconds (97% reduction) through prompt engineering and intelligent caching.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>Junior Backend &amp; Integration Developer</h3>
+          <span class="period">Aug – Sep 2025 · Remote</span>
+        </div>
+        <p class="company">BNECT (Early-Stage Startup)</p>
+        <ul>
+          <li>Developed services in Python integrating CRM/ERP via APIs, applying Factory and Strategy patterns with an event-driven architecture.</li>
+          <li>Used n8n and Python for workflow orchestration with LLM integration.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>Software Requirements Analyst</h3>
+          <span class="period">Aug – Sep 2023 · Remote</span>
+        </div>
+        <p class="company">Volpatto Engenharia (Freelance)</p>
+        <ul>
+          <li>Specified functional and non-functional requirements in UML/BPMN for 6 services, focusing on performance and maintainability.</li>
+        </ul>
+      </div>
+
+      <h2>Featured Projects</h2>
+
+      <div class="project">
+        <h3>IAprovale Concurso Finder <span>· Python / FastAPI / DeepSeek / MCP / Supabase</span></h3>
+        <p>Backend with intelligent search orchestration using DeepSeek LLM and MCP to integrate with the PCI Concursos platform. JWT authentication, result deduplication, and versioned persistence in Supabase PostgreSQL. Desktop client in PySide6, web in development. Roughly 1,500 lines. Versioned deployment on Render. Demonstrates competence in AI agents and LLM integration in production.</p>
+      </div>
+
+      <div class="project">
+        <h3>NotaME <span>· C# / .NET MAUI / SQLite / AES-256</span></h3>
+        <p>Offline-first app for issuing NFS-e invoices (micro-entrepreneurs) with biometric authentication, AES-256 encryption, PDF generation via QuestPDF, and P2P sync over the local network, with zero server dependency.</p>
+      </div>
+
+      <div class="project">
+        <h3>LogiTrack API <span>· Python / FastAPI / PostgreSQL / Docker</span></h3>
+        <p>Logistics REST API with Clean Architecture, the Repository pattern, JWT authentication, async endpoints, and containerized deployment via Docker Compose.</p>
+      </div>
+
+      <div class="project">
+        <h3>VoxAI Hub <span>· C# / .NET MAUI / Whisper AI / FFmpeg</span></h3>
+        <p>Cross-platform app for offline audio/video transcription with on-device Whisper AI model integration, no external API cost, and full privacy.</p>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

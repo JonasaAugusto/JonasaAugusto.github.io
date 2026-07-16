@@ -14,6 +14,11 @@ function toggleLanguage() {
     if (text && inline.includes(el.tagName)) el.innerText = text;
   });
 
+  document.querySelectorAll('[data-ph-pt]').forEach(el => {
+    const ph = el.getAttribute(`data-ph-${currentLang}`);
+    if (ph) el.setAttribute('placeholder', ph);
+  });
+
   if (window.typedInstance) window.typedInstance.destroy();
   initTyped();
   localStorage.setItem('preferredLang', currentLang);
@@ -40,11 +45,27 @@ function initTyped() {
 /* ============================================================
    CV MODAL
    ============================================================ */
+const CV_FILES = {
+  pt: { src: 'JonasAugusto_cv_m.pdf',  download: 'JonasAugusto_CV_PT.pdf' },
+  en: { src: 'JonasAugusto_cv_en.pdf', download: 'JonasAugusto_CV_EN.pdf' }
+};
+let cvLang = null; // independent from the site language
+
+function setCvLang(lang) {
+  cvLang = lang;
+  const file = CV_FILES[lang];
+  document.getElementById('cv-frame').setAttribute('src', file.src);
+  const dl = document.getElementById('cv-download');
+  dl.setAttribute('href', file.src);
+  dl.setAttribute('download', file.download);
+  document.getElementById('cv-lang-pt').classList.toggle('active', lang === 'pt');
+  document.getElementById('cv-lang-en').classList.toggle('active', lang === 'en');
+}
+
 function openCvModal() {
-  const modal = document.getElementById('cv-modal');
-  const frame = document.getElementById('cv-frame');
-  if (!frame.getAttribute('src')) frame.setAttribute('src', 'JonasAugusto_cv_m.pdf');
-  modal.classList.remove('hidden');
+  if (cvLang === null) setCvLang(currentLang); // first open follows the site
+  else setCvLang(cvLang);                      // later opens keep the chosen language
+  document.getElementById('cv-modal').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
 }
 
