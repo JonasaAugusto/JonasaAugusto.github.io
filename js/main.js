@@ -24,8 +24,8 @@ function toggleLanguage() {
    ============================================================ */
 function initTyped() {
   const strings = currentLang === 'pt'
-    ? ['Desenvolvedor Fullstack', 'Especialista Técnico', 'Foco em Backend & APIs', 'Engenharia de Software & IA']
-    : ['Fullstack Developer', 'Technical Specialist', 'Backend & APIs Focus', 'Software Engineering & AI'];
+    ? ['Desenvolvedor Backend', 'Automação & Agentes de IA', 'Python · FastAPI · LLMs', 'Orquestração Inteligente']
+    : ['Backend Developer', 'Automation & AI Agents', 'Python · FastAPI · LLMs', 'Intelligent Orchestration'];
 
   window.typedInstance = new Typed('#typed', {
     strings,
@@ -36,6 +36,39 @@ function initTyped() {
     cursorChar: '_'
   });
 }
+
+/* ============================================================
+   CV MODAL
+   ============================================================ */
+function openCvModal() {
+  const modal = document.getElementById('cv-modal');
+  const frame = document.getElementById('cv-frame');
+  if (!frame.getAttribute('src')) frame.setAttribute('src', 'JonasAugusto_cv_m.pdf');
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCvModal() {
+  document.getElementById('cv-modal').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+function openF5Modal() {
+  document.getElementById('f5-modal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeF5Modal() {
+  document.getElementById('f5-modal').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeCvModal();
+    closeF5Modal();
+  }
+});
 
 /* ============================================================
    DOM READY

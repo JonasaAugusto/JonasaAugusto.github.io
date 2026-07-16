@@ -5,9 +5,11 @@
 **Caso de Estudo Técnico | F5 Tecnologia | 2026**
 
 > Projeto: Plataforma distribuída que recebe leads via WhatsApp, conduz atendimento autônomo com agente de IA,
-> coleta dados, cria propostas de crédito (Crefaz) e roteia leads para programas de energia (Órigo/Evolua).
+> coleta dados, gera propostas de crédito junto a um parceiro financeiro e roteia leads para programas de energia.
 > Arquitetura: 2 VPS distribuídas com separação inteligente de workload.
 > Status: Produção 24/7, atendendo leads reais.
+>
+> *Observação: nomes de parceiros comerciais e detalhes proprietários foram omitidos por confidencialidade. Este documento descreve arquitetura, decisões técnicas e resultados.*
 
 ---
 
@@ -65,15 +67,15 @@ Pipeline que lê contas de luz do cliente:
 
 ### Integração de APIs
 
-#### Crefaz (Crédito)
+#### Parceiro de Crédito (API)
 1. **Pré-análise:** CPF + dados básicos
 2. **Simulação:** Ofertas disponíveis por convênio
 3. **Seleção:** Usuário escolhe oferta
 4. **Upload de Documentos:** Foto de RG, selfie com documento, foto de fatura
-5. **Finalização:** Assinatura eletrônica (step3 → step7)
-6. **Polling Assíncrono:** Verifica status (situacaoId) até desfecho final
+5. **Finalização:** Assinatura eletrônica (fluxo multi-etapa)
+6. **Polling Assíncrono:** Verifica status até desfecho final
 
-#### Órigo & Evolua (Energia)
+#### Parceiros de Energia (Portais Web)
 - **Objetivo:** Cadastro de cliente em programas de desconto de energia
 - **Automação:** Navegação completa do portal (login → dados → consumo → plano → contrato)
 - **Tech:** Playwright headless em VPS #2
@@ -100,7 +102,7 @@ Fluxo de 9 etapas com persistência isolada por lead:
    ↓
 8. Confirmação (resumo da proposta, confirmação final)
    ↓
-9. Registro em Energia (roteia para Órigo ou Evolua conforme consumo/estado)
+9. Registro em Energia (roteia para o parceiro adequado conforme consumo/estado)
 ```
 
 Cada etapa é salva no banco, permitindo retomada se conversa cair.
@@ -108,7 +110,7 @@ Cada etapa é salva no banco, permitindo retomada se conversa cair.
 ### Orquestração Inteligente de Energia
 
 **Decisão:** Rotear cada lead para o parceiro correto baseado em:
-- **kWh consumido:** Órigo para baixo consumo, Evolua para alto
+- **kWh consumido:** parceiro A para baixo consumo, parceiro B para alto
 - **Cobertura estatal:** Alguns estados só têm um parceiro
 - **Derivação de UF:** Se UF não está na entrada, calcula a partir do CEP (por faixas, sem chamada externa)
 
@@ -220,8 +222,8 @@ CREATE TABLE leads (
 CREATE TABLE propostas (
     id UUID PRIMARY KEY,
     lead_id UUID REFERENCES leads(id),
-    proposta_id_crefaz VARCHAR(50), -- ID no banco parceiro
-    situacao_id INT, -- Status do Crefaz
+    proposta_id_parceiro VARCHAR(50), -- ID no parceiro de crédito
+    situacao_id INT, -- Status no parceiro
     valor DECIMAL,
     juros DECIMAL,
     aprovada BOOLEAN,
@@ -235,7 +237,7 @@ CREATE TABLE energia_rota (
     id UUID PRIMARY KEY,
     lead_id UUID REFERENCES leads(id),
     kwh_consumo DECIMAL,
-    parceiro VARCHAR(20), -- 'origo' ou 'evolua'
+    parceiro VARCHAR(20), -- identificador do parceiro de energia
     uf VARCHAR(2),
     status VARCHAR(20), -- 'pendente', 'cadastrado', 'erro'
     created_at TIMESTAMP
@@ -255,8 +257,8 @@ Todas as mudanças em schema são versionadas (`migrations/001_initial.sql`, `00
 ```
 ┌─────────────────────────┬──────────────────────────────┐
 │  FUNIL DE CRÉDITO       │  FUNIL DE ENERGIA            │
-│  Entrados: 156          │  Órigo: 89                   │
-│  Simulados: 142         │  Evolua: 54                  │
+│  Entrados: 156          │  Parceiro A: 89              │
+│  Simulados: 142         │  Parceiro B: 54              │
 │  Ofertas: 128           │  Nenhum: 13                  │
 │  Confirmados: 91        │                              │
 │                         │  Distribuição kWh:           │
@@ -306,25 +308,26 @@ logger.info(json.dumps({
 - **Retenção:** Política de delete após 90 dias (LGPD)
 - **Acesso:** Logs de quem acessou qual dado, quando
 
-### Mitigação de Anti-Fraude
+### Respeito a Limites de Taxa (Rate Limiting)
 
-Partners de energia têm rate limit e detecção de comportamento suspeito.
-Estratégia: **Throttling** (espaçar submissões, nunca estouro):
+Os serviços externos aplicam limites de requisições por origem. Para operar como um cliente
+bem-comportado e não degradar a experiência, implementei **throttling** com backoff exponencial,
+espaçando submissões e reagindo corretamente a respostas `429 Too Many Requests`:
 
 ```python
 async def submeter_formulario_energia(lead_id, dados):
-    await asyncio.sleep(0.5)  # Espaçar requisições
+    await asyncio.sleep(0.5)  # Espaçar requisições (cliente educado)
     response = await client.post(url, json=dados)
 
     if response.status_code == 429:  # Rate limit
-        logger.warning("Rate limit em energia, backoff exponencial")
-        await asyncio.sleep(5)  # Aguarde antes de retry
+        logger.warning("Limite de taxa atingido, aplicando backoff exponencial")
+        await asyncio.sleep(5)  # Aguarda antes de nova tentativa
         return await submeter_formulario_energia(lead_id, dados)
 
     return response
 ```
 
-Resultado: Nunca queima IP em produção.
+Resultado: integração estável e sustentável, sem sobrecarregar os serviços parceiros.
 
 ### Privacidade do Cliente
 
@@ -379,14 +382,19 @@ server {
 
 **Benefício:** URL permanente e estável (substituiu cloudflared efêmero).
 
-### Proxy Residencial
+### Camada de Rede Resiliente
 
-Alguns partners bloqueiam IPs de datacenter.
-Solução: Camada de proxy residencial que roteia tráfego de energia para IPs residenciais reais.
+Alguns serviços externos apresentavam conectividade instável a partir de faixas de IP de datacenter
+(timeouts intermitentes e bloqueios por reputação de origem). Para garantir entrega confiável das
+requisições em produção, adicionei uma camada de saída de rede configurável, isolando a política de
+roteamento de saída da lógica de aplicação.
 
 ```
-Requisição → VPS #2 → Proxy Residencial → Partner (confia em IP residencial)
+Requisição → VPS #2 → Camada de saída de rede → Serviço externo
 ```
+
+**Benefício:** conectividade estável e previsível com serviços de terceiros, sem acoplar a lógica de
+negócio a detalhes de infraestrutura de rede.
 
 ---
 
@@ -441,8 +449,8 @@ Exemplo: "O robô fala muito 'estou processando'" → Log mostra webhook parado 
 **Integração:**
 - Meta WhatsApp Business API (WABA)
 - Chatwoot (CRM de atendimento)
-- Crefaz API (crédito)
-- Portais Órigo & Evolua (scraping)
+- API de parceiro de crédito
+- Portais de parceiros de energia (automação web)
 
 **Infraestrutura:**
 - 2 VPS Linux (Ubuntu 22.04)

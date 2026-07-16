@@ -24,14 +24,16 @@ Repositório do meu portfólio pessoal hospedado em [jonasaaugusto.github.io](ht
 ## Estrutura
 
 - `index.html`: Página única contendo todo o conteúdo, estilos e scripts
-- `jonasaugusto_cv.pdf`: Currículo em formato PDF para download
+- `JonasAugusto_cv_m.pdf`: Currículo em formato PDF para download
+- `cv.html`: Fonte editável do currículo (imprimir em PDF para atualizar)
+- `docs/`: Casos de estudo técnicos (PT e EN)
 - `README.md`: Este arquivo
 
 ## Impacto Mensurável
 
-Meu portfólio reflete minha jornada como desenvolvedor Back-End Júnior com resultados comprovados:
-- **87% de eficiência** em automação de processos e implementação de soluções de IA generativa
-- **Redução de 40% no tempo de processamento** de fluxos críticos através de automação
+Meu portfólio reflete minha jornada como desenvolvedor Backend especializado em automação e agentes de IA, com resultados comprovados:
+- **15+ integrações em produção** conectando APIs externas, processando 800+ transações por dia
+- **Redução de latência de 97%** (15 minutos para 27 segundos) via engenharia de prompt e cache inteligente
 - **Economia de 25+ horas/mês** em trabalho manual através de RPA
 - **93,5% de redução em downtime** de sistemas críticos através de monitoramento proativo
 

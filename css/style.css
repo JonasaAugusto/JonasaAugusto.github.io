@@ -122,6 +122,13 @@ body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
   box-shadow: 0 20px 40px -15px rgba(6,182,212,0.22), 0 0 0 1px rgba(6,182,212,0.12);
 }
 
+/* Emerald — IAprovale */
+.anchor-card.card-emerald      { border: 1px solid rgba(16,185,129,0.25); }
+.anchor-card.card-emerald:hover {
+  border-color: rgba(16,185,129,0.5);
+  box-shadow: 0 20px 40px -15px rgba(16,185,129,0.22), 0 0 0 1px rgba(16,185,129,0.12);
+}
+
 /* ============================================================
    LANG SWITCH
    ============================================================ */
@@ -241,11 +248,12 @@ body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 }
 
 /* Projeto Principal */
-.badge-main-blue   { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); color: #60a5fa; }
-.badge-main-violet { background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.2); color: #a78bfa; }
-.badge-main-cyan   { background: rgba(6,182,212,0.08);  border: 1px solid rgba(6,182,212,0.2);  color: #22d3ee; }
+.badge-main-blue    { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); color: #60a5fa; }
+.badge-main-violet  { background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.2); color: #a78bfa; }
+.badge-main-cyan    { background: rgba(6,182,212,0.08);  border: 1px solid rgba(6,182,212,0.2);  color: #22d3ee; }
+.badge-main-emerald { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); color: #34d399; }
 
-.badge-main-blue, .badge-main-violet, .badge-main-cyan {
+.badge-main-blue, .badge-main-violet, .badge-main-cyan, .badge-main-emerald {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -277,6 +285,201 @@ body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 @keyframes pulse-live {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.55; }
+}
+
+/* ============================================================
+   CV MODAL
+   ============================================================ */
+.cv-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.cv-modal.hidden { display: none; }
+
+.cv-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.cv-modal-content {
+  position: relative;
+  width: min(900px, 94vw);
+  height: min(88vh, 1100px);
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+}
+
+.cv-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 10px 20px;
+  border-bottom: 1px solid #262626;
+  background: #0f0f0f;
+  flex-shrink: 0;
+}
+
+.cv-modal-title {
+  color: #e5e5e5;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+#cv-modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #a3a3a3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#cv-modal-close:hover {
+  background: #262626;
+  color: #ffffff;
+}
+
+#cv-frame {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #1a1a1a;
+}
+
+.cv-modal-footer {
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+  border-top: 1px solid #262626;
+  background: #0f0f0f;
+  flex-shrink: 0;
+}
+
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+.cv-download-btn:hover { background: #e5e5e5; }
+
+/* Case study body (scrollable) */
+.case-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 26px 30px;
+  color: #a3a3a3;
+}
+
+.case-lead {
+  color: #d4d4d4;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.case-h {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 26px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #262626;
+}
+
+.case-p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.case-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.case-ul li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.case-ul li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #818cf8;
+}
+
+.case-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.case-metric {
+  background: #0f0f0f;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.case-metric strong {
+  display: block;
+  color: #818cf8;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.case-metric span {
+  font-size: 0.78rem;
+  color: #737373;
+  line-height: 1.3;
+}
+
+.case-stack {
+  margin-top: 22px;
+  font-size: 0.82rem;
+  color: #737373;
+  font-style: italic;
+  line-height: 1.6;
 }
 
 /* ============================================================

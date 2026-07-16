@@ -5,9 +5,11 @@
 **Technical Case Study | F5 Tecnologia | 2026**
 
 > Project: Distributed platform that receives leads via WhatsApp, runs autonomous service with an AI agent,
-> collects data, creates credit proposals (Crefaz), and routes leads to energy programs (Órigo/Evolua).
+> collects data, generates credit proposals through a financial partner, and routes leads to energy programs.
 > Architecture: 2 distributed VPS with intelligent workload separation.
 > Status: 24/7 production, serving real leads.
+>
+> *Note: commercial partner names and proprietary details were omitted for confidentiality. This document describes architecture, technical decisions, and results.*
 
 ---
 
@@ -65,15 +67,15 @@ Pipeline that reads customers' electricity bills:
 
 ### API Integration
 
-#### Crefaz (Credit)
+#### Credit Partner (API)
 1. **Pre-analysis:** CPF + basic data
 2. **Simulation:** Available offers per agreement
 3. **Selection:** User picks an offer
 4. **Document Upload:** ID photo, selfie with document, bill photo
-5. **Finalization:** Electronic signature (step3 → step7)
-6. **Async Polling:** Checks status (situacaoId) until final outcome
+5. **Finalization:** Electronic signature (multi-step flow)
+6. **Async Polling:** Checks status until final outcome
 
-#### Órigo & Evolua (Energy)
+#### Energy Partners (Web Portals)
 - **Goal:** Register customers in energy discount programs
 - **Automation:** Full portal navigation (login → data → consumption → plan → contract)
 - **Tech:** Headless Playwright on VPS #2
@@ -100,7 +102,7 @@ Pipeline that reads customers' electricity bills:
    ↓
 8. Confirmation (proposal summary, final confirmation)
    ↓
-9. Energy Registration (routes to Órigo or Evolua by consumption/state)
+9. Energy Registration (routes to the appropriate partner by consumption/state)
 ```
 
 Each step is saved to the database, allowing resumption if the conversation drops.
@@ -108,7 +110,7 @@ Each step is saved to the database, allowing resumption if the conversation drop
 ### Intelligent Energy Orchestration
 
 **Decision:** Route each lead to the right partner based on:
-- **kWh consumed:** Órigo for low consumption, Evolua for high
+- **kWh consumed:** partner A for low consumption, partner B for high
 - **State coverage:** Some states only have one partner
 - **State (UF) derivation:** If the state is missing from the input, it is computed from the ZIP code (by ranges, no external call)
 
@@ -220,8 +222,8 @@ CREATE TABLE leads (
 CREATE TABLE propostas (
     id UUID PRIMARY KEY,
     lead_id UUID REFERENCES leads(id),
-    proposta_id_crefaz VARCHAR(50), -- ID at the partner bank
-    situacao_id INT, -- Crefaz status
+    proposta_id_parceiro VARCHAR(50), -- ID at the credit partner
+    situacao_id INT, -- status at the partner
     valor DECIMAL,
     juros DECIMAL,
     aprovada BOOLEAN,
@@ -235,7 +237,7 @@ CREATE TABLE energia_rota (
     id UUID PRIMARY KEY,
     lead_id UUID REFERENCES leads(id),
     kwh_consumo DECIMAL,
-    parceiro VARCHAR(20), -- 'origo' or 'evolua'
+    parceiro VARCHAR(20), -- energy partner identifier
     uf VARCHAR(2),
     status VARCHAR(20), -- 'pendente', 'cadastrado', 'erro'
     created_at TIMESTAMP
@@ -255,8 +257,8 @@ All schema changes are versioned (`migrations/001_initial.sql`, `002_add_sync_we
 ```
 ┌─────────────────────────┬──────────────────────────────┐
 │  CREDIT FUNNEL          │  ENERGY FUNNEL               │
-│  Entered: 156           │  Órigo: 89                   │
-│  Simulated: 142         │  Evolua: 54                  │
+│  Entered: 156           │  Partner A: 89               │
+│  Simulated: 142         │  Partner B: 54               │
 │  Offers: 128            │  None: 13                    │
 │  Confirmed: 91          │                              │
 │                         │  kWh distribution:           │
@@ -306,25 +308,26 @@ logger.info(json.dumps({
 - **Retention:** Delete policy after 90 days (LGPD)
 - **Access:** Logs of who accessed which data, and when
 
-### Anti-Fraud Mitigation
+### Respecting Rate Limits
 
-Energy partners have rate limits and suspicious behavior detection.
-Strategy: **Throttling** (space out submissions, never burst):
+External services enforce per-origin request limits. To behave as a well-mannered client and avoid
+degrading the experience, I implemented **throttling** with exponential backoff, spacing out
+submissions and reacting correctly to `429 Too Many Requests` responses:
 
 ```python
 async def submit_energy_form(lead_id, data):
-    await asyncio.sleep(0.5)  # Space out requests
+    await asyncio.sleep(0.5)  # Space out requests (polite client)
     response = await client.post(url, json=data)
 
     if response.status_code == 429:  # Rate limit
-        logger.warning("Energy rate limit, exponential backoff")
+        logger.warning("Rate limit reached, applying exponential backoff")
         await asyncio.sleep(5)  # Wait before retry
         return await submit_energy_form(lead_id, data)
 
     return response
 ```
 
-Result: Never burns an IP in production.
+Result: stable and sustainable integration without overloading partner services.
 
 ### Customer Privacy
 
@@ -379,14 +382,18 @@ server {
 
 **Benefit:** Permanent, stable URL (replaced ephemeral cloudflared).
 
-### Residential Proxy
+### Resilient Network Layer
 
-Some partners block datacenter IPs.
-Solution: Residential proxy layer routing energy traffic through real residential IPs.
+Some external services showed unstable connectivity from datacenter IP ranges (intermittent timeouts
+and origin-reputation blocks). To ensure reliable request delivery in production, I added a
+configurable network egress layer, isolating outbound routing policy from application logic.
 
 ```
-Request → VPS #2 → Residential Proxy → Partner (trusts residential IP)
+Request → VPS #2 → Network egress layer → External service
 ```
+
+**Benefit:** stable, predictable connectivity with third-party services, without coupling business
+logic to network infrastructure details.
 
 ---
 
@@ -441,8 +448,8 @@ Example: "The bot says 'processing' too often" → Logs show a dead webhook → 
 **Integration:**
 - Meta WhatsApp Business API (WABA)
 - Chatwoot (service CRM)
-- Crefaz API (credit)
-- Órigo & Evolua portals (scraping)
+- Credit partner API
+- Energy partner portals (web automation)
 
 **Infrastructure:**
 - 2 Linux VPS (Ubuntu 22.04)
