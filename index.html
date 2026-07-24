@@ -413,46 +413,73 @@
           <span data-pt="Projetos Principais" data-en="Main Projects">Projetos Principais</span>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          <!-- IAPROVALE -->
-          <div class="anchor-card card-emerald rounded-3xl overflow-hidden project-item" data-aos="fade-up">
-            <div class="p-8 flex-grow flex flex-col">
-              <div class="flex justify-between items-start mb-6">
-                <div class="bg-emerald-500/10 p-3 rounded-2xl border border-emerald-500/20">
-                  <i class="bi bi-robot text-2xl text-emerald-400"></i>
-                </div>
-                <div class="flex flex-col items-end gap-2">
-                  <a href="https://github.com/JonasaAugusto/IAprovale" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
-                    <i class="bi bi-github text-2xl"></i>
-                  </a>
-                  <span class="badge-main-emerald" data-pt="Projeto Principal" data-en="Main Project">Projeto Principal</span>
-                  <span class="badge-live" data-pt="Live Deploy" data-en="Live Deploy">● Live</span>
-                </div>
+        <!-- ⭐ FEATURED: IAPROVALE -->
+        <div class="featured-project anchor-card rounded-3xl overflow-hidden project-item" data-aos="fade-up">
+          <div class="p-8 md:p-10">
+            <div class="flex flex-wrap items-center gap-3 mb-5">
+              <div class="bg-emerald-500/10 p-3 rounded-2xl border border-emerald-500/20">
+                <i class="bi bi-robot text-2xl text-emerald-400"></i>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3" data-pt="IAprovale Concurso Finder" data-en="IAprovale Concurso Finder">IAprovale Concurso Finder</h4>
-              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
-                 data-pt="Backend com orquestração inteligente de buscas usando DeepSeek LLM e MCP para integração com a plataforma PCI Concursos. Autenticação JWT, deduplicação de resultados e persistência versionada em Supabase PostgreSQL. Cliente desktop em PySide6, web em desenvolvimento. Deploy versionado em Render."
-                 data-en="Backend with intelligent search orchestration using DeepSeek LLM and MCP for integration with the PCI Concursos platform. JWT authentication, result deduplication, and versioned persistence in Supabase PostgreSQL. Desktop client in PySide6, web in development. Versioned deployment on Render.">
-                Backend com orquestração inteligente de buscas usando DeepSeek LLM e MCP para integração com a plataforma PCI Concursos. Autenticação JWT, deduplicação de resultados e persistência versionada em Supabase PostgreSQL. Cliente desktop em PySide6, web em desenvolvimento. Deploy versionado em Render.
+              <span class="badge-main-emerald" data-pt="Projeto em Destaque" data-en="Featured Project">Projeto em Destaque</span>
+              <span class="badge-live" data-pt="Live Deploy" data-en="Live Deploy">● Live</span>
+            </div>
+
+            <h4 class="text-2xl md:text-3xl font-bold text-white mb-4">IAprovale <span class="text-neutral-500 font-normal text-xl">· Concurso Finder</span></h4>
+
+            <div class="feat-block">
+              <div class="feat-label"><i class="bi bi-bullseye"></i><span data-pt="O que resolve" data-en="Problem it solves">O que resolve</span></div>
+              <p class="text-neutral-300 leading-relaxed font-light"
+                 data-pt="Buscador de concursos públicos com IA. O usuário descreve em linguagem natural o que procura (ex: concurso na área de saúde com graduação em enfermagem) e o sistema filtra automaticamente apenas os concursos com inscrições abertas compatíveis com a formação."
+                 data-en="AI-powered public-exam finder. Users describe what they want in natural language (e.g., a health-sector exam for a nursing graduate) and the system automatically filters only open exams compatible with their education.">
+                Buscador de concursos públicos com IA. O usuário descreve em linguagem natural o que procura (ex: concurso na área de saúde com graduação em enfermagem) e o sistema filtra automaticamente apenas os concursos com inscrições abertas compatíveis com a formação.
               </p>
+            </div>
+
+            <div class="feat-block">
+              <div class="feat-label"><i class="bi bi-diagram-3"></i><span data-pt="Como funciona" data-en="How it works">Como funciona</span></div>
+              <p class="text-neutral-400 leading-relaxed font-light text-sm"
+                 data-pt="Backend assíncrono em FastAPI que traduz a busca com IA (DeepSeek) e consulta a fonte oficial via MCP da PCI Concursos (JSON-RPC, sem scraping). Persistência com SQLModel e PostgreSQL (Neon), autenticação por sessão e administração de usuários. Clientes desktop (PySide6) e web, com deploy no Render."
+                 data-en="Async FastAPI backend that translates the query with AI (DeepSeek) and queries the official source via the PCI Concursos MCP (JSON-RPC, no scraping). Persistence with SQLModel and PostgreSQL (Neon), session auth and user administration. Desktop (PySide6) and web clients, deployed on Render.">
+                Backend assíncrono em FastAPI que traduz a busca com IA (DeepSeek) e consulta a fonte oficial via MCP da PCI Concursos (JSON-RPC, sem scraping). Persistência com SQLModel e PostgreSQL (Neon), autenticação por sessão e administração de usuários. Clientes desktop (PySide6) e web, com deploy no Render.
+              </p>
+            </div>
+
+            <div class="feat-block">
+              <div class="feat-label"><i class="bi bi-check2-square"></i><span data-pt="Destaques de engenharia" data-en="Engineering highlights">Destaques de engenharia</span></div>
+              <ul class="feat-highlights">
+                <li data-pt="Arquitetura modular (auth, profile, search, cep, core)" data-en="Modular architecture (auth, profile, search, cep, core)">Arquitetura modular (auth, profile, search, cep, core)</li>
+                <li data-pt="~200 testes automatizados" data-en="~200 automated tests">~200 testes automatizados</li>
+                <li data-pt="Suíte E2E com Playwright contra o backend real" data-en="E2E suite with Playwright against the real backend">Suíte E2E com Playwright contra o backend real</li>
+                <li data-pt="Exportação de PDF local e busca em linguagem natural" data-en="Local PDF export and natural-language search">Exportação de PDF local e busca em linguagem natural</li>
+              </ul>
+            </div>
+
+            <div class="feat-block" style="margin-bottom:0">
+              <div class="feat-label"><i class="bi bi-stack"></i><span data-pt="Stack" data-en="Stack">Stack</span></div>
               <div class="flex flex-wrap gap-2">
                 <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
                 <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">FastAPI</span>
                 <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">DeepSeek</span>
                 <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">MCP</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Supabase</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">SQLModel</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">PostgreSQL</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">PySide6</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Playwright</span>
+                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Render</span>
               </div>
             </div>
-            <div class="flex border-t border-emerald-500/20">
-              <a href="https://github.com/JonasaAugusto/IAprovale" target="_blank"
-                class="flex-1 p-4 bg-emerald-500/5 hover:bg-emerald-500/10 text-center text-sm font-bold transition-colors border-r border-emerald-500/20 text-emerald-400"
-                data-pt="GitHub" data-en="GitHub">GitHub</a>
-              <a href="https://jonasaaugusto.github.io/IAprovale/" target="_blank"
-                class="flex-1 p-4 bg-emerald-500/5 hover:bg-emerald-500/10 text-center text-sm font-bold transition-colors text-emerald-300"
-                data-pt="Home Page" data-en="Home Page">Home Page</a>
-            </div>
           </div>
+          <div class="flex border-t border-emerald-500/20">
+            <a href="https://github.com/JonasaAugusto/IAprovale" target="_blank"
+              class="flex-1 p-4 bg-emerald-500/5 hover:bg-emerald-500/10 text-center text-sm font-bold transition-colors border-r border-emerald-500/20 text-emerald-400 flex items-center justify-center gap-2">
+              <i class="bi bi-github"></i><span data-pt="Ver Código" data-en="View Code">Ver Código</span></a>
+            <a href="https://jonasaaugusto.github.io/IAprovale/" target="_blank"
+              class="flex-1 p-4 bg-emerald-500/5 hover:bg-emerald-500/10 text-center text-sm font-bold transition-colors text-emerald-300 flex items-center justify-center gap-2">
+              <i class="bi bi-box-arrow-up-right"></i><span data-pt="Home Page" data-en="Home Page">Home Page</span></a>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
 
           <!-- NOTAME -->
           <div class="anchor-card card-violet rounded-3xl overflow-hidden project-item" data-aos="fade-up" data-aos-delay="100">

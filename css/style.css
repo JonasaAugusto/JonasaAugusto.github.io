@@ -129,6 +129,60 @@ body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
   box-shadow: 0 20px 40px -15px rgba(16,185,129,0.22), 0 0 0 1px rgba(16,185,129,0.12);
 }
 
+/* Featured project (hero) */
+.featured-project {
+  margin-bottom: 2rem;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(16,185,129,0.10) 0%, rgba(16,185,129,0) 55%),
+    #121212;
+  border: 1px solid rgba(16,185,129,0.30);
+  box-shadow: 0 24px 60px -25px rgba(16,185,129,0.30);
+}
+
+.feat-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #34d399;
+  margin-bottom: 8px;
+}
+
+.feat-block { margin-bottom: 1.4rem; }
+
+.feat-highlights {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 20px;
+}
+
+.feat-highlights li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.86rem;
+  color: #a3a3a3;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.feat-highlights li::before {
+  content: "\F26A"; /* bootstrap-icons check */
+  font-family: "bootstrap-icons";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #34d399;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .feat-highlights { grid-template-columns: 1fr; }
+}
+
 /* ============================================================
    LANG SWITCH
    ============================================================ */
