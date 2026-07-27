@@ -1,4 +1,4 @@
-# Plataforma Autônoma de Conversão de Leads com IA — Crédito & Energia
+# Plataforma Autônoma de Conversão de Leads com IA: Crédito & Energia
 
 🇧🇷 Português | [🇺🇸 English](f5-platform-case-study.en.md)
 
@@ -6,7 +6,7 @@
 
 > Projeto: Plataforma distribuída que recebe leads via WhatsApp, conduz atendimento autônomo com agente de IA,
 > coleta dados, gera propostas de crédito junto a um parceiro financeiro e roteia leads para programas de energia.
-> Arquitetura: 2 VPS distribuídas com separação inteligente de workload.
+> Arquitetura: 3 VPS distribuídas com separação inteligente de workload, migrada de uma configuração inicial de 2 VPS.
 > Status: Produção 24/7, atendendo leads reais.
 >
 > *Observação: nomes de parceiros comerciais e detalhes proprietários foram omitidos por confidencialidade. Este documento descreve arquitetura, decisões técnicas e resultados.*
@@ -28,7 +28,9 @@ afetando a responsividade do atendimento em tempo real (latência aumentava dura
 
 ### Decisão de Design
 
-Provisionar VPS #2 dedicada com FastAPI isolando RPA pesado.
+Provisionar VPS #2 dedicada com FastAPI isolando RPA pesado. Para equilibrar ainda mais o desempenho,
+criei uma API própria em FastAPI que descarregava parte do processamento para a VPS com mais memória,
+aliviando a VPS mais limitada.
 
 ```
 ┌─────────────────────┐              ┌──────────────────────┐
@@ -43,6 +45,33 @@ Provisionar VPS #2 dedicada com FastAPI isolando RPA pesado.
 ```
 
 **Benefício:** Isolamento de responsabilidades, sem contenção de recursos, atendimento mais estável.
+
+### Fase 2: Saída do Canal Oficial de WhatsApp
+
+Mais adiante, a saída do canal oficial de WhatsApp (WABA) para números não-oficiais via Baileys mudou o
+cenário por completo: o Baileys não replica a mesma arquitetura de atendimento e estruturação de conversas
+que a API oficial oferecia.
+
+**Gargalo identificado:** a API própria em FastAPI de balanceamento, criada na Fase 1, deixou de fazer
+sentido nessa nova realidade de mensageria.
+
+**Decisão de Design:** contratei uma terceira VPS e transferi toda a operação para lá. A API de
+balanceamento deixou de fazer sentido nessa nova infraestrutura, e o mesmo período de migração exigiu a
+criação, do zero, de um servidor de ferramentas via protocolo MCP para resolver a lacuna estrutural do
+novo canal (ver seção "Migração para Arquitetura de Ferramentas" abaixo).
+
+```
+┌─────────────────────┐   ┌──────────────────────┐   ┌──────────────────────┐
+│   VPS #1            │   │   VPS #2             │   │   VPS #3 (nova)      │
+│                      │   │                      │   │                      │
+│ • Número não-oficial │──>│ • Playwright headless│   │ • Servidor MCP       │
+│ • Agente IA          │   │ • RPA de navegador   │<─>│ • Ferramentas do     │
+│ • Fluxo 9 etapas     │   │                      │   │   funil (ex-FastAPI) │
+└─────────────────────┘   └──────────────────────┘   └──────────────────────┘
+```
+
+**Benefício:** operação estável no novo canal de mensageria, com a lógica de negócio desacoplada do formato
+de mensagem e centralizada no servidor MCP.
 
 ---
 
@@ -118,9 +147,99 @@ Resultado: Cliente vai para o parceiro certo na primeira tentativa.
 
 ---
 
+## 🔧 Migração para Arquitetura de Ferramentas (MCP)
+
+### Problema Identificado
+
+A troca do canal oficial de WhatsApp (WABA) para números não-oficiais via Baileys tirou do agente uma
+capacidade estrutural que a API oficial garantia nativamente: um jeito padronizado de organizar e
+interpretar o fluxo de conversa. Sem isso, o agente corria o risco de "fingir" que executava ações
+internamente, sem de fato completar o cadastro.
+
+### Decisão de Design
+
+A solução foi arquitetural, não um remendo pontual: **criei do zero um servidor MCP (Model Context
+Protocol)**, reconstruindo o funil inteiro como um conjunto de ferramentas que o próprio agente chama
+durante a conversa, no mesmo turno em que decide agir.
+
+```
+Lead → Agente de IA → [decide agir] → Chamada de ferramenta MCP → API real do parceiro → Resultado
+                                              ↓
+                              (checagem de cobertura, coleta de dados,
+                               criação de proposta, simulação,
+                               seleção de oferta, finalização)
+```
+
+Cada ferramenta executa contra a API real do parceiro e devolve o resultado imediatamente, reaproveitando
+a sessão do lead pelo telefone, independente da capacidade de estruturação de conversa que só a API oficial
+de WhatsApp garantia, sem re-autenticação, sem perda de contexto.
+
+### Trava de Segurança
+
+A trava está no código, não na conversa: a ação de finalizar cadastro só executa com confirmação explícita
+do lead. Se o agente tentar concluir sozinho (por pressa, ambiguidade ou erro de interpretação), o sistema
+bloqueia a chamada antes que ela chegue à API do parceiro.
+
+**Benefício:** o agente recuperou a capacidade de agir de verdade, com uma garantia estrutural de que
+nenhuma ação irreversível acontece sem o consentimento explícito do cliente.
+
+---
+
+## 🔍 Auditoria e Correção de Falhas em Produção
+
+Uma auditoria completa de um dos funis revelou uma cadeia de falhas silenciosas que vinham descartando
+leads válidos sem que ninguém percebesse.
+
+### 1. Extração de Dados Incompleta
+
+O agente lia o documento do cliente mas não capturava um dado crítico de elegibilidade. Cobertura subiu de
+**2% para 91%**, agora incluindo histórico dos últimos 12 meses para os parceiros decidirem pela média em
+vez do mês isolado.
+
+### 2. Clientes Recusados Sem Motivo Real
+
+- Um segmento inteiro era bloqueado quando, na prática, só uma condição específica realmente restringia
+  esse perfil.
+- Um erro de leitura identificava clientes de duas regiões como pertencentes a um fornecedor com crédito
+  suspenso, barrando **34 clientes** indevidamente.
+- Um bloqueio de crédito continuava ativo mesmo depois de corrigida a causa raiz, negando uma proposta de
+  alto valor já aprovada.
+
+### 3. 142 Cadastros Travados em Silêncio
+
+Quando o lead se apresentava só pelo primeiro nome, o parceiro exigia nome completo e a proposta nunca era
+criada, sem que ninguém pedisse o dado faltante. Corrigido extraindo o nome completo direto do documento
+do cliente (impresso nele) e, quando ausente, com pergunta explícita.
+
+### 4. Comunicação do Agente
+
+Eliminei:
+- Promessas de causa não confirmada
+- Negativas anunciadas antes da causa ser conhecida
+- Uso excessivo de emoji (risco de o WhatsApp marcar o número como spam)
+- Perguntas em formato de formulário
+
+Também implementei uma rotina de limpeza de contexto para impedir que o agente repetisse informações
+incorretas já corrigidas no sistema, mas ainda presentes no histórico da conversa.
+
+---
+
+## 💡 Descobertas de Negócio
+
+Testando o funil com clientes reais em parceiros externos, identifiquei uma restrição estrutural: um
+perfil específico de cliente é recusado por **todos** os parceiros de um segmento, já que o benefício
+deles não acumula com um benefício governamental equivalente, mesmo sendo um perfil bem aceito pelo
+parceiro financeiro.
+
+Como uma parcela relevante da base se encaixa nesse perfil, o mercado real endereçável desse segmento é
+bem menor do que os números brutos sugerem. Esse dado foi levado à mesa com os parceiros para negociação
+comercial.
+
+---
+
 ## 🔴 Desafios Resolvidos
 
-### 1. Webhook Morto — 43 Propostas Congeladas
+### 1. Webhook Morto: 43 Propostas Congeladas
 
 **Sintoma:**
 Webhook de desfecho de um parceiro parou de ser entregue (0 chamadas recebidas por 4 dias).
@@ -423,6 +542,9 @@ Exemplo: "O robô fala muito 'estou processando'" → Log mostra webhook parado 
 | **Backlog travado (antes)** | 28 leads |
 | **Backlog travado (depois)** | 3 leads |
 | **Race conditions resolvidas** | 1 (takeover humano) |
+| **Captura de dado crítico de elegibilidade** | 91% (era 2%) |
+| **Clientes recuperados de bloqueios indevidos** | 170+ |
+| **Cadastros recuperados (nome incompleto)** | 142 |
 
 ---
 
@@ -434,8 +556,9 @@ Exemplo: "O robô fala muito 'estou processando'" → Log mostra webhook parado 
 - Flask (dashboard)
 
 **IA & LLM:**
-- OpenAI API (GPT-4)
+- LLM APIs (com fallback)
 - LangChain (orquestração de agente)
+- MCP (Model Context Protocol), arquitetura de ferramentas
 - Prompt Engineering estruturado
 
 **Automação & RPA:**
@@ -478,4 +601,4 @@ Cada decisão foi motivada por um problema real identificado em produção.
 
 ---
 
-*Documento técnico atualizado em Maio 2026. Plataforma em operação 24/7.*
+*Documento técnico atualizado em Julho 2026. Plataforma em operação 24/7, agora com arquitetura orientada a ferramentas via MCP.*

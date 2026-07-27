@@ -1,4 +1,4 @@
-# Autonomous AI Lead Conversion Platform — Credit & Energy
+# Autonomous AI Lead Conversion Platform: Credit & Energy
 
 [🇧🇷 Português](f5-platform-case-study.md) | 🇺🇸 English
 
@@ -6,7 +6,7 @@
 
 > Project: Distributed platform that receives leads via WhatsApp, runs autonomous service with an AI agent,
 > collects data, generates credit proposals through a financial partner, and routes leads to energy programs.
-> Architecture: 2 distributed VPS with intelligent workload separation.
+> Architecture: 3 distributed VPS with intelligent workload separation, migrated from an initial 2-VPS setup.
 > Status: 24/7 production, serving real leads.
 >
 > *Note: commercial partner names and proprietary details were omitted for confidentiality. This document describes architecture, technical decisions, and results.*
@@ -28,7 +28,9 @@ affecting real-time service responsiveness (latency increased during portal subm
 
 ### Design Decision
 
-Provision a dedicated VPS #2 with FastAPI isolating heavy RPA.
+Provision a dedicated VPS #2 with FastAPI isolating heavy RPA. To balance performance further, I built a
+self-hosted FastAPI API that offloaded part of the processing to the VPS with more memory, relieving the
+more limited one.
 
 ```
 ┌─────────────────────┐              ┌──────────────────────┐
@@ -43,6 +45,33 @@ Provision a dedicated VPS #2 with FastAPI isolating heavy RPA.
 ```
 
 **Benefit:** Isolation of responsibilities, no resource contention, more stable service.
+
+### Phase 2: Moving Off the Official WhatsApp Channel
+
+Later on, moving off the official WhatsApp channel (WABA) to unofficial numbers via Baileys changed the
+picture entirely: Baileys doesn't replicate the same conversation-handling and structuring architecture
+the official API offered.
+
+**Identified bottleneck:** the self-hosted FastAPI load-balancing API built in Phase 1 stopped making
+sense in this new messaging reality.
+
+**Design Decision:** I provisioned a third VPS and moved the entire operation there. The load-balancing API
+stopped making sense on this new infrastructure, and that same migration period called for building a tool
+server via the MCP protocol from scratch to close the new channel's structural gap (see the "Migration to
+a Tool Architecture" section below).
+
+```
+┌─────────────────────┐   ┌──────────────────────┐   ┌──────────────────────┐
+│   VPS #1            │   │   VPS #2             │   │   VPS #3 (new)       │
+│                      │   │                      │   │                      │
+│ • Unofficial number  │──>│ • Headless Playwright│   │ • MCP server         │
+│ • AI agent           │   │ • Browser RPA        │<─>│ • Funnel tools       │
+│ • 9-step flow        │   │                      │   │   (ex-FastAPI)       │
+└─────────────────────┘   └──────────────────────┘   └──────────────────────┘
+```
+
+**Benefit:** stable operation on the new messaging channel, with business logic decoupled from message
+format and centralized in the MCP server.
 
 ---
 
@@ -118,9 +147,98 @@ Result: The customer reaches the right partner on the first attempt.
 
 ---
 
+## 🔧 Migration to a Tool Architecture (MCP)
+
+### Identified Problem
+
+Switching from the official WhatsApp channel (WABA) to unofficial numbers via Baileys took away a
+structural capability the official API guaranteed natively: a standardized way to organize and interpret
+the conversation flow. Without it, the agent risked "faking" that it had executed actions internally,
+without actually completing the registration.
+
+### Design Decision
+
+The solution was architectural, not a point patch: **I built an MCP (Model Context Protocol) server from
+scratch**, rebuilding the entire funnel as a set of tools the agent itself calls during the conversation,
+in the same turn it decides to act.
+
+```
+Lead → AI Agent → [decides to act] → MCP tool call → Partner's real API → Result
+                                              ↓
+                              (coverage check, data collection,
+                               proposal creation, simulation,
+                               offer selection, finalization)
+```
+
+Each tool executes against the partner's real API and returns the result immediately, reusing the lead's
+phone session, independent of the conversation-structuring capability only the official WhatsApp API
+guaranteed, no re-authentication, no context loss.
+
+### Safety Lock
+
+The lock lives in code, not in the conversation: finalizing registration only executes with the lead's
+explicit confirmation. If the agent tries to complete it alone (out of urgency, ambiguity, or a
+misinterpretation), the system blocks the call before it reaches the partner's API.
+
+**Benefit:** the agent regained the ability to genuinely act, with a structural guarantee that no
+irreversible action happens without the customer's explicit consent.
+
+---
+
+## 🔍 Production Failure Audit & Fixes
+
+A full audit of one of the funnels uncovered a chain of silent failures that had been discarding valid
+leads without anyone noticing.
+
+### 1. Incomplete Data Extraction
+
+The agent read the customer's document but wasn't capturing a key eligibility field. Coverage rose from
+**2% to 91%**, now including 12 months of history so partners could decide on the average rather than a
+single isolated month.
+
+### 2. Customers Rejected for No Real Reason
+
+- An entire segment was blocked when, in practice, only one specific condition actually restricted that
+  profile.
+- A misreading identified customers from two regions as belonging to a supplier with suspended credit,
+  wrongly blocking **34 customers**.
+- A credit block stayed active even after its root cause was fixed, denying an already-approved high-value
+  proposal.
+
+### 3. 142 Registrations Silently Stuck
+
+When a lead introduced themselves with only a first name, the partner required a full name and the
+proposal was never created, with no one asking for the missing data. Fixed by extracting the full name
+directly from the customer's document (printed on it) and, when absent, asking for it explicitly.
+
+### 4. Agent Communication
+
+Eliminated:
+- Promises based on unconfirmed causes
+- Denials announced before the cause was known
+- Excessive emoji use (risk of WhatsApp flagging the number as spam)
+- Form-style questions
+
+I also implemented a context-cleanup routine to stop the agent from repeating incorrect information that
+had already been fixed in the system but was still present in the conversation history.
+
+---
+
+## 💡 Business Findings
+
+Testing the funnel with real customers at external partners, I identified a structural constraint: a
+specific customer profile is rejected by **every** partner in one segment, since their benefit doesn't
+stack with an equivalent government benefit, even though that profile is well accepted by the financial
+partner.
+
+Since a meaningful share of the base fits this profile, the real addressable market for that segment is
+much smaller than the raw numbers suggest. This finding was brought to partner negotiations.
+
+---
+
 ## 🔴 Challenges Solved
 
-### 1. Dead Webhook — 43 Frozen Proposals
+### 1. Dead Webhook: 43 Frozen Proposals
 
 **Symptom:**
 A partner's outcome webhook stopped being delivered (0 calls received for 4 days).
@@ -422,6 +540,9 @@ Example: "The bot says 'processing' too often" → Logs show a dead webhook → 
 | **Stuck backlog (before)** | 28 leads |
 | **Stuck backlog (after)** | 3 leads |
 | **Race conditions solved** | 1 (human takeover) |
+| **Key eligibility field capture** | 91% (was 2%) |
+| **Customers recovered from wrongful blocks** | 170+ |
+| **Registrations recovered (incomplete name)** | 142 |
 
 ---
 
@@ -433,8 +554,9 @@ Example: "The bot says 'processing' too often" → Logs show a dead webhook → 
 - Flask (dashboard)
 
 **AI & LLM:**
-- OpenAI API (GPT-4)
+- LLM APIs (with fallback)
 - LangChain (agent orchestration)
+- MCP (Model Context Protocol), tool architecture
 - Structured Prompt Engineering
 
 **Automation & RPA:**
@@ -477,4 +599,4 @@ Every decision was driven by a real problem identified in production.
 
 ---
 
-*Technical document updated in May 2026. Platform operating 24/7.*
+*Technical document updated in July 2026. Platform operating 24/7, now with a tool-oriented architecture via MCP.*
