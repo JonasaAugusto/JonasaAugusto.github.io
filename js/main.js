@@ -54,7 +54,14 @@ let cvLang = null; // independent from the site language
 function setCvLang(lang) {
   cvLang = lang;
   const file = CV_FILES[lang];
-  document.getElementById('cv-frame').setAttribute('src', file.src + '#view=FitH&toolbar=0');
+  const absoluteUrl = new URL(file.src, window.location.href).href;
+  // Mobile browsers don't reliably fit-to-width native PDFs in an iframe (crops the page).
+  // Google's viewer renders the PDF as scrollable, width-fit HTML instead, which works consistently.
+  const isMobile = window.matchMedia('(max-width: 640px)').matches;
+  const frameSrc = isMobile
+    ? `https://docs.google.com/gview?embedded=true&url=${encodeURIComponent(absoluteUrl)}`
+    : file.src + '#view=FitH&toolbar=0';
+  document.getElementById('cv-frame').setAttribute('src', frameSrc);
   const dl = document.getElementById('cv-download');
   dl.setAttribute('href', file.src);
   dl.setAttribute('download', file.download);
