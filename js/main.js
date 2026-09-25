@@ -54,7 +54,7 @@ let cvLang = null; // independent from the site language
 function setCvLang(lang) {
   cvLang = lang;
   const file = CV_FILES[lang];
-  document.getElementById('cv-frame').setAttribute('src', file.src);
+  document.getElementById('cv-frame').setAttribute('src', file.src + '#view=FitH&toolbar=0');
   const dl = document.getElementById('cv-download');
   dl.setAttribute('href', file.src);
   dl.setAttribute('download', file.download);

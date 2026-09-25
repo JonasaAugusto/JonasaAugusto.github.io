@@ -376,6 +376,11 @@ body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
   box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
 }
 
+@media (max-width: 640px) {
+  .cv-modal { padding: 0; }
+  .cv-modal-content { width: 100vw; height: 100vh; max-height: 100dvh; border-radius: 0; }
+}
+
 .cv-modal-header {
   display: flex;
   align-items: center;
@@ -441,6 +446,8 @@ body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
   width: 100%;
   border: 0;
   background: #1a1a1a;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y pinch-zoom;
 }
 
 .cv-modal-footer {
