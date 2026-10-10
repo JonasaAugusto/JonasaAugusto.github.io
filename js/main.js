@@ -118,8 +118,6 @@ document.addEventListener('keydown', e => {
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* AOS */
-  AOS.init({ duration: 820, once: true, easing: 'ease-out' });
 
   /* Language init */
   const savedLang = localStorage.getItem('preferredLang');

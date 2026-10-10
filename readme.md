@@ -7,7 +7,7 @@ Repositório do meu portfólio pessoal hospedado em [jonasaaugusto.github.io](ht
 - **HTML5, CSS3, JavaScript (Vanilla)**
 - **Tailwind CSS (via CDN)** - Para estilização responsiva e moderna
 - **Integrações via CDN:**
-  - **AOS:** Animações ao rolar a página
+  - Animações de entrada em CSS puro (IntersectionObserver), sem AOS
   - **GSAP:** Animações avançadas
   - **Typed.js:** Efeito de digitação no Hero
   - **Formspark:** Envio de e-mails pelo formulário de contato

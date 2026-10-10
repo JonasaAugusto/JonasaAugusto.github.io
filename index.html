@@ -36,9 +36,6 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -191,25 +188,70 @@
 <!-- ============================================================
        EXPERIÊNCIA
        ============================================================ -->
-  <section id="experiencia" class="py-32 bg-[#0d0d0d]" data-aos="fade-up">
+  <section id="experiencia" class="section py-32">
     <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Trajetória" data-en="Career">Trajetória</h2>
-        <h3 class="text-4xl font-bold text-white" data-pt="Experiência Profissional" data-en="Professional Experience">Experiência Profissional</h3>
+      <div class="text-center mb-20 reveal">
+        <h2 class="section-label" data-num="02 / 08" data-pt="Trajetória" data-en="Career">Trajetória</h2>
+        <h3 class="section-title" data-rich data-pt="Experiência <span class=&quot;accent&quot;>Profissional</span>" data-en="Professional <span class=&quot;accent&quot;>Experience</span>">Experiência <span class="accent">Profissional</span></h3>
       </div>
 
-      <div class="space-y-8">
+      <div>
 
-        <!-- F5 TECNOLOGIA - Estágio Atual -->
-        <div class="experience-item item-indigo minimal-card rounded-2xl" data-aos="fade-up">
+        <!-- FREELANCER -->
+        <div class="exp-item reveal">
           <div class="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-3">
             <div>
-              <h4 class="text-2xl font-bold text-indigo-300 mb-2"
+              <h4 class="exp-title"
+                  data-pt="Desenvolvedor Freelancer · Automação &amp; Web"
+                  data-en="Freelance Developer · Automation &amp; Web">
+                Desenvolvedor Freelancer · Automação &amp; Web
+              </h4>
+              <p class="exp-meta"
+                 data-pt="Autônomo | Jun 2026 – Presente · Remoto"
+                 data-en="Self-employed | Jun 2026 – Present · Remote">
+                Autônomo | Jun 2026 – Presente · Remoto
+              </p>
+            </div>
+            <span class="badge-current self-start mt-1 flex-shrink-0"
+                  data-pt="Em Andamento" data-en="In Progress">Em Andamento</span>
+          </div>
+          <p class="exp-intro"
+             data-pt="Desenvolvimento de sites e automação de atendimento com agente de IA."
+             data-en="Website development and customer-service automation with an AI agent.">
+            Desenvolvimento de sites e automação de atendimento com agente de IA.
+          </p>
+          <div class="exp-projects">
+            <div class="exp-proj">
+              <h5 class="exp-proj-title" data-pt="Agente IA DuTony Hotburguers" data-en="AI Agent DuTony Hotburguers">Agente IA DuTony Hotburguers</h5>
+              <p data-pt="Atendimento via WhatsApp (Baileys) que monta pedidos, calcula frete, mantém histórico de relacionamento com o cliente e avisa automaticamente a abertura da loja."
+                 data-en="WhatsApp (Baileys) service that builds orders, calculates shipping, keeps a customer relationship history, and automatically announces when the store opens.">Atendimento via WhatsApp (Baileys) que monta pedidos, calcula frete, mantém histórico de relacionamento com o cliente e avisa automaticamente a abertura da loja.</p>
+              <a href="#proj-dutony" data-pt="Ver projeto ↓" data-en="View project ↓">Ver projeto ↓</a>
+            </div>
+            <div class="exp-proj">
+              <h5 class="exp-proj-title" data-pt="Landing Page · Monobloco" data-en="Landing Page · Monobloco">Landing Page · Monobloco</h5>
+              <p data-pt="Landing page comercial com foco em conversão e apresentação de produto/serviço."
+                 data-en="Commercial landing page focused on conversion and product/service presentation.">Landing page comercial com foco em conversão e apresentação de produto/serviço.</p>
+              <a href="#proj-monobloco" data-pt="Ver projeto ↓" data-en="View project ↓">Ver projeto ↓</a>
+            </div>
+            <div class="exp-proj">
+              <h5 class="exp-proj-title" data-pt="Landing Page · Dário Fretes" data-en="Landing Page · Dário Fretes">Landing Page · Dário Fretes</h5>
+              <p data-pt="Landing page com foco em SEO, aumentando o alcance e a posição nas pesquisas do Google."
+                 data-en="SEO-focused landing page, increasing reach and ranking in Google searches.">Landing page com foco em SEO, aumentando o alcance e a posição nas pesquisas do Google.</p>
+              <a href="#proj-dariofretes" data-pt="Ver projeto ↓" data-en="View project ↓">Ver projeto ↓</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- F5 TECNOLOGIA - Estágio Atual -->
+        <div class="exp-item reveal">
+          <div class="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-3">
+            <div>
+              <h4 class="exp-title"
                   data-pt="Estagiário em Desenvolvimento e Automação"
                   data-en="Development and Automation Intern">
                 Estagiário em Desenvolvimento e Automação
               </h4>
-              <p class="text-neutral-500 font-medium"
+              <p class="exp-meta"
                  data-pt="F5 Tecnologia | Mai 2026 – Presente · Remoto"
                  data-en="F5 Tecnologia | May 2026 – Present · Remote">
                 F5 Tecnologia | Mai 2026 – Presente · Remoto
@@ -218,37 +260,37 @@
             <span class="badge-current self-start mt-1 flex-shrink-0"
                   data-pt="Estágio Atual" data-en="Current Internship">Estágio Atual</span>
           </div>
-          <ul class="space-y-4 text-neutral-400 font-light">
-            <li class="flex gap-4">
-              <span class="text-indigo-400 mt-1 flex-shrink-0">•</span>
+          <ul class="exp-list">
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Desenvolvimento de agentes de IA para venda de produtos digitais (crédito e serviços de energia), com armazenamento e tráfego de dados sensíveis conforme LGPD."
                     data-en="Development of AI agents for selling digital products (credit and energy services), handling storage and traffic of sensitive data in compliance with LGPD.">
                 Desenvolvimento de agentes de IA para venda de produtos digitais (crédito e serviços de energia), com armazenamento e tráfego de dados sensíveis conforme LGPD.
               </span>
             </li>
-            <li class="flex gap-4">
-              <span class="text-indigo-400 mt-1 flex-shrink-0">•</span>
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Migração completa de infraestrutura para uma nova VPS ao sair do canal oficial de WhatsApp para números não-oficiais, que não replicam a mesma arquitetura de atendimento, e criação do zero de um servidor de ferramentas via protocolo MCP, dando ao agente capacidade de executar ações reais (cadastro, propostas, simulações) direto na API de parceiros externos, com trava de segurança que bloqueia qualquer ação irreversível sem confirmação explícita do lead."
                     data-en="Full infrastructure migration to a new VPS after moving off the official WhatsApp channel to unofficial numbers, which don't replicate the same service-handling architecture, and building a tool server from scratch via the MCP protocol, giving the agent the ability to execute real actions (registration, proposals, simulations) directly against partner APIs, with a safety lock that blocks any irreversible action without the lead's explicit confirmation.">
                 Migração completa de infraestrutura para uma nova VPS ao sair do canal oficial de WhatsApp para números não-oficiais, que não replicam a mesma arquitetura de atendimento, e criação do zero de um servidor de ferramentas via protocolo MCP, dando ao agente capacidade de executar ações reais (cadastro, propostas, simulações) direto na API de parceiros externos, com trava de segurança que bloqueia qualquer ação irreversível sem confirmação explícita do lead.
               </span>
             </li>
-            <li class="flex gap-4">
-              <span class="text-indigo-400 mt-1 flex-shrink-0">•</span>
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Diagnóstico e correção de falhas críticas em produção: pipeline de OCR (captura de um dado crítico de elegibilidade saltou de 2% para 91%), lógica de identificação de fornecedor e regras de elegibilidade, destravando o atendimento de mais de 170 clientes barrados indevidamente."
                     data-en="Diagnosed and fixed critical production failures: an OCR pipeline (capture of a key eligibility field jumped from 2% to 91%), supplier-identification logic, and eligibility rules, unblocking service for over 170 customers wrongly denied.">
                 Diagnóstico e correção de falhas críticas em produção: pipeline de OCR (captura de um dado crítico de elegibilidade saltou de 2% para 91%), lógica de identificação de fornecedor e regras de elegibilidade, destravando o atendimento de mais de 170 clientes barrados indevidamente.
               </span>
             </li>
-            <li class="flex gap-4">
-              <span class="text-indigo-400 mt-1 flex-shrink-0">•</span>
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Integração com WhatsApp Business API e sistemas de CRM via webhooks, com monitoramento de infraestrutura, implementação de retry patterns e testes de integração ponta a ponta com parceiros externos para levantar causas de recusa e orientar decisões comerciais."
                     data-en="Integration with WhatsApp Business API and CRM systems via webhooks, with infrastructure monitoring, retry pattern implementation, and end-to-end integration testing with external partners to surface rejection causes and inform business decisions.">
                 Integração com WhatsApp Business API e sistemas de CRM via webhooks, com monitoramento de infraestrutura, implementação de retry patterns e testes de integração ponta a ponta com parceiros externos para levantar causas de recusa e orientar decisões comerciais.
               </span>
             </li>
-            <li class="flex gap-4">
-              <span class="text-indigo-400 mt-1 flex-shrink-0">•</span>
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Análise de fluxos, testes de validação e documentação técnica de sistemas com IA."
                     data-en="Flow analysis, validation testing, and technical documentation of AI systems.">
                 Análise de fluxos, testes de validação e documentação técnica de sistemas com IA.
@@ -257,7 +299,7 @@
           </ul>
           <div class="mt-6">
             <button onclick="openF5Modal()"
-              class="inline-flex items-center gap-2 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 font-semibold text-sm py-2.5 px-5 rounded-full border border-indigo-500/30 transition-all">
+              class="btn btn-sm">
               <i class="bi bi-file-earmark-richtext"></i>
               <span data-pt="Ver Caso de Estudo" data-en="View Case Study">Ver Caso de Estudo</span>
             </button>
@@ -265,41 +307,41 @@
         </div>
 
         <!-- NEURODEV -->
-        <div class="experience-item minimal-card rounded-2xl" data-aos="fade-up">
+        <div class="exp-item reveal">
           <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
             <div>
-              <h4 class="text-2xl font-bold text-white mb-2"
+              <h4 class="exp-title"
                   data-pt="Estagiário Desenvolvedor de Automação de Processos e Analista de Suporte RPA"
                   data-en="Intern Automation Developer & RPA Support Analyst">
                 Estagiário Desenvolvedor de Automação de Processos e Analista de Suporte RPA
               </h4>
-              <p class="text-neutral-500 font-medium">NEURODEV - Startup | 2025</p>
+              <p class="exp-meta">NEURODEV - Startup | 2025</p>
             </div>
           </div>
-          <ul class="space-y-4 text-neutral-400 font-light">
-            <li class="flex gap-4">
-              <span class="text-white mt-1 flex-shrink-0">•</span>
+          <ul class="exp-list">
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Desenvolvi 15+ integrações em Python conectando APIs externas, processando 800+ transações por dia."
                     data-en="Developed 15+ integrations in Python connecting external APIs, processing 800+ transactions per day.">
                 Desenvolvi 15+ integrações em Python conectando APIs externas, processando 800+ transações por dia.
               </span>
             </li>
-            <li class="flex gap-4">
-              <span class="text-white mt-1 flex-shrink-0">•</span>
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Implementei retry patterns e fallback com monitoramento via Linux CLI para alta disponibilidade."
                     data-en="Implemented retry patterns and fallback with monitoring via Linux CLI for high availability.">
                 Implementei retry patterns e fallback com monitoramento via Linux CLI para alta disponibilidade.
               </span>
             </li>
-            <li class="flex gap-4">
-              <span class="text-white mt-1 flex-shrink-0">•</span>
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Otimizei pipeline com OpenAI API reduzindo latência de 15 minutos para 27 segundos (redução de 97%) via engenharia de prompt e implementação de cache inteligente."
                     data-en="Optimized pipeline with OpenAI API reducing latency from 15 minutes to 27 seconds (97% reduction) through prompt engineering and intelligent caching.">
                 Otimizei pipeline com OpenAI API reduzindo latência de 15 minutos para 27 segundos (redução de 97%) via engenharia de prompt e implementação de cache inteligente.
               </span>
             </li>
-            <li class="flex gap-4">
-              <span class="text-white mt-1 flex-shrink-0">•</span>
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Refatorei código RPA em Python com Docker, reduzindo downtime mensal de 35h para 2,25h (redução de 93,5%)."
                     data-en="Refactored RPA code in Python with Docker, reducing monthly downtime from 35h to 2.25h (93.5% reduction).">
                 Refatorei código RPA em Python com Docker, reduzindo downtime mensal de 35h para 2,25h (redução de 93,5%).
@@ -309,27 +351,27 @@
         </div>
 
         <!-- BNECT -->
-        <div class="experience-item minimal-card rounded-2xl" data-aos="fade-up">
+        <div class="exp-item reveal">
           <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
             <div>
-              <h4 class="text-2xl font-bold text-white mb-2"
+              <h4 class="exp-title"
                   data-pt="Desenvolvedor Júnior de Automação de Processos com IA"
                   data-en="Junior Process Automation Developer with AI">
                 Desenvolvedor Júnior de Automação de Processos com IA
               </h4>
-              <p class="text-neutral-500 font-medium">BNECT - Startup Early-Stage | 2025</p>
+              <p class="exp-meta">BNECT - Startup Early-Stage | 2025</p>
             </div>
           </div>
-          <ul class="space-y-4 text-neutral-400 font-light">
-            <li class="flex gap-4">
-              <span class="text-white mt-1 flex-shrink-0">•</span>
+          <ul class="exp-list">
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Desenvolvi serviços em Python integrando CRM/ERP via APIs, aplicando padrões Factory e Strategy com arquitetura orientada a eventos."
                     data-en="Developed services in Python integrating CRM/ERP via APIs, applying Factory and Strategy patterns with event-driven architecture.">
                 Desenvolvi serviços em Python integrando CRM/ERP via APIs, aplicando padrões Factory e Strategy com arquitetura orientada a eventos.
               </span>
             </li>
-            <li class="flex gap-4">
-              <span class="text-white mt-1 flex-shrink-0">•</span>
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Utilizei n8n e Python para orquestração de fluxos com integração a LLMs."
                     data-en="Used n8n and Python for workflow orchestration with LLM integration.">
                 Utilizei n8n e Python para orquestração de fluxos com integração a LLMs.
@@ -339,27 +381,27 @@
         </div>
 
         <!-- VOLPATTO -->
-        <div class="experience-item minimal-card rounded-2xl" data-aos="fade-up">
+        <div class="exp-item reveal">
           <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
             <div>
-              <h4 class="text-2xl font-bold text-white mb-2"
+              <h4 class="exp-title"
                   data-pt="Analista de Requisitos de Software"
                   data-en="Software Requirements Analyst">
                 Analista de Requisitos de Software
               </h4>
-              <p class="text-neutral-500 font-medium">Volpatto Engenharia e Arquitetura de Guaíra LTDA · Freelance | Ago – Set 2023</p>
+              <p class="exp-meta">Volpatto Engenharia e Arquitetura de Guaíra LTDA · Freelance | Ago – Set 2023</p>
             </div>
           </div>
-          <ul class="space-y-4 text-neutral-400 font-light">
-            <li class="flex gap-4">
-              <span class="text-white mt-1 flex-shrink-0">•</span>
+          <ul class="exp-list">
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Especifiquei requisitos funcionais e não funcionais em UML/BPMN para 6 serviços, com foco em performance e manutenibilidade."
                     data-en="Specified functional and non-functional requirements in UML/BPMN for 6 services, focusing on performance and maintainability.">
                 Especifiquei requisitos funcionais e não funcionais em UML/BPMN para 6 serviços, com foco em performance e manutenibilidade.
               </span>
             </li>
-            <li class="flex gap-4">
-              <span class="text-white mt-1 flex-shrink-0">•</span>
+            <li class="exp-li">
+              <span class="bullet" aria-hidden="true"></span>
               <span data-pt="Objetivo: reduzir retrabalho e padronizar processos de engenharia através de documentação técnica completa."
                     data-en="Objective: reduce rework and standardize engineering processes through complete technical documentation.">
                 Objetivo: reduzir retrabalho e padronizar processos de engenharia através de documentação técnica completa.
@@ -375,24 +417,24 @@
   <!-- ============================================================
        DESAFIOS
        ============================================================ -->
-  <section id="desafios" class="py-32" data-aos="fade-up">
+  <section id="desafios" class="section py-32">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Atividades" data-en="Activities">Atividades</h2>
-        <h3 class="text-4xl font-bold text-white" data-pt="Principais Desafios Técnicos" data-en="Key Technical Challenges">Principais Desafios Técnicos</h3>
+      <div class="text-center mb-20 reveal">
+        <h2 class="section-label" data-num="03 / 08" data-pt="Atividades" data-en="Activities">Atividades</h2>
+        <h3 class="section-title" data-rich data-pt="Principais Desafios <span class=&quot;accent&quot;>Técnicos</span>" data-en="Key Technical <span class=&quot;accent&quot;>Challenges</span>">Principais Desafios <span class="accent">Técnicos</span></h3>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="minimal-card p-8 rounded-3xl" data-aos="fade-up">
-          <h4 class="text-xl font-bold text-white mb-4" data-pt="Otimização de Latência em IA" data-en="AI Latency Optimization">Otimização de Latência em IA</h4>
-          <p class="text-neutral-500 mb-6 leading-relaxed font-light"
+        <div class="challenge reveal">
+          <h4 class="challenge-title" data-pt="Otimização de Latência em IA" data-en="AI Latency Optimization">Otimização de Latência em IA</h4>
+          <p class="challenge-text"
              data-pt="Fluxos de IA generativa levavam até 15 minutos para responder. Implementei técnicas de Prompt Engineering e otimização de workflow."
              data-en="Generative AI flows took up to 15 minutes to respond. I implemented Prompt Engineering techniques and workflow optimization.">
             Fluxos de IA generativa levavam até 15 minutos para responder. Implementei técnicas de Prompt Engineering e otimização de workflow.
           </p>
-          <div class="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800">
-            <p class="text-white font-semibold mb-2" data-pt="Resultado:" data-en="Result:">Resultado:</p>
-            <p class="text-neutral-400 text-sm font-light"
+          <div class="result-box">
+            <p class="result-label" data-pt="Resultado:" data-en="Result:">Resultado:</p>
+            <p class="result-text"
                data-pt="Redução de 97% no tempo de resposta e redução de 60% em queries redundantes no backend."
                data-en="97% reduction in response time and 60% reduction in redundant backend queries.">
               Redução de 97% no tempo de resposta e redução de 60% em queries redundantes no backend.
@@ -400,16 +442,16 @@
           </div>
         </div>
 
-        <div class="minimal-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
-          <h4 class="text-xl font-bold text-white mb-4" data-pt="Integração de Sistemas Legados" data-en="Legacy Systems Integration">Integração de Sistemas Legados</h4>
-          <p class="text-neutral-500 mb-6 leading-relaxed font-light"
+        <div class="challenge reveal">
+          <h4 class="challenge-title" data-pt="Integração de Sistemas Legados" data-en="Legacy Systems Integration">Integração de Sistemas Legados</h4>
+          <p class="challenge-text"
              data-pt="Conectar 4 sistemas distintos via Webhooks e APIs REST sem documentação clara, garantindo a integridade dos dados em tempo real."
              data-en="Connect 4 distinct systems via Webhooks and REST APIs without clear documentation, ensuring real-time data integrity.">
             Conectar 4 sistemas distintos via Webhooks e APIs REST sem documentação clara, garantindo a integridade dos dados em tempo real.
           </p>
-          <div class="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800">
-            <p class="text-white font-semibold mb-2" data-pt="Resultado:" data-en="Result:">Resultado:</p>
-            <p class="text-neutral-400 text-sm font-light"
+          <div class="result-box">
+            <p class="result-label" data-pt="Resultado:" data-en="Result:">Resultado:</p>
+            <p class="result-text"
                data-pt="Eliminação de 25 horas/mês de trabalho manual e automação total de 15+ fluxos críticos."
                data-en="Elimination of 25 hours/month of manual work and complete automation of 15+ critical flows.">
               Eliminação de 25 horas/mês de trabalho manual e automação total de 15+ fluxos críticos.
@@ -417,16 +459,16 @@
           </div>
         </div>
 
-        <div class="minimal-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
-          <h4 class="text-xl font-bold text-white mb-4" data-pt="Redução de Downtime em RPA" data-en="RPA Downtime Reduction">Redução de Downtime em RPA</h4>
-          <p class="text-neutral-500 mb-6 leading-relaxed font-light"
+        <div class="challenge reveal">
+          <h4 class="challenge-title" data-pt="Redução de Downtime em RPA" data-en="RPA Downtime Reduction">Redução de Downtime em RPA</h4>
+          <p class="challenge-text"
              data-pt="Atuei na estabilização de integrações com APIs de terceiros, implementando monitoramento e tratamento de falhas para evitar interrupções no serviço."
              data-en="Worked on stabilizing third-party API integrations, implementing monitoring and error handling to prevent service interruptions.">
             Atuei na estabilização de integrações com APIs de terceiros, implementando monitoramento e tratamento de falhas para evitar interrupções no serviço.
           </p>
-          <div class="bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800">
-            <p class="text-white font-semibold mb-2" data-pt="Resultado:" data-en="Result:">Resultado:</p>
-            <p class="text-neutral-400 text-sm font-light"
+          <div class="result-box">
+            <p class="result-label" data-pt="Resultado:" data-en="Result:">Resultado:</p>
+            <p class="result-text"
                data-pt="Redução de downtime de 35h para 2,25h/mês (-93,5%) com gestão de ambiente Docker e PostgreSQL."
                data-en="Downtime reduction from 35h to 2.25h/month (-93.5%) with Docker and PostgreSQL environment management.">
               Redução de downtime de 35h para 2,25h/mês (-93,5%) com gestão de ambiente Docker e PostgreSQL.
@@ -440,38 +482,38 @@
   <!-- ============================================================
        PROJETOS
        ============================================================ -->
-  <section id="projetos" class="py-32 bg-[#0d0d0d]" data-aos="fade-up">
+  <section id="projetos" class="section py-32">
     <div class="max-w-6xl mx-auto px-4">
 
       <!-- Header -->
-      <div class="text-center mb-20">
-        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Portfólio" data-en="Portfolio">Portfólio</h2>
-        <h3 class="text-4xl font-bold text-white" data-pt="Projetos Reais (GitHub)" data-en="Real Projects (GitHub)">Projetos Reais (GitHub)</h3>
+      <div class="text-center mb-20 reveal">
+        <h2 class="section-label" data-num="04 / 08" data-pt="Portfólio" data-en="Portfolio">Portfólio</h2>
+        <h3 class="section-title" data-rich data-pt="Projetos <span class=&quot;accent&quot;>Reais</span> (GitHub)" data-en="<span class=&quot;accent&quot;>Real</span> Projects (GitHub)">Projetos <span class="accent">Reais</span> (GitHub)</h3>
       </div>
 
       <!-- ─── SUB-SEÇÃO 1: Projetos Principais ─── -->
       <div class="mb-4">
         <div class="subsection-title">
-          <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+          <i class="bi bi-star-fill text-sm"></i>
           <span data-pt="Projetos Principais" data-en="Main Projects">Projetos Principais</span>
         </div>
 
         <!-- ⭐ FEATURED: IAPROVALE -->
-        <div class="featured-project anchor-card rounded-3xl overflow-hidden project-item" data-aos="fade-up">
+        <div class="proj proj-featured reveal">
           <div class="p-8 md:p-10">
             <div class="flex flex-wrap items-center gap-3 mb-5">
-              <div class="bg-emerald-500/10 p-3 rounded-2xl border border-emerald-500/20">
-                <i class="bi bi-robot text-2xl text-emerald-400"></i>
+              <div class="proj-icon">
+                <i class="bi bi-robot text-2xl"></i>
               </div>
-              <span class="badge-main-emerald" data-pt="Projeto em Destaque" data-en="Featured Project">Projeto em Destaque</span>
+              <span class="badge-main" data-pt="Projeto em Destaque" data-en="Featured Project">Projeto em Destaque</span>
               <span class="badge-live" data-pt="Live Deploy" data-en="Live Deploy">● Live</span>
             </div>
 
-            <h4 class="text-2xl md:text-3xl font-bold text-white mb-4">IAprovale <span class="text-neutral-500 font-normal text-xl">· Concurso Finder</span></h4>
+            <h4 class="proj-title proj-title-lg">IAprovale <span class="t-muted text-xl">· Concurso Finder</span></h4>
 
             <div class="feat-block">
               <div class="feat-label"><i class="bi bi-bullseye"></i><span data-pt="O que resolve" data-en="Problem it solves">O que resolve</span></div>
-              <p class="text-neutral-300 leading-relaxed font-light"
+              <p class="t-text leading-relaxed font-light"
                  data-pt="Buscador de concursos públicos com IA. O usuário descreve em linguagem natural o que procura (ex: concurso na área de saúde com graduação em enfermagem) e o sistema filtra automaticamente apenas os concursos com inscrições abertas compatíveis com a formação."
                  data-en="AI-powered public-exam finder. Users describe what they want in natural language (e.g., a health-sector exam for a nursing graduate) and the system automatically filters only open exams compatible with their education.">
                 Buscador de concursos públicos com IA. O usuário descreve em linguagem natural o que procura (ex: concurso na área de saúde com graduação em enfermagem) e o sistema filtra automaticamente apenas os concursos com inscrições abertas compatíveis com a formação.
@@ -480,7 +522,7 @@
 
             <div class="feat-block">
               <div class="feat-label"><i class="bi bi-diagram-3"></i><span data-pt="Como funciona" data-en="How it works">Como funciona</span></div>
-              <p class="text-neutral-400 leading-relaxed font-light text-sm"
+              <p class="skill-text text-sm"
                  data-pt="Backend assíncrono em FastAPI que traduz a busca com IA (DeepSeek) e consulta a fonte oficial via MCP da PCI Concursos (JSON-RPC, sem scraping). Persistência com SQLModel e PostgreSQL (Neon), autenticação por sessão e administração de usuários. Clientes desktop (PySide6) e web, com deploy no Render."
                  data-en="Async FastAPI backend that translates the query with AI (DeepSeek) and queries the official source via the PCI Concursos MCP (JSON-RPC, no scraping). Persistence with SQLModel and PostgreSQL (Neon), session auth and user administration. Desktop (PySide6) and web clients, deployed on Render.">
                 Backend assíncrono em FastAPI que traduz a busca com IA (DeepSeek) e consulta a fonte oficial via MCP da PCI Concursos (JSON-RPC, sem scraping). Persistência com SQLModel e PostgreSQL (Neon), autenticação por sessão e administração de usuários. Clientes desktop (PySide6) e web, com deploy no Render.
@@ -500,24 +542,24 @@
             <div class="feat-block" style="margin-bottom:0">
               <div class="feat-label"><i class="bi bi-stack"></i><span data-pt="Stack" data-en="Stack">Stack</span></div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">FastAPI</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">DeepSeek</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">MCP</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">SQLModel</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">PostgreSQL</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">PySide6</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Playwright</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Render</span>
+                <span class="tag">Python</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">DeepSeek</span>
+                <span class="tag">MCP</span>
+                <span class="tag">SQLModel</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">PySide6</span>
+                <span class="tag">Playwright</span>
+                <span class="tag">Render</span>
               </div>
             </div>
           </div>
-          <div class="flex border-t border-emerald-500/20">
+          <div class="proj-links">
             <a href="https://github.com/JonasaAugusto/IAprovale" target="_blank"
-              class="flex-1 p-4 bg-emerald-500/5 hover:bg-emerald-500/10 text-center text-sm font-bold transition-colors border-r border-emerald-500/20 text-emerald-400 flex items-center justify-center gap-2">
+              class="proj-link">
               <i class="bi bi-github"></i><span data-pt="Ver Código" data-en="View Code">Ver Código</span></a>
             <a href="https://jonasaaugusto.github.io/IAprovale/" target="_blank"
-              class="flex-1 p-4 bg-emerald-500/5 hover:bg-emerald-500/10 text-center text-sm font-bold transition-colors text-emerald-300 flex items-center justify-center gap-2">
+              class="proj-link">
               <i class="bi bi-box-arrow-up-right"></i><span data-pt="Home Page" data-en="Home Page">Home Page</span></a>
           </div>
         </div>
@@ -525,75 +567,75 @@
         <div class="grid md:grid-cols-2 gap-8">
 
           <!-- NOTAME -->
-          <div class="anchor-card card-violet rounded-3xl overflow-hidden project-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="proj reveal">
             <div class="p-8 flex-grow flex flex-col">
               <div class="flex justify-between items-start mb-6">
-                <div class="bg-violet-500/10 p-3 rounded-2xl border border-violet-500/20">
-                  <i class="bi bi-receipt text-2xl text-violet-400"></i>
+                <div class="proj-icon">
+                  <i class="bi bi-receipt text-2xl"></i>
                 </div>
                 <div class="flex flex-col items-end gap-2">
-                  <a href="https://github.com/JonasaAugusto/NotaME" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                  <a href="https://github.com/JonasaAugusto/NotaME" target="_blank" class="icon-link">
                     <i class="bi bi-github text-2xl"></i>
                   </a>
-                  <span class="badge-main-violet" data-pt="Projeto Principal" data-en="Main Project">Projeto Principal</span>
+                  <span class="badge-main" data-pt="Projeto Principal" data-en="Main Project">Projeto Principal</span>
                 </div>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3" data-pt="NotaME" data-en="NotaME">NotaME</h4>
-              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+              <h4 class="proj-title" data-pt="NotaME" data-en="NotaME">NotaME</h4>
+              <p class="proj-text"
                  data-pt="App mobile/desktop (EIS) para geração de recibos em PDF, emissão de NFS-e e gestão de clientes. Offline-first com SQLite e sincronização P2P em rede local com criptografia AES-256."
                  data-en="Mobile/desktop app (EIS) for PDF receipt generation, NFS-e issuance, and client management. Offline-first with SQLite and P2P sync on local network with AES-256 encryption.">
                 App mobile/desktop (EIS) para geração de recibos em PDF, emissão de NFS-e e gestão de clientes. Offline-first com SQLite e sincronização P2P em rede local com criptografia AES-256.
               </p>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">.NET MAUI</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">C#</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">SQLite</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">QuestPDF</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">AES-256</span>
+                <span class="tag">.NET MAUI</span>
+                <span class="tag">C#</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">QuestPDF</span>
+                <span class="tag">AES-256</span>
               </div>
             </div>
             <a href="https://github.com/JonasaAugusto/NotaME" target="_blank"
-              class="p-4 bg-violet-500/5 hover:bg-violet-500/10 text-center text-sm font-bold transition-colors border-t border-violet-500/20 text-violet-400"
+              class="proj-link"
               data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
           </div>
 
           <!-- HUB DE MÍDIA E INTELIGÊNCIA LOCAL -->
-          <div class="anchor-card card-cyan rounded-3xl overflow-hidden project-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="proj reveal">
             <div class="p-8 flex-grow flex flex-col">
               <div class="flex justify-between items-start mb-6">
-                <div class="bg-cyan-500/10 p-3 rounded-2xl border border-cyan-500/20">
-                  <i class="bi bi-mic-fill text-2xl text-cyan-400"></i>
+                <div class="proj-icon">
+                  <i class="bi bi-mic-fill text-2xl"></i>
                 </div>
                 <div class="flex flex-col items-end gap-2">
-                  <a href="https://github.com/JonasaAugusto/HubMidiaInteligenciaLocal" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                  <a href="https://github.com/JonasaAugusto/HubMidiaInteligenciaLocal" target="_blank" class="icon-link">
                     <i class="bi bi-github text-2xl"></i>
                   </a>
                   <div class="flex flex-col items-end gap-1">
-                    <span class="badge-main-cyan" data-pt="Projeto Principal" data-en="Main Project">Projeto Principal</span>
+                    <span class="badge-main" data-pt="Projeto Principal" data-en="Main Project">Projeto Principal</span>
                     <span class="badge-dev" data-pt="Em Desenvolvimento" data-en="In Development">Em Desenvolvimento</span>
                   </div>
                 </div>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3"
+              <h4 class="proj-title"
                   data-pt="VoxAI"
                   data-en="VoxAI">
                 VoxAI
               </h4>
-              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+              <p class="proj-text"
                  data-pt="App multiplataforma (.NET MAUI) para transcrição offline de áudio e vídeo usando IA on-device (Whisper). Sem custo de servidor, processamento 100% local com notificações e histórico em SQLite."
                  data-en="Cross-platform app (.NET MAUI) for offline audio/video transcription using on-device AI (Whisper). No server costs, 100% local processing with notifications and SQLite history.">
                 App multiplataforma (.NET MAUI) para transcrição offline de áudio e vídeo usando IA on-device (Whisper). Sem custo de servidor, processamento 100% local com notificações e histórico em SQLite.
               </p>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">.NET MAUI</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">C#</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Whisper AI</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">FFmpeg</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">SQLite</span>
+                <span class="tag">.NET MAUI</span>
+                <span class="tag">C#</span>
+                <span class="tag">Whisper AI</span>
+                <span class="tag">FFmpeg</span>
+                <span class="tag">SQLite</span>
               </div>
             </div>
             <a href="" target="_blank"
-              class="p-4 bg-cyan-500/5 hover:bg-cyan-500/10 text-center text-sm font-bold transition-colors border-t border-cyan-500/20 text-cyan-400"
+              class="proj-link"
               data-pt="Ver no GitHub" data-en="View on GitHub">Projeto Privado</a>
           </div>
 
@@ -606,107 +648,145 @@
       <!-- ─── SUB-SEÇÃO 2: Outros Projetos ─── -->
       <div>
         <div class="subsection-title">
-          <i class="bi bi-code-slash text-neutral-500 text-sm"></i>
+          <i class="bi bi-code-slash t-muted text-sm"></i>
           <span data-pt="Outros Projetos" data-en="Other Projects">Outros Projetos</span>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           <!-- QR CODE GENERATOR -->
-          <div class="minimal-card rounded-3xl overflow-hidden project-item" data-aos="fade-up">
+          <div class="proj reveal">
             <div class="p-8 flex-grow flex flex-col">
               <div class="flex justify-between items-start mb-6">
-                <div class="bg-neutral-800 p-3 rounded-2xl">
-                  <i class="bi bi-qr-code text-2xl text-white"></i>
+                <div class="proj-icon">
+                  <i class="bi bi-qr-code text-2xl t-text"></i>
                 </div>
-                <a href="https://github.com/JonasaAugusto/qrcode-generator" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                <a href="https://github.com/JonasaAugusto/qrcode-generator" target="_blank" class="icon-link">
                   <i class="bi bi-github text-2xl"></i>
                 </a>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3" data-pt="QR Code Generator" data-en="QR Code Generator">QR Code Generator</h4>
-              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+              <h4 class="proj-title" data-pt="QR Code Generator" data-en="QR Code Generator">QR Code Generator</h4>
+              <p class="proj-text"
                  data-pt="Aplicação Fullstack para geração dinâmica de QR Codes com suporte a todos os tipos disponíveis. Inclui histórico, salvamento local e geração em lote. Testes de performance: 30 usuários em 0,65s | 5 mil em 1,8min."
                  data-en="Fullstack application for dynamic QR Code generation supporting all available types. Includes history, local saving, and batch generation. Performance: 30 users in 0.65s | 5,000 users in 1.8min.">
                 Aplicação Fullstack para geração dinâmica de QR Codes com suporte a todos os tipos disponíveis. Inclui histórico, salvamento local e geração em lote. Testes de performance: 30 usuários em 0,65s | 5 mil em 1,8min.
               </p>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">QRcode</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Pillow</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Threading</span>
+                <span class="tag">Python</span>
+                <span class="tag">QRcode</span>
+                <span class="tag">Pillow</span>
+                <span class="tag">Threading</span>
               </div>
             </div>
             <a href="https://github.com/JonasaAugusto/qrcode-generator" target="_blank"
-              class="p-4 bg-neutral-900 text-center text-sm font-bold hover:bg-neutral-800 transition-colors border-t border-neutral-800"
+              class="proj-link"
               data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
           </div>
 
           <!-- DISCORD ZOMBOT -->
-          <div class="minimal-card rounded-3xl overflow-hidden project-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="proj reveal">
             <div class="p-8 flex-grow flex flex-col">
               <div class="flex justify-between items-start mb-6">
-                <div class="bg-neutral-800 p-3 rounded-2xl">
-                  <i class="bi bi-chat-dots text-2xl text-white"></i>
+                <div class="proj-icon">
+                  <i class="bi bi-chat-dots text-2xl t-text"></i>
                 </div>
-                <a href="https://github.com/JonasaAugusto/DiscordChatBot_Zombot" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                <a href="https://github.com/JonasaAugusto/DiscordChatBot_Zombot" target="_blank" class="icon-link">
                   <i class="bi bi-github text-2xl"></i>
                 </a>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3" data-pt="Discord Zombot" data-en="Discord Zombot">Discord Zombot</h4>
-              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+              <h4 class="proj-title" data-pt="Discord Zombot" data-en="Discord Zombot">Discord Zombot</h4>
+              <p class="proj-text"
                  data-pt="Chatbot para servidores de jogos com moderação automática e tutoriais interativos; elevou NPS em 35%."
                  data-en="Chatbot for gaming servers with automatic moderation and interactive tutorials; increased NPS by 35%.">
                 Chatbot para servidores de jogos com moderação automática e tutoriais interativos; elevou NPS em 35%.
               </p>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Discord.py</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Automation</span>
+                <span class="tag">Python</span>
+                <span class="tag">Discord.py</span>
+                <span class="tag">Automation</span>
               </div>
             </div>
             <a href="https://github.com/JonasaAugusto/DiscordChatBot_Zombot" target="_blank"
-              class="p-4 bg-neutral-900 text-center text-sm font-bold hover:bg-neutral-800 transition-colors border-t border-neutral-800"
+              class="proj-link"
               data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
           </div>
 
           <!-- LOGITRACK API -->
-          <div class="minimal-card rounded-3xl overflow-hidden project-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="proj reveal">
             <div class="p-8 flex-grow flex flex-col">
               <div class="flex justify-between items-start mb-6">
-                <div class="bg-neutral-800 p-3 rounded-2xl">
-                  <i class="bi bi-truck text-2xl text-white"></i>
+                <div class="proj-icon">
+                  <i class="bi bi-truck text-2xl t-text"></i>
                 </div>
                 <div class="flex flex-col items-end gap-2">
-                  <a href="https://github.com/JonasaAugusto/logitrackAPI" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                  <a href="https://github.com/JonasaAugusto/logitrackAPI" target="_blank" class="icon-link">
                     <i class="bi bi-github text-2xl"></i>
                   </a>
                   <span class="badge-live" data-pt="Live Deploy" data-en="Live Deploy">● Live</span>
                 </div>
               </div>
-              <h4 class="text-xl font-bold text-white mb-3" data-pt="LogiTrack API" data-en="LogiTrack API">LogiTrack API</h4>
-              <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6 flex-grow"
+              <h4 class="proj-title" data-pt="LogiTrack API" data-en="LogiTrack API">LogiTrack API</h4>
+              <p class="proj-text"
                  data-pt="API RESTful de logística com FastAPI e PostgreSQL. Gerenciamento de frotas e entregas com rastreamento em tempo real, relatórios assíncronos, autenticação JWT e deploy containerizado via Docker Compose."
                  data-en="RESTful logistics API built with FastAPI and PostgreSQL. Fleet and delivery management with real-time tracking, async reporting, JWT authentication, and containerized deployment via Docker Compose.">
                 API RESTful de logística com FastAPI e PostgreSQL. Gerenciamento de frotas e entregas com rastreamento em tempo real, relatórios assíncronos, autenticação JWT e deploy containerizado via Docker Compose.
               </p>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Python</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">FastAPI</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">PostgreSQL</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">Docker</span>
-                <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400">JWT</span>
+                <span class="tag">Python</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Docker</span>
+                <span class="tag">JWT</span>
               </div>
             </div>
-            <div class="flex border-t border-neutral-800">
+            <div class="proj-links">
               <a href="https://github.com/JonasaAugusto/logitrackAPI" target="_blank"
-                class="flex-1 p-4 bg-neutral-900 hover:bg-neutral-800 text-center text-sm font-bold transition-colors border-r border-neutral-800"
+                class="proj-link"
                 data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
               <a href="https://logitrackapi.onrender.com/docs" target="_blank"
-                class="flex-1 p-4 bg-neutral-900 hover:bg-neutral-800 text-center text-sm font-bold transition-colors text-neutral-300"
+                class="proj-link"
                 data-pt="Swagger Docs" data-en="Swagger Docs"><i class="bi bi-box-arrow-up-right mr-1"></i>Swagger</a>
             </div>
           </div>
 
+          <!-- AGENTE IA DUTONY HOTBURGUERS -->
+          <div id="proj-dutony" class="proj project-item reveal">
+            <div class="p-8 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-6">
+                <div class="proj-icon"><i class="bi bi-whatsapp" aria-hidden="true"></i></div>
+              </div>
+              <h4 class="proj-title" data-pt="Agente IA DuTony Hotburguers" data-en="AI Agent DuTony Hotburguers">Agente IA DuTony Hotburguers</h4>
+              <p class="proj-text"
+                 data-pt="Atendimento via WhatsApp (Baileys) que monta pedidos, calcula frete, mantém histórico de relacionamento com o cliente e avisa automaticamente a abertura da loja."
+                 data-en="WhatsApp (Baileys) service that builds orders, calculates shipping, keeps a customer relationship history, and automatically announces when the store opens.">Atendimento via WhatsApp (Baileys) que monta pedidos, calcula frete, mantém histórico de relacionamento com o cliente e avisa automaticamente a abertura da loja.</p>
+            </div>
+          </div>
+
+          <!-- LANDING PAGE · MONOBLOCO -->
+          <div id="proj-monobloco" class="proj project-item reveal">
+            <div class="p-8 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-6">
+                <div class="proj-icon"><i class="bi bi-window-stack" aria-hidden="true"></i></div>
+              </div>
+              <h4 class="proj-title" data-pt="Landing Page · Monobloco" data-en="Landing Page · Monobloco">Landing Page · Monobloco</h4>
+              <p class="proj-text"
+                 data-pt="Landing page comercial com foco em conversão e apresentação de produto/serviço."
+                 data-en="Commercial landing page focused on conversion and product/service presentation.">Landing page comercial com foco em conversão e apresentação de produto/serviço.</p>
+            </div>
+          </div>
+
+          <!-- LANDING PAGE · DÁRIO FRETES -->
+          <div id="proj-dariofretes" class="proj project-item reveal">
+            <div class="p-8 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-6">
+                <div class="proj-icon"><i class="bi bi-truck" aria-hidden="true"></i></div>
+              </div>
+              <h4 class="proj-title" data-pt="Landing Page · Dário Fretes" data-en="Landing Page · Dário Fretes">Landing Page · Dário Fretes</h4>
+              <p class="proj-text"
+                 data-pt="Landing page com foco em SEO, aumentando o alcance e a posição nas pesquisas do Google."
+                 data-en="SEO-focused landing page, increasing reach and ranking in Google searches.">Landing page com foco em SEO, aumentando o alcance e a posição nas pesquisas do Google.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -716,84 +796,84 @@
   <!-- ============================================================
        HABILIDADES
        ============================================================ -->
-  <section id="habilidades" class="py-32" data-aos="fade-up">
+  <section id="habilidades" class="section py-32">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Stack" data-en="Stack">Stack</h2>
-        <h3 class="text-4xl font-bold text-white" data-pt="Stack Tecnológica" data-en="Technology Stack">Stack Tecnológica</h3>
+      <div class="text-center mb-20 reveal">
+        <h2 class="section-label" data-num="05 / 08" data-pt="Stack" data-en="Stack">Stack</h2>
+        <h3 class="section-title" data-rich data-pt="Stack <span class=&quot;accent&quot;>Tecnológica</span>" data-en="Technology <span class=&quot;accent&quot;>Stack</span>">Stack <span class="accent">Tecnológica</span></h3>
       </div>
 
       <div class="skill-grid">
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-violet-500 transition-colors">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
-            <i class="bi bi-cpu text-violet-400"></i>
+        <div class="skill">
+          <h4 class="skill-title">
+            <i class="bi bi-cpu"></i>
             <span data-pt="IA Generativa" data-en="Generative AI">IA Generativa</span>
           </h4>
-          <p class="text-neutral-400 leading-relaxed font-light" data-pt="OpenAI API, Anthropic Claude, DeepSeek, LangChain, Prompt Engineering, LLMOps, Whisper AI on-device, MCP integrations, Agentes com LLMs, Orquestração inteligente" data-en="OpenAI API, Anthropic Claude, DeepSeek, LangChain, Prompt Engineering, LLMOps, on-device Whisper AI, MCP integrations, LLM Agents, Intelligent orchestration">OpenAI API, Anthropic Claude, DeepSeek, LangChain, Prompt Engineering, LLMOps, Whisper AI on-device, MCP integrations, Agentes com LLMs, Orquestração inteligente</p>
+          <p class="skill-text" data-pt="OpenAI API, Anthropic Claude, DeepSeek, LangChain, Prompt Engineering, LLMOps, Whisper AI on-device, MCP integrations, Agentes com LLMs, Orquestração inteligente" data-en="OpenAI API, Anthropic Claude, DeepSeek, LangChain, Prompt Engineering, LLMOps, on-device Whisper AI, MCP integrations, LLM Agents, Intelligent orchestration">OpenAI API, Anthropic Claude, DeepSeek, LangChain, Prompt Engineering, LLMOps, Whisper AI on-device, MCP integrations, Agentes com LLMs, Orquestração inteligente</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-blue-500 transition-colors">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
-            <i class="bi bi-cloud-check text-blue-400"></i>
+        <div class="skill">
+          <h4 class="skill-title">
+            <i class="bi bi-cloud-check"></i>
             <span data-pt="Backend & Frameworks" data-en="Backend & Frameworks">Backend & Frameworks</span>
           </h4>
-          <p class="text-neutral-400 leading-relaxed font-light" data-pt="FastAPI, APIs RESTful, Webhooks, Microserviços, Automação com n8n, RPA, Playwright, Retry patterns, fallback, tratamento robusto de erro" data-en="FastAPI, RESTful APIs, Webhooks, Microservices, Automation with n8n, RPA, Playwright, Retry patterns, fallback, robust error handling">FastAPI, APIs RESTful, Webhooks, Microserviços, Automação com n8n, RPA, Playwright, Retry patterns, fallback, tratamento robusto de erro</p>
+          <p class="skill-text" data-pt="FastAPI, APIs RESTful, Webhooks, Microserviços, Automação com n8n, RPA, Playwright, Retry patterns, fallback, tratamento robusto de erro" data-en="FastAPI, RESTful APIs, Webhooks, Microservices, Automation with n8n, RPA, Playwright, Retry patterns, fallback, robust error handling">FastAPI, APIs RESTful, Webhooks, Microserviços, Automação com n8n, RPA, Playwright, Retry patterns, fallback, tratamento robusto de erro</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-indigo-500 transition-colors">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
-            <i class="bi bi-code-slash text-indigo-400"></i>
+        <div class="skill">
+          <h4 class="skill-title">
+            <i class="bi bi-code-slash"></i>
             <span data-pt="Linguagens de Programação" data-en="Programming Languages">Linguagens de Programação</span>
           </h4>
-          <p class="text-neutral-400 leading-relaxed font-light" data-pt="Python (Backend e Automação), C#, SQL, JavaScript, Java" data-en="Python (Backend and Automation), C#, SQL, JavaScript, Java">Python (Backend e Automação), C#, SQL, JavaScript, Java</p>
+          <p class="skill-text" data-pt="Python (Backend e Automação), C#, SQL, JavaScript, Java" data-en="Python (Backend and Automation), C#, SQL, JavaScript, Java">Python (Backend e Automação), C#, SQL, JavaScript, Java</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-emerald-500 transition-colors">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
-            <i class="bi bi-tools text-emerald-400"></i>
+        <div class="skill">
+          <h4 class="skill-title">
+            <i class="bi bi-tools"></i>
             <span data-pt="Ferramentas & Infraestrutura" data-en="Tools & Infrastructure">Ferramentas & Infraestrutura</span>
           </h4>
-          <p class="text-neutral-400 leading-relaxed font-light" data-pt="Git/GitHub, Docker, Docker Compose, VPS Linux, Linux CLI, N8N (Workflows), RPA, CI/CD, Crontab, BitVise" data-en="Git/GitHub, Docker, Docker Compose, VPS Linux, Linux CLI, N8N (Workflows), RPA, CI/CD, Crontab, BitVise">Git/GitHub, Docker, Docker Compose, VPS Linux, Linux CLI, N8N (Workflows), RPA, CI/CD, Crontab, BitVise</p>
+          <p class="skill-text" data-pt="Git/GitHub, Docker, Docker Compose, VPS Linux, Linux CLI, N8N (Workflows), RPA, CI/CD, Crontab, BitVise" data-en="Git/GitHub, Docker, Docker Compose, VPS Linux, Linux CLI, N8N (Workflows), RPA, CI/CD, Crontab, BitVise">Git/GitHub, Docker, Docker Compose, VPS Linux, Linux CLI, N8N (Workflows), RPA, CI/CD, Crontab, BitVise</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-yellow-500 transition-colors">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
-            <i class="bi bi-database text-yellow-400"></i>
+        <div class="skill">
+          <h4 class="skill-title">
+            <i class="bi bi-database"></i>
             <span data-pt="Bancos de Dados" data-en="Databases">Bancos de Dados</span>
           </h4>
-          <p class="text-neutral-400 leading-relaxed font-light" data-pt="PostgreSQL, MySQL, SQLite, modelagem e otimização de estruturas de dados" data-en="PostgreSQL, MySQL, SQLite, data structure modeling and optimization">PostgreSQL, MySQL, SQLite, modelagem e otimização de estruturas de dados</p>
+          <p class="skill-text" data-pt="PostgreSQL, MySQL, SQLite, modelagem e otimização de estruturas de dados" data-en="PostgreSQL, MySQL, SQLite, data structure modeling and optimization">PostgreSQL, MySQL, SQLite, modelagem e otimização de estruturas de dados</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-rose-500 transition-colors">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
-            <i class="bi bi-rocket text-rose-400"></i>
+        <div class="skill">
+          <h4 class="skill-title">
+            <i class="bi bi-rocket"></i>
             <span data-pt="DevOps & Outros" data-en="DevOps & Others">DevOps & Outros</span>
           </h4>
-          <p class="text-neutral-400 leading-relaxed font-light" data-pt="Troubleshooting avançado, otimização de performance, MLOps/LLMOps" data-en="Advanced troubleshooting, performance optimization, MLOps/LLMOps">Troubleshooting avançado, otimização de performance, MLOps/LLMOps</p>
+          <p class="skill-text" data-pt="Troubleshooting avançado, otimização de performance, MLOps/LLMOps" data-en="Advanced troubleshooting, performance optimization, MLOps/LLMOps">Troubleshooting avançado, otimização de performance, MLOps/LLMOps</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-purple-500 transition-colors">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
-            <i class="bi bi-diagram-3 text-purple-400"></i>
+        <div class="skill">
+          <h4 class="skill-title">
+            <i class="bi bi-diagram-3"></i>
             <span data-pt="Metodologias" data-en="Methodologies">Metodologias</span>
           </h4>
-          <p class="text-neutral-400 leading-relaxed font-light" data-pt="Scrum, UML, BPMN, Documentação Técnica, Modelagem de Processos de Negócio" data-en="Scrum, UML, BPMN, Technical Documentation, Business Process Modeling">Scrum, UML, BPMN, Documentação Técnica, Modelagem de Processos de Negócio</p>
+          <p class="skill-text" data-pt="Scrum, UML, BPMN, Documentação Técnica, Modelagem de Processos de Negócio" data-en="Scrum, UML, BPMN, Technical Documentation, Business Process Modeling">Scrum, UML, BPMN, Documentação Técnica, Modelagem de Processos de Negócio</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-sky-500 transition-colors">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
-            <i class="bi bi-layout-text-sidebar-reverse text-sky-400"></i>
+        <div class="skill">
+          <h4 class="skill-title">
+            <i class="bi bi-layout-text-sidebar-reverse"></i>
             <span data-pt="Front-End & UI" data-en="Front-End & UI">Front-End & UI</span>
           </h4>
-          <p class="text-neutral-400 leading-relaxed font-light" data-pt="HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, React, Design Responsivo" data-en="HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, React, Responsive Design">HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, React, Design Responsivo</p>
+          <p class="skill-text" data-pt="HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, React, Design Responsivo" data-en="HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, React, Responsive Design">HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, React, Design Responsivo</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700 hover:border-l-teal-500 transition-colors">
-          <h4 class="font-bold text-lg text-white mb-4 flex items-center gap-2">
-            <i class="bi bi-translate text-teal-400"></i>
+        <div class="skill">
+          <h4 class="skill-title">
+            <i class="bi bi-translate"></i>
             <span data-pt="Idiomas" data-en="Languages">Idiomas</span>
           </h4>
-          <p class="text-neutral-400 leading-relaxed font-light">
+          <p class="skill-text">
             <strong data-pt="Português:" data-en="Portuguese:">Português:</strong> <span data-pt="Nativo" data-en="Native">Nativo</span>
             &nbsp;|&nbsp;
             <strong data-pt="Inglês:" data-en="English:">Inglês:</strong> C1 (Advanced)
@@ -807,26 +887,26 @@
   <!-- ============================================================
        FORMAÇÃO
        ============================================================ -->
-  <section id="formacao" class="py-32 bg-[#0d0d0d]" data-aos="fade-up">
+  <section id="formacao" class="section py-32">
     <div class="max-w-4xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Educação" data-en="Education">Educação</h2>
-        <h3 class="text-4xl font-bold text-white" data-pt="Formação Acadêmica" data-en="Academic Education">Formação Acadêmica</h3>
+      <div class="text-center mb-20 reveal">
+        <h2 class="section-label" data-num="06 / 08" data-pt="Educação" data-en="Education">Educação</h2>
+        <h3 class="section-title" data-rich data-pt="Formação <span class=&quot;accent&quot;>Acadêmica</span>" data-en="Academic <span class=&quot;accent&quot;>Education</span>">Formação <span class="accent">Acadêmica</span></h3>
       </div>
 
-      <div class="space-y-8">
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="text-2xl font-bold text-white mb-2" data-pt="Engenharia de Software" data-en="Software Engineering">Engenharia de Software</h4>
-          <p class="text-neutral-500 font-medium" data-pt="Universidade Estácio de Sá | 2023 – Dez 2026 (conclusão)" data-en="Estácio de Sá University | 2023 – Dec 2026 (completing)">Universidade Estácio de Sá | 2023 – Dez 2026 (conclusão)</p>
-          <p class="mt-4 text-neutral-400"><strong data-pt="Média Global:" data-en="Overall Average:">Média Global:</strong> 9,3/10</p>
-          <p class="mt-2 text-neutral-500 italic font-light" data-pt="Foco em Backend, automação de processos e integração de sistemas" data-en="Focus on Backend, process automation and systems integration">Foco em Backend, automação de processos e integração de sistemas</p>
+      <div class="space-y-0">
+        <div class="edu-item">
+          <h4 class="exp-title" data-pt="Engenharia de Software" data-en="Software Engineering">Engenharia de Software</h4>
+          <p class="exp-meta" data-pt="Universidade Estácio de Sá | 2023 – Dez 2026 (conclusão)" data-en="Estácio de Sá University | 2023 – Dec 2026 (completing)">Universidade Estácio de Sá | 2023 – Dez 2026 (conclusão)</p>
+          <p class="mt-4 t-soft"><strong data-pt="Média Global:" data-en="Overall Average:">Média Global:</strong> 9,3/10</p>
+          <p class="mt-2 t-muted italic font-light" data-pt="Foco em Backend, automação de processos e integração de sistemas" data-en="Focus on Backend, process automation and systems integration">Foco em Backend, automação de processos e integração de sistemas</p>
         </div>
 
-        <div class="minimal-card p-8 rounded-2xl border-l-4 border-l-neutral-700">
-          <h4 class="text-2xl font-bold text-white mb-2" data-pt="Técnico em Desenvolvimento de Software (Fullstack)" data-en="Technical Course in Software Development (Fullstack)">Técnico em Desenvolvimento de Software (Fullstack)</h4>
-          <p class="text-neutral-500 font-medium" data-pt="SENAI Juiz de Fora | Concluído 2023" data-en="SENAI Juiz de Fora | Completed 2023">SENAI Juiz de Fora | Concluído 2023</p>
-          <p class="mt-4 text-neutral-400"><strong data-pt="Média Global:" data-en="Overall Average:">Média Global:</strong> 8.0/10</p>
-          <p class="mt-2 text-neutral-500 italic font-light" data-pt="Formação completa em desenvolvimento Web e Desktop, abrangendo Front-End e Back-End." data-en="Complete training in Web and Desktop development, covering both Front-End and Back-End.">Formação completa em desenvolvimento Web e Desktop, abrangendo Front-End e Back-End.</p>
+        <div class="edu-item">
+          <h4 class="exp-title" data-pt="Técnico em Desenvolvimento de Software (Fullstack)" data-en="Technical Course in Software Development (Fullstack)">Técnico em Desenvolvimento de Software (Fullstack)</h4>
+          <p class="exp-meta" data-pt="SENAI Juiz de Fora | Concluído 2023" data-en="SENAI Juiz de Fora | Completed 2023">SENAI Juiz de Fora | Concluído 2023</p>
+          <p class="mt-4 t-soft"><strong data-pt="Média Global:" data-en="Overall Average:">Média Global:</strong> 8.0/10</p>
+          <p class="mt-2 t-muted italic font-light" data-pt="Formação completa em desenvolvimento Web e Desktop, abrangendo Front-End e Back-End." data-en="Complete training in Web and Desktop development, covering both Front-End and Back-End.">Formação completa em desenvolvimento Web e Desktop, abrangendo Front-End e Back-End.</p>
         </div>
       </div>
     </div>
@@ -835,68 +915,68 @@
   <!-- ============================================================
        CURSOS
        ============================================================ -->
-  <section id="cursos" class="py-32" data-aos="fade-up">
+  <section id="cursos" class="section py-32">
     <div class="max-w-4xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Desenvolvimento" data-en="Development">Desenvolvimento</h2>
-        <h3 class="text-4xl font-bold text-white" data-pt="Cursos e Certificações" data-en="Courses & Certifications">Cursos e Certificações</h3>
+      <div class="text-center mb-20 reveal">
+        <h2 class="section-label" data-num="07 / 08" data-pt="Desenvolvimento" data-en="Development">Desenvolvimento</h2>
+        <h3 class="section-title" data-rich data-pt="Cursos e <span class=&quot;accent&quot;>Certificações</span>" data-en="Courses &amp; <span class=&quot;accent&quot;>Certifications</span>">Cursos e <span class="accent">Certificações</span></h3>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
         <div>
-          <h4 class="text-2xl font-semibold mb-8 text-white flex items-center gap-2">
-            <i class="bi bi-check-circle-fill text-green-500"></i>
+          <h4 class="course-head">
+            <i class="bi bi-check-circle-fill"></i>
             <span data-pt="Concluídos" data-en="Completed">Concluídos</span>
           </h4>
           <div class="space-y-4">
-            <div class="minimal-card p-4 rounded-2xl">
-              <h5 class="font-bold text-neutral-200" data-pt="Python Avançado + IA Generativa" data-en="Advanced Python + Generative AI">Python Avançado + IA Generativa</h5>
-              <p class="text-neutral-500 text-sm font-light">Udemy</p>
+            <div class="course-item">
+              <h5 class="course-title" data-pt="Python Avançado + IA Generativa" data-en="Advanced Python + Generative AI">Python Avançado + IA Generativa</h5>
+              <p class="t-muted text-sm font-light">Udemy</p>
             </div>
-            <div class="minimal-card p-4 rounded-2xl">
-              <h5 class="font-bold text-neutral-200" data-pt="Programação de Sistemas de Informação" data-en="Information Systems Programming">Programação de Sistemas de Informação</h5>
-              <p class="text-neutral-500 text-sm font-light">Centro Universitário Estácio</p>
+            <div class="course-item">
+              <h5 class="course-title" data-pt="Programação de Sistemas de Informação" data-en="Information Systems Programming">Programação de Sistemas de Informação</h5>
+              <p class="t-muted text-sm font-light">Centro Universitário Estácio</p>
             </div>
-            <div class="minimal-card p-4 rounded-2xl">
-              <h5 class="font-bold text-neutral-200" data-pt="Especialista em Inteligência Artificial" data-en="Artificial Intelligence Specialist">Especialista em Inteligência Artificial</h5>
-              <p class="text-neutral-500 text-sm font-light">Academia de IA</p>
+            <div class="course-item">
+              <h5 class="course-title" data-pt="Especialista em Inteligência Artificial" data-en="Artificial Intelligence Specialist">Especialista em Inteligência Artificial</h5>
+              <p class="t-muted text-sm font-light">Academia de IA</p>
             </div>
-            <div class="minimal-card p-4 rounded-2xl">
-              <h5 class="font-bold text-neutral-200" data-pt="Programação Web" data-en="Web Programming">Programação Web</h5>
-              <p class="text-neutral-500 text-sm font-light">Centro Universitário Estácio</p>
+            <div class="course-item">
+              <h5 class="course-title" data-pt="Programação Web" data-en="Web Programming">Programação Web</h5>
+              <p class="t-muted text-sm font-light">Centro Universitário Estácio</p>
             </div>
-            <div class="minimal-card p-4 rounded-2xl">
-              <h5 class="font-bold text-neutral-200" data-pt="Direito e Privacidade dos Usuários" data-en="User Rights & Privacy">Direito e Privacidade dos Usuários</h5>
-              <p class="text-neutral-500 text-sm font-light">Centro Universitário Estácio</p>
+            <div class="course-item">
+              <h5 class="course-title" data-pt="Direito e Privacidade dos Usuários" data-en="User Rights & Privacy">Direito e Privacidade dos Usuários</h5>
+              <p class="t-muted text-sm font-light">Centro Universitário Estácio</p>
             </div>
           </div>
         </div>
 
         <div>
-          <h4 class="text-2xl font-semibold mb-8 text-white flex items-center gap-2">
-            <i class="bi bi-clock-history text-yellow-500"></i>
+          <h4 class="course-head">
+            <i class="bi bi-clock-history"></i>
             <span data-pt="Em Andamento (2025-2026)" data-en="In Progress (2025-2026)">Em Andamento (2025-2026)</span>
           </h4>
           <div class="space-y-4">
-            <div class="minimal-card p-4 rounded-2xl">
-              <h5 class="font-bold text-neutral-200" data-pt="AWS Cloud Practitioner" data-en="AWS Cloud Practitioner">AWS Cloud Practitioner</h5>
-              <p class="text-neutral-500 text-sm font-light" data-pt="Conclusão prevista: 2026" data-en="Expected completion: 2026">Conclusão prevista: 2026</p>
+            <div class="course-item">
+              <h5 class="course-title" data-pt="AWS Cloud Practitioner" data-en="AWS Cloud Practitioner">AWS Cloud Practitioner</h5>
+              <p class="t-muted text-sm font-light" data-pt="Conclusão prevista: 2026" data-en="Expected completion: 2026">Conclusão prevista: 2026</p>
             </div>
-            <div class="minimal-card p-4 rounded-2xl">
-              <h5 class="font-bold text-neutral-200" data-pt="Microsoft Certified: Azure Fundamentals" data-en="Microsoft Certified: Azure Fundamentals">Microsoft Certified: Azure Fundamentals</h5>
-              <p class="text-neutral-500 text-sm font-light" data-pt="Planejado: 2026" data-en="Planned: 2026">Planejado: 2026</p>
+            <div class="course-item">
+              <h5 class="course-title" data-pt="Microsoft Certified: Azure Fundamentals" data-en="Microsoft Certified: Azure Fundamentals">Microsoft Certified: Azure Fundamentals</h5>
+              <p class="t-muted text-sm font-light" data-pt="Planejado: 2026" data-en="Planned: 2026">Planejado: 2026</p>
             </div>
-            <div class="minimal-card p-4 rounded-2xl">
-              <h5 class="font-bold text-neutral-200" data-pt="IA & Machine Learning: Guia Completo" data-en="AI & Machine Learning: Complete Guide">IA & Machine Learning: Guia Completo</h5>
-              <p class="text-neutral-500 text-sm font-light">Udemy | <span data-pt="Em estudo" data-en="In study">Em estudo</span></p>
+            <div class="course-item">
+              <h5 class="course-title" data-pt="IA & Machine Learning: Guia Completo" data-en="AI & Machine Learning: Complete Guide">IA & Machine Learning: Guia Completo</h5>
+              <p class="t-muted text-sm font-light">Udemy | <span data-pt="Em estudo" data-en="In study">Em estudo</span></p>
             </div>
-            <div class="minimal-card p-4 rounded-2xl">
-              <h5 class="font-bold text-neutral-200" data-pt="FastAPI Avançado | TDD | PostgreSQL" data-en="Advanced FastAPI | TDD | PostgreSQL">FastAPI Avançado | TDD | PostgreSQL</h5>
-              <p class="text-neutral-500 text-sm font-light">Udemy | <span data-pt="Em estudo" data-en="In study">Em estudo</span></p>
+            <div class="course-item">
+              <h5 class="course-title" data-pt="FastAPI Avançado | TDD | PostgreSQL" data-en="Advanced FastAPI | TDD | PostgreSQL">FastAPI Avançado | TDD | PostgreSQL</h5>
+              <p class="t-muted text-sm font-light">Udemy | <span data-pt="Em estudo" data-en="In study">Em estudo</span></p>
             </div>
-            <div class="minimal-card p-4 rounded-2xl">
-              <h5 class="font-bold text-neutral-200" data-pt="Power Apps + Power Automate + SharePoint" data-en="Power Apps + Power Automate + SharePoint">Power Apps + Power Automate + SharePoint</h5>
-              <p class="text-neutral-500 text-sm font-light">Udemy | <span data-pt="Em estudo" data-en="In study">Em estudo</span></p>
+            <div class="course-item">
+              <h5 class="course-title" data-pt="Power Apps + Power Automate + SharePoint" data-en="Power Apps + Power Automate + SharePoint">Power Apps + Power Automate + SharePoint</h5>
+              <p class="t-muted text-sm font-light">Udemy | <span data-pt="Em estudo" data-en="In study">Em estudo</span></p>
             </div>
           </div>
         </div>
@@ -907,41 +987,41 @@
   <!-- ============================================================
        CONTATO
        ============================================================ -->
-  <section id="contato" class="py-32 bg-[#0d0d0d]" data-aos="fade-up">
+  <section id="contato" class="section py-32">
     <div class="max-w-3xl mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4" data-pt="Conexão" data-en="Connection">Conexão</h2>
-        <h3 class="text-4xl font-bold text-white" data-pt="Vamos Conversar?" data-en="Let's Talk?">Vamos Conversar?</h3>
-        <p class="text-neutral-500 text-lg mt-4 font-light" data-pt="Aberto a desafios técnicos e projetos de alto impacto." data-en="Open to technical challenges and high-impact projects.">Aberto a desafios técnicos e projetos de alto impacto.</p>
+      <div class="text-center mb-16 reveal">
+        <h2 class="section-label" data-num="08 / 08" data-pt="Conexão" data-en="Connection">Conexão</h2>
+        <h3 class="section-title" data-rich data-pt="Vamos <span class=&quot;accent&quot;>Conversar?</span>" data-en="Let&#39;s <span class=&quot;accent&quot;>Talk?</span>">Vamos <span class="accent">Conversar?</span></h3>
+        <p class="section-sub" data-pt="Aberto a desafios técnicos e projetos de alto impacto." data-en="Open to technical challenges and high-impact projects.">Aberto a desafios técnicos e projetos de alto impacto.</p>
       </div>
 
       <form id="contact-form" action="https://submit-form.com/1pIuu489V" method="POST"
-        class="space-y-6 minimal-card p-10 rounded-3xl">
+        class="space-y-6">
         <input type="hidden" name="_feedback.dark" value="true" />
-        <input type="hidden" name="_feedback.primary_color" value="#ffffff" />
-        <input type="hidden" name="_feedback.bg_color" value="#0a0a0a" />
+        <input type="hidden" name="_feedback.primary_color" value="#4CC779" />
+        <input type="hidden" name="_feedback.bg_color" value="#0F1E2E" />
         <input type="hidden" name="_feedback.success.title" value="Mensagem enviada!" />
         <input type="hidden" name="_feedback.success.message" value="Obrigado, Jonas entrará em contato em breve." />
 
         <div class="grid md:grid-cols-2 gap-6">
           <div class="space-y-2">
-            <label class="text-xs font-bold uppercase tracking-wider text-neutral-500 ml-1" data-pt="Nome" data-en="Name">Nome</label>
+            <label class="field-label" data-pt="Nome" data-en="Name">Nome</label>
             <input type="text" name="Nome" placeholder="Seu nome" data-ph-pt="Seu nome" data-ph-en="Your name" required
-              class="w-full p-4 rounded-2xl bg-black text-white border border-neutral-800 focus:border-neutral-500 outline-none transition-all font-light" />
+              class="field" />
           </div>
           <div class="space-y-2">
-            <label class="text-xs font-bold uppercase tracking-wider text-neutral-500 ml-1" data-pt="E-mail" data-en="Email">E-mail</label>
+            <label class="field-label" data-pt="E-mail" data-en="Email">E-mail</label>
             <input type="email" name="Email" placeholder="seu@email.com" data-ph-pt="seu@email.com" data-ph-en="you@email.com" required
-              class="w-full p-4 rounded-2xl bg-black text-white border border-neutral-800 focus:border-neutral-500 outline-none transition-all font-light" />
+              class="field" />
           </div>
         </div>
         <div class="space-y-2">
-          <label class="text-xs font-bold uppercase tracking-wider text-neutral-500 ml-1" data-pt="Mensagem" data-en="Message">Mensagem</label>
+          <label class="field-label" data-pt="Mensagem" data-en="Message">Mensagem</label>
           <textarea name="Conteúdo da Mensagem:" placeholder="Como posso ajudar?" data-ph-pt="Como posso ajudar?" data-ph-en="How can I help?" required
-            class="w-full p-4 rounded-2xl bg-black text-white border border-neutral-800 focus:border-neutral-500 outline-none transition-all h-40 font-light resize-none"></textarea>
+            class="field h-40 resize-none"></textarea>
         </div>
         <button type="submit" id="submit-btn"
-          class="w-full bg-white text-black font-bold py-4 rounded-2xl hover:bg-neutral-100 transition-all flex items-center justify-center gap-2">
+          class="btn w-full">
           <i class="bi bi-send"></i>
           <span data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</span>
         </button>
@@ -949,16 +1029,16 @@
 
       <div class="flex justify-center space-x-10 mt-16">
         <a href="https://www.linkedin.com/in/jonasaaugusto" target="_blank"
-          class="text-neutral-500 hover:text-white transition-all text-2xl" title="LinkedIn">
+          class="social" title="LinkedIn">
           <i class="bi bi-linkedin"></i>
         </a>
         <a href="https://github.com/JonasaAugusto" target="_blank"
-          class="text-neutral-500 hover:text-white transition-all text-2xl" title="GitHub">
+          class="social" title="GitHub">
           <i class="bi bi-github"></i>
         </a>
       </div>
 
-      <div class="mt-12 text-center text-neutral-600 text-sm font-light">
+      <div class="mt-12 text-center t-muted text-sm">
         <p>📍 Juiz de Fora, MG · 📧 jonasaugustoprofissional@gmail.com</p>
       </div>
     </div>
@@ -969,8 +1049,8 @@
        ============================================================ -->
   </main>
 
-  <footer class="py-16 border-t border-neutral-900 text-center">
-    <p class="text-neutral-600 text-sm font-light">&copy; 2026 Jonas Augusto · Desenvolvedor Backend | Automação & Agentes de IA</p>
+  <footer class="site-footer py-16 text-center">
+    <p class="t-muted text-sm font-light">&copy; 2026 Jonas Augusto · Desenvolvedor Backend | Automação & Agentes de IA</p>
   </footer>
 
   <!-- ============================================================
@@ -1127,7 +1207,6 @@
   </div>
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="js/main.js"></script>
 

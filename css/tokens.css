@@ -69,3 +69,11 @@
   --line-strong: rgba(15, 30, 46, 0.32);
   --overlay: rgba(247, 247, 245, 0.88);
 }
+
+/* fundo translúcido dos modais */
+:root, :root[data-theme="dark"] { --backdrop: rgba(15, 30, 46, 0.8); }
+:root[data-theme="light"] { --backdrop: rgba(15, 30, 46, 0.45); }
+
+/* contorno de campos de formulário (UI ≥ 3:1 sobre --bg) */
+:root, :root[data-theme="dark"] { --field-line: rgba(255, 255, 255, 0.5); }
+:root[data-theme="light"] { --field-line: rgba(15, 30, 46, 0.5); }
