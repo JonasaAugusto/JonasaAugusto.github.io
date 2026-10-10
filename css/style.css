@@ -1,81 +1,219 @@
 /* ============================================================
-   GLOBAL
+   BASE
+   (cores/fontes vêm de tokens.css — sem valores soltos aqui)
    ============================================================ */
-:root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #0d0d0d;
-  --border-subtle: #1f1f1f;
-  --border-default: #262626;
-  --border-hover: #404040;
-  scroll-padding-top: 80px;
-}
+:root { scroll-padding-top: calc(var(--header-h) + 1rem); }
 
 *, *::before, *::after { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-primary);
-  color: #e5e5e5;
+  font-family: var(--font);
+  font-weight: var(--fw-light);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 300;
+  background: var(--accent); color: var(--accent-ink);
+  padding: .6rem 1rem; border-radius: var(--radius-pill);
+  font-size: .8rem; letter-spacing: var(--track-nav); text-transform: uppercase;
+}
+.skip-link:focus { top: 1rem; }
+
 body::-webkit-scrollbar { width: 6px; }
-body::-webkit-scrollbar-track { background: var(--bg-primary); }
-body::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 10px; }
-body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+body::-webkit-scrollbar-track { background: var(--bg); }
+body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 10px; }
 
 /* ============================================================
-   HERO BACKGROUND
+   TIPOGRAFIA UTILITÁRIA
    ============================================================ */
-.hero-grid {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-  background-size: 64px 64px;
+.accent { color: var(--accent); }
+
+.section-label {
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+  font-size: .78rem; font-weight: var(--fw-regular);
+  letter-spacing: var(--track-label); text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.25rem;
+}
+.section-label::before {
+  content: attr(data-num);
+  color: var(--muted); letter-spacing: .12em;
+}
+.section-label::after {
+  content: ''; width: 2.5rem; height: 1px; background: var(--line-strong);
 }
 
-.hero-orb-1 {
-  position: absolute;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 65%);
-  border-radius: 50%;
-  top: 0;
-  left: 40%;
-  transform: translate(-50%, -30%);
-  animation: float-orb 10s ease-in-out infinite;
-  pointer-events: none;
+.section-title {
+  font-weight: var(--fw-light);
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
+  line-height: 1.15; letter-spacing: -0.01em;
+  color: var(--text);
 }
 
-.hero-orb-2 {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 65%);
-  border-radius: 50%;
-  bottom: 5%;
-  right: 5%;
-  animation: float-orb 13s ease-in-out infinite reverse;
-  pointer-events: none;
-}
+.section { border-top: 1px solid var(--line); }
 
-@keyframes float-orb {
-  0%, 100% { transform: translate(0, 0); }
-  33%       { transform: translate(-24px, -18px); }
-  66%       { transform: translate(16px, 12px); }
+/* seta → em links de navegação interna */
+.arrow-link::after,
+.mobile-link::after {
+  content: '→'; display: inline-block; margin-left: .6em;
+  transition: transform var(--dur) var(--ease);
 }
+.arrow-link:hover::after,
+.mobile-link:hover::after { transform: translateX(4px); }
 
 /* ============================================================
    HEADER
    ============================================================ */
-.header-blur {
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50; height: var(--header-h);
+  display: flex; align-items: center; padding-inline: 1rem;
+  background: var(--overlay);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
 }
 
+.brand {
+  display: inline-flex; align-items: center; gap: .7rem;
+  color: var(--text); white-space: nowrap;
+}
+.brand-mark { width: 1.9rem; height: 1.9rem; color: var(--accent); flex-shrink: 0; }
+.brand-name {
+  font-size: .9rem; font-weight: var(--fw-regular);
+  letter-spacing: .28em; text-transform: uppercase;
+}
+
+.nav-link {
+  font-size: .7rem; font-weight: var(--fw-regular);
+  letter-spacing: var(--track-nav); text-transform: uppercase;
+  color: var(--muted); transition: color var(--dur) var(--ease);
+  padding-block: .5rem;
+}
+.nav-link:hover { color: var(--text); }
+
+.ctrl-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 2.25rem; height: 2.25rem; padding-inline: .6rem;
+  background: transparent; color: var(--muted);
+  border: 1px solid var(--line); border-radius: var(--radius-pill);
+  font-family: inherit; font-size: .7rem; font-weight: var(--fw-regular);
+  letter-spacing: var(--track-nav); text-transform: uppercase; cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.ctrl-btn:hover { color: var(--accent); border-color: var(--accent); }
+.ctrl-btn svg { width: 1rem; height: 1rem; }
+
+/* ícone do tema: lua no escuro, sol no claro */
+.theme-icon-sun { display: none; }
+:root[data-theme="light"] .theme-icon-sun { display: block; }
+:root[data-theme="light"] .theme-icon-moon { display: none; }
+
+#mobile-menu { background: var(--bg); border-bottom: 1px solid var(--line); }
+.mobile-link {
+  display: block; padding-block: .4rem;
+  font-size: .8rem; letter-spacing: var(--track-nav); text-transform: uppercase;
+  color: var(--soft);
+}
+.mobile-link:hover { color: var(--accent); }
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .7rem;
+  padding: 1rem 2.2rem; background: transparent;
+  color: var(--accent); border: 1px solid var(--accent); border-radius: var(--radius-pill);
+  font-family: inherit; font-size: .75rem; font-weight: var(--fw-regular);
+  letter-spacing: var(--track-nav); text-transform: uppercase; cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.btn:hover { background: var(--accent); color: var(--accent-ink); }
+.btn-sm { padding: .7rem 1.5rem; font-size: .7rem; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: center;
+  padding: calc(var(--header-h) + 3rem) 1rem 4rem;
+}
+.hero-eyebrow {
+  font-size: .78rem; font-weight: var(--fw-regular);
+  letter-spacing: var(--track-label); text-transform: uppercase;
+  color: var(--accent); margin-bottom: 2rem;
+}
+.hero-title {
+  font-weight: var(--fw-light);
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 1.02; letter-spacing: -0.02em; color: var(--text);
+  margin-bottom: 1.75rem;
+}
+.hero-role {
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem); font-weight: var(--fw-light);
+  color: var(--muted); letter-spacing: .02em; margin-bottom: 3.5rem; min-height: 2.2em;
+}
+.typed-cursor { color: var(--accent); }
+.hero-rule { width: 100%; height: 1px; background: var(--line); margin-bottom: 2.5rem; }
+
+/* ============================================================
+   SOBRE
+   ============================================================ */
+.about-text {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem); font-weight: var(--fw-light);
+  line-height: 1.85; color: var(--soft);
+}
+.about-meta {
+  font-size: .8rem; font-weight: var(--fw-regular);
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+}
+
+/* ============================================================
+   ENTRADA DAS SEÇÕES (≤300ms)
+   ============================================================ */
+.js .reveal {
+  opacity: 0; transform: translateY(14px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.js .reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   COMPAT — temporário (Fase 1): seções ainda não redesenhadas
+   respeitam os tokens nos dois temas. Removido na Fase 2.
+   ============================================================ */
+body .text-white, body .text-neutral-200, body .text-neutral-300 { color: var(--text); }
+body .text-neutral-400, body .text-neutral-500, body .text-neutral-600 { color: var(--soft); }
+body .text-indigo-300, body .text-indigo-400 { color: var(--accent); }
+body .bg-\[\#0d0d0d\] { background-color: var(--bg); }
+body .bg-neutral-900\/50 { background-color: var(--surface); }
+body .border-neutral-800, body .border-neutral-900 { border-color: var(--line); }
+body .minimal-card, body .anchor-card, body .featured-project { background: var(--surface); border-color: var(--line); }
+body .cv-modal-content, body .cv-modal-header, body .cv-modal-footer, body .case-metric { background: var(--bg); border-color: var(--line); }
+body .case-body, body .case-p, body .case-ul li, body .case-lead, body .case-stack, body .case-metric span { color: var(--soft); }
+body .case-h, body .cv-modal-title { color: var(--text); border-color: var(--line); }
+
+/* ============================================================
+   LEGACY — será reescrito na Fase 2
+   ============================================================ */
 /* ============================================================
    CARDS — BASE
    ============================================================ */
@@ -182,21 +320,6 @@ body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 @media (max-width: 640px) {
   .feat-highlights { grid-template-columns: 1fr; }
 }
-
-/* ============================================================
-   LANG SWITCH
-   ============================================================ */
-.lang-switch {
-  cursor: pointer;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: background 0.2s;
-  font-size: 0.875rem;
-  font-weight: 600;
-  border: 1px solid var(--border-default);
-}
-
-.lang-switch:hover { background: #1f1f1f; }
 
 [data-lang="en"] { display: none; }
 
@@ -591,7 +714,7 @@ body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 /* ============================================================
    TYPED CURSOR
    ============================================================ */
-.typed-cursor { color: #6366f1; }
+
 
 /* ============================================================
    SCROLL REVEAL (add smoothness for AOS)
