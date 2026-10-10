@@ -240,7 +240,7 @@ body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 1
 .exp-projects { display: flex; flex-direction: column; gap: 1.5rem; }
 .exp-proj { padding-left: 1rem; border-left: 1px solid var(--line-strong); }
 .exp-proj-title { font-size: 1rem; font-weight: var(--fw-regular); color: var(--text); }
-.exp-proj p { color: var(--soft); font-size: .95rem; margin: .25rem 0 .5rem; }
+.exp-proj p:not(.exp-proj-title) { color: var(--soft); font-size: .95rem; margin: .25rem 0 .5rem; }
 .exp-proj a {
   font-size: .7rem; letter-spacing: var(--track-nav); text-transform: uppercase; color: var(--accent);
 }
@@ -447,3 +447,36 @@ body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 1
 
 /* sobre superfície elevada o --muted não atinge AA no tema escuro */
 .proj-featured .t-muted { color: var(--soft); }
+
+/* CV em telas pequenas: modal em tela cheia (vindo da main) */
+@media (max-width: 640px) {
+  .cv-modal { padding: 0; }
+  .cv-modal-content { width: 100vw; height: 100vh; max-height: 100dvh; border-radius: 0; }
+}
+#cv-frame { -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y pinch-zoom; }
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+.ctrl-btn i { font-size: 1.15rem; line-height: 1; }
+#mobile-menu-button { color: var(--text); }
+
+@media (max-width: 640px) {
+  .site-header { padding-inline: .75rem; }
+  .brand { gap: .5rem; }
+  .brand-mark { width: 1.6rem; height: 1.6rem; }
+  .brand-name { font-size: .75rem; letter-spacing: .18em; }
+  .hero { align-items: flex-start; padding-top: calc(var(--header-h) + 4rem); padding-bottom: 3rem; }
+  .hero-eyebrow { margin-bottom: 1.25rem; }
+  .hero-role { margin-bottom: 2rem; }
+  .hero-rule { margin-bottom: 2rem; }
+  .section.py-32 { padding-block: 4.5rem; }
+  .section .mb-20, .section .mb-16 { margin-bottom: 2.5rem; }
+  .section-label { letter-spacing: .2em; font-size: .7rem; gap: .6rem; }
+  .section-label::after { width: 1.25rem; }
+  .exp-item { padding: 2rem 0; }
+  .exp-li { gap: .6rem; }
+  .proj .p-8, .proj-featured .p-8 { padding: 1.5rem; }
+  .case-body { padding: 1.25rem; }
+  .skill { padding: 1.1rem 0; }
+}
