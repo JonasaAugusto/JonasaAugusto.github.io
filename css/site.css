@@ -646,3 +646,5 @@ input, textarea { caret-color: var(--ink); }
 /* sem linha dupla logo abaixo do cabeçalho da seção */
 .sec-head + .job, .sec-head + .feature { border-top: 0; padding-top: 0; }
 .figure { border-top: 0; padding-top: 0; padding-bottom: clamp(40px, 4vw, 64px); }
+
+.btn, .ctrl { transition: transform .35s var(--ease-out), translate .5s var(--ease-out), background-color .25s, border-color .25s; }

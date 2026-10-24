@@ -188,6 +188,18 @@
   var cvLangBtn = d.getElementById('cv-lang-btn');
   if (cvLangBtn) cvLangBtn.addEventListener('click', function () { setCv(cvLang === 'pt' ? 'en' : 'pt'); });
 
+  /* ---------- botões magnéticos (ponteiro fino, sem reduced motion) ---------- */
+  if (fine.matches && !reduce.matches) {
+    d.querySelectorAll('.hero-actions .btn, .ctrl, .form .btn').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.18, y = (e.clientY - r.top - r.height / 2) * 0.28;
+        b.style.translate = x.toFixed(1) + 'px ' + y.toFixed(1) + 'px';
+      });
+      b.addEventListener('pointerleave', function () { b.style.translate = ''; });
+    });
+  }
+
   /* ---------- hora local de Juiz de Fora ---------- */
   var clock = d.getElementById('local-time');
   function tickClock() {
