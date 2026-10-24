@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Jonas Augusto | Resume</title>
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
   :root {
     --ink: #1a1a1a;
@@ -18,14 +21,14 @@
     width: 210mm;
     min-height: 297mm;
     margin: 0 auto;
-    padding: 9mm 11mm 8mm;
+    padding: 7mm 10mm 5mm;
   }
   @media screen {
     body { background: #e5e5e5; }
     .page { margin: 20px auto; box-shadow: 0 4px 24px rgba(0,0,0,.18); background: #fff; }
   }
   @media print {
-    .page { box-shadow: none; margin: 0; }
+    .page { box-shadow: none; margin: 0; min-height: 0; }
   }
 
   /* ---------- Header ---------- */
@@ -43,7 +46,7 @@
   /* ---------- Sections ---------- */
   h2 {
     font-size: 8.8pt; text-transform: uppercase; letter-spacing: .08em;
-    border-bottom: 1px solid var(--line); padding-bottom: .8mm; margin: 3.2mm 0 2mm;
+    border-bottom: 1px solid var(--line); padding-bottom: .8mm; margin: 2.6mm 0 1.5mm;
   }
   aside h2:first-child, main h2:first-child { margin-top: 0; }
 
@@ -60,7 +63,7 @@
 
   /* Main */
   .profile { font-size: 8.8pt; text-align: justify; }
-  .job { margin-bottom: 2.6mm; }
+  .job { margin-bottom: 1.8mm; }
   .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
   .job-head h3 { font-size: 9.4pt; }
   .job-head .period { font-size: 8pt; color: var(--muted); white-space: nowrap; }
@@ -69,7 +72,7 @@
   .job ul li { font-size: 8.6pt; margin-bottom: .7mm; padding-left: 3.5mm; position: relative; }
   .job ul li::before { content: "•"; position: absolute; left: 0; }
 
-  .project { margin-bottom: 2mm; }
+  .project { margin-bottom: 1.5mm; }
   .project h3 { font-size: 9pt; }
   .project h3 span { font-weight: normal; color: var(--muted); font-size: 8.4pt; }
   .project p { font-size: 8.4pt; color: #333; text-align: justify; }
@@ -80,59 +83,58 @@
 
   <header>
     <h1>Jonas Augusto</h1>
-    <p class="headline">BACKEND DEVELOPER | AUTOMATION &amp; AI AGENTS | PYTHON · FASTAPI · ARTIFICIAL INTELLIGENCE</p>
-    <p class="contact">+55 32 99168-5954 &nbsp;|&nbsp; jonasaugustoprofissional@gmail.com &nbsp;|&nbsp; linkedin.com/in/jonasaaugusto &nbsp;|&nbsp; Juiz de Fora, Brazil &nbsp;|&nbsp; <b>jonasaaugusto.github.io</b></p>
+    <p class="headline">FOUNDER OF AUGUSTUS AI SOLUTIONS | AI AGENTS · AUTOMATION &amp; B2B WEB</p>
+    <p class="contact">(32) 99168-5954 &nbsp;|&nbsp; jonasaugustoprofissional@gmail.com &nbsp;|&nbsp; linkedin.com/in/jonasaaugusto &nbsp;|&nbsp; Juiz de Fora, MG &nbsp;|&nbsp; <b>jonasaaugusto.github.io</b></p>
   </header>
 
   <div class="columns">
 
-    <!-- ================= SIDEBAR ================= -->
     <aside>
       <h2>Skills</h2>
 
       <div class="skill-group">
-        <h3>Applied AI</h3>
-        <p>Integration with OpenAI API, Anthropic, DeepSeek. LangChain, on-device Whisper AI, Prompt Engineering, LLMOps. LLM agents, intelligent search orchestration. MCP (Model Context Protocol) integrations.</p>
+        <h3>Generative AI</h3>
+        <p>DeepSeek (tool calling), OpenAI API, Anthropic Claude, Ollama (local LLM), WhisperX, pyannote, RAG (lexical and hybrid), MCP, guardrails, LLM agents.</p>
       </div>
 
       <div class="skill-group">
         <h3>Backend &amp; Frameworks</h3>
-        <p>FastAPI, RESTful APIs, JWT, Webhooks. Automation with n8n, RPA, Playwright. Retry, fallback, and smart-cache patterns.</p>
+        <p>FastAPI, Node.js and TypeScript (Fastify), REST APIs, WebSocket, Webhooks, Baileys (WhatsApp), BullMQ, Playwright, n8n, idempotency and retry.</p>
       </div>
 
       <div class="skill-group">
         <h3>Databases</h3>
-        <p>PostgreSQL, MySQL, SQLite, Supabase. Relational modeling, optimization, versioning.</p>
+        <p>PostgreSQL (pgvector), SQLite, Redis.</p>
       </div>
 
       <div class="skill-group">
-        <h3>DevOps &amp; Infra</h3>
-        <p>Docker, Docker Compose, Linux CLI, CI/CD. VPS, monitoring, Git/GitHub.</p>
+        <h3>Infra &amp; DevOps</h3>
+        <p>Linux VPS (Ubuntu), systemd, Docker and Compose, GitHub Actions, nginx, SSH and tmux, restic and Backblaze B2, backup and restore.</p>
       </div>
 
       <div class="skill-group">
-        <h3>Architecture &amp; Practices</h3>
-        <p>Clean Architecture, SOLID, Design Patterns. TDD, retry patterns, robust error handling.</p>
+        <h3>Desktop &amp; Front-End</h3>
+        <p>.NET 10 and MAUI, MVVM, SSH.NET, xterm.js, PySide6, HTML/CSS/JS.</p>
       </div>
 
       <div class="skill-group">
         <h3>Languages</h3>
-        <p>Python (focus), C#, SQL, JavaScript.</p>
+        <p>Python (focus), C#, TypeScript, JavaScript, SQL.</p>
       </div>
 
       <div class="skill-group">
-        <h3>Other</h3>
-        <p>.NET MAUI, UML, BPMN, Scrum, HTML/CSS.</p>
+        <h3>Quality &amp; Methods</h3>
+        <p>Automated testing (pytest, xUnit, Vitest), security and LGPD, Scrum, UML, BPMN, technical documentation.</p>
       </div>
 
       <h2>Education</h2>
       <div class="entry">
         <h3>Software Engineering</h3>
-        <p>Estácio de Sá | 2023 – Dec 2026 (completing)<br><b>GPA 9.3/10</b></p>
+        <p>Estácio de Sá | 2023 – Dec 2026 (expected)<br><b>GPA 9.3/10</b></p>
       </div>
       <div class="entry">
         <h3>Technical Degree, Software Dev.</h3>
-        <p>SENAI Juiz de Fora | 2023<br>GPA 8.0/10</p>
+        <p>SENAI Juiz de Fora | 2023<br>Avg. 8.0/10</p>
       </div>
 
       <h2>Languages</h2>
@@ -145,48 +147,37 @@
         <h3>Completed</h3>
         <ul>
           <li>Advanced Python + Generative AI (Udemy)</li>
-          <li>Artificial Intelligence Specialist (Academia de IA)</li>
-          <li>Information Systems Programming (Estácio)</li>
-          <li>Web Programming (Estácio)</li>
-          <li>User Rights &amp; Privacy (Estácio)</li>
+          <li>AI Specialist (Academia de IA)</li>
+          <li>Information Systems Programming and Web Programming (Estácio)</li>
         </ul>
       </div>
       <div class="entry">
-        <h3>In Progress</h3>
+        <h3>In progress</h3>
         <ul>
-          <li>AWS Cloud Practitioner (2026)</li>
-          <li>Microsoft Certified: Azure Fundamentals (2026)</li>
-          <li>AI &amp; Machine Learning: Complete Guide (Udemy)</li>
+          <li>AWS Cloud Practitioner and Azure Fundamentals (2026)</li>
           <li>Advanced FastAPI | TDD | PostgreSQL (Udemy)</li>
-          <li>Power Apps + Power Automate + SharePoint (Udemy)</li>
         </ul>
       </div>
     </aside>
 
-    <!-- ================= MAIN ================= -->
     <main>
-      <h2>Professional Summary</h2>
+      <h2>Professional Profile</h2>
       <p class="profile">
-        Backend Developer specialized in intelligent orchestration and automation pipelines.
-        10 months in real production: 15+ integrations, 97% latency reduction, 93.5% downtime reduction.
-        I build agents with LLMs (OpenAI, DeepSeek, Anthropic), integrate legacy APIs, and optimize critical workflows.
-        Clean Architecture, SOLID, retry patterns.
-        Stack: Python, FastAPI, Docker, Supabase, n8n. Software Engineering (GPA 9.3, graduating Dec 2026).
-        Portfolio: <b>jonasaaugusto.github.io</b>.
+        Founder of Augustus AI Solutions, with a little over 1 year of professional experience. I deliver AI agents and automations that serve, sell and operate on WhatsApp for companies, plus internal apps and B2B web systems, always in production and with the infrastructure under my control (own VPS, monitored services, backup).
+        I value low operating cost, documentation and tests that protect what already works. Software Engineering (GPA 9.3, graduating Dec 2026).
       </p>
 
       <h2>Professional Experience</h2>
 
       <div class="job">
         <div class="job-head">
-          <h3>Freelance Developer · Automation &amp; Web</h3>
+          <h3>CEO &amp; Lead Developer</h3>
           <span class="period">Jun 2026 – present · Remote</span>
         </div>
-        <p class="company">Self-employed</p>
+        <p class="company">Augustus AI Solutions · AI Agents, Automation &amp; B2B Web</p>
         <ul>
-          <li><b>DuTony Hotburguers AI Agent</b> — WhatsApp (Baileys) customer service that builds orders, calculates delivery fees, keeps a customer relationship history, and notifies store opening.</li>
-          <li><b>Monobloco Landing Page</b> — commercial site focused on conversion and product/service presentation.</li>
-          <li><b>Dario Fretes Landing Page</b> — site with an SEO focus, increasing reach and Google search ranking.</li>
+          <li><b>Raízes &amp; Escamas</b> (aquarium store, real client): WhatsApp support and sales agent in TypeScript, Baileys and DeepSeek, with prices computed by rules in code, RAG over 430 product sheets, quotes with quantity guards and PIX. The owner registers products in batches through WhatsApp (text, audio and photo). Systemd service on my own VPS.</li>
+          <li><b>AugustusApp</b> (internal app): local meeting transcription, built-in SSH terminal for the VPS, modular WhatsApp connector, bot management and VPS backup administration.</li>
         </ul>
       </div>
 
@@ -197,33 +188,32 @@
         </div>
         <p class="company">F5 Tecnologia</p>
         <ul>
-          <li>Built a 24/7 automated service system (state machine) integrating LLMs into real decision flows, with multi-VPS distributed architecture.</li>
-          <li>Audited and fixed critical production failures (business rules, data integration), unblocking 170+ customers wrongly denied.</li>
+          <li>AI agents over WhatsApp for selling digital products (credit and energy) and for customer relationship and after-sales, with guardrails in code, partner and CRM (Blip) integrations, and sensitive data handled under LGPD.</li>
+          <li>Fixed critical production failures (OCR, supplier identification, eligibility rules), unblocking 170+ customers.</li>
+          <li>Reworked the CRM dashboard: first call from <b>73.7 s to 0.08 s</b> and <b>0 discrepancies in 1,960 items</b> checked against the portals.</li>
         </ul>
       </div>
 
       <div class="job">
         <div class="job-head">
-          <h3>Backend Development &amp; RPA Intern</h3>
+          <h3>Automation and RPA Support Intern</h3>
           <span class="period">Sep – Nov 2025 · Hybrid</span>
         </div>
         <p class="company">NEURODEV (Startup)</p>
         <ul>
-          <li>Developed 15+ integrations in Python connecting external APIs, processing 800+ transactions per day.</li>
-          <li>Implemented retry patterns and fallback with monitoring via Linux CLI for high availability.</li>
-          <li>Optimized a pipeline with the OpenAI API, reducing latency from 15 minutes to 27 seconds (97% reduction) through prompt engineering and intelligent caching.</li>
+          <li>15+ Python integrations connecting external APIs, 800+ transactions per day, with retry patterns and fallback.</li>
+          <li>OpenAI API pipeline: latency from 15 minutes to 27 seconds (-97%) via prompt engineering and caching; RPA refactored with Docker, monthly downtime from 35 h to 2.25 h (-93.5%).</li>
         </ul>
       </div>
 
       <div class="job">
         <div class="job-head">
-          <h3>Junior Backend &amp; Integration Developer</h3>
+          <h3>Junior AI Automation Developer</h3>
           <span class="period">Aug – Sep 2025 · Remote</span>
         </div>
         <p class="company">BNECT (Early-Stage Startup)</p>
         <ul>
-          <li>Developed services in Python integrating CRM/ERP via APIs, applying Factory and Strategy patterns with an event-driven architecture.</li>
-          <li>Used n8n and Python for workflow orchestration with LLM integration.</li>
+          <li>Python services integrating CRM/ERP via APIs (Factory and Strategy, event-driven architecture) and n8n flows with LLMs.</li>
         </ul>
       </div>
 
@@ -234,36 +224,28 @@
         </div>
         <p class="company">Volpatto Engenharia (Freelance)</p>
         <ul>
-          <li>Specified functional and non-functional requirements in UML/BPMN for 6 services, focusing on performance and maintainability.</li>
+          <li>Functional and non-functional requirements in UML/BPMN for 6 services.</li>
         </ul>
       </div>
 
       <h2>Featured Projects</h2>
 
       <div class="project">
-        <h3>IAprovale Concurso Finder <span>· Python / FastAPI / DeepSeek / MCP / Supabase</span></h3>
-        <p>Backend with intelligent search orchestration using DeepSeek LLM and MCP to integrate with the PCI Concursos platform. JWT authentication, result deduplication, and versioned persistence in Supabase PostgreSQL. Desktop client in PySide6, web in development. Roughly 1,500 lines. Versioned deployment on Render. Demonstrates competence in AI agents and LLM integration in production.</p>
+        <h3>AugustusApp <span>· .NET 10 MAUI / Python / WhisperX / Ollama</span></h3>
+        <p>Internal desktop app: VPS SSH terminal (xterm.js and tmux), 100% local transcription (WhisperX large-v3 with diarization, summary and next-meeting briefing with a local LLM, zero API cost), WhatsApp connector, bot management and VPS backup with restic to Backblaze B2. Local Python services tied to a Windows Job Object; 8 GB GPU with one owner at a time.</p>
       </div>
 
       <div class="project">
-        <h3>NotaME <span>· C# / .NET MAUI / SQLite / AES-256</span></h3>
-        <p>Offline-first app for issuing NFS-e invoices (micro-entrepreneurs) with biometric authentication, AES-256 encryption, PDF generation via QuestPDF, and P2P sync over the local network, with zero server dependency.</p>
+        <h3>Modular WhatsApp Connector <span>· Python / Baileys · B2B Product</span></h3>
+        <p>Connects and disconnects WhatsApp bots by QR, with live log and each bot independent, registered in an editable file without recompiling. Keeps no session of its own, loopback-only service with token and 40 automated tests.</p>
       </div>
 
       <div class="project">
-        <h3>LogiTrack API <span>· Python / FastAPI / PostgreSQL / Docker</span></h3>
-        <p>Logistics REST API with Clean Architecture, the Repository pattern, JWT authentication, async endpoints, and containerized deployment via Docker Compose.</p>
+        <h3>IAprovale Concurso Finder <span>· Python / FastAPI / DeepSeek / MCP / PostgreSQL</span></h3>
+        <p>AI search for public-service exams: natural-language queries are translated by DeepSeek and run against PCI Concursos via MCP (no scraping). ~200 tests, Playwright E2E, PySide6 and web clients, deployed on Render.</p>
       </div>
 
-      <div class="project">
-        <h3>VoxAI Hub <span>· C# / .NET MAUI / Whisper AI / FFmpeg</span></h3>
-        <p>Cross-platform app for offline audio/video transcription with on-device Whisper AI model integration, no external API cost, and full privacy.</p>
-      </div>
 
-      <div class="project">
-        <h3>Fabula Coop <span>· Python / LLM Agent</span></h3>
-        <p>Cooperative, dynamic text RPG with no turns, where the campaign master is an AI that narrates and reacts to player actions in real time.</p>
-      </div>
     </main>
   </div>
 </div>
