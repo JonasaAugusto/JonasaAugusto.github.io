@@ -1,0 +1,2494 @@
+{
+ "url": "http://127.0.0.1:5521/",
+ "at": "2026-10-24T04:12:13.267Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.29,
+    0.24,
+    0.28,
+    0.35,
+    0.67,
+    0.68,
+    0.52,
+    0.63,
+    0.4,
+    0.18,
+    0.21,
+    0.19
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 11237,
+     "screens": 12.5,
+     "words": 2129,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 17,
+     "sections": 9,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "JONAS AUGUSTO",
+     "words": 2,
+     "chars": 13,
+     "lines": 2,
+     "size": 64,
+     "vw": 4.4,
+     "font": "Archivo",
+     "weight": 800,
+     "tracking": -0.035,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.22,
+     "top": 80,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "JONAS AUGUSTO",
+     "words": 2,
+     "lines": 2,
+     "size": 64,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "JONAS AUGUSTO",
+      "words": 2,
+      "chars": 13,
+      "lines": 2,
+      "size": 64,
+      "vw": 4.4,
+      "font": "Archivo",
+      "weight": 800,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.22,
+      "top": 80,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Sobre Mim",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.13,
+      "top": 622,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Experiência Profissional",
+      "words": 2,
+      "chars": 24,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.28,
+      "top": 1229,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Projetos Reais (GitHub)",
+      "words": 3,
+      "chars": 23,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 3111,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "AugustusApp · App interno da Augustus AI Solutions",
+      "words": 8,
+      "chars": 50,
+      "lines": 2,
+      "size": 30,
+      "vw": 2.1,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.64,
+      "top": 3255,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "IAprovale · Concurso Finder",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 30,
+      "vw": 2.1,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.64,
+      "top": 4309,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Principais Desafios Técnicos",
+      "words": 3,
+      "chars": 28,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 5966,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Stack Tecnológica",
+      "words": 2,
+      "chars": 17,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.22,
+      "top": 7920,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Formação Acadêmica",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 9058,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Cursos e Certificações",
+      "words": 3,
+      "chars": 22,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 9660,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Vamos Conversar?",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.22,
+      "top": 10357,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 11,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      30,
+      36,
+      64
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 17,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.7
+     },
+     "measureChars": 31,
+     "max": {
+      "size": 64,
+      "vw": 4.4,
+      "font": "Archivo",
+      "text": "Jonas"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0a0a0a",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#151515",
+       "top": 3223,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f4f4ef",
+       "share": 0.73
+      },
+      {
+       "color": "#a9a9a3",
+       "share": 0.26
+      },
+      {
+       "color": "#0a0a0a",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#0a0a0a",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 0.04
+      },
+      "fg": "#f4f4ef"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 10,
+     "inHero": 4,
+     "radius": 0,
+     "height": 46,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Ir para o conteúdo",
+      "Fale comigo",
+      "GitHub",
+      "Abrir CV"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 17,
+     "hairlineSamples": [
+      "header.site-header 248px",
+      "div.exp-item.rv 992px",
+      "div.exp-item.rv 992px",
+      "div.exp-item.rv 992px",
+      "div.exp-item.rv 992px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 1869
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 5106
+      },
+      {
+       "count": 9,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 6031
+      },
+      {
+       "count": 5,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 7986
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 0.11
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 900,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo",
+     "archivo fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 11237,
+    "margins": {
+     "left": 296,
+     "right": 173
+    },
+    "sections": [
+     {
+      "sel": "section#hero.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 509,
+      "words": 19,
+      "media": 1,
+      "middle": 197,
+      "heading": {
+       "text": "Jonas",
+       "size": 64,
+       "tag": "h1"
+      },
+      "left": 348,
+      "right": 100,
+      "textLeft": 348,
+      "textRight": 702,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#sobre.section.py-32",
+      "tag": "section",
+      "top": 509,
+      "height": 607,
+      "words": 115,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Sobre",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 296,
+      "right": 443,
+      "textLeft": 296,
+      "textRight": 443,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#experiencia.section.py-32",
+      "tag": "section",
+      "top": 1116,
+      "height": 1882,
+      "words": 449,
+      "media": 0,
+      "middle": 37,
+      "heading": {
+       "text": "Experiência",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 296,
+      "right": 156,
+      "textLeft": 296,
+      "textRight": 156,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#projetos.section.py-32",
+      "tag": "section",
+      "top": 2998,
+      "height": 2855,
+      "words": 566,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Projetos",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 296,
+      "right": 184,
+      "textLeft": 296,
+      "textRight": 184,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#desafios.section.py-32",
+      "tag": "section",
+      "top": 5853,
+      "height": 1954,
+      "words": 633,
+      "media": 0,
+      "middle": 69,
+      "heading": {
+       "text": "Principais Desafios",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 296,
+      "right": 184,
+      "textLeft": 296,
+      "textRight": 184,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#habilidades.section.py-32",
+      "tag": "section",
+      "top": 7807,
+      "height": 1138,
+      "words": 199,
+      "media": 0,
+      "middle": 134,
+      "heading": {
+       "text": "Stack",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 296,
+      "right": 172,
+      "textLeft": 296,
+      "textRight": 172,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#formacao.section.py-32",
+      "tag": "section",
+      "top": 8945,
+      "height": 602,
+      "words": 58,
+      "media": 0,
+      "middle": 75,
+      "heading": {
+       "text": "Formação",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 296,
+      "right": 180,
+      "textLeft": 296,
+      "textRight": 180,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#cursos.section.py-32",
+      "tag": "section",
+      "top": 9547,
+      "height": 697,
+      "words": 84,
+      "media": 0,
+      "middle": 135,
+      "heading": {
+       "text": "Cursos e",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 296,
+      "right": 296,
+      "textLeft": 296,
+      "textRight": 296,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#contato.section.py-32",
+      "tag": "section",
+      "top": 10244,
+      "height": 911,
+      "words": 23,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Vamos",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 296,
+      "right": 504,
+      "textLeft": 296,
+      "textRight": 721,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "JONAS AUGUSTO",
+      "size": 64,
+      "top": 80,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 296,
+      "n": 29
+     },
+     {
+      "x": 325,
+      "n": 15
+     },
+     {
+      "x": 733,
+      "n": 11
+     },
+     {
+      "x": 659,
+      "n": 8
+     },
+     {
+      "x": 993,
+      "n": 8
+     },
+     {
+      "x": 337,
+      "n": 4
+     },
+     {
+      "x": 675,
+      "n": 3
+     },
+     {
+      "x": 1009,
+      "n": 3
+     },
+     {
+      "x": 348,
+      "n": 2
+     },
+     {
+      "x": 397,
+      "n": 2
+     },
+     {
+      "x": 441,
+      "n": 2
+     },
+     {
+      "x": 752,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 95,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.14,
+    "voidBox": {
+     "x": 1020,
+     "y": 480,
+     "w": 420,
+     "h": 420
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.34,
+    0.49,
+    0.35,
+    0.81,
+    0.84,
+    0.62,
+    0.73,
+    0.71,
+    0.4,
+    0.2,
+    0.46,
+    0.22
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 11960,
+     "screens": 11.7,
+     "words": 2121,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 17,
+     "sections": 9,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "JONAS AUGUSTO",
+     "words": 2,
+     "chars": 13,
+     "lines": 2,
+     "size": 50.2,
+     "vw": 6.5,
+     "font": "Archivo",
+     "weight": 800,
+     "tracking": -0.035,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.33,
+     "top": 214,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "JONAS AUGUSTO",
+     "words": 2,
+     "lines": 2,
+     "size": 50.2,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "JONAS AUGUSTO",
+      "words": 2,
+      "chars": 13,
+      "lines": 2,
+      "size": 50.2,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 800,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 214,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Sobre Mim",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 30.9,
+      "vw": 4,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.21,
+      "top": 620,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Experiência Profissional",
+      "words": 2,
+      "chars": 24,
+      "lines": 1,
+      "size": 30.9,
+      "vw": 4,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.45,
+      "top": 1157,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Projetos Reais (GitHub)",
+      "words": 3,
+      "chars": 23,
+      "lines": 1,
+      "size": 30.9,
+      "vw": 4,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 3123,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "AugustusApp · App interno da Augustus AI Solutions",
+      "words": 8,
+      "chars": 50,
+      "lines": 2,
+      "size": 26.9,
+      "vw": 3.5,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 3252,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "IAprovale · Concurso Finder",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 26.9,
+      "vw": 3.5,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 4300,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Principais Desafios Técnicos",
+      "words": 3,
+      "chars": 28,
+      "lines": 1,
+      "size": 30.9,
+      "vw": 4,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 6198,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Stack Tecnológica",
+      "words": 2,
+      "chars": 17,
+      "lines": 1,
+      "size": 30.9,
+      "vw": 4,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 8686,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Formação Acadêmica",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 30.9,
+      "vw": 4,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 9896,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Cursos e Certificações",
+      "words": 3,
+      "chars": 22,
+      "lines": 1,
+      "size": 30.9,
+      "vw": 4,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 10464,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Vamos Conversar?",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 30.9,
+      "vw": 4,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.36,
+      "top": 11110,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 11,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      27,
+      31,
+      50
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 16.9,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.7
+     },
+     "measureChars": 36,
+     "max": {
+      "size": 50.2,
+      "vw": 6.5,
+      "font": "Archivo",
+      "text": "Jonas"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0a0a0a",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#151515",
+       "top": 3229,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f4f4ef",
+       "share": 0.73
+      },
+      {
+       "color": "#a9a9a3",
+       "share": 0.25
+      },
+      {
+       "color": "#0a0a0a",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#0a0a0a",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 0.04
+      },
+      "fg": "#f4f4ef"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 10,
+     "inHero": 4,
+     "radius": 0,
+     "height": 46,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Ir para o conteúdo",
+      "Fale comigo",
+      "GitHub",
+      "Abrir CV"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 17,
+     "hairlineSamples": [
+      "header.site-header 768px",
+      "div.exp-item.rv 707px",
+      "div.exp-item.rv 707px",
+      "div.exp-item.rv 707px",
+      "div.exp-item.rv 707px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 5109
+      },
+      {
+       "count": 9,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 6257
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 61,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo",
+     "archivo fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 11960,
+    "margins": {
+     "left": 31,
+     "right": 36
+    },
+    "sections": [
+     {
+      "sel": "section#hero.hero",
+      "tag": "section",
+      "top": 61,
+      "height": 486,
+      "words": 19,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Jonas",
+       "size": 50,
+       "tag": "h1"
+      },
+      "left": 31,
+      "right": 326,
+      "textLeft": 31,
+      "textRight": 347,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#sobre.section.py-32",
+      "tag": "section",
+      "top": 547,
+      "height": 537,
+      "words": 115,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Sobre",
+       "size": 31,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 36,
+      "textLeft": 31,
+      "textRight": 36,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#experiencia.section.py-32",
+      "tag": "section",
+      "top": 1084,
+      "height": 1966,
+      "words": 449,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Experiência",
+       "size": 31,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 32,
+      "textLeft": 31,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#projetos.section.py-32",
+      "tag": "section",
+      "top": 3050,
+      "height": 3075,
+      "words": 566,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Projetos",
+       "size": 31,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 57,
+      "textLeft": 31,
+      "textRight": 57,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#desafios.section.py-32",
+      "tag": "section",
+      "top": 6125,
+      "height": 2489,
+      "words": 633,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Principais Desafios",
+       "size": 31,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 53,
+      "textLeft": 31,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#habilidades.section.py-32",
+      "tag": "section",
+      "top": 8613,
+      "height": 1210,
+      "words": 199,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Stack",
+       "size": 31,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 119,
+      "textLeft": 31,
+      "textRight": 119,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#formacao.section.py-32",
+      "tag": "section",
+      "top": 9823,
+      "height": 568,
+      "words": 58,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Formação",
+       "size": 31,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 121,
+      "textLeft": 31,
+      "textRight": 121,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#cursos.section.py-32",
+      "tag": "section",
+      "top": 10391,
+      "height": 645,
+      "words": 84,
+      "media": 0,
+      "middle": 46,
+      "heading": {
+       "text": "Cursos e",
+       "size": 31,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 60,
+      "textLeft": 31,
+      "textRight": 60,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#contato.section.py-32",
+      "tag": "section",
+      "top": 11037,
+      "height": 841,
+      "words": 23,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Vamos",
+       "size": 31,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 97,
+      "textLeft": 31,
+      "textRight": 315,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "JONAS AUGUSTO",
+      "size": 50,
+      "top": 214,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 31,
+      "n": 42
+     },
+     {
+      "x": 50,
+      "n": 23
+     },
+     {
+      "x": 409,
+      "n": 10
+     },
+     {
+      "x": 62,
+      "n": 6
+     },
+     {
+      "x": 425,
+      "n": 4
+     },
+     {
+      "x": 117,
+      "n": 2
+     },
+     {
+      "x": 155,
+      "n": 2
+     },
+     {
+      "x": 134,
+      "n": 1
+     },
+     {
+      "x": 180,
+      "n": 1
+     },
+     {
+      "x": 205,
+      "n": 1
+     },
+     {
+      "x": 236,
+      "n": 1
+     },
+     {
+      "x": 308,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 95,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.42,
+    0.49,
+    0.81,
+    0.47,
+    0.43,
+    0.76,
+    0.88,
+    0.89,
+    0.88,
+    0.8,
+    0.68,
+    0.76
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 16832,
+     "screens": 19.9,
+     "words": 2121,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 17,
+     "sections": 9,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "JONAS AUGUSTO",
+     "words": 2,
+     "chars": 13,
+     "lines": 2,
+     "size": 40,
+     "vw": 10.3,
+     "font": "Archivo",
+     "weight": 800,
+     "tracking": -0.035,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.51,
+     "top": 188,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "JONAS AUGUSTO",
+     "words": 2,
+     "lines": 2,
+     "size": 40,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "JONAS AUGUSTO",
+      "words": 2,
+      "chars": 13,
+      "lines": 2,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Archivo",
+      "weight": 800,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.51,
+      "top": 188,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Sobre Mim",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 688,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Experiência Profissional",
+      "words": 2,
+      "chars": 24,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 1543,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Projetos Reais (GitHub)",
+      "words": 3,
+      "chars": 23,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 4329,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "AugustusApp · App interno da Augustus AI Solutions",
+      "words": 8,
+      "chars": 50,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 4452,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "IAprovale · Concurso Finder",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 6010,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Principais Desafios Técnicos",
+      "words": 3,
+      "chars": 28,
+      "lines": 2,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 8503,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Stack Tecnológica",
+      "words": 2,
+      "chars": 17,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.62,
+      "top": 12554,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Formação Acadêmica",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.73,
+      "top": 14048,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Cursos e Certificações",
+      "words": 3,
+      "chars": 22,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 14681,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Vamos Conversar?",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.64,
+      "top": 15801,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 11,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      24,
+      28,
+      40
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 16.1,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.7
+     },
+     "measureChars": 39,
+     "max": {
+      "size": 40,
+      "vw": 10.3,
+      "font": "Archivo",
+      "text": "Jonas"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0a0a0a",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#151515",
+       "top": 1881,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f4f4ef",
+       "share": 0.73
+      },
+      {
+       "color": "#a9a9a3",
+       "share": 0.25
+      },
+      {
+       "color": "#0a0a0a",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#0a0a0a",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 0.04
+      },
+      "fg": "#f4f4ef"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 10,
+     "inHero": 4,
+     "radius": 0,
+     "height": 40,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Ir para o conteúdo",
+      "Fale comigo",
+      "GitHub",
+      "Abrir CV"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 17,
+     "hairlineSamples": [
+      "header.site-header 390px",
+      "div.exp-item.rv 350px",
+      "div.exp-item.rv 350px",
+      "div.exp-item.rv 350px",
+      "div.exp-item.rv 350px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 2426
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 7089
+      },
+      {
+       "count": 9,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 8591
+      },
+      {
+       "count": 8,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 12610
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 61,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo",
+     "archivo fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 16832,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "section#hero.hero",
+      "tag": "section",
+      "top": 61,
+      "height": 554,
+      "words": 19,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Jonas",
+       "size": 40,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 73,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#sobre.section.py-32",
+      "tag": "section",
+      "top": 615,
+      "height": 854,
+      "words": 115,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Sobre",
+       "size": 28,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 21,
+      "textLeft": 20,
+      "textRight": 21,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#experiencia.section.py-32",
+      "tag": "section",
+      "top": 1470,
+      "height": 2787,
+      "words": 449,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Experiência",
+       "size": 28,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#projetos.section.py-32",
+      "tag": "section",
+      "top": 4256,
+      "height": 4173,
+      "words": 566,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Projetos",
+       "size": 28,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 40,
+      "textLeft": 20,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#desafios.section.py-32",
+      "tag": "section",
+      "top": 8430,
+      "height": 4051,
+      "words": 633,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Principais Desafios",
+       "size": 28,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 41,
+      "textLeft": 20,
+      "textRight": 41,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#habilidades.section.py-32",
+      "tag": "section",
+      "top": 12481,
+      "height": 1495,
+      "words": 199,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Stack",
+       "size": 28,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 23,
+      "textLeft": 20,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#formacao.section.py-32",
+      "tag": "section",
+      "top": 13975,
+      "height": 632,
+      "words": 58,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Formação",
+       "size": 28,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 27,
+      "textLeft": 20,
+      "textRight": 27,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#cursos.section.py-32",
+      "tag": "section",
+      "top": 14608,
+      "height": 1121,
+      "words": 84,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Cursos e",
+       "size": 28,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 52,
+      "textLeft": 20,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#contato.section.py-32",
+      "tag": "section",
+      "top": 15728,
+      "height": 997,
+      "words": 23,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Vamos",
+       "size": 28,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 54,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "JONAS AUGUSTO",
+      "size": 40,
+      "top": 188,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 43
+     },
+     {
+      "x": 39,
+      "n": 34
+     },
+     {
+      "x": 56,
+      "n": 9
+     },
+     {
+      "x": 133,
+      "n": 3
+     },
+     {
+      "x": 98,
+      "n": 2
+     },
+     {
+      "x": 114,
+      "n": 1
+     },
+     {
+      "x": 155,
+      "n": 1
+     },
+     {
+      "x": 178,
+      "n": 1
+     },
+     {
+      "x": 206,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 95,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "17 thin rule(s)/divider line(s): header.site-header 248px | div.exp-item.rv 992px | div.exp-item.rv 992px | div.exp-item.rv 992px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "card-rows",
+   "width": 1440,
+   "message": "4 rows of identical boxed cards.",
+   "fix": "Vary the composition; not every section is a card grid.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (text #f4f4ef).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "10 different font sizes (13, 14, 15, 16, 17, 18, 19, 30, 36, 64).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "focal-point",
+   "width": 1440,
+   "message": "The first screen has no dominant element: the largest type is 64px (4.4vw) and no single picture holds a third of the viewport.",
+   "fix": "Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw."
+  },
+  {
+   "level": "FAIL",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The page sits off-centre: its content comes to 296px from the left edge but only to 173px from the right, at 1440px.",
+   "fix": "Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure)."
+  },
+  {
+   "level": "WARN",
+   "id": "ragged-edges",
+   "width": 1440,
+   "message": "Left-aligned text starts at 12 different lines (296px, 325px, 733px, 659px, 993px, 337px, 675px); the three most used hold only 58% of it.",
+   "fix": "Pick two or three anchor lines from the grid and start every heading and paragraph on one of them."
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 1 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  },
+  {
+   "level": "FAIL",
+   "id": "empty-screens",
+   "width": 1440,
+   "message": "2 of 12 desktop screens are almost empty ground (under 20% of the screen holds text, a picture or a colour field): screens 10, 12.",
+   "fix": "An empty screen is a rest only once per page. Elsewhere it means the section is underbuilt: set its content larger, give it the full information, put it on a colour field, or cut it."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\Projects\\JonasaAugusto.github.io\\JonasaAugusto.github.io\\.taste-skill\\inspect\\desktop-fold.jpg",
+   "pages": [
+    "D:\\Projects\\JonasaAugusto.github.io\\JonasaAugusto.github.io\\.taste-skill\\inspect\\desktop-page-01.jpg",
+    "D:\\Projects\\JonasaAugusto.github.io\\JonasaAugusto.github.io\\.taste-skill\\inspect\\desktop-page-02.jpg",
+    "D:\\Projects\\JonasaAugusto.github.io\\JonasaAugusto.github.io\\.taste-skill\\inspect\\desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\Projects\\JonasaAugusto.github.io\\JonasaAugusto.github.io\\.taste-skill\\inspect\\tablet-fold.jpg",
+   "pages": [
+    "D:\\Projects\\JonasaAugusto.github.io\\JonasaAugusto.github.io\\.taste-skill\\inspect\\tablet-page-01.jpg",
+    "D:\\Projects\\JonasaAugusto.github.io\\JonasaAugusto.github.io\\.taste-skill\\inspect\\tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\Projects\\JonasaAugusto.github.io\\JonasaAugusto.github.io\\.taste-skill\\inspect\\mobile-fold.jpg",
+   "pages": [
+    "D:\\Projects\\JonasaAugusto.github.io\\JonasaAugusto.github.io\\.taste-skill\\inspect\\mobile-page-01.jpg",
+    "D:\\Projects\\JonasaAugusto.github.io\\JonasaAugusto.github.io\\.taste-skill\\inspect\\mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
