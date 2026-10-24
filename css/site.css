@@ -406,9 +406,10 @@ body::after {
 .contact-title { font-size: var(--t-head); font-weight: 600; letter-spacing: -.045em; line-height: .95; }
 .contact-head p { color: var(--soft); max-width: 34ch; }
 .contact-links { display: grid; gap: 4px; }
-.contact-links a { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-top: 1px solid var(--line); font-size: 1.0625rem; transition: padding .4s var(--ease-out); }
+.contact-links a { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-top: 1px solid var(--line); font-size: 1.0625rem; }
+.contact-links a span { transition: transform .45s var(--ease-out); }
 .contact-links a:last-child { border-bottom: 1px solid var(--line); }
-.contact-links a:hover { padding-left: 8px; }
+.contact-links a:hover span { transform: translateX(8px); }
 .contact-links svg { width: 16px; height: 16px; transition: transform .4s var(--ease-out); }
 .contact-links a:hover svg { transform: translate(2px, -2px); }
 .contact-links .mono { font-size: var(--t-small); color: var(--soft); }
