@@ -626,3 +626,9 @@ td:nth-child(2) { color: var(--soft); }
   .hero-actions { gap: 8px; }
   .hero-actions .btn { padding: 0 14px; font-size: .875rem; gap: 6px; }
 }
+.btn { white-space: nowrap; }
+@media (max-width: 720px) {
+  .dlg-head { padding: 10px 10px 10px 16px; }
+  .dlg-head .btn.sm { padding: 0 12px; }
+  .dlg-head .controls { gap: 6px; }
+}
