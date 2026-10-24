@@ -417,6 +417,7 @@ body::after {
 .form .btn { justify-self: start; }
 
 /* footer */
+.footer-word::before { content: attr(data-word); }
 .site-footer { margin-top: var(--section); padding-bottom: 28px; overflow: clip; }
 .footer-word { font-size: min(12.5rem, calc((100vw - 2 * var(--gutter)) / 6.7)); font-weight: 600; letter-spacing: -.06em; line-height: .8; color: color-mix(in srgb, var(--ink) 9%, var(--bg)); user-select: none; margin: 0 0 28px -.04em; white-space: nowrap; }
 .footer-line { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; font-size: var(--t-small); color: var(--soft); padding-top: 20px; border-top: 1px solid var(--line); }
