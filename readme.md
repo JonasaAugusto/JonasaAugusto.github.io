@@ -1,42 +1,29 @@
 # Portfólio Jonas Augusto
 
-Repositório do meu portfólio pessoal hospedado em [jonasaaugusto.github.io](https://jonasaaugusto.github.io)
+Portfólio pessoal publicado em [jonasaaugusto.github.io](https://jonasaaugusto.github.io), em português e inglês.
 
-## Tecnologias Utilizadas
+## Stack
 
-- **HTML5, CSS3, JavaScript (Vanilla)**
-- **Tailwind CSS (via CDN)** - Para estilização responsiva e moderna
-- **Integrações via CDN:**
-  - Animações de entrada em CSS puro (IntersectionObserver), sem AOS
-  - **GSAP:** Animações avançadas
-  - **Typed.js:** Efeito de digitação no Hero
-  - **Formspark:** Envio de e-mails pelo formulário de contato
-
-## Funcionalidades
-
-- **Design Responsivo:** Layout adaptável para desktop e mobile
-- **Menu Hamburguer:** Navegação responsiva para dispositivos móveis
-- **Animações:** Animações de entrada em CSS puro para transições e entradas suaves
-- **Formulário de Contato:** Integração com FormSpark para envio direto para meu e-mail
-- **Download de CV:** Link para download do currículo em PDF
-- **Seções Dinâmicas:** Sobre, Experiência (com métricas), Projetos (com stacks), Habilidades, Formação e Contato
+- **HTML, CSS e JavaScript puros**, sem framework, sem build e sem scripts de terceiros
+- **Geist e Geist Mono** (variáveis, self-hosted em `assets/fonts/`); a mono aparece só em medidas, datas e stack
+- **Formspark** recebe o formulário de contato (só o `action` do formulário, nenhum script externo)
 
 ## Estrutura
 
-- `index.html`: Página única contendo todo o conteúdo, estilos e scripts
-- `JonasAugusto_cv_m.pdf`: Currículo em formato PDF para download
-- `cv.html`: Fonte editável do currículo (imprimir em PDF para atualizar)
-- `docs/`: Casos de estudo técnicos (PT e EN)
-- `README.md`: Este arquivo
+- `index.html`: página única, com o texto em PT no HTML e a tradução EN em atributos `data-en`
+- `css/site.css`: tokens (cores dos temas claro e escuro, escala de tipo, espaçamento) e todos os estilos
+- `js/site.js`: idioma, tema, menu, entradas das seções, números que contam, prévia que segue o cursor, diálogos do CV e do estudo de caso
+- `cv.html` e `cv.en.html`: fonte do currículo (imprimir em PDF para atualizar); `JonasAugusto_cv_m.pdf` e `JonasAugusto_cv_en.pdf` são os PDFs de 1 página
+- `docs/`: estudo de caso da F5 em Markdown (PT e EN)
 
-## Conteúdo
+## Decisões
 
-Portfólio de Jonas Augusto, fundador da Augustus AI Solutions: agentes de IA e automações no WhatsApp, apps internos e web B2B.
-- **AugustusApp** (projeto principal, repositório privado): app desktop .NET 10 MAUI com terminal SSH da VPS, transcrição local de reuniões, gestão dos bots, backup da VPS e publicação versionada
-- **Conector WhatsApp Modular** (produto B2B): serviço Python para conectar e desconectar bots por QR, sem rastro de automação
-- **Raízes & Escamas**: agente de IA de atendimento e vendas no WhatsApp para uma loja de aquarismo
-- **F5 Tecnologia**: caso de estudo de plataformas com agentes de IA em produção
+- **Monocromático editorial.** Preto, branco e cinzas, com o amarelo do banner só no ponto de status e na seleção de texto. A tipografia faz o trabalho.
+- **Tema claro e escuro.** Segue o sistema na primeira visita e guarda a escolha em `localStorage`; o script de tema roda no `<head>` para não piscar.
+- **Movimento só com `transform` e `opacity`.** Entradas por IntersectionObserver, barra de leitura e progresso dos desafios com CSS scroll-driven (quando o navegador suporta), troca de tema e de idioma com View Transitions. Tudo desliga com `prefers-reduced-motion`, e nada fica escondido se o script falhar.
+- **Interfaces desenhadas em HTML.** Os quadros dos projetos são fragmentos de interface feitos em HTML/CSS (não são screenshots), leves e nítidos em qualquer tela.
+- **Repositórios privados sem link.** AugustusApp e o Conector WhatsApp aparecem sem link de código.
 
 ## Hospedagem
 
-Este projeto está hospedado gratuitamente no **GitHub Pages**.
+GitHub Pages, sem etapa de build.
