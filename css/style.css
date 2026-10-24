@@ -482,3 +482,12 @@ body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 1
 
 /* texto um peso acima do light do Tailwind (300) */
 .font-light { font-weight: var(--fw-light) !important; }
+
+/* tabela de antes/depois no caso de estudo */
+.case-table-wrap { overflow-x: auto; margin: .5rem 0 1rem; border: 1px solid var(--line); border-radius: .75rem; }
+.case-table { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.5; }
+.case-table th { text-align: left; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-weight: var(--fw-regular); color: var(--accent); padding: .75rem 1rem; border-bottom: 1px solid var(--line-strong); }
+.case-table td { padding: .7rem 1rem; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--soft); }
+.case-table tr:last-child td { border-bottom: 0; }
+.case-table td.case-after { color: var(--accent); font-weight: var(--fw-regular); }
+@media (max-width: 640px) { .case-table th, .case-table td { padding: .6rem .7rem; } .case-table { font-size: .82rem; } }
