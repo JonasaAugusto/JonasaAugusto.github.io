@@ -385,7 +385,7 @@ body::after {
 
 /* formação e cursos */
 .edu { row-gap: 48px; }
-.edu-col { grid-column: span 4; }
+.edu-col { grid-column: span 6; }
 .edu-col h3 { font-size: 1rem; font-weight: 560; margin-bottom: 8px; display: flex; justify-content: space-between; }
 .edu-col + .edu-col { }
 .rows2 li { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; padding: 14px 0; border-top: 1px solid var(--line); }
@@ -394,6 +394,17 @@ body::after {
 .rows2 .v { font-family: var(--mono); font-size: var(--t-small); color: var(--soft); text-align: right; }
 .rows2 .d { grid-column: 1 / -1; color: var(--soft); font-size: 1rem; }
 .edu-wide { grid-column: 1 / -1; }
+.edu .edu-degrees { grid-column: 1 / -1; }
+.degrees { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+.degree { padding: 24px 0 28px; border-top: 1px solid var(--ink); display: grid; gap: 8px; align-content: start; }
+.degree-kind { font-family: var(--mono); font-size: var(--t-small); color: var(--soft); letter-spacing: .02em; }
+.degree h4 { font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem); font-weight: 560; letter-spacing: -.02em; line-height: 1.15; }
+.degree-school { color: var(--ink); font-weight: 500; }
+.degree-grade { display: flex; align-items: baseline; gap: 10px; margin-top: 8px; }
+.degree-grade span { font-size: clamp(2rem, 1.6rem + 1.4vw, 2.75rem); font-weight: 560; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.degree-grade small { font-family: var(--mono); font-size: var(--t-small); color: var(--soft); }
+.degree-note { color: var(--soft); }
+@media (max-width: 720px) { .degrees { grid-template-columns: 1fr; } }
 .edu-wide .grid { row-gap: 40px; }
 
 /* contato */

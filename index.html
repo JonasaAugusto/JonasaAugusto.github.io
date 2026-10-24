@@ -450,29 +450,14 @@
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="One GPU owner at a time; reprocessing returns 409 instead of fighting over VRAM.">Um dono da GPU por vez; o reprocessamento responde 409 em vez de disputar a VRAM.</dd></dl>
           </article>
           <article class="ch" data-reveal>
-            <h3 data-en="Child processes that die with the app">Processos filhos que morrem com o app</h3>
-            <p data-en="The app's Python services were left orphaned if it crashed. I put the child processes in a Windows Job Object with KILL_ON_JOB_CLOSE, in a dedicated platform project.">Os serviços Python do app ficavam órfãos se ele caísse. Coloquei os processos filhos em um Job Object do Windows com KILL_ON_JOB_CLOSE, em um projeto próprio da plataforma.</p>
-            <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="Children die with the app, even on a crash, where killing the process tree does not reach.">Os filhos morrem junto com o app, inclusive em crash, onde matar a árvore de processos não alcança.</dd></dl>
-          </article>
-          <article class="ch" data-reveal>
             <h3 data-en="SSH terminal with 220 ms of latency">Terminal SSH com 220 ms de latência</h3>
-            <p data-en="The VM terminal felt slow. I measured instead of guessing: about 221 ms RTT to the VPS in Europe and about 250 ms per keystroke even with plain ssh. I cut the app overhead with immediate output for small responses, a 6 ms tick, and a single UI dispatch, and showed the RTT in the tab.">O terminal da VM parecia lento. Medi em vez de supor: cerca de 221 ms de RTT até a VPS na Europa e cerca de 250 ms por tecla até com o ssh puro. Cortei o overhead do app com saída imediata para respostas pequenas, tick de 6 ms e despacho único à UI, e mostrei o RTT na aba.</p>
-            <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="App overhead reduced and the network floor explained on screen; predictive local echo was recorded for a future version.">Overhead do app reduzido e o piso de rede explicado na própria tela; o eco local preditivo ficou registrado para uma versão futura.</dd></dl>
-          </article>
-          <article class="ch" data-reveal>
-            <h3 data-en="Bots on the VPS and the restart loop">Robôs na VPS e o loop de reinício</h3>
-            <p data-en="The bots run as systemd services, which restart on their own. A spreadsheet whose bundles referenced deleted products made the catalog validation fail at startup, and systemd restarted the bot in a loop. The validation now accepts empty tabs, and the routine now proves the catalog on a local copy before writing to the VPS.">Os robôs rodam como serviço systemd, que religa sozinho. Uma planilha com pacotes citando produtos apagados fez a validação recusar o catálogo na inicialização, e o systemd religou o bot em loop. A validação passou a aceitar abas vazias, e a rotina agora prova o catálogo numa cópia local antes de gravar na VPS.</p>
-            <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="No dangling reference is possible, and every change is checked for an active service, zero restarts, and an open connection.">Nenhuma referência pendurada é possível, e toda mudança é conferida com serviço ativo, zero reinícios e conexão aberta.</dd></dl>
+            <p data-en="The VM terminal felt slow. I measured instead of guessing: about 221 ms RTT to the VPS in Europe and about 250 ms per keystroke even with plain ssh. I cut the app overhead with immediate output for small responses, a 6 ms tick, and a single UI dispatch, showed the RTT in the tab, and built a predictive local echo that draws each keystroke instantly and reconciles it with the server response.">O terminal da VM parecia lento. Medi em vez de supor: cerca de 221 ms de RTT até a VPS na Europa e cerca de 250 ms por tecla até com o ssh puro. Cortei o overhead do app com saída imediata para respostas pequenas, tick de 6 ms e despacho único à UI, mostrei o RTT na aba e implementei um eco local preditivo que desenha cada tecla na hora e confirma com a resposta do servidor.</p>
+            <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="App overhead reduced, the network floor explained on screen, and predictive local echo shipped: keystrokes appear instantly, without waiting for the 220 ms of network.">Overhead do app reduzido, piso de rede explicado na própria tela e eco local preditivo aplicado: as letras aparecem na hora, sem esperar os 220 ms da rede.</dd></dl>
           </article>
           <article class="ch" data-reveal>
             <h3 data-en="Safe VPS backup and restore">Backup da VPS com restauração segura</h3>
             <p data-en="Daily backup with restic to Backblaze B2, managed from the app: list, run now, and restore by date. A destructive restore requires confirmation, takes a safety backup first, and runs as a detached operation that survives an SSH drop.">Backup diário com restic para o Backblaze B2, administrado pelo app: listar, fazer agora e recuperar por data. A restauração destrutiva exige confirmação, faz backup de segurança antes e roda numa operação destacada que sobrevive à queda do SSH.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="Own backup, with no paid provider backup, and restore by date without leaving the app.">Backup próprio, sem depender de backup pago do provedor, e recuperação por data sem sair do app.</dd></dl>
-          </article>
-          <article class="ch" data-reveal>
-            <h3 data-en="Safe bulk registration through WhatsApp">Cadastro em lote seguro pelo WhatsApp</h3>
-            <p data-en="At Raízes &amp; Escamas, the owner registers products by text, audio, and photo in the WhatsApp group. The bot gathers everything in a pending list, accepts corrections by number, and only writes to the spreadsheet after final confirmation. The quantity guard stops a retry or repeated request from doubling the quote.">Na Raízes &amp; Escamas, o dono cadastra produtos por texto, áudio e foto no grupo do WhatsApp. O bot junta tudo numa lista pendente, aceita correções por número e só grava na planilha com a confirmação final. A guarda de quantidades impede que um retry ou pedido repetido dobre o orçamento.</p>
-            <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="One backup and one write per batch; a repeated identical call is ignored and suspicious sums ask for confirmation.">Um backup e uma gravação por lote; a mesma chamada repetida é ignorada e somas suspeitas pedem confirmação.</dd></dl>
           </article>
           <article class="ch" data-reveal>
             <h3 data-en="Lexical RAG instead of embeddings">RAG lexical em vez de embeddings</h3>
@@ -501,6 +486,10 @@
       </div>
       <div class="grid stack">
         <div class="stack-group" data-reveal>
+          <h3 style="--i:0" data-en="Programming languages">Linguagens de programação</h3>
+          <ul style="--i:1"><li data-en="Python (backend and automation)">Python (backend e automação)</li><li>C#</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li></ul>
+        </div>
+        <div class="stack-group" data-reveal>
           <h3 style="--i:0" data-en="Generative AI">IA Generativa</h3>
           <ul style="--i:1"><li>DeepSeek (tool calling)</li><li>OpenAI API</li><li>Anthropic Claude</li><li data-en="Ollama (local LLM)">Ollama (LLM local)</li><li data-en="WhisperX and faster-whisper">WhisperX e faster-whisper</li><li data-en="pyannote (diarization)">pyannote (diarização)</li><li data-en="RAG (lexical and hybrid)">RAG (lexical e híbrido)</li><li>MCP</li><li>LangChain</li><li>Prompt Engineering</li><li>Guardrails</li><li data-en="LLM Agents">Agentes com LLMs</li></ul>
         </div>
@@ -511,10 +500,6 @@
         <div class="stack-group" data-reveal>
           <h3 style="--i:0" data-en="Tools &amp; Infrastructure">Ferramentas &amp; Infraestrutura</h3>
           <ul style="--i:1"><li>Git/GitHub</li><li>GitHub Actions</li><li data-en="Docker and Docker Compose">Docker e Docker Compose</li><li data-en="Linux VPS (Ubuntu)">VPS Linux (Ubuntu)</li><li>systemd</li><li data-en="SSH and tmux">SSH e tmux</li><li>PM2</li><li>nginx</li><li data-en="restic and Backblaze B2">restic e Backblaze B2</li><li>Crontab</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h3 style="--i:0" data-en="Programming languages">Linguagens de programação</h3>
-          <ul style="--i:1"><li data-en="Python (backend and automation)">Python (backend e automação)</li><li>C#</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li></ul>
         </div>
         <div class="stack-group" data-reveal>
           <h3 style="--i:0" data-en="Databases">Bancos de dados</h3>
@@ -546,12 +531,24 @@
         <p class="sec-note" data-en="Academic education, completed courses and certifications in progress.">Formação acadêmica, cursos concluídos e certificações em andamento.</p>
       </div>
       <div class="grid edu">
-        <div class="edu-col" data-reveal>
+        <div class="edu-col edu-degrees" data-reveal>
           <h3 style="--i:0" data-en="Academic education">Formação acadêmica</h3>
-          <ul class="rows2" style="--i:1">
-            <li><b data-en="Software Engineering">Engenharia de Software</b><span class="v" data-en="2023 – Dec 2026">2023 – Dez 2026</span><span class="d" data-en="Estácio de Sá University (completing) · Overall average 9.3/10 · Focus on backend, process automation and systems integration">Universidade Estácio de Sá (conclusão) · Média global 9,3/10 · Foco em backend, automação de processos e integração de sistemas</span></li>
-            <li><b data-en="Technical Course in Software Development (Fullstack)">Técnico em Desenvolvimento de Software (Fullstack)</b><span class="v">2023</span><span class="d" data-en="SENAI Juiz de Fora (completed) · Overall average 8.0/10 · Complete training in web and desktop development, covering front-end and back-end">SENAI Juiz de Fora (concluído) · Média global 8,0/10 · Formação completa em desenvolvimento web e desktop, abrangendo front-end e back-end</span></li>
-          </ul>
+          <div class="degrees" style="--i:1">
+            <article class="degree">
+              <p class="degree-kind" data-en="Bachelor's degree · completing Dec 2026">Graduação · conclusão em dez/2026</p>
+              <h4 data-en="Software Engineering">Engenharia de Software</h4>
+              <p class="degree-school" data-en="Estácio de Sá University · 2023 – 2026">Universidade Estácio de Sá · 2023 – 2026</p>
+              <p class="degree-grade"><span>9,3</span><small data-en="overall average / 10">média global / 10</small></p>
+              <p class="degree-note" data-en="Focus on backend, process automation and systems integration.">Foco em backend, automação de processos e integração de sistemas.</p>
+            </article>
+            <article class="degree">
+              <p class="degree-kind" data-en="Technical degree · completed 2023">Técnico · concluído em 2023</p>
+              <h4 data-en="Software Development (Fullstack)">Desenvolvimento de Software (Fullstack)</h4>
+              <p class="degree-school">SENAI Juiz de Fora</p>
+              <p class="degree-grade"><span>8,0</span><small data-en="overall average / 10">média global / 10</small></p>
+              <p class="degree-note" data-en="Complete training in web and desktop development, covering front-end and back-end.">Formação completa em desenvolvimento web e desktop, abrangendo front-end e back-end.</p>
+            </article>
+          </div>
         </div>
         <div class="edu-col" data-reveal>
           <h3 style="--i:0"><span data-en="Completed courses">Cursos concluídos</span></h3>
