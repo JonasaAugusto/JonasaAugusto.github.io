@@ -188,6 +188,16 @@
   var cvLangBtn = d.getElementById('cv-lang-btn');
   if (cvLangBtn) cvLangBtn.addEventListener('click', function () { setCv(cvLang === 'pt' ? 'en' : 'pt'); });
 
+  /* ---------- hora local de Juiz de Fora ---------- */
+  var clock = d.getElementById('local-time');
+  function tickClock() {
+    try {
+      var t = new Intl.DateTimeFormat('pt-BR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo' }).format(new Date());
+      clock.textContent = t; clock.setAttribute('datetime', t);
+    } catch (e) { clock.parentNode.parentNode && (clock.textContent = ''); }
+  }
+  if (clock) { tickClock(); setInterval(tickClock, 15000); }
+
   /* ---------- formulário ---------- */
   var form = d.getElementById('contact-form'), submit = d.getElementById('submit-btn');
   if (form) form.addEventListener('submit', function () {
