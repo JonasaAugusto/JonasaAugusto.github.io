@@ -615,3 +615,14 @@ td:nth-child(2) { color: var(--soft); }
   .js .stack-group li:nth-child(11), .js .rows2 li:nth-child(11), .js .checks li:nth-child(11) { transition-delay: 615ms; }
   .js .stack-group li:nth-child(12), .js .rows2 li:nth-child(12), .js .checks li:nth-child(12) { transition-delay: 660ms; }
 }
+
+/* telas estreitas: três ações cabem numa linha, barra dos fragmentos sem quebra */
+.ui-bar > span { white-space: nowrap; }
+@media (max-width: 720px) {
+  .ui-tabs { gap: 10px; }
+  .ui-bar > span:last-child:not(:nth-child(2)) { display: none; }
+}
+@media (max-width: 420px) {
+  .hero-actions { gap: 8px; }
+  .hero-actions .btn { padding: 0 14px; font-size: .875rem; gap: 6px; }
+}
