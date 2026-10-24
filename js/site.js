@@ -94,7 +94,7 @@
   /* ---------- entradas ---------- */
   var revealEls = d.querySelectorAll('[data-reveal], [data-reveal-one], .shot');
   function show(el) { el.classList.add('in'); if (el.querySelector('[data-count]') || el.hasAttribute('data-count')) countUp(el); }
-  if ('IntersectionObserver' in window && !reduce.matches) {
+  if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });

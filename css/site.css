@@ -127,9 +127,7 @@ body::after {
 /* ---------- progresso de leitura (scroll-driven) ---------- */
 .progress { position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 60; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); pointer-events: none; }
 @supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .progress { animation: grow linear both; animation-timeline: scroll(root); }
-  }
+  .progress { animation: grow linear both; animation-timeline: scroll(root); }
 }
 @keyframes grow { to { transform: scaleX(1); } }
 
@@ -358,7 +356,7 @@ body::after {
 /* desafios: cabeçalho fixo à esquerda, lista à direita */
 .challenges { align-items: start; }
 .ch-aside { grid-column: 1 / span 4; position: sticky; top: calc(var(--header-h) + 32px); display: grid; gap: 20px; }
-.ch-aside .sec-title { font-size: clamp(2.25rem, 1.4rem + 3vw, 4rem); }
+.ch-aside .sec-title { font-size: clamp(2.25rem, 1.4rem + 3vw, 4rem); grid-column: auto; }
 .ch-aside p { color: var(--soft); max-width: 32ch; }
 .ch-list { grid-column: 6 / span 7; }
 .ch { padding: 28px 0 32px; border-top: 1px solid var(--line); display: grid; gap: 12px; }
@@ -372,11 +370,9 @@ body::after {
 .ch-progress { height: 2px; background: var(--line); position: relative; overflow: hidden; max-width: 240px; }
 .ch-progress i { position: absolute; inset: 0; background: var(--ink); transform-origin: 0 50%; transform: scaleX(.04); }
 @supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .challenges { timeline-scope: --chl; }
-    .ch-list { view-timeline: --chl block; }
-    .ch-progress i { animation: grow linear both; animation-timeline: --chl; animation-range: contain 0% contain 100%; }
-  }
+  .challenges { timeline-scope: --chl; }
+  .ch-list { view-timeline: --chl block; }
+  .ch-progress i { animation: grow linear both; animation-timeline: --chl; animation-range: contain 0% contain 100%; }
 }
 @media (max-width: 1100px) { .ch-progress { display: none; } }
 
@@ -580,10 +576,14 @@ td:nth-child(2) { color: var(--soft); }
   .hero-facts dd { margin-bottom: 8px; }
 }
 
+/* movimento reduzido: sem deslocamento, só fades curtos (o conteúdo nunca depende deles) */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-  ::view-transition-new(root), ::view-transition-old(root) { animation: none; }
+  .js .hero [data-r] { opacity: 0; animation: fadeonly .8s ease forwards; animation-delay: calc(.1s + var(--i, 0) * 80ms); }
+  .js [data-reveal] > *, .js [data-reveal-one] { opacity: 0; transition: opacity .7s ease; transition-delay: calc(var(--i, 0) * 60ms); }
+  .js [data-reveal].in > *, .js [data-reveal-one].in { opacity: 1; }
+  .row-name, .stack-group li, .btn::before, .contact-links a span { transition: none !important; }
 }
+@keyframes fadeonly { to { opacity: 1; } }
 @media print { body::after, .site-header, .progress, .peek { display: none; } }
 
 /* entradas: elemento único e atrasos padrão por posição */
