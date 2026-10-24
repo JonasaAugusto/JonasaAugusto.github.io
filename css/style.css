@@ -479,3 +479,6 @@ body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 1
   .case-body { padding: 1.25rem; }
   .skill { padding: 1.1rem 0; }
 }
+
+/* texto um peso acima do light do Tailwind (300) */
+.font-light { font-weight: var(--fw-light) !important; }

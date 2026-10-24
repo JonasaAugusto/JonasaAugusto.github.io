@@ -24,9 +24,9 @@
 :root {
   /* tipografia */
   --font: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --fw-light: 300;
-  --fw-regular: 400;
-  --fw-medium: 500;
+  --fw-light: 400;
+  --fw-regular: 500;
+  --fw-medium: 600;
   --track-label: 0.25em;
   --track-nav: 0.16em;
 
