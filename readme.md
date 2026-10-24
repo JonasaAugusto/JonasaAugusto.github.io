@@ -16,7 +16,7 @@ Repositório do meu portfólio pessoal hospedado em [jonasaaugusto.github.io](ht
 
 - **Design Responsivo:** Layout adaptável para desktop e mobile
 - **Menu Hamburguer:** Navegação responsiva para dispositivos móveis
-- **Animações:** Integração com AOS e GSAP para transições e entradas suaves
+- **Animações:** Animações de entrada em CSS puro para transições e entradas suaves
 - **Formulário de Contato:** Integração com FormSpark para envio direto para meu e-mail
 - **Download de CV:** Link para download do currículo em PDF
 - **Seções Dinâmicas:** Sobre, Experiência (com métricas), Projetos (com stacks), Habilidades, Formação e Contato
@@ -29,13 +29,13 @@ Repositório do meu portfólio pessoal hospedado em [jonasaaugusto.github.io](ht
 - `docs/`: Casos de estudo técnicos (PT e EN)
 - `README.md`: Este arquivo
 
-## Impacto Mensurável
+## Conteúdo
 
-Meu portfólio reflete minha jornada como desenvolvedor Backend especializado em automação e agentes de IA, com resultados comprovados:
-- **15+ integrações em produção** conectando APIs externas, processando 800+ transações por dia
-- **Redução de latência de 97%** (15 minutos para 27 segundos) via engenharia de prompt e cache inteligente
-- **Economia de 25+ horas/mês** em trabalho manual através de RPA
-- **93,5% de redução em downtime** de sistemas críticos através de monitoramento proativo
+Portfólio de Jonas Augusto, fundador da Augustus AI Solutions: agentes de IA e automações no WhatsApp, apps internos e web B2B.
+- **AugustusApp** (projeto principal, repositório privado): app desktop .NET 10 MAUI com terminal SSH da VPS, transcrição local de reuniões, gestão dos bots, backup da VPS e publicação versionada
+- **Conector WhatsApp Modular** (produto B2B): serviço Python para conectar e desconectar bots por QR, sem rastro de automação
+- **Raízes & Escamas**: agente de IA de atendimento e vendas no WhatsApp para uma loja de aquarismo
+- **F5 Tecnologia**: caso de estudo de plataformas com agentes de IA em produção
 
 ## Hospedagem
 

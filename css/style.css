@@ -90,7 +90,6 @@ body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 1
   display: inline-flex; align-items: center; gap: .7rem;
   color: var(--text); white-space: nowrap;
 }
-.brand-mark { width: 1.9rem; height: 1.9rem; color: var(--accent); flex-shrink: 0; }
 .brand-name {
   font-size: .9rem; font-weight: var(--fw-regular);
   letter-spacing: .28em; text-transform: uppercase;
@@ -210,14 +209,14 @@ body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 1
 /* ============================================================
    BADGES — texto espaçado com contorno fino
    ============================================================ */
-.badge-current, .badge-live, .badge-dev, .badge-main {
+.badge-current, .badge-live, .badge-dev, .badge-main, .badge-b2b {
   display: inline-flex; align-items: center; gap: .5rem;
   padding: .25rem .8rem; border: 1px solid var(--line-strong); border-radius: var(--radius-pill);
   font-size: .65rem; font-weight: var(--fw-regular);
   letter-spacing: .18em; text-transform: uppercase; white-space: nowrap;
   color: var(--soft); background: transparent;
 }
-.badge-live, .badge-current { color: var(--accent); border-color: var(--accent); }
+.badge-live, .badge-current, .badge-b2b { color: var(--accent); border-color: var(--accent); }
 .badge-current::before {
   content: ''; width: .4rem; height: .4rem; border-radius: 50%;
   background: var(--accent); flex-shrink: 0;
@@ -304,6 +303,7 @@ body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 1
 .proj-links .proj-link { border-top: 0; }
 .proj-links .proj-link + .proj-link { border-left: 1px solid var(--line); }
 .proj-link:hover { background: var(--accent); color: var(--accent-ink); }
+.proj-link-static, .proj-link-static:hover { cursor: default; background: transparent; color: var(--muted); }
 
 .feat-label {
   display: flex; align-items: center; gap: .6rem; margin-bottom: .5rem;
@@ -464,7 +464,6 @@ body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 1
 @media (max-width: 640px) {
   .site-header { padding-inline: .75rem; }
   .brand { gap: .5rem; }
-  .brand-mark { width: 1.6rem; height: 1.6rem; }
   .brand-name { font-size: .75rem; letter-spacing: .18em; }
   .hero { align-items: flex-start; padding-top: calc(var(--header-h) + 4rem); padding-bottom: 3rem; }
   .hero-eyebrow { margin-bottom: 1.25rem; }
