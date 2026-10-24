@@ -1,254 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Jonas Augusto | Resume</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Jonas Augusto | Resume</title>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
   <link rel="icon" href="favicon.ico?v=2" sizes="16x16 32x32 48x48">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  :root {
-    --ink: #1a1a1a;
-    --muted: #555;
-    --line: #d9d9d9;
-    --accent: #111;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { background: #fff; color: var(--ink); font-family: Arial, Helvetica, sans-serif; font-size: 9pt; line-height: 1.28; }
-
-  @page { size: A4; margin: 0; }
-  .page {
-    width: 210mm;
-    min-height: 297mm;
-    margin: 0 auto;
-    padding: 7mm 10mm 5mm;
-  }
-  @media screen {
-    body { background: #e5e5e5; }
-    .page { margin: 20px auto; box-shadow: 0 4px 24px rgba(0,0,0,.18); background: #fff; }
-  }
-  @media print {
-    .page { box-shadow: none; margin: 0; min-height: 0; }
-  }
-
-  /* ---------- Header ---------- */
-  header { border-bottom: 2.5px solid var(--accent); padding-bottom: 2.5mm; margin-bottom: 3.5mm; }
-  header h1 { font-size: 19pt; letter-spacing: .01em; }
-  header .headline { font-size: 9.3pt; font-weight: bold; letter-spacing: .03em; margin-top: 1mm; }
-  header .contact { font-size: 8.2pt; color: var(--muted); margin-top: 1.2mm; }
-  header .contact b { color: var(--ink); }
-
-  /* ---------- Layout ---------- */
-  .columns::after { content: ""; display: table; clear: both; }
-  aside { float: left; width: 31%; }
-  main { float: right; width: 65%; }
-
-  /* ---------- Sections ---------- */
-  h2 {
-    font-size: 8.8pt; text-transform: uppercase; letter-spacing: .08em;
-    border-bottom: 1px solid var(--line); padding-bottom: .8mm; margin: 2.6mm 0 1.5mm;
-  }
-  aside h2:first-child, main h2:first-child { margin-top: 0; }
-
-  /* Sidebar */
-  .skill-group { margin-bottom: 2.2mm; }
-  .skill-group h3 { font-size: 8.5pt; margin-bottom: .4mm; }
-  .skill-group p { font-size: 8pt; color: var(--muted); }
-  aside .entry { margin-bottom: 2mm; }
-  aside .entry h3 { font-size: 8.5pt; }
-  aside .entry p { font-size: 8pt; color: var(--muted); }
-  aside ul { list-style: none; }
-  aside ul li { font-size: 8pt; color: var(--muted); margin-bottom: .7mm; padding-left: 3mm; position: relative; }
-  aside ul li::before { content: "•"; position: absolute; left: 0; color: var(--ink); }
-
-  /* Main */
-  .profile { font-size: 8.8pt; text-align: justify; }
-  .job { margin-bottom: 1.8mm; }
-  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
-  .job-head h3 { font-size: 9.4pt; }
-  .job-head .period { font-size: 8pt; color: var(--muted); white-space: nowrap; }
-  .job .company { font-size: 8.4pt; font-style: italic; color: var(--muted); margin-bottom: .8mm; }
-  .job ul { list-style: none; }
-  .job ul li { font-size: 8.6pt; margin-bottom: .7mm; padding-left: 3.5mm; position: relative; }
-  .job ul li::before { content: "•"; position: absolute; left: 0; }
-
-  .project { margin-bottom: 1.5mm; }
-  .project h3 { font-size: 9pt; }
-  .project h3 span { font-weight: normal; color: var(--muted); font-size: 8.4pt; }
-  .project p { font-size: 8.4pt; color: #333; text-align: justify; }
-</style>
-</head>
-<body>
-<div class="page">
-
-  <header>
-    <h1>Jonas Augusto</h1>
-    <p class="headline">FOUNDER OF AUGUSTUS AI SOLUTIONS | AI AGENTS · AUTOMATION &amp; B2B WEB</p>
-    <p class="contact">(32) 99168-5954 &nbsp;|&nbsp; jonasaugustoprofissional@gmail.com &nbsp;|&nbsp; linkedin.com/in/jonasaaugusto &nbsp;|&nbsp; Juiz de Fora, MG &nbsp;|&nbsp; <b>jonasaaugusto.github.io</b></p>
-  </header>
-
-  <div class="columns">
-
-    <aside>
-      <h2>Skills</h2>
-
-      <div class="skill-group">
-        <h3>Generative AI</h3>
-        <p>DeepSeek (tool calling), OpenAI API, Anthropic Claude, Ollama (local LLM), WhisperX, pyannote, RAG (lexical and hybrid), MCP, guardrails, LLM agents.</p>
-      </div>
-
-      <div class="skill-group">
-        <h3>Backend &amp; Frameworks</h3>
-        <p>FastAPI, Node.js and TypeScript (Fastify), REST APIs, WebSocket, Webhooks, Baileys (WhatsApp), BullMQ, Playwright, n8n, idempotency and retry.</p>
-      </div>
-
-      <div class="skill-group">
-        <h3>Databases</h3>
-        <p>PostgreSQL (pgvector), SQLite, Redis.</p>
-      </div>
-
-      <div class="skill-group">
-        <h3>Infra &amp; DevOps</h3>
-        <p>Linux VPS (Ubuntu), systemd, Docker and Compose, GitHub Actions, nginx, SSH and tmux, restic and Backblaze B2, backup and restore.</p>
-      </div>
-
-      <div class="skill-group">
-        <h3>Desktop &amp; Front-End</h3>
-        <p>.NET 10 and MAUI, MVVM, SSH.NET, xterm.js, PySide6, HTML/CSS/JS.</p>
-      </div>
-
-      <div class="skill-group">
-        <h3>Languages</h3>
-        <p>Python (focus), C#, TypeScript, JavaScript, SQL.</p>
-      </div>
-
-      <div class="skill-group">
-        <h3>Quality &amp; Methods</h3>
-        <p>Automated testing (pytest, xUnit, Vitest), security and LGPD, Scrum, UML, BPMN, technical documentation.</p>
-      </div>
-
-      <h2>Education</h2>
-      <div class="entry">
-        <h3>Software Engineering</h3>
-        <p>Estácio de Sá | 2023 – Dec 2026 (expected)<br><b>GPA 9.3/10</b></p>
-      </div>
-      <div class="entry">
-        <h3>Technical Degree, Software Dev.</h3>
-        <p>SENAI Juiz de Fora | 2023<br>Avg. 8.0/10</p>
-      </div>
-
-      <h2>Languages</h2>
-      <div class="entry">
-        <p><b>Portuguese</b> Native<br><b>English</b> C1 (Advanced)</p>
-      </div>
-
-      <h2>Certifications</h2>
-      <div class="entry">
-        <h3>Completed</h3>
-        <ul>
-          <li>Advanced Python + Generative AI (Udemy)</li>
-          <li>AI Specialist (Academia de IA)</li>
-          <li>Information Systems Programming and Web Programming (Estácio)</li>
-        </ul>
-      </div>
-      <div class="entry">
-        <h3>In progress</h3>
-        <ul>
-          <li>AWS Cloud Practitioner and Azure Fundamentals (2026)</li>
-          <li>Advanced FastAPI | TDD | PostgreSQL (Udemy)</li>
-        </ul>
-      </div>
-    </aside>
-
-    <main>
-      <h2>Professional Profile</h2>
-      <p class="profile">
-        Founder of Augustus AI Solutions, with a little over 1 year of professional experience as an intern and freelancer. I deliver AI agents and automations that serve, sell and operate on WhatsApp for companies, plus internal apps and B2B web systems, always in production and with the infrastructure under my control (own VPS, monitored services, backup).
-        I value low operating cost, documentation and tests that protect what already works. Software Engineering (GPA 9.3, graduating Dec 2026).
-      </p>
-
-      <h2>Professional Experience</h2>
-
-      <div class="job">
-        <div class="job-head">
-          <h3>CEO &amp; Lead Developer</h3>
-          <span class="period">Jun 2026 – present · Remote</span>
-        </div>
-        <p class="company">Augustus AI Solutions · AI Agents, Automation &amp; B2B Web</p>
-        <ul>
-          <li><b>Raízes &amp; Escamas</b> (aquarium store, real client): WhatsApp support and sales agent in TypeScript, Baileys and DeepSeek, with prices computed by rules in code, RAG over 430 product sheets, quotes with quantity guards and PIX. The owner registers products in batches through WhatsApp (text, audio and photo). Systemd service on my own VPS.</li>
-          <li><b>Monobloco</b> (client): custom commercial landing page built to present the offer clearly and turn visitors into leads, from briefing to production launch.</li>
-          <li><b>AugustusApp</b> (internal app): local meeting transcription, built-in SSH terminal for the VPS, modular WhatsApp connector, bot management and VPS backup administration.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <h3>Development and Automation Intern</h3>
-          <span class="period">May 2026 – present · Remote</span>
-        </div>
-        <p class="company">F5 Tecnologia</p>
-        <ul>
-          <li>AI agents over WhatsApp for selling digital products (credit and energy) and for customer relationship and after-sales, with guardrails in code, partner and CRM (Blip) integrations, and sensitive data handled under LGPD.</li>
-          <li>Fixed critical production failures (OCR, supplier identification, eligibility rules), unblocking 170+ customers.</li>
-          <li>Reworked the CRM dashboard: first call from <b>73.7 s to 0.08 s</b> and <b>0 discrepancies in 1,960 items</b> checked against the portals.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <h3>Automation and RPA Support Intern</h3>
-          <span class="period">Sep – Nov 2025 · Hybrid</span>
-        </div>
-        <p class="company">NEURODEV (Startup)</p>
-        <ul>
-          <li>15+ Python integrations connecting external APIs, 800+ transactions per day, with retry patterns and fallback.</li>
-          <li>OpenAI API pipeline: latency from 15 minutes to 27 seconds (-97%) via prompt engineering and caching; RPA refactored with Docker, monthly downtime from 35 h to 2.25 h (-93.5%).</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <h3>Junior AI Automation Developer</h3>
-          <span class="period">Aug – Sep 2025 · Remote</span>
-        </div>
-        <p class="company">BNECT (Early-Stage Startup)</p>
-        <ul>
-          <li>Python services integrating CRM/ERP via APIs (Factory and Strategy, event-driven architecture) and n8n flows with LLMs.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <h3>Software Requirements Analyst</h3>
-          <span class="period">Aug – Sep 2023 · Remote</span>
-        </div>
-        <p class="company">Volpatto Engenharia (Freelance)</p>
-        <ul>
-          <li>Functional and non-functional requirements in UML/BPMN for 6 services.</li>
-        </ul>
-      </div>
-
-      <h2>Featured Projects</h2>
-
-      <div class="project">
-        <h3>AugustusApp <span>· .NET 10 MAUI / Python / WhisperX / Ollama</span></h3>
-        <p>Internal desktop app: VPS SSH terminal (xterm.js and tmux), 100% local transcription (WhisperX large-v3 with diarization, summary and next-meeting briefing with a local LLM, zero API cost), WhatsApp connector, bot management and VPS backup with restic to Backblaze B2. Local Python services tied to a Windows Job Object; 8 GB GPU with one owner at a time.</p>
-      </div>
-
-      <div class="project">
-        <h3>Modular WhatsApp Connector <span>· Python / Baileys · B2B Product</span></h3>
-        <p>Connects and disconnects WhatsApp bots by QR, with live log and each bot independent, registered in an editable file without recompiling. Keeps no session of its own, loopback-only service with token and 40 automated tests.</p>
-      </div>
-
-      <div class="project">
-        <h3>IAprovale Concurso Finder <span>· Python / FastAPI / DeepSeek / MCP / PostgreSQL</span></h3>
-        <p>AI search for public-service exams: natural-language queries are translated by DeepSeek and run against PCI Concursos via MCP (no scraping). ~200 tests, Playwright E2E, PySide6 and web clients, deployed on Render.</p>
-      </div>
-
-
-    </main>
-  </div>
-</div>
-</body>
-</html>
+@page { size: A4; margin: 13mm 13mm; }
+* { box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; line-height: 1.15; color: #111; margin: 0; }
+h1 { font-size: 18pt; margin: 0 0 1pt; letter-spacing: .3pt; }
+.headline { font-size: 11.5pt; font-weight: bold; margin: 0 0 2pt; color: #1a3a5c; }
+.contact { margin: 0 0 3pt; }
+.contact a { color: #111; text-decoration: none; }
+h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: .6pt; margin: 4pt 0 2pt; padding-bottom: 1pt; border-bottom: 1px solid #1a3a5c; color: #1a3a5c; }
+p { margin: 0 0 2pt; }
+.job { margin: 0 0 2pt; }
+.jh { display: flex; justify-content: space-between; gap: 8pt; }
+.jt { font-weight: bold; }
+.when { white-space: nowrap; }
+.org { font-style: italic; margin: 0 0 1pt; }
+ul { margin: 0; padding-left: 13pt; }
+li { margin: 0 0 1pt; }
+.sk { margin: 0 0 1pt; }
+.sk b { font-weight: bold; }
+.two { display: flex; gap: 18pt; }
+.two > div { flex: 1; }
+.edu p { margin: 0 0 1pt; }
+@media screen { html { background: #e5e5e5; } .page { max-width: 210mm; margin: 20px auto; padding: 13mm; background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,.18); } }
+@media (max-width: 600px) { .page { margin: 0; padding: 14px; box-shadow: none; } .jh { flex-direction: column; gap: 0; } }
+</style></head><body><div class="page">
+<h1>Jonas Augusto</h1>
+<p class="headline">Founder of Augustus AI Solutions | AI Agents, Automation and B2B Web</p>
+<p class="contact">(32) 99168-5954 | <a href="mailto:jonasaugustoprofissional@gmail.com">jonasaugustoprofissional@gmail.com</a> | <a href="https://linkedin.com/in/jonasaaugusto">linkedin.com/in/jonasaaugusto</a> | Juiz de Fora, MG, Brazil | <a href="https://jonasaaugusto.github.io">jonasaaugusto.github.io</a></p>
+<h2>Professional Summary</h2><p>Founder of Augustus AI Solutions, with a little over 1 year of professional experience as an intern and freelancer. I deliver AI agents and automations that serve, sell and operate on WhatsApp for companies, plus internal apps and B2B web systems, always in production and with the infrastructure under my control (own VPS, monitored services, backup). I value low operating cost, documentation and tests that protect what already works. Software Engineering (GPA 9.3, graduating Dec 2026).</p>
+<h2>Technical Skills</h2><p class="sk"><b>Generative AI:</b> RAG (lexical and hybrid), MCP, guardrails, DeepSeek (tool calling), OpenAI API, Anthropic Claude.</p><p class="sk"><b>Backend and Frameworks:</b> Webhooks, FastAPI, Node.js and TypeScript (Fastify), REST APIs, WebSocket.</p><p class="sk"><b>Databases:</b> PostgreSQL (pgvector), SQLite, Redis.</p><p class="sk"><b>Infra and DevOps:</b> Linux VPS (Ubuntu), systemd, Docker and Compose, GitHub Actions, nginx, SSH and tmux.</p><p class="sk"><b>Desktop and Front-End:</b> .NET 10 and MAUI, MVVM, SSH.NET, xterm.js, PySide6, HTML/CSS/JS.</p><p class="sk"><b>Programming Languages:</b> Python (focus), C#, TypeScript, JavaScript, SQL.</p><p class="sk"><b>Quality and Methods:</b> Automated testing (pytest, xUnit, Vitest), security and LGPD, Scrum, UML, BPMN.</p>
+<h2>Professional Experience</h2><div class="job"><div class="jh"><span class="jt">CEO and Lead Developer | Augustus AI Solutions</span><span class="when">Jun 2026 - present | Remote</span></div><ul><li>Raízes &amp; Escamas (aquarium store, real client): WhatsApp support and sales agent in TypeScript, Baileys and DeepSeek, with prices computed by rules in code, RAG over 430 product sheets, quotes with PIX and batch product registration through WhatsApp (text, audio and photo). Systemd service on my own VPS.</li><li>Monobloco (client): custom commercial landing page built to present the offer clearly and turn visitors into leads, from briefing to production launch.</li><li>AugustusApp (internal app): local meeting transcription, VPS SSH terminal, modular WhatsApp connector, bot management and VPS backup.</li></ul></div><div class="job"><div class="jh"><span class="jt">Development and Automation Intern | F5 Tecnologia</span><span class="when">May 2026 - present | Remote</span></div><ul><li>AI agents on WhatsApp selling credit and energy and handling after-sales, with guardrails in code, partner and CRM (Blip) integrations, and sensitive data handled under LGPD.</li><li>Fixed critical production failures (OCR, supplier, eligibility rules): 170+ customers unblocked.</li><li>Reworked CRM dashboard: first call from 73.7 s to 0.08 s and 0 discrepancies in 1,960 items checked against the portals.</li></ul></div><div class="job"><div class="jh"><span class="jt">Automation and RPA Support Intern | NEURODEV (Startup)</span><span class="when">Sep - Nov 2025 | Hybrid</span></div><ul><li>15+ Python integrations with external APIs, 800+ transactions per day, retry and fallback.</li><li>OpenAI API pipeline: latency from 15 minutes to 27 seconds (-97%) via prompt engineering and caching.</li><li>RPA refactored with Docker: monthly downtime from 35 h to 2.25 h (-93.5%).</li></ul></div><div class="job"><div class="jh"><span class="jt">Junior AI Automation Developer | BNECT (Early-Stage Startup)</span><span class="when">Aug - Sep 2025 | Remote</span></div><ul><li>Python services integrating CRM/ERP via APIs (Factory and Strategy, event-driven) and n8n flows with LLMs.</li></ul></div><div class="job"><div class="jh"><span class="jt">Software Requirements Analyst | Volpatto Engenharia (Freelance)</span><span class="when">Aug - Sep 2023 | Remote</span></div><ul><li>Functional and non-functional requirements in UML/BPMN for 6 services.</li></ul></div>
+<h2>Projects</h2><div class="job"><div class="jt">AugustusApp | .NET 10 MAUI / Python / WhisperX / Ollama</div><p>VPS SSH terminal (xterm.js and tmux), 100% local transcription (WhisperX large-v3 with diarization, summary and briefing with a local LLM, zero API cost), WhatsApp connector and VPS backup with restic to Backblaze B2.</p></div><div class="job"><div class="jt">Modular WhatsApp Connector | Python / Baileys / B2B Product</div><p>Connects and disconnects WhatsApp bots by QR, with live log and independent bots registered in an editable file without recompiling. Loopback-only service with token and 40 automated tests.</p></div>
+<h2>Education</h2><div class="edu"><p><b>Software Engineering</b> - Estácio de Sá | 2023 - Dec 2026 (expected) | GPA 9.3/10</p><p><b>Technical Degree, Software Development</b> - SENAI Juiz de Fora | 2023 | Avg. 8.0/10</p></div>
+<h2>Languages</h2><p>Portuguese: native | English: C1 (Advanced)</p>
+<h2>Certifications</h2><p><b>Completed:</b> Advanced Python + Generative AI (Udemy); AI Specialist (Academia de IA); Information Systems Programming and Web Programming (Estácio).</p><p><b>In progress:</b> AWS Cloud Practitioner and Azure Fundamentals (2026); Advanced FastAPI | TDD | PostgreSQL (Udemy).</p>
+</div></body></html>
