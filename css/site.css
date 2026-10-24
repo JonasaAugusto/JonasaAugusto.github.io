@@ -641,3 +641,6 @@ td:nth-child(2) { color: var(--soft); }
 @media (max-width: 1100px) { .job-shot { max-width: 420px; } }
 input, textarea { caret-color: var(--ink); }
 :root { accent-color: var(--ink); }
+/* sem linha dupla logo abaixo do cabeçalho da seção */
+.sec-head + .job, .sec-head + .feature { border-top: 0; padding-top: 0; }
+.figure { border-top: 0; padding-top: 0; padding-bottom: clamp(40px, 4vw, 64px); }
