@@ -632,3 +632,6 @@ td:nth-child(2) { color: var(--soft); }
   .dlg-head .btn.sm { padding: 0 12px; }
   .dlg-head .controls { gap: 6px; }
 }
+
+.menu-btn .i-close, .menu-btn[aria-expanded="true"] .i-open { display: none; }
+.menu-btn[aria-expanded="true"] .i-close { display: block; }
