@@ -554,7 +554,7 @@ td:nth-child(2) { color: var(--soft); }
 @media (max-width: 720px) {
   :root { --header-h: 58px; }
   .brand-name { display: none; }
-  .hero { min-height: auto; padding-top: calc(var(--header-h) + 28px); }
+  .hero { min-height: auto; padding-top: calc(var(--header-h) + 57px); }
   .hero-name .line + .line { padding-left: 0; }
   .hero-name { font-size: min(19vw, 6.5rem); }
   .hero-lead, .hero-facts { grid-column: 1 / -1; }
