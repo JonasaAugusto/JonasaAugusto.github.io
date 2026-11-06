@@ -682,3 +682,14 @@ input, textarea { caret-color: var(--ink); }
 
 .btn, .ctrl { transition: transform .35s var(--ease-out), translate .5s var(--ease-out), background-color .25s, border-color .25s; }
 .results-table tbody tr:last-child th { border-bottom: 0; }
+.case-more { border: 1px solid var(--line); border-radius: 10px; margin: 0 0 10px; max-width: 100%; }
+.case-more > summary { cursor: pointer; padding: 14px 16px; font-weight: 560; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.case-more > summary::-webkit-details-marker { display: none; }
+.case-more > summary::after { content: '+'; font-family: var(--mono); color: var(--soft); }
+.case-more[open] > summary::after { content: '\2212'; }
+.case-more > summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 10px; }
+.case-more[open] > summary { border-bottom: 1px solid var(--line); }
+.case-more > :not(summary) { margin-left: 16px; margin-right: 16px; }
+.case-more > .table-wrap { margin-top: 14px; }
+.case-more > :last-child { margin-bottom: 16px; }
+.case-more > p:first-of-type { margin-top: 14px; }
