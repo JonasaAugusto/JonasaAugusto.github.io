@@ -485,6 +485,28 @@ td:nth-child(2) { color: var(--soft); }
 .case-metrics div { background: var(--bg); padding: 20px; display: grid; gap: 6px; }
 .case-metrics strong { font-family: var(--mono); font-weight: 450; font-size: 1.75rem; letter-spacing: -.04em; }
 .case-metrics span { color: var(--soft); font-size: .875rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.results-table { min-width: 640px; }
+.results-table tbody th { font-family: var(--sans, inherit); font-size: .875rem; font-weight: 560; color: var(--ink); background: transparent; width: 24%; }
+.results-table td:not(:first-child) { font-family: inherit; font-size: .875rem; }
+.results-table td.after { background: color-mix(in srgb, var(--ink) 4%, transparent); }
+.results-table .lbl { display: none; }
+.case-metrics.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.case-steps { list-style: none; display: grid; gap: 14px; margin-bottom: 14px; max-width: 72ch; counter-reset: st; }
+.case-steps li { padding-left: 34px; color: var(--soft); }
+.case-steps li::before { counter-increment: st; content: counter(st); background: none; width: auto; height: auto; top: 0; font-family: var(--mono); font-size: .8125rem; color: var(--ink); }
+.case-steps strong { color: var(--ink); font-weight: 560; }
+@media (max-width: 720px) {
+  .table-wrap.results { overflow: visible; border: 0; }
+  .results-table { min-width: 0; display: block; }
+  .results-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .results-table tbody, .results-table tr { display: block; }
+  .results-table tr { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .results-table tbody th, .results-table td { display: block; width: auto; border-bottom: 0; padding: 10px 14px; }
+  .results-table tbody th { background: var(--surface); }
+  .results-table td + td { border-top: 1px solid var(--line); }
+  .results-table .lbl { display: block; font-family: var(--mono); font-size: .75rem; color: var(--soft); margin-bottom: 2px; }
+}
 .case-stack { font-family: var(--mono); font-size: .8125rem; }
 
 /* ---------- movimento ---------- */
@@ -659,3 +681,4 @@ input, textarea { caret-color: var(--ink); }
 .figure { border-top: 0; padding-top: 0; padding-bottom: clamp(40px, 4vw, 64px); }
 
 .btn, .ctrl { transition: transform .35s var(--ease-out), translate .5s var(--ease-out), background-color .25s, border-color .25s; }
+.results-table tbody tr:last-child th { border-bottom: 0; }
