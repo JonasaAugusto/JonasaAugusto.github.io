@@ -640,7 +640,12 @@
       <div class="controls"><button type="button" class="ctrl" data-close aria-label="Fechar" data-en-aria="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
     </div>
     <div class="dlg-body case">
-      <h3 data-en="F5: automatic electricity-bill discount service">F5: atendimento automático de desconto na conta de luz</h3>
+      <nav class="case-nav" aria-label="Estudos de caso" data-en-aria="Case studies">
+        <a href="#f5-caso-plataforma" data-en="Service platform">Plataforma de atendimento</a>
+        <a href="#f5-caso-cadastro" data-en="Faster registration">Cadastro mais rápido</a>
+      </nav>
+      <section class="case-block" id="f5-caso-plataforma" aria-labelledby="f5-plat-t">
+      <h3 id="f5-plat-t" data-en="F5: automatic electricity-bill discount service">F5: atendimento automático de desconto na conta de luz</h3>
       <p class="case-lead" data-en="Development: F5 Tecnologia. Delivered: a WhatsApp service bot, integration with the energy partners, and an operations dashboard.">Desenvolvimento: F5 Tecnologia. Entrega: bot de atendimento no WhatsApp, integração com os parceiros de energia e painel de operação.</p>
       <h3 data-en="Results of the service platform">Resultados da plataforma de atendimento</h3>
       <div class="table-wrap results">
@@ -778,6 +783,73 @@
       </div>
       <p class="case-stack">Stack: Python, FastAPI, TypeScript, Node.js, Fastify, BullMQ, Baileys, DeepSeek (tool calling), LangChain, MCP, Playwright, PostgreSQL (pgvector), Redis, Blip, GitHub Actions, systemd, nginx, Docker, Linux.</p>
       </details>
+      </section>
+      <section class="case-block" id="f5-caso-cadastro" aria-labelledby="f5-cad-t">
+      <h3 id="f5-cad-t" data-en="Automatic registration about 20% faster, without touching the carrier's portal">Cadastro automático ~20% mais rápido, sem mexer no portal da operadora</h3>
+      <p class="case-lead" data-en="Work from my internship at F5 Tecnologia: measure each phase of an automated registration with real data, and remove the step that no longer made sense.">Trabalho do meu estágio na F5 Tecnologia: medir cada fase de um cadastro automático com dados reais e remover a etapa que já não fazia sentido.</p>
+
+      <h4 data-en="Context">Contexto</h4>
+      <p data-en="A sales chatbot on WhatsApp sells pay-TV plans. When the customer closes the purchase, a bot (Python + Selenium) fills in the registration on the carrier's sales portal, built on Salesforce. Meanwhile the customer waits on WhatsApp, and every second of waiting raises the risk of giving up.">Um chatbot de vendas no WhatsApp vende planos de TV por assinatura. Quando o cliente fecha a compra, um robô (Python + Selenium) preenche o cadastro no portal de vendas da operadora, construído em Salesforce. Enquanto isso o cliente fica esperando no WhatsApp, e cada segundo de espera aumenta o risco de ele desistir.</p>
+
+      <h4 data-en="Problem">Problema</h4>
+      <p data-en-html="The sales team reported that registration was taking too long. The median was <strong>254 s</strong> (about 4 min) until the payment screen.">A equipe comercial relatou que o cadastro estava demorando muito. A mediana era de <strong>254 s</strong> (cerca de 4 min) até a tela de pagamento.</p>
+
+      <h4 data-en="Diagnosis: measure before optimizing">Diagnóstico: medir antes de otimizar</h4>
+      <p data-en="From the production logs I rebuilt the timeline of 50 real registrations and split the time by phase.">Reconstruí pelos logs de produção a linha do tempo de 50 cadastros reais e dividi o tempo por fase.</p>
+      <div class="table-wrap phases">
+        <table class="phases-table">
+          <caption class="sr-only" data-en="Time per phase of a registration, and what was decided for each">Tempo por fase de um cadastro e o que foi decidido para cada uma</caption>
+          <thead><tr><th scope="col" data-en="Phase">Fase</th><th scope="col" data-en="Time">Tempo</th><th scope="col" data-en="Decision">Decisão</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" data-en="Login to the portal">Login no portal</th><td>~7 s</td><td data-en="Left as is">Mantido</td></tr>
+            <tr><th scope="row" data-en="CPF history lookup">Consulta ao histórico do CPF</th><td>32 s</td><td data-en="Left as is">Mantido</td></tr>
+            <tr><th scope="row" data-en="Resuming the proposal and pre-registration">Retomada da proposta e pré-cadastro</th><td>~45 s</td><td data-en="Left as is">Mantido</td></tr>
+            <tr class="hot"><th scope="row" data-en="Security questions drawn again">Novo sorteio das perguntas de segurança</th><td>43 s</td><td data-en="Removed (dead code)">Removido (código morto)</td></tr>
+            <tr class="hot"><th scope="row" data-en="Wait for the scheduling button">Espera pelo botão de agendamento</th><td>11 s</td><td data-en="Wait cut from 10 s to 4 s">Espera de 10 s para 4 s</td></tr>
+            <tr><th scope="row" data-en="Token (fetch and validation)">Token (busca e validação)</th><td>45 s</td><td data-en="Left as is: the portal itself is slow">Mantido: lentidão do próprio portal</td></tr>
+            <tr><th scope="row" data-en="Status settling">Status assentando</th><td>11 s</td><td data-en="Left as is: protects accuracy">Mantido: protege a precisão</td></tr>
+            <tr><th scope="row" data-en="Status read before logout">Leitura de status antes do logout</th><td>~12 s</td><td data-en="Left as is">Mantido</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p data-en="The measurement ruled out two suspicions: the execution queue (median wait for the lock of 0.9 s) and logout (1.5 to 2 s).">A medição derrubou duas suspeitas: fila de execução (espera pelo lock com mediana de 0,9 s) e logout (1,5 a 2 s).</p>
+
+      <h4 data-en="Findings">Achados</h4>
+      <ul>
+        <li data-en-html="<strong>Dead code that still cost time.</strong> When the security-questions section came back empty, the bot reloaded the screen to draw again. The portal had stopped drawing questions a week earlier: of 111 empty sections, 108 came back empty on the second draw and the other 3 followed the same path anyway. That was about 43 s per registration for no gain, and in 9 cases the extra draw reopened the proposal and created a duplicate."><strong>Código morto que ainda custava tempo.</strong> Quando a seção de perguntas de segurança vinha vazia, o robô recarregava a tela para sortear outra vez. O portal tinha parado de sortear perguntas uma semana antes: das 111 seções vazias, 108 voltaram vazias no segundo sorteio e as outras 3 seguiram o mesmo caminho de qualquer jeito. Eram cerca de 43 s por cadastro sem ganho, e em 9 casos o sorteio extra reabriu a proposta e criou uma duplicada.</li>
+        <li data-en-html="<strong>A fixed wait for an element that never showed up.</strong> The bot waited 10 s for the &quot;Select date&quot; button, which did not appear in any of the 111 proposals analyzed."><strong>Espera fixa por um elemento que nunca aparecia.</strong> O robô aguardava 10 s pelo botão "Selecionar data", que não apareceu em nenhuma das 111 propostas analisadas.</li>
+      </ul>
+
+      <h4 data-en="Solution">Solução</h4>
+      <ul>
+        <li data-en="I turned off the second draw with a configuration switch, which can be turned back on without a deploy.">Desliguei o novo sorteio com uma chave de configuração, religável sem deploy.</li>
+        <li data-en="I cut the scheduling wait from 10 s to 4 s, with a safety margin.">Reduzi a espera do agendamento de 10 s para 4 s, com margem de segurança.</li>
+        <li data-en="I locked the behavior in with automated tests, in a suite of more than 2,000 tests.">Travei o comportamento com testes automatizados, numa suíte de mais de 2.000 testes.</li>
+        <li data-en="Deploy without taking the API down (graceful restart).">Deploy sem derrubar a API (restart graceful).</li>
+      </ul>
+
+      <h4 data-en="What I decided not to optimize">O que decidi não otimizar</h4>
+      <ul>
+        <li data-en-html="<strong>Token (45 s).</strong> It is the portal's own slowness."><strong>Token (45 s).</strong> É lentidão do próprio portal.</li>
+        <li data-en-html="<strong>Status settling.</strong> Shortening it would make the bot say &quot;approved&quot; for a proposal that can still be denied."><strong>Status assentando.</strong> Encurtar faria o bot dizer "aprovado" para proposta que ainda pode ser negada.</li>
+        <li data-en-html="<strong>Persistent login.</strong> It risks dropping the session of another job running in parallel."><strong>Login persistente.</strong> Arrisca derrubar a sessão de outro job em paralelo.</li>
+      </ul>
+      <p data-en="Speed without trading away reliability.">Velocidade sem troca de confiabilidade.</p>
+
+      <h4 data-en="Result">Resultado</h4>
+      <div class="case-metrics">
+        <div><strong>~49 s</strong><span data-en="gain per registration: from ~250 s to ~200 s, close to 20% less">ganho por cadastro: de ~250 s para ~200 s, perto de 20% a menos</span></div>
+        <div><strong data-en="60 s to 17 s">60 s para 17 s</strong><span data-en="median from the form to payment">mediana do formulário até o pagamento</span></div>
+        <div><strong data-en="11 s to 5 s">11 s para 5 s</strong><span data-en="scheduling step">etapa de agendamento</span></div>
+      </div>
+      <p data-en="The registrations that were duplicated by the extra draw are over.">Acabaram as propostas duplicadas causadas pelo sorteio extra.</p>
+
+      <h4 data-en="Lesson">Lição</h4>
+      <p data-en="The biggest gain did not come from making something faster, but from removing a step that had lost its reason to exist. Only per-phase measurement with real data revealed it.">O maior ganho não veio de deixar algo mais rápido, mas de remover uma etapa que tinha perdido a razão de existir. Só a medição por fase com dados reais revelou isso.</p>
+
+      <h4 data-en="Technologies">Tecnologias</h4>
+      <p class="case-stack" data-en="Python, Selenium, FastAPI, Salesforce (carrier portal), Blip (WhatsApp chatbot), pytest, systemd.">Python, Selenium, FastAPI, Salesforce (portal da operadora), Blip (chatbot no WhatsApp), pytest, systemd.</p>
+      </section>
     </div>
   </dialog>
 </body>

@@ -693,3 +693,20 @@ input, textarea { caret-color: var(--ink); }
 .case-more > .table-wrap { margin-top: 14px; }
 .case-more > :last-child { margin-bottom: 16px; }
 .case-more > p:first-of-type { margin-top: 14px; }
+
+/* ---------- estudo de caso F5: dois casos ---------- */
+.case-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.case-nav a { padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: .875rem; font-weight: 500; color: var(--ink); text-decoration: none; }
+.case-nav a:hover { background: var(--surface); }
+.case-nav a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.case-block { scroll-margin-top: 8px; }
+.case-block + .case-block { margin-top: 72px; }
+#f5-caso-cadastro { margin-top: 72px; border-top: 2px solid var(--ink); }
+#f5-caso-cadastro > h3:first-child { border-top: 0; margin-top: 28px; padding-top: 0; }
+.case h4 { font-size: 1rem; font-weight: 600; letter-spacing: -.01em; margin: 32px 0 10px; }
+.phases-table { min-width: 520px; }
+.phases-table tbody th { font-family: inherit; font-size: .875rem; font-weight: 500; color: var(--ink); background: transparent; width: 50%; }
+.phases-table td:nth-child(2) { font-family: var(--mono); font-feature-settings: 'tnum'; white-space: nowrap; color: var(--ink); }
+.phases-table td:nth-child(3) { font-family: inherit; font-size: .875rem; color: var(--soft); }
+.phases-table tr.hot th, .phases-table tr.hot td { background: color-mix(in srgb, var(--ink) 6%, transparent); color: var(--ink); font-weight: 600; }
+@media (max-width: 720px) { .phases-table { min-width: 0; } .phases-table tbody th { width: auto; } .phases-table th, .phases-table td { padding: 9px 10px; } .phases-table td:nth-child(2) { width: 4.5rem; } }
