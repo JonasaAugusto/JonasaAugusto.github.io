@@ -3,8 +3,9 @@
 ## [Não publicado] - 1.1.0
 
 ### Adicionado
-- Estudo de caso "Cadastro automático ~20% mais rápido" no painel da F5, com tabela de fases, achados, decisões e resultados (PT/EN); o painel agora tem navegação entre os dois casos.
+- Estudo de caso "Venda automatizada no WhatsApp: de 43% para ~89% de cadastros concluídos" no painel da F5, com contexto, diagnóstico, correções, tabela de resultados e forma de trabalho (PT/EN); substitui a versão anterior do mesmo caso ("Cadastro automático ~20% mais rápido"). O painel tem navegação entre os dois casos.
 - Instagram pessoal (jonasaaugusto) e da Augustus AI (augustusaisolutions) na seção de contato e no rodapé.
 
 ### Alterado
+- Blocos de métricas em número ímpar ocupam a largura toda na última célula no celular, sem célula vazia.
 - E-mail de contato agora é jonasaugustosantosoliveira@gmail.com (página inicial e currículos PT/EN).

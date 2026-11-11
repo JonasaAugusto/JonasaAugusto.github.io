@@ -599,6 +599,7 @@ td:nth-child(2) { color: var(--soft); }
   .footer-line { grid-template-columns: 1fr; gap: 10px; }
   .footer-line .end { text-align: left; }
   .case-metrics { grid-template-columns: 1fr 1fr; }
+  .case-metrics > div:nth-child(odd):last-child { grid-column: 1 / -1; }
   dialog { width: calc(100vw - 16px); max-height: calc(100svh - 16px); border-radius: 14px; }
   .cv-dialog { height: calc(100svh - 16px); }
   .ch-result { grid-template-columns: 1fr; gap: 4px; }

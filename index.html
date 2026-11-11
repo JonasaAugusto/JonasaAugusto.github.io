@@ -642,7 +642,7 @@
     <div class="dlg-body case">
       <nav class="case-nav" aria-label="Estudos de caso" data-en-aria="Case studies">
         <a href="#f5-caso-plataforma" data-en="Service platform">Plataforma de atendimento</a>
-        <a href="#f5-caso-cadastro" data-en="Faster registration">Cadastro mais rápido</a>
+        <a href="#f5-caso-cadastro" data-en="Automated sales: ~89% of registrations">Venda automatizada: ~89% dos cadastros</a>
       </nav>
       <section class="case-block" id="f5-caso-plataforma" aria-labelledby="f5-plat-t">
       <h3 id="f5-plat-t" data-en="F5: automatic electricity-bill discount service">F5: atendimento automático de desconto na conta de luz</h3>
@@ -785,70 +785,68 @@
       </details>
       </section>
       <section class="case-block" id="f5-caso-cadastro" aria-labelledby="f5-cad-t">
-      <h3 id="f5-cad-t" data-en="Automatic registration about 20% faster, without touching the carrier's portal">Cadastro automático ~20% mais rápido, sem mexer no portal da operadora</h3>
-      <p class="case-lead" data-en="Work from my internship at F5 Tecnologia: measure each phase of an automated registration with real data, and remove the step that no longer made sense.">Trabalho do meu estágio na F5 Tecnologia: medir cada fase de um cadastro automático com dados reais e remover a etapa que já não fazia sentido.</p>
+      <h3 id="f5-cad-t" data-en="Automated sales on WhatsApp: from 43% to ~89% of registrations completed">Venda automatizada no WhatsApp: de 43% para ~89% de cadastros concluídos</h3>
+      <p class="case-lead" data-en="Work from my internship at F5 Tecnologia: find out, with production data, why the automated registration was failing, and fix the causes instead of the symptoms.">Trabalho do meu estágio na F5 Tecnologia: descobrir, com dados de produção, por que o cadastro automático falhava, e corrigir as causas em vez dos sintomas.</p>
 
       <h4 data-en="Context">Contexto</h4>
-      <p data-en="A sales chatbot on WhatsApp sells pay-TV plans. When the customer closes the purchase, a bot (Python + Selenium) fills in the registration on the carrier's sales portal, built on Salesforce. Meanwhile the customer waits on WhatsApp, and every second of waiting raises the risk of giving up.">Um chatbot de vendas no WhatsApp vende planos de TV por assinatura. Quando o cliente fecha a compra, um robô (Python + Selenium) preenche o cadastro no portal de vendas da operadora, construído em Salesforce. Enquanto isso o cliente fica esperando no WhatsApp, e cada segundo de espera aumenta o risco de ele desistir.</p>
+      <p data-en="A reseller for a pay-TV carrier sells plans on WhatsApp with a chatbot. The bot talks to the customer and collects the data, and a robot (Selenium) fills in the proposal on the carrier's portal: package, add-ons, registration, payment, and validation. When the registration fails, the sale stops and the customer is left without an answer.">Uma revenda de uma operadora de TV por assinatura vende planos pelo WhatsApp com um chatbot. O bot conversa com o cliente e coleta os dados, e um robô (Selenium) preenche a proposta no portal da operadora: pacote, opcionais, cadastro, pagamento e validação. Quando o cadastro falha, a venda para e o cliente fica sem resposta.</p>
 
-      <h4 data-en="Problem">Problema</h4>
-      <p data-en-html="The sales team reported that registration was taking too long. The median was <strong>254 s</strong> (about 4 min) until the payment screen.">A equipe comercial relatou que o cadastro estava demorando muito. A mediana era de <strong>254 s</strong> (cerca de 4 min) até a tela de pagamento.</p>
+      <h4 data-en="The problem">O problema</h4>
+      <p data-en="The sales team raised four complaints:">A equipe comercial levantou quatro queixas:</p>
+      <ul>
+        <li data-en="the bot stopped at the registration step with many customers;">o bot parava na etapa de cadastro com vários clientes;</li>
+        <li data-en="answers to off-script questions took a long time to arrive;">as respostas a perguntas fora do roteiro demoravam a chegar;</li>
+        <li data-en="registration was slow;">o cadastro era lento;</li>
+        <li data-en="proposals were redone several times for no apparent reason.">propostas eram refeitas várias vezes sem motivo aparente.</li>
+      </ul>
+      <p data-en-html="The share of registrations that became a proposal was <strong>43%</strong>, and it dropped as low as <strong>29%</strong>.">A taxa de cadastros que viravam proposta estava em <strong>43%</strong> e chegou a cair para <strong>29%</strong>.</p>
 
-      <h4 data-en="Diagnosis: measure before optimizing">Diagnóstico: medir antes de otimizar</h4>
-      <p data-en="From the production logs I rebuilt the timeline of 50 real registrations and split the time by phase.">Reconstruí pelos logs de produção a linha do tempo de 50 cadastros reais e dividi o tempo por fase.</p>
-      <div class="table-wrap phases">
-        <table class="phases-table">
-          <caption class="sr-only" data-en="Time per phase of a registration, and what was decided for each">Tempo por fase de um cadastro e o que foi decidido para cada uma</caption>
-          <thead><tr><th scope="col" data-en="Phase">Fase</th><th scope="col" data-en="Time">Tempo</th><th scope="col" data-en="Decision">Decisão</th></tr></thead>
+      <h4 data-en="Diagnosis: measure before changing anything">Diagnóstico: medir antes de mexer</h4>
+      <p data-en="I cross-checked three sources: the timestamped step-by-step log of every robot run, the API request log, and the message history of the conversations. Three findings came out of it:">Cruzei três fontes: o passo a passo com horário de cada execução do robô, o log de requisições da API e o histórico de mensagens do atendimento. Saíram três descobertas:</p>
+      <ul>
+        <li data-en-html="<strong>Most failures had a single cause.</strong> A safety check blocked 44 of 54 registrations because it did not recognize the item selected on the screen: the screen had changed and the code had not kept up."><strong>A maioria das falhas tinha uma causa só.</strong> Uma verificação de segurança barrava 44 de 54 cadastros por não reconhecer o item selecionado na tela: a tela tinha mudado e o código não acompanhou.</li>
+        <li data-en-html="<strong>The slow answers were not the AI's fault.</strong> The model answered in ~1.5 s. The time went into a fixed 15 s wait window, meant to gather a customer's message sent in pieces, which applied even to complete questions."><strong>A lentidão das respostas não era da IA.</strong> O modelo respondia em ~1,5 s. O tempo ia embora numa janela de espera fixa de 15 s, usada para juntar mensagens picadas do cliente, que valia até para perguntas completas.</li>
+        <li data-en-html="<strong>The redone proposals came from an old rule.</strong> It re-drew security questions that no longer existed, and cost ~49 s per registration."><strong>A refação de propostas vinha de uma regra antiga.</strong> Ela re-sorteava perguntas de segurança que já não existiam e custava ~49 s por cadastro.</li>
+      </ul>
+
+      <h4 data-en="What was done">O que foi feito</h4>
+      <ul>
+        <li data-en-html="<strong>Registration.</strong> I fixed how the selected item is recognized and removed the obsolete re-draw. Silent redos are now capped at 1."><strong>Cadastro.</strong> Corrigi o reconhecimento do item selecionado e tirei o re-sorteio obsoleto. A refação silenciosa passou a ter limite de 1.</li>
+        <li data-en-html="<strong>Adaptive wait window.</strong> A recognized question (price, channels, installation…) closes the wait in 4 s, a complete piece of data (ZIP code, CPF, email) in 8 s, and the overall ceiling went from 15 s to 8 s. The cutoff came from data: out of 4,078 messages, only 2% had a second message from the customer between 8 and 15 s later."><strong>Janela adaptativa.</strong> Pergunta reconhecida (preço, canais, instalação…) fecha a espera em 4 s, dado completo (CEP, CPF, e-mail) em 8 s, e o teto geral caiu de 15 para 8 s. O corte foi definido com dados: em 4.078 mensagens, só 2% tiveram uma segunda mensagem do cliente entre 8 e 15 s depois.</li>
+        <li data-en-html="<strong>Number porting with a different area code.</strong> I reproduced the failure live on the portal and found that the line's area code came from the registration's mobile number, not from the address. The robot now adjusts the area code and, if the carrier refuses, moves on with a new number instead of getting stuck. In the chatbot, the customer now confirms the number they typed and is told when the porting cannot go through."><strong>Portabilidade com DDD diferente.</strong> Reproduzi a falha ao vivo no portal e descobri que o DDD da linha vinha do celular do cadastro, e não do endereço. O robô passou a ajustar o DDD e, se a operadora recusar, segue com número novo em vez de travar. No chatbot, o cliente agora confirma o número digitado e é avisado quando a portabilidade não sai.</li>
+        <li data-en-html="<strong>Add-ons by payment method.</strong> The item required by each payment method is now checked before the others, and a failure now saves full evidence (a screenshot and the list on the screen) for diagnosis."><strong>Opcionais por forma de pagamento.</strong> O item obrigatório de cada forma de pagamento passou a ser marcado antes dos demais, e a falha passou a gravar evidência completa (print e lista da tela) para diagnóstico.</li>
+      </ul>
+
+      <h4 data-en="Results">Resultados</h4>
+      <div class="case-metrics">
+        <div><strong data-en="~89%">~89%</strong><span data-en="registrations that become a proposal, per attempt (was 29–43%)">cadastros que viram proposta, por tentativa (era 29–43%)</span></div>
+        <div><strong>0</strong><span data-en="silent redos per day (were 7)">refações silenciosas por dia (eram 7)</span></div>
+        <div><strong>4 s</strong><span data-en="wait to answer an off-script question (was a fixed 15 s)">espera para responder pergunta fora do roteiro (eram 15 s fixos)</span></div>
+      </div>
+      <div class="table-wrap results">
+        <table class="results-table">
+          <caption class="sr-only" data-en="Before and after the registration fixes">Antes e depois das correções no cadastro</caption>
+          <thead><tr><th scope="col" data-en="Metric">Métrica</th><th scope="col" data-en="Before">Antes</th><th scope="col" data-en="After">Depois</th></tr></thead>
           <tbody>
-            <tr><th scope="row" data-en="Login to the portal">Login no portal</th><td>~7 s</td><td data-en="Left as is">Mantido</td></tr>
-            <tr><th scope="row" data-en="CPF history lookup">Consulta ao histórico do CPF</th><td>32 s</td><td data-en="Left as is">Mantido</td></tr>
-            <tr><th scope="row" data-en="Resuming the proposal and pre-registration">Retomada da proposta e pré-cadastro</th><td>~45 s</td><td data-en="Left as is">Mantido</td></tr>
-            <tr class="hot"><th scope="row" data-en="Security questions drawn again">Novo sorteio das perguntas de segurança</th><td>43 s</td><td data-en="Removed (dead code)">Removido (código morto)</td></tr>
-            <tr class="hot"><th scope="row" data-en="Wait for the scheduling button">Espera pelo botão de agendamento</th><td>11 s</td><td data-en="Wait cut from 10 s to 4 s">Espera de 10 s para 4 s</td></tr>
-            <tr><th scope="row" data-en="Token (fetch and validation)">Token (busca e validação)</th><td>45 s</td><td data-en="Left as is: the portal itself is slow">Mantido: lentidão do próprio portal</td></tr>
-            <tr><th scope="row" data-en="Status settling">Status assentando</th><td>11 s</td><td data-en="Left as is: protects accuracy">Mantido: protege a precisão</td></tr>
-            <tr><th scope="row" data-en="Status read before logout">Leitura de status antes do logout</th><td>~12 s</td><td data-en="Left as is">Mantido</td></tr>
+            <tr><th scope="row" data-en="Registrations that become a proposal">Cadastros que viram proposta</th><td><span class="lbl" aria-hidden="true" data-en="Before">Antes</span><span>29–43%</span></td><td class="after"><span class="lbl" aria-hidden="true" data-en="After">Depois</span><span data-en="~89% per attempt">~89% por tentativa</span></td></tr>
+            <tr><th scope="row" data-en="Silent redos per day">Refações silenciosas por dia</th><td><span class="lbl" aria-hidden="true" data-en="Before">Antes</span><span>7</span></td><td class="after"><span class="lbl" aria-hidden="true" data-en="After">Depois</span><span>0</span></td></tr>
+            <tr><th scope="row" data-en="Wait to answer an off-script question">Espera para responder pergunta fora do roteiro</th><td><span class="lbl" aria-hidden="true" data-en="Before">Antes</span><span data-en="Fixed 15 s">15 s fixos</span></td><td class="after"><span class="lbl" aria-hidden="true" data-en="After">Depois</span><span data-en="4 s (question) / 8 s (free text)">4 s (pergunta) / 8 s (texto livre)</span></td></tr>
+            <tr><th scope="row" data-en="Response time after a button tap">Tempo de resposta a clique em botão</th><td><span class="lbl" aria-hidden="true" data-en="Before">Antes</span><span>—</span></td><td class="after"><span class="lbl" aria-hidden="true" data-en="After">Depois</span><span>~2 s</span></td></tr>
           </tbody>
         </table>
       </div>
-      <p data-en="The measurement ruled out two suspicions: the execution queue (median wait for the lock of 0.9 s) and logout (1.5 to 2 s).">A medição derrubou duas suspeitas: fila de execução (espera pelo lock com mediana de 0,9 s) e logout (1,5 a 2 s).</p>
+      <p data-en="The median registration time went up slightly, and that is an effect of the success: before, half of the runs died early; now almost all of them go through to the final validation.">O tempo mediano do cadastro subiu um pouco, e isso é efeito do sucesso: antes, metade das execuções morria cedo; agora quase todas vão até a validação final.</p>
 
-      <h4 data-en="Findings">Achados</h4>
+      <h4 data-en="How I worked">Como trabalhei</h4>
       <ul>
-        <li data-en-html="<strong>Dead code that still cost time.</strong> When the security-questions section came back empty, the bot reloaded the screen to draw again. The portal had stopped drawing questions a week earlier: of 111 empty sections, 108 came back empty on the second draw and the other 3 followed the same path anyway. That was about 43 s per registration for no gain, and in 9 cases the extra draw reopened the proposal and created a duplicate."><strong>Código morto que ainda custava tempo.</strong> Quando a seção de perguntas de segurança vinha vazia, o robô recarregava a tela para sortear outra vez. O portal tinha parado de sortear perguntas uma semana antes: das 111 seções vazias, 108 voltaram vazias no segundo sorteio e as outras 3 seguiram o mesmo caminho de qualquer jeito. Eram cerca de 43 s por cadastro sem ganho, e em 9 casos o sorteio extra reabriu a proposta e criou uma duplicada.</li>
-        <li data-en-html="<strong>A fixed wait for an element that never showed up.</strong> The bot waited 10 s for the &quot;Select date&quot; button, which did not appear in any of the 111 proposals analyzed."><strong>Espera fixa por um elemento que nunca aparecia.</strong> O robô aguardava 10 s pelo botão "Selecionar data", que não apareceu em nenhuma das 111 propostas analisadas.</li>
+        <li data-en-html="<strong>Root cause, not a patch.</strong> Each fix applies to the whole flow and is locked in by automated tests (more than 2,300 in the robot's suite)."><strong>Causa raiz, não remendo.</strong> Cada correção vale para o fluxo inteiro e ficou travada por testes automatizados (mais de 2.300 na suíte do robô).</li>
+        <li data-en-html="<strong>Live proof.</strong> I reproduced the failures on the real portal, with test data, before stating the cause."><strong>Prova ao vivo.</strong> Reproduzi as falhas no portal real, com dados de teste, antes de afirmar a causa.</li>
+        <li data-en-html="<strong>Safe changes in production.</strong> Isolated commits, the chatbot flow validator passing with no failures before publishing, a restart without taking the API down, and a check of what was actually published."><strong>Mudança segura em produção.</strong> Commits isolados, validador do fluxo do chatbot sem falhas antes de publicar, restart sem derrubar a API e conferência do que foi publicado.</li>
+        <li data-en-html="<strong>Decisions backed by data.</strong> The time cutoffs (4 s, 8 s) came from the real message history, not from a guess."><strong>Decisão com dado.</strong> Os cortes de tempo (4 s, 8 s) saíram do histórico real de mensagens, não de palpite.</li>
       </ul>
-
-      <h4 data-en="Solution">Solução</h4>
-      <ul>
-        <li data-en="I turned off the second draw with a configuration switch, which can be turned back on without a deploy.">Desliguei o novo sorteio com uma chave de configuração, religável sem deploy.</li>
-        <li data-en="I cut the scheduling wait from 10 s to 4 s, with a safety margin.">Reduzi a espera do agendamento de 10 s para 4 s, com margem de segurança.</li>
-        <li data-en="I locked the behavior in with automated tests, in a suite of more than 2,000 tests.">Travei o comportamento com testes automatizados, numa suíte de mais de 2.000 testes.</li>
-        <li data-en="Deploy without taking the API down (graceful restart).">Deploy sem derrubar a API (restart graceful).</li>
-      </ul>
-
-      <h4 data-en="What I decided not to optimize">O que decidi não otimizar</h4>
-      <ul>
-        <li data-en-html="<strong>Token (45 s).</strong> It is the portal's own slowness."><strong>Token (45 s).</strong> É lentidão do próprio portal.</li>
-        <li data-en-html="<strong>Status settling.</strong> Shortening it would make the bot say &quot;approved&quot; for a proposal that can still be denied."><strong>Status assentando.</strong> Encurtar faria o bot dizer "aprovado" para proposta que ainda pode ser negada.</li>
-        <li data-en-html="<strong>Persistent login.</strong> It risks dropping the session of another job running in parallel."><strong>Login persistente.</strong> Arrisca derrubar a sessão de outro job em paralelo.</li>
-      </ul>
-      <p data-en="Speed without trading away reliability.">Velocidade sem troca de confiabilidade.</p>
-
-      <h4 data-en="Result">Resultado</h4>
-      <div class="case-metrics">
-        <div><strong>~49 s</strong><span data-en="gain per registration: from ~250 s to ~200 s, close to 20% less">ganho por cadastro: de ~250 s para ~200 s, perto de 20% a menos</span></div>
-        <div><strong data-en="60 s to 17 s">60 s para 17 s</strong><span data-en="median from the form to payment">mediana do formulário até o pagamento</span></div>
-        <div><strong data-en="11 s to 5 s">11 s para 5 s</strong><span data-en="scheduling step">etapa de agendamento</span></div>
-      </div>
-      <p data-en="The registrations that were duplicated by the extra draw are over.">Acabaram as propostas duplicadas causadas pelo sorteio extra.</p>
-
-      <h4 data-en="Lesson">Lição</h4>
-      <p data-en="The biggest gain did not come from making something faster, but from removing a step that had lost its reason to exist. Only per-phase measurement with real data revealed it.">O maior ganho não veio de deixar algo mais rápido, mas de remover uma etapa que tinha perdido a razão de existir. Só a medição por fase com dados reais revelou isso.</p>
 
       <h4 data-en="Technologies">Tecnologias</h4>
-      <p class="case-stack" data-en="Python, Selenium, FastAPI, Salesforce (carrier portal), Blip (WhatsApp chatbot), pytest, systemd.">Python, Selenium, FastAPI, Salesforce (portal da operadora), Blip (chatbot no WhatsApp), pytest, systemd.</p>
+      <p class="case-stack" data-en="Python, Selenium, FastAPI, Blip (WhatsApp chatbot), Salesforce (carrier portal), pytest.">Python, Selenium, FastAPI, Blip (chatbot no WhatsApp), Salesforce (portal da operadora), pytest.</p>
       </section>
     </div>
   </dialog>
