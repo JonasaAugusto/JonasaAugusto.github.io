@@ -178,7 +178,7 @@
     root.style.overflow = 'hidden';
   }
   d.querySelectorAll('[data-open]').forEach(function (b) {
-    b.addEventListener('click', function (e) { e.preventDefault(); openDlg(b.dataset.open === 'cv' ? 'dlg-cv' : 'dlg-f5'); });
+    b.addEventListener('click', function (e) { e.preventDefault(); openDlg('dlg-' + b.dataset.open); });
   });
   d.querySelectorAll('dialog').forEach(function (dlg) {
     dlg.addEventListener('close', function () { root.style.overflow = ''; if (lastFocus) lastFocus.focus(); });

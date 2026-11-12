@@ -283,6 +283,15 @@
       <div class="ledger-wrap">
         <h3 class="ledger-title" data-en="More projects">Mais projetos</h3>
         <div class="ledger" id="ledger">
+          <article class="row" data-reveal-one>
+            <h4 class="row-name">AI Agents Orchestrator</h4>
+            <p class="row-text" data-en="Open-source orchestrator that makes Claude Code and Codex CLI work as one team on the user's own subscriptions: relay by usage limit with persistent resumption, measured usage, and publishing bound to the commit SHA.">Orquestrador open source que faz o Claude Code e o Codex CLI trabalharem como um time, nas assinaturas do próprio usuário: revezamento por limite com retomada persistente, gasto medido e publicação presa ao SHA do commit.</p>
+            <div class="row-side">
+              <div class="tags"><span class="tag solid" data-en="Open source">Open source</span><span class="tag">Python</span><span class="tag">SQLite</span><span class="tag">GitHub Actions</span></div>
+              <button type="button" class="btn sm ghost" data-open="orq"><span data-en="View case study">Ver estudo de caso</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
+              <a class="row-link link" href="https://github.com/JonasaAugusto/ai-agents-orchestrator" target="_blank" rel="noopener"><span data-en="View on GitHub">Ver no GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            </div>
+          </article>
           <article class="row" data-peek="notame" data-reveal-one>
             <h4 class="row-name">NotaME</h4>
             <p class="row-text" data-en="Mobile/desktop app (EIS) for PDF receipt generation, NFS-e issuance, and client management. Offline-first with SQLite and P2P sync on local network with AES-256 encryption.">App mobile/desktop (EIS) para geração de recibos em PDF, emissão de NFS-e e gestão de clientes. Offline-first com SQLite e sincronização P2P em rede local com criptografia AES-256.</p>
@@ -631,6 +640,64 @@
       </div>
     </div>
     <iframe id="cv-frame" title="Currículo de Jonas Augusto" data-en-title="Jonas Augusto's resume"></iframe>
+  </dialog>
+
+  <!-- ESTUDO DE CASO: ORQUESTRADOR -->
+  <dialog id="dlg-orq" aria-labelledby="orq-t">
+    <div class="dlg-head">
+      <h2 id="orq-t" data-en="Case study · AI Agents Orchestrator">Estudo de caso · AI Agents Orchestrator</h2>
+      <div class="controls"><button type="button" class="ctrl" data-close aria-label="Fechar" data-en-aria="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    </div>
+    <div class="dlg-body case">
+      <section class="case-block" aria-labelledby="orq-main-t">
+      <h3 id="orq-main-t" style="margin-top:0;border-top:0;padding-top:0" data-en="Claude Code and Codex as one relay team">Claude Code e Codex como um time em revezamento</h3>
+      <p class="case-lead" data-en="Personal open-source project, version 1.3.0. It drives the official codex and claude CLIs with the user's own logins, with no API keys, and nothing is published without a human approval.">Projeto pessoal open source, versão 1.3.0. Ele opera os CLIs oficiais codex e claude com os logins do próprio usuário, sem chaves de API, e nada é publicado sem aprovação humana.</p>
+      <p><a class="link" href="https://github.com/JonasaAugusto/ai-agents-orchestrator" target="_blank" rel="noopener"><span class="case-stack">github.com/JonasaAugusto/ai-agents-orchestrator</span></a></p>
+
+      <h3 data-en="The problem">O problema</h3>
+      <ul>
+        <li data-en="Anyone using Claude Code and Codex on paid subscriptions hits one limit in the middle of the work, and the task stops.">Quem usa o Claude Code e o Codex em assinaturas pagas bate o limite de um deles no meio do trabalho, e a tarefa para.</li>
+        <li data-en="The two agents do not talk to each other: context and pending work are lost in the switch.">Os dois agentes não conversam: o contexto e o que ficou pendente se perdem na troca.</li>
+        <li data-en="Delegating to an agent that writes code needs a clear checkpoint: what was really done and who authorized publishing.">Delegar a um agente que escreve código exige um ponto de controle claro: o que foi feito de verdade e quem autorizou a publicação.</li>
+      </ul>
+
+      <h3 data-en="The solution">A solução</h3>
+      <p data-en="The Claude leads: it plans, talks to the user, and reviews. Codex works as a second engineer on isolated branches, picks up delegated tasks and cross-reviews Claude's branches. When Claude reaches its limit, Codex takes the baton and keeps going until Claude is back.">O Claude lidera: planeja, conversa com o usuário e revisa. O Codex trabalha como segundo engenheiro em branches isolados, assume tarefas delegadas e faz revisão cruzada dos branches do Claude. Quando o Claude chega ao limite, o Codex assume o bastão e segue até o Claude voltar.</p>
+
+      <h3 data-en="Engineering decisions">Decisões de engenharia</h3>
+      <ul>
+        <li><span data-en="Relay by limit with persistent resumption."><strong>Revezamento por limite com retomada persistente.</strong></span> <span data-en=" The queue and the reset times live in SQLite. If the service or the machine restarts, pending work resumes where it stopped.">A fila e os horários de reset ficam em SQLite. Se o serviço ou a máquina reinicia, o trabalho pendente retoma do ponto em que parou.</span></li>
+        <li><span data-en="Measured usage, without reading conversations."><strong>Gasto medido, sem ler conversas.</strong></span> <span data-en=" Usage of both agents is counted with counters only, never with text. The target is a ratio between 0.7 and 1.4, configurable; outside it, routing moves review and test work to the other agent. The counters estimate quota use, not money.">O uso dos dois agentes é contado só com contadores, nunca com o texto. A meta é uma razão entre 0,7 e 1,4, configurável; fora dela, o roteamento passa trabalho de revisão e teste para o outro agente. Os contadores estimam consumo de cota, não dinheiro.</span></li>
+        <li><span data-en="Publishing bound to the SHA."><strong>Publicação presa ao SHA.</strong></span> <span data-en=" The publish command shows the repository, destination and full SHA, and requires the human to type the id and the SHA in an interactive terminal. If the branch or destination changes, the approval stops being valid. The push is non-force and against the current remote base.">O comando de publicar mostra o repositório, o destino e o SHA completo, e exige que o humano digite o id e o SHA num terminal interativo. Mudou o branch ou o destino, a aprovação deixa de valer. O push é sem force e contra a base remota atual.</span></li>
+        <li><span data-en="Honest results."><strong>Resultado honesto.</strong></span> <span data-en=" The task state comes from the first line of the report (completed, partial or blocked). A partial or blocked task is never shown as done, whatever the exit code.">O estado da tarefa vem da primeira linha do relatório (completed, partial ou blocked). Uma tarefa partial ou blocked nunca aparece como concluída, qualquer que seja o código de saída.</span></li>
+        <li><span data-en="Permissions chosen by the user."><strong>Permissões à escolha do usuário.</strong></span> <span data-en=" Codex starts restricted (own sandbox, no network, throwaway clones). On their own machine, the user can give it the same permissions as Claude. In either mode, publishing needs a human.">O Codex começa restrito (sandbox própria, sem rede, clones descartáveis). Na própria máquina, o usuário pode dar a ele as mesmas permissões do Claude. Em qualquer modo, publicar exige um humano.</span></li>
+        <li><span data-en="Lite mode, no root."><strong>Modo leve, sem root.</strong></span> <span data-en=" A single user process, no systemd, on Linux, macOS and Windows, installed with pipx from GitHub. The full mode, with a privileged service and a remote channel, remains on Linux with systemd.">Um único processo do usuário, sem systemd, em Linux, macOS e Windows, instalado com pipx a partir do GitHub. O modo completo, com serviço privilegiado e canal remoto, continua em Linux com systemd.</span></li>
+      </ul>
+
+      <h3 data-en="Verifiable results">Resultados verificáveis</h3>
+      <div class="case-metrics">
+        <div><strong>1.3.0</strong><span data-en="published version, tag v1.3.0 on GitHub">versão publicada, tag v1.3.0 no GitHub</span></div>
+        <div><strong>506</strong><span data-en="tests collected in the suite (pytest)">testes coletados na suíte (pytest)</span></div>
+        <div><strong>CI</strong><span data-en="green on the tag commit, on Linux, macOS and Windows, Python 3.11 to 3.14">verde no commit da tag, em Linux, macOS e Windows, Python 3.11 a 3.14</span></div>
+      </div>
+      <ul>
+        <li data-en="CI runs the full suite on Linux and the lite mode on Linux, macOS and Windows, and also builds the packages and tests a clean installation.">A CI roda a suíte completa no Linux e o modo leve em Linux, macOS e Windows, e também gera os pacotes e testa a instalação limpa.</li>
+        <li data-en="There is a runnable example with a fake engine and a ten-minute walkthrough with output captured from a run without credentials.">Há um exemplo executável com um motor falso e um tutorial de dez minutos com a saída capturada de uma execução sem credenciais.</li>
+      </ul>
+
+      <h3 data-en="What is not ready">O que não está pronto</h3>
+      <ul>
+        <li data-en="The package is not on PyPI yet: installation is straight from GitHub. The release workflow is ready and stays off until the PyPI project exists.">O pacote ainda não está no PyPI: a instalação é direto do GitHub. O fluxo de publicação está pronto e desligado até o projeto existir no PyPI.</li>
+        <li data-en="On Windows, the lite mode is what CI proves; the full suite does not run there. The privileged service requires Linux with systemd.">No Windows, o modo leve é o que o CI prova; a suíte completa não roda lá. O serviço privilegiado exige Linux com systemd.</li>
+        <li data-en="Lite mode does not isolate agents from the user's account, files or Git credentials. The interactive confirmation is a workflow safeguard, not a barrier against malicious code from the same user.">O modo leve não isola os agentes da conta, dos arquivos nem das credenciais Git do usuário. A confirmação interativa é uma salvaguarda de fluxo, não uma barreira contra código malicioso do mesmo usuário.</li>
+        <li data-en="The WhatsApp channel is optional and unofficial, tested only with fakes and not against a live account. Telegram is the recommended channel.">O canal do WhatsApp é opcional e não oficial, foi testado só com simulações e não contra uma conta real. O Telegram é o canal recomendado.</li>
+        <li data-en="Detection of Codex's limit message is tolerant, but the format is not documented and may change.">A detecção da mensagem de limite do Codex é tolerante, mas o formato não é documentado e pode mudar.</li>
+      </ul>
+
+      <h3 data-en="Technologies">Tecnologias</h3>
+      <p class="case-stack">Python 3.11+, SQLite, Git, pytest, Ruff, mypy, GitHub Actions, Telegram, Codex CLI, Claude Code, Linux, macOS, Windows.</p>
+      </section>
+    </div>
   </dialog>
 
   <!-- ESTUDO DE CASO F5 -->
