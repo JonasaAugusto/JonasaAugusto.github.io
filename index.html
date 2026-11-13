@@ -250,6 +250,7 @@
           <p class="feature-why" style="--i:3" data-en="AI-powered public-exam finder. Users describe what they want in natural language (e.g., a health-sector exam for a nursing graduate) and the system automatically filters only open exams compatible with their education.">Buscador de concursos públicos com IA. O usuário descreve em linguagem natural o que procura (ex: concurso na área de saúde com graduação em enfermagem) e o sistema filtra automaticamente apenas os concursos com inscrições abertas compatíveis com a formação.</p>
           <div class="tags" style="--i:4"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">DeepSeek</span><span class="tag">MCP</span><span class="tag">SQLModel</span><span class="tag">PostgreSQL</span><span class="tag">PySide6</span><span class="tag">Playwright</span><span class="tag">Caddy</span></div>
           <div class="feature-links" style="--i:5">
+            <button type="button" class="btn sm ghost" data-open="ia"><span data-en="View case study">Ver estudo de caso</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
             <a href="https://augustusai.com.br/iaprovale/" target="_blank" rel="noopener" class="btn sm"><span data-en="Home page">Home page</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
           </div>
         </div>
@@ -640,6 +641,73 @@
       </div>
     </div>
     <iframe id="cv-frame" title="Currículo de Jonas Augusto" data-en-title="Jonas Augusto's resume"></iframe>
+  </dialog>
+
+  <!-- ESTUDO DE CASO: IAPROVALE -->
+  <dialog id="dlg-ia" aria-labelledby="ia-case-t">
+    <div class="dlg-head">
+      <h2 id="ia-case-t" data-en="Case study · IAprovale">Estudo de caso · IAprovale</h2>
+      <div class="controls"><button type="button" class="ctrl" data-close aria-label="Fechar" data-en-aria="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    </div>
+    <div class="dlg-body case">
+      <section class="case-block" aria-labelledby="ia-main-t">
+      <h3 id="ia-main-t" style="margin-top:0;border-top:0;padding-top:0" data-en="Finding the right exam or job, and keeping up with deadlines">Achar o edital ou a vaga certa e não perder o prazo</h3>
+      <p class="case-lead" data-en="Product built and run by me, in production. The front end is plain HTML, CSS and JavaScript, the back end is Python. This text only describes what is in the repository, the changelog and the public docs.">Produto que eu construí e mantenho, em produção. O front-end é HTML, CSS e JavaScript puros, o backend é Python. Este texto descreve só o que está no repositório, no changelog e nas docs públicas.</p>
+      <p><a class="link" href="https://augustusai.com.br/iaprovale/" target="_blank" rel="noopener"><span class="case-stack">augustusai.com.br/iaprovale</span></a></p>
+      <p><a class="link" href="https://github.com/JonasaAugusto/iaprovaledocs" target="_blank" rel="noopener"><span class="case-stack">github.com/JonasaAugusto/iaprovaledocs</span></a></p>
+
+      <h3 data-en="The problem">O problema</h3>
+      <ul>
+        <li data-en="Public-exam candidates need to find an open notice that fits their education, and the information is scattered across many sites.">Quem estuda para concurso precisa achar um edital aberto que combine com a formação, e a informação está espalhada em muitos sites.</li>
+        <li data-en="Finding it is not enough: registration and exam dates pass, and following them by hand is easy to get wrong.">Achar não basta: inscrições e provas têm data, e acompanhar isso à mão é fácil de errar.</li>
+        <li data-en="People looking for a job have a similar need: knowing whether a resume fits a position before applying.">Quem procura vaga tem uma necessidade parecida: saber se o currículo combina com o cargo antes de se candidatar.</li>
+      </ul>
+
+      <h3 data-en="What I built">O que eu construí</h3>
+      <ul>
+        <li data-en="Notice search in natural language, filtered by education and state.">Busca de editais em linguagem natural, filtrada por formação e por estado.</li>
+        <li data-en="Alerts and Following: the user follows a notice and gets reminders about registration and exam dates.">Alertas e Acompanhando: a pessoa acompanha um concurso e recebe avisos sobre inscrições e provas.</li>
+        <li data-en="Career and Companies: resume upload (PDF, DOCX or TXT), job search, and, for each position of a followed notice, a verdict of fits, partly fits or does not fit, with the reason and what is missing.">Carreira e Empresas: envio de currículo (PDF, DOCX ou TXT), busca de vagas e, para cada cargo de um concurso acompanhado, um resultado de combina, combina em parte ou não combina, com o motivo e o que falta.</li>
+        <li data-en="Optional e-mail, confirmed by a code, with Brevo as the sending operator, for the daily summary and account notices.">E-mail opcional, confirmado por código, com a Brevo como operadora de envio, para o resumo diário e os avisos da conta.</li>
+      </ul>
+
+      <h3 data-en="Engineering decisions">Decisões de engenharia</h3>
+      <ul>
+        <li><span data-en="Plain front end, no CDN, no bundler."><strong>Front-end puro, sem CDN e sem bundler.</strong></span> <span data-en=" HTML, CSS and JavaScript with Alpine.js in its CSP build. Alpine and pdf.js are served from the project itself, so the content security policy no longer allows a third-party script host.">HTML, CSS e JavaScript com Alpine.js na versão CSP. O Alpine e o pdf.js são servidos pelo próprio projeto, e a política de segurança de conteúdo deixou de permitir um servidor de scripts de terceiros.</span></li>
+        <li><span data-en="Python only on the back end."><strong>Só Python no backend.</strong></span> <span data-en=" Any new server code is Python, which keeps one language to test, deploy and maintain.">Todo código novo de servidor é Python, o que deixa uma linguagem só para testar, publicar e manter.</span></li>
+        <li><span data-en="User data never goes to the coding agents."><strong>Dados de usuários nunca vão para os agentes de código.</strong></span> <span data-en=" Development with OpenAI Codex and Claude uses fictional data and local copies only; production data and secrets stay out of those tools.">O desenvolvimento com o Codex (OpenAI) e o Claude usa só dados fictícios e cópias locais; dados de produção e segredos ficam fora dessas ferramentas.</span></li>
+        <li><span data-en="Versioned privacy policy and terms, with acceptance."><strong>Privacidade e termos versionados, com aceite.</strong></span> <span data-en=" Each change in the texts gets a version, such as 1.3, which describes optional e-mail, Brevo as operator and the matching international transfer.">Cada mudança nos textos ganha uma versão, como a 1.3, que descreve o e-mail opcional, a Brevo como operadora e a transferência internacional correspondente.</span></li>
+        <li><span data-en="Messages that say what happened."><strong>Mensagens que dizem o que houve.</strong></span> <span data-en=" Error and confirmation messages come from a single dictionary, and alert regions stay in the page so screen readers announce them.">Mensagens de erro e confirmação saem de um dicionário único, e as regiões de alerta ficam sempre na página para o leitor de tela anunciá-las.</span></li>
+      </ul>
+
+      <h3 data-en="Quality">Qualidade</h3>
+      <div class="case-metrics">
+        <div><strong>614/614</strong><span data-en="checks passing in the automated accessibility suite">verificações passando na suíte automatizada de acessibilidade</span></div>
+        <div><strong>CI</strong><span data-en="front-end lint on every change to the front end">lint do front-end a cada mudança no front-end</span></div>
+      </div>
+      <ul>
+        <li data-en="End-to-end tests with Playwright against a fictional API, in light and dark themes at 1280, 390 and 320 px.">Testes e2e com Playwright contra uma API fictícia, nos temas claro e escuro, em 1280, 390 e 320 px.</li>
+        <li data-en="Labels contain the visible text, targets have a minimum touch size, and breakpoints are standardized.">Rótulos contêm o texto visível, alvos têm tamanho mínimo de toque e os pontos de quebra são padronizados.</li>
+      </ul>
+
+      <h3 data-en="What I learned">O que eu aprendi</h3>
+      <ul>
+        <li data-en="Accessibility found real bugs: clipped labels at 390 px, a hidden alert that was never announced, and focus landing outside a dialog.">A acessibilidade achou bugs reais: rótulos cortados em 390 px, um alerta oculto que nunca era anunciado e foco caindo fora de um diálogo.</li>
+        <li data-en="Fewer dependencies mean fewer surprises: removing the CDN meant tests stopped downloading Alpine and the security policy got stricter.">Menos dependências, menos surpresa: tirar a CDN fez os testes deixarem de baixar o Alpine e a política de segurança ficar mais estrita.</li>
+        <li data-en="Privacy is design work, not a footer: deciding what is stored and for how long came before the screen.">Privacidade é trabalho de projeto, não rodapé: decidir o que se guarda e por quanto tempo veio antes da tela.</li>
+      </ul>
+
+      <h3 data-en="What is not ready">O que não está pronto</h3>
+      <ul>
+        <li data-en="Part of the latest changes appears as unpublished in the changelog (version 3.13.0).">Parte das mudanças mais recentes consta como não publicada no changelog (versão 3.13.0).</li>
+        <li data-en="Automated accessibility checks do not prove conformance; only real assistive technology confirms some points.">As verificações automáticas de acessibilidade não provam conformidade; alguns pontos só a tecnologia assistiva real confirma.</li>
+        <li data-en="The product has no published usage numbers, so this case makes no claim about audience.">O produto não tem números de uso publicados, então este estudo não afirma nada sobre audiência.</li>
+      </ul>
+
+      <h3 data-en="Technologies">Tecnologias</h3>
+      <p class="case-stack">Python, FastAPI, PostgreSQL, DeepSeek, HTML, CSS, JavaScript, Alpine.js (CSP), pdf.js, Playwright, axe, GitHub Actions, Brevo, Caddy.</p>
+      </section>
+    </div>
   </dialog>
 
   <!-- ESTUDO DE CASO: ORQUESTRADOR -->

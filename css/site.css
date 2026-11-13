@@ -507,7 +507,7 @@ td:nth-child(2) { color: var(--soft); }
   .results-table td + td { border-top: 1px solid var(--line); }
   .results-table .lbl { display: block; font-family: var(--mono); font-size: .75rem; color: var(--soft); margin-bottom: 2px; }
 }
-.case-stack { font-family: var(--mono); font-size: .8125rem; }
+.case-stack { font-family: var(--mono); font-size: .8125rem;  overflow-wrap: anywhere; }
 
 /* ---------- movimento ---------- */
 @media (prefers-reduced-motion: no-preference) {
