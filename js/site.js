@@ -1,4 +1,4 @@
-/* Jonas Augusto · portfólio. Sem dependências. Tema, menu móvel, diálogos e formulário. */
+/* Jonas Augusto · portfólio. Sem dependências. Tema, menu móvel, diálogos. */
 (function () {
   'use strict';
   var d = document, root = d.documentElement;
@@ -98,10 +98,4 @@
   var cvLangBtn = d.getElementById('cv-lang-btn');
   if (cvLangBtn) cvLangBtn.addEventListener('click', function () { setCv(cvLang === 'pt' ? 'en' : 'pt'); });
 
-  /* ---------- formulário ---------- */
-  var form = d.getElementById('contact-form'), submit = d.getElementById('submit-btn');
-  if (form) form.addEventListener('submit', function () {
-    submit.disabled = true;
-    submit.querySelector('span').textContent = lang === 'pt' ? 'Enviando…' : 'Sending…';
-  });
 })();

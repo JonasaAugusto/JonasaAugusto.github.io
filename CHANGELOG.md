@@ -9,6 +9,7 @@
 - Novas seções "Como eu uso IA no meu trabalho" e "Como o DeepSeek é usado no IAprovale" (a partir do código do backend, com o que ainda não está pronto).
 - Inglês estático em `/en/`, gerado por `scripts/gerar-en.py`; alternador de idioma vira link; `hreflang`, `canonical` e metatags por idioma. Testes em `scripts/testar-site.py`.
 - Certificações AWS e Azure como "Planejado · início em fev/2027" (site e currículos); Claude e Codex só no projeto Orchestrator; PDFs do currículo regenerados.
+- Removido o formulário de contato (redundante com e-mail e links); o contato fica por e-mail, LinkedIn, Instagram e GitHub, sem serviço de terceiro.
 - Removidos: entradas animadas, números que contam, prévia que segue o cursor, hora local, palavra gigante do rodapé e quadros de interface decorativos.
 
 ### Adicionado
