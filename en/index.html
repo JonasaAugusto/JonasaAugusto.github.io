@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en" data-base="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jonas Augusto | Software Engineer · Python Backend, Automation &amp; AI</title>
+  <meta name="description" content="Jonas Augusto, software engineer (graduating Dec 2026). I build and run APIs, automations and AI integrations in production, with a Python backend.">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="canonical" href="https://jonasaaugusto.github.io/en/">
+  <link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/">
+  <link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/">
+  <link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png?v=3">
+  <link rel="icon" href="../favicon.ico?v=3" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=3">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Jonas Augusto">
+  <meta property="og:title" content="Jonas Augusto | Software Engineer · Python Backend">
+  <meta property="og:description" content="APIs, automations and AI integrations in production, with a Python backend.">
+  <meta property="og:image" content="https://jonasaaugusto.github.io/assets/img/og-image.png?v=2">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://jonasaaugusto.github.io/en/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jonasaaugusto.github.io/assets/img/og-image.png?v=2">
+
+  <!-- Tema antes da pintura: localStorage('theme'), senão prefers-color-scheme -->
+  <script>
+    (function () {
+      var d = document.documentElement, t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      d.setAttribute('data-theme', t);
+      d.classList.add('js');
+    })();
+  </script>
+
+  <link rel="preload" href="../assets/fonts/geist-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/site.css">
+  <script src="../js/site.js" defer></script>
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-ne" viewbox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-right" viewbox="0 0 16 16"><path d="M2.5 8h11M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-down" viewbox="0 0 16 16"><path d="M8 2.5v9M3.5 7.5L8 12l4.5-4.5M3 14h10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-moon" viewbox="0 0 24 24"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewbox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></g></symbol>
+    <symbol id="i-menu" viewbox="0 0 24 24"><path d="M4 9h16M4 15h16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-close" viewbox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <a href="#conteudo" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a href="#inicio" class="brand" aria-label="Jonas Augusto, home">
+        <svg class="brand-mark" viewbox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M19.5 8v10.6a5.6 5.6 0 0 1-11.2 0" fill="none" stroke="var(--bg)" stroke-width="3"/><rect x="22.5" y="8" width="3" height="3" fill="#f2c200"/></svg>
+        <span class="brand-name">Jonas Augusto</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#projetos">Projects</a>
+        <a href="#stack">Stack</a>
+        <a href="#ia-trabalho">AI</a>
+        <a href="#experiencia">Experience</a>
+        <a href="#contato">Contact</a>
+      </nav>
+      <div class="controls">
+        <a class="ctrl cv-btn" href="../cv.en.html" data-cv-page data-open="cv">CV</a>
+        <a class="ctrl" id="lang-btn" href="../" hreflang="pt-BR" lang="pt-BR" aria-label="Switch language to Portuguese (Português)"><span id="lang-label">PT</span></a>
+        <button type="button" class="ctrl" id="theme-btn" aria-label="Toggle light and dark theme">
+          <svg class="theme-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="theme-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button type="button" class="ctrl menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="i-close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Menu" hidden>
+    <a href="#projetos"><b>Projects</b></a>
+    <a href="#stack"><b>Stack</b></a>
+    <a href="#ia-trabalho"><b>AI</b></a>
+    <a href="#experiencia"><b>Experience</b></a>
+    <a href="#formacao"><b>Education</b></a>
+    <a href="#contato"><b>Contact</b></a>
+    <a href="../cv.en.html" data-cv-page data-open="cv"><b>Open resume</b><span>PDF</span></a>
+  </nav>
+
+
+  <main id="conteudo">
+
+
+    <!-- TOPO: tudo o que um recrutador precisa nos primeiros segundos -->
+    <section id="inicio" class="top wrap" aria-labelledby="hero-title">
+      <div class="top-main">
+        <div class="top-id">
+          <p class="status"><span class="dot" aria-hidden="true"></span><span>Open to a first software engineering job</span></p>
+          <h1 class="top-name" id="hero-title">Jonas Augusto</h1>
+          <p class="top-lead">Software engineer, graduating in Dec 2026. I build and run APIs, automations and AI integrations in production, with a Python backend.</p>
+          <div class="top-actions">
+            <a class="btn" href="mailto:jonasaugustosantosoliveira@gmail.com"><span>Email</span></a>
+            <a class="btn ghost" href="https://github.com/JonasaAugusto" target="_blank" rel="noopener"><span>GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/jonasaaugusto" target="_blank" rel="noopener"><span>LinkedIn</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            <a class="btn ghost" href="../cv.en.html" data-cv-page data-open="cv"><span>Resume</span></a>
+          </div>
+        </div>
+
+        <section class="top-nums" aria-labelledby="top-n-t">
+          <h2 class="vh" id="top-n-t">Measured results, before and after</h2>
+          <ul class="nums">
+            <li>
+              <p class="n"><span class="vh">73.7 seconds to 0.08 seconds</span><span aria-hidden="true"><span class="from">73.7 s</span><span class="arr">→</span><span>0.08 s</span></span></p>
+              <p class="n-what"><strong>First call of the CRM dashboard.</strong> Internship at F5 Tecnologia, measured in production on 10/15/2026.</p>
+              <a class="link n-src" href="#proj-f5" data-open="f5" data-anchor="#f5-caso-plataforma">See the measurement in the case study</a>
+            </li>
+            <li>
+              <p class="n"><span class="vh">35 hours to 2.25 hours</span><span aria-hidden="true"><span class="from">35 h</span><span class="arr">→</span><span>2.25 h</span></span></p>
+              <p class="n-what"><strong>Monthly RPA downtime.</strong> Internship at NEURODEV, after refactoring the Python code with Docker.</p>
+              <a class="link n-src" href="#exp-neurodev">See in experience (no case study)</a>
+            </li>
+            <li>
+              <p class="n"><span class="vh">43% to about 89%</span><span aria-hidden="true"><span class="from">43%</span><span class="arr">→</span><span>~89%</span></span></p>
+              <p class="n-what"><strong>Registrations that become a proposal, per attempt.</strong> Automated WhatsApp sales, F5 Tecnologia. It had dropped as low as 29%.</p>
+              <a class="link n-src" href="#proj-f5" data-open="f5" data-anchor="#f5-caso-cadastro">See the diagnosis in the case study</a>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="top-proj" aria-labelledby="top-p-t">
+        <h2 class="vh" id="top-p-t">Featured projects, overview</h2>
+        <ul class="pcards">
+          <li>
+            <a class="pcard" href="#proj-iaprovale">
+              <h3>IAprovale</h3>
+              <p>Public-exam and job finder, in production. Python and FastAPI backend.</p>
+              <span class="pcard-meta">Python · FastAPI · PostgreSQL</span>
+            </a>
+          </li>
+          <li>
+            <a class="pcard" href="#proj-orquestrador">
+              <h3>AI Agents Orchestrator</h3>
+              <p>Open source: relay between Claude Code and Codex CLI when one hits its usage limit.</p>
+              <span class="pcard-meta">Python · SQLite · 560 tests</span>
+            </a>
+          </li>
+          <li>
+            <a class="pcard" href="#proj-f5">
+              <h3>F5 Tecnologia</h3>
+              <p>WhatsApp agents, partner integrations and an operations dashboard, in my current internship.</p>
+              <span class="pcard-meta">Python · FastAPI · pytest</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+
+
+    <!-- PROJETOS EM DESTAQUE -->
+    <section id="projetos" class="section wrap" aria-labelledby="proj-t">
+      <div class="grid sec-head">
+        <h2 class="sec-title" id="proj-t">Featured projects</h2>
+        <p class="sec-note">Each project follows the same order: problem, what I did, what broke, what I would do differently, result and limitation.</p>
+      </div>
+
+      <article id="proj-iaprovale" class="proj" aria-labelledby="ia-t">
+        <header class="proj-head">
+          <div>
+            <h3 class="proj-title" id="ia-t">IAprovale</h3>
+            <p class="proj-sub">Public-exam and job finder · in production</p>
+          </div>
+          <div class="proj-links">
+            <button type="button" class="btn sm" data-open="ia"><span>Case study</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
+            <a href="https://augustusai.com.br/iaprovale/" target="_blank" rel="noopener" class="btn sm ghost"><span>Live site</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            <a href="https://github.com/JonasaAugusto/iaprovaledocs" target="_blank" rel="noopener" class="btn sm ghost"><span>Public docs</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+          </div>
+        </header>
+        <dl class="proj-dl">
+          <div><dt>Problem</dt><dd>Public-exam candidates need to find an open notice that fits their education, and the information is scattered across many sites. Finding it is not enough: registration and exam dates pass.</dd></div>
+          <div><dt>What I did</dt><dd>I build and maintain the product. A Python backend (FastAPI, PostgreSQL) with natural-language search filtered by education and state, deadline alerts and a Career area that compares a resume with a position. Plain HTML, CSS and JavaScript on the front end, no CDN.</dd></div>
+          <div><dt>What broke and how I fixed it</dt><dd>The automated accessibility suite found real bugs: clipped labels at 390 px, a hidden alert that was never announced, and focus landing outside a dialog. In the AI extraction, the model sometimes returned an empty answer because its reasoning used up the output limit; I turned reasoning off and left a single retry, with the validation error handed back to the model.</dd></div>
+          <div><dt>What I would do differently</dt><dd>I would have the specific consent for the Career area ready at launch. Today it is planned and under legal review.</dd></div>
+          <div><dt>Result</dt><dd>In production. 614/614 checks in the automated accessibility suite, about 200 automated tests and end-to-end tests with Playwright at 1280, 390 and 320 px, in light and dark themes. There is no before-and-after metric.</dd></div>
+          <div><dt>Limitation</dt><dd>The product has no published usage numbers. Automated accessibility checks do not prove conformance. Part of the latest changes appears as unpublished in the changelog (3.13.0). The use of AI is described in the section below, including what is still missing.</dd></div>
+        </dl>
+      </article>
+
+      <article id="proj-orquestrador" class="proj" aria-labelledby="orq-h">
+        <header class="proj-head">
+          <div>
+            <h3 class="proj-title" id="orq-h">AI Agents Orchestrator</h3>
+            <p class="proj-sub">Personal open-source project · version 1.4.0</p>
+          </div>
+          <div class="proj-links">
+            <button type="button" class="btn sm" data-open="orq"><span>Case study</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
+            <a href="https://github.com/JonasaAugusto/ai-agents-orchestrator" target="_blank" rel="noopener" class="btn sm ghost"><span>GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+          </div>
+        </header>
+        <dl class="proj-dl">
+          <div><dt>Problem</dt><dd>Anyone using Claude Code and Codex CLI on paid subscriptions hits one limit in the middle of the work, and the task stops. The two do not talk to each other, and context is lost in the switch.</dd></div>
+          <div><dt>What I did</dt><dd>A Python orchestrator (SQLite, GitHub Actions) that drives the official CLIs with the user's own logins, with no API keys. The queue and reset times live in SQLite, so pending work resumes where it stopped. Usage is measured with counters only, without reading conversations. Publishing requires the human to type the id and the commit SHA.</dd></div>
+          <div><dt>What broke and how I fixed it</dt><dd>The case study does not record a failure in real use, and I will not invent one. The known weak point is Codex's limit message, whose format is not documented and may change; that is why detection is tolerant.</dd></div>
+          <div><dt>What I would do differently</dt><dd>I would publish to PyPI and run the full suite on Windows before calling it done. Today installation is straight from GitHub and, on Windows, CI proves only the lite mode.</dd></div>
+          <div><dt>Result</dt><dd>Version 1.4.0 (tag v1.4.0 on GitHub), 560 tests collected with pytest and CI green on the tag commit, on Linux, macOS and Windows, with Python 3.11 to 3.14. There is no before-and-after metric.</dd></div>
+          <div><dt>Limitation</dt><dd>Lite mode does not isolate the agents from the user's account or Git credentials: the confirmation is a workflow safeguard, not a barrier against malicious code. The WhatsApp channel is optional, unofficial and tested only with fakes. Pull request publishing was tested only with a simulated gh.</dd></div>
+        </dl>
+      </article>
+
+      <article id="proj-f5" class="proj" aria-labelledby="f5-h">
+        <header class="proj-head">
+          <div>
+            <h3 class="proj-title" id="f5-h">F5 Tecnologia</h3>
+            <p class="proj-sub">Current internship since May 2026 · company code and data, no public repository</p>
+          </div>
+          <div class="proj-links">
+            <button type="button" class="btn sm" data-open="f5"><span>Case study</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
+          </div>
+        </header>
+        <dl class="proj-dl">
+          <div><dt>Problem</dt><dd>Free-form AI service was unpredictable and hard to audit. The automated registration stopped for many customers: the share of registrations that became a proposal was 43% and dropped to 29%. The after-sales dashboard took 73.7 s on the first call and showed diverging data.</dd></div>
+          <div><dt>What I did</dt><dd>WhatsApp agents on a deterministic state machine (the AI only classifies and answers questions, under rules), idempotent partner integrations, OCR with double reading and a tiebreak, and an operations dashboard. Before touching code, I cross-checked execution logs, the API log and message history.</dd></div>
+          <div><dt>What broke and how I fixed it</dt><dd>A safety check blocked 44 of 54 registrations because the carrier's screen had changed and the code had not kept up; I fixed how the item is recognized. Off-script answers were slow because of a fixed 15 s wait, not the AI (the model answered in ~1.5 s); it became 4 s for a recognized question, with an 8 s ceiling, and the cutoff came from 4,078 real messages. On the dashboard, the cache expired before the next request and rebuilt everything inside the request; a thread now builds outside it, with ETag and 304.</dd></div>
+          <div><dt>What I would do differently</dt><dd>I would audit the integrations against the partners' official documentation before building. The audit done afterwards revealed steps that never ran: document upload, payment method and contact registration.</dd></div>
+          <div><dt>Result</dt><dd>Dashboard first call from 73.7 s to 0.08 s (measured in production on 10/15/2026). Registrations that become a proposal, per attempt, from 43% to ~89%. 0 discrepancies across 1,960 items checked against the portals every 10 minutes. Over 320 automated tests on the service platform.</dd></div>
+          <div><dt>Limitation</dt><dd>The median registration time went up slightly: before, half of the runs died early; now almost all go through to the final validation. Dashboard numbers can be up to 60 s stale. The code belongs to the company, so there is no repository to inspect.</dd></div>
+        </dl>
+      </article>
+
+      <details class="others" id="outros-projetos">
+        <summary><span class="others-t">Other projects</span><span class="others-c">4 projects</span></summary>
+        <ul class="others-list">
+          <li>
+            <h3>AugustusApp</h3>
+            <p>Augustus internal app: VPS SSH terminal, backup and 100% local meeting transcription. Private repository.</p>
+            <p class="o-stack">.NET 10 MAUI · C# · Python · WhisperX · Ollama</p>
+            <a class="link" href="#desafios"><span>Technical challenges</span></a>
+          </li>
+          <li>
+            <h3>NotaME</h3>
+            <p>Mobile and desktop app for PDF receipts, NFS-e and clients, offline-first with encrypted P2P sync.</p>
+            <p class="o-stack">.NET MAUI · C# · SQLite · QuestPDF · AES-256</p>
+            <a class="link" href="https://github.com/JonasaAugusto/NotaME" target="_blank" rel="noopener"><span>View on GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+          </li>
+          <li>
+            <h3>Modular WhatsApp Connector</h3>
+            <p>Service that connects and disconnects WhatsApp bots via QR, each bot independent. Private code, demo on request.</p>
+            <p class="o-stack">Python · FastAPI · WebSocket · Baileys · pytest</p>
+            <a class="link" href="#desafios"><span>Technical challenges</span></a>
+          </li>
+          <li>
+            <h3>Fabula Coop</h3>
+            <p>Cooperative real-time text RPG where the campaign master is an AI.</p>
+            <p class="o-stack">Python · LLM Agent · Realtime · Multiplayer</p>
+            <a class="link" href="https://github.com/JonasaAugusto/FabulaCoop" target="_blank" rel="noopener"><span>View on GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+          </li>
+        </ul>
+      </details>
+    </section>
+
+
+    <!-- STACK -->
+    <section id="stack" class="section wrap" aria-labelledby="st-t">
+      <div class="grid sec-head">
+        <h2 class="sec-title" id="st-t">Stack</h2>
+        <p class="sec-note">What I use in production. Each item points to the project where it lives.</p>
+      </div>
+
+      <h3 class="sub-t">Main</h3>
+      <ul class="main-stack">
+        <li><strong>Python</strong><span>IAprovale, F5, Orchestrator</span></li>
+        <li><strong>FastAPI</strong><span>IAprovale and the F5 platform</span></li>
+        <li><strong>PostgreSQL</strong><span>IAprovale (with SQLModel)</span></li>
+        <li><strong>Docker</strong><span>NEURODEV: downtime from 35 h to 2.25 h</span></li>
+        <li><strong>Linux</strong><span>Ubuntu VPS with systemd and Caddy</span></li>
+      </ul>
+
+      <h3 class="sub-t">Secondary</h3>
+      <p class="second-stack">C# and .NET MAUI, TypeScript and Node.js (Fastify), SQL, SQLite, Redis, pytest, Playwright, GitHub Actions, Git, systemd, Caddy, React, WebSocket.</p>
+
+      <h3 class="sub-t" id="stack-ia">AI: tools and where I used them</h3>
+      <ul class="ai-stack">
+        <li><strong>DeepSeek</strong><span>IAprovale (search and resume), the Raízes &amp; Escamas sales agent and the F5 after-sales agent.</span></li>
+        <li><strong>OpenAI API</strong><span>NEURODEV: pipeline latency from 15 min to 27 s, with prompt engineering and caching.</span></li>
+        <li><strong>Groq, Mistral</strong><span>Listed in my earlier profile; no detailed project on this site.</span></li>
+        <li><strong>Ollama</strong><span>AugustusApp: meeting summary and briefing with a local LLM.</span></li>
+        <li><strong>WhisperX, faster-whisper</strong><span>AugustusApp: local transcription with the large-v3 model.</span></li>
+        <li><strong>pyannote</strong><span>AugustusApp: speaker separation (diarization).</span></li>
+        <li><strong>LangChain</strong><span>F5, in the earlier blocks of the case study.</span></li>
+        <li><strong>Techniques</strong><span>Lexical RAG (Raízes &amp; Escamas, 430 entries), tool calling and MCP (F5), guardrails in code (F5).</span></li>
+      </ul>
+
+      <details class="full-stack">
+        <summary>See the full list by layer</summary>
+        <div class="stack-grid">
+<div class="stack-group">
+<h3>Programming languages</h3>
+<ul><li>Python (backend and automation)</li><li>C#</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li></ul>
+</div>
+<div class="stack-group">
+<h3>Generative AI</h3>
+<ul><li>DeepSeek (tool calling)</li><li>OpenAI API</li><li>Ollama (local LLM)</li><li>WhisperX and faster-whisper</li><li>pyannote (diarization)</li><li>RAG (lexical and hybrid)</li><li>MCP</li><li>LangChain</li><li>Prompt Engineering</li><li>Guardrails</li><li>LLM Agents</li></ul>
+</div>
+<div class="stack-group">
+<h3>Backend &amp; Frameworks</h3>
+<ul><li>FastAPI</li><li>Node.js and TypeScript (Fastify)</li><li>RESTful APIs</li><li>WebSocket</li><li>Webhooks</li><li>Baileys (WhatsApp)</li><li>Queues (BullMQ)</li><li>Playwright</li><li>n8n</li><li>Retry patterns</li><li>Idempotency</li><li>Robust error handling</li></ul>
+</div>
+<div class="stack-group">
+<h3>Tools &amp; Infrastructure</h3>
+<ul><li>Git/GitHub</li><li>GitHub Actions</li><li>Docker and Docker Compose</li><li>Linux VPS (Ubuntu)</li><li>systemd</li><li>SSH and tmux</li><li>PM2</li><li>nginx</li><li>restic and Backblaze B2</li><li>Crontab</li></ul>
+</div>
+<div class="stack-group">
+<h3>Databases</h3>
+<ul><li>PostgreSQL (pgvector)</li><li>SQLite</li><li>Redis</li><li>Data structure modeling and optimization</li></ul>
+</div>
+<div class="stack-group">
+<h3>Desktop, Front-End &amp; UI</h3>
+<ul><li>.NET 10 and MAUI</li><li>MVVM (CommunityToolkit.Mvvm)</li><li>SSH.NET</li><li>xterm.js</li><li>PySide6</li><li>HTML5, CSS3</li><li>JavaScript (ES6+)</li><li>Tailwind CSS</li><li>Responsive design</li></ul>
+</div>
+<div class="stack-group">
+<h3>DevOps &amp; others</h3>
+<ul><li>Advanced troubleshooting</li><li>Performance optimization</li><li>Backup and restore</li><li>Structured logging</li><li>Automated testing (xUnit, pytest, Vitest)</li><li>Security and LGPD</li></ul>
+</div>
+<div class="stack-group">
+<h3>Methodologies</h3>
+<ul><li>Scrum</li><li>UML</li><li>BPMN</li><li>Technical documentation (READMEs and decision records)</li><li>Business process modeling</li></ul>
+</div>
+<div class="stack-group">
+<h3>Languages</h3>
+<ul><li>Portuguese: native</li><li>English: C1 (Advanced)</li></ul>
+</div>
+</div>
+        </div>
+      </details>
+    </section>
+
+    <!-- COMO USO IA -->
+    <section id="ia-trabalho" class="section wrap" aria-labelledby="iat-t">
+      <div class="grid sec-head">
+        <h2 class="sec-title" id="iat-t">How I use AI in my work</h2>
+        <p class="sec-note">It writes drafts. What goes to production goes through me, through tests and through measurement.</p>
+      </div>
+      <div class="ia-cols">
+        <div>
+          <h3>What I delegate</h3>
+          <ul class="checks">
+            <li>Drafts of repetitive code and of tests.</li>
+            <li>Research on documentation and alternatives.</li>
+            <li>A second read of a set of changes.</li>
+            <li>Meeting transcription and summary, running locally, without sending audio to the cloud.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What I review by hand</h3>
+          <ul class="checks">
+            <li>Every code change before it lands.</li>
+            <li>Architecture decisions and what personal data is stored.</li>
+            <li>What gets published and when: publishing needs human approval.</li>
+            <li>Rules that must be exact (price, eligibility, deadlines): they stay in deterministic code, not in the model.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>How I validate the result</h3>
+          <ul class="checks">
+            <li>Tests that lock behavior in: over 320 on the F5 platform, 560 in the Orchestrator, about 200 in IAprovale.</li>
+            <li>Real data as a sample: 4,078 messages defined the wait window; a 100-question battery with a real LLM validated the Raízes &amp; Escamas search.</li>
+            <li>Measurement before and after, and a production rehearsal with nothing sent to partners.</li>
+            <li>Fictional data in development: user data and secrets stay out of the development tools.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEEPSEEK NO IAPROVALE (REVISÃO DO DONO) -->
+    <section id="ia-deepseek" class="section wrap" aria-labelledby="ds-t">
+      <div class="grid sec-head">
+        <h2 class="sec-title" id="ds-t">How DeepSeek is used in IAprovale</h2>
+        <p class="sec-note">Described from the backend code. It includes what is not ready yet.</p>
+      </div>
+      <div class="ds-grid">
+        <div class="ds-block">
+          <h3>Where it is used</h3>
+          <ul class="checks">
+            <li>In search: the typed sentence becomes a term or position, state(s) and the education mentioned. The model does not run the search or decide the result.</li>
+            <li>In Career: reads the resume and builds a structured profile, extracts a job's requirements (with a shared cache, without storing the job text) and writes the reason for "partly fits" results.</li>
+            <li>In exam information: reads the public notice to extract openings, dates and fees.</li>
+          </ul>
+        </div>
+        <div class="ds-block">
+          <h3>What it decides and what it does not</h3>
+          <ul class="checks">
+            <li>The list of exams comes from an external source. Filters and ranking are deterministic, tested code.</li>
+            <li>The result "fits", "partly fits" or "does not fit" comes from Python rules. If the model suggests another level, it is ignored.</li>
+            <li>Years of experience are computed in Python. Tools and numbers in the profile only stay if they appear in the resume text.</li>
+          </ul>
+        </div>
+        <div class="ds-block">
+          <h3>What is sent</h3>
+          <ul class="checks">
+            <li>In search: the typed text and, as context, education, technical course, postgraduate degree, schooling level, future education, areas of interest and city/state. Account name, e-mail, phone and CPF are not sent.</li>
+            <li>In Career: the resume text, up to 12,000 characters, after e-mail, phone, links and CPF are replaced by placeholders.</li>
+            <li>To explain a gap: the education fields of the profile and the position's requirements, without the whole resume.</li>
+          </ul>
+        </div>
+        <div class="ds-block">
+          <h3>Safeguards</h3>
+          <ul class="checks">
+            <li>The provider key lives only in the server environment. The app does not start without it, and it never goes into the repository or the front end.</li>
+            <li>Limits: 10 searches per minute per user; in Career, up to 17 calls or US$ 0.01 per day per account, reserved before each call.</li>
+            <li>In Career, a 40 s limit per call, no automatic SDK retry and at most one repeat for invalid JSON. In search, one repeat. A failure becomes a message to the user, never a 500 error.</li>
+            <li>The cost of each search is measured from the tokens of each attempt. The model's answer is validated against a schema, and the user's text is treated as data, not as instructions.</li>
+            <li>Tests with fictional data. User data never goes to development tools.</li>
+          </ul>
+        </div>
+        <div class="ds-block ds-limits">
+          <h3>What is not ready yet</h3>
+          <ul class="checks">
+            <li>DeepSeek is a provider outside Brazil. Today the sending is covered by the terms of use. A specific consent on first use of Career is planned and under legal review; it does not exist yet.</li>
+            <li>The removal covers e-mail, phone, links and CPF. The name and address in the resume are not yet removed before sending, and the removal does not guarantee anonymization.</li>
+            <li>In search with the use-my-resume option on, the saved text (up to 6,000 characters) goes without that contact removal.</li>
+            <li>The model can be wrong. The result helps read the notice; confirmation is always in the notice and on the official portal.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="experiencia" class="section wrap" aria-labelledby="exp-t">
+      <div class="grid sec-head">
+        <h2 class="sec-title" id="exp-t">Experience</h2>
+        <p class="sec-note">A little over 1 year of professional experience. Augustus AI Solutions is my own business, which I run alongside the F5 internship.</p>
+      </div>
+
+      <article class="grid job">
+        <p class="job-when" style="--i:0">Jun 2026 – Present · Remote</p>
+        <div class="job-main" style="--i:1">
+          <h3 class="job-role">CEO &amp; Lead Developer</h3>
+          <p class="job-org">Augustus AI Solutions · AI Agents, Automation &amp; B2B Web</p>
+          <p class="job-intro">AI agents, automations, and B2B web systems for companies, on self-managed VPS infrastructure.</p>
+          <div class="subproj">
+            <div>
+              <h4>Raízes &amp; Escamas · WhatsApp AI Agent</h4>
+              <p>Professional project for an aquarium store (real client). Sales and support agent in TypeScript, Baileys, and DeepSeek, with prices computed by rules in code, a 430-entry RAG, quote quantity guard, and PIX payments. The owner registers products in bulk through WhatsApp (text, audio, and photo). Runs as a systemd service on the company's own VPS.</p>
+            </div>
+            <div>
+              <h4>Monobloco · Commercial landing page</h4>
+              <p>A custom commercial landing page built to present the client's offer clearly and turn visitors into leads, from briefing to production launch.</p>
+            </div>
+          </div>
+        </div>
+        <div class="job-side" style="--i:2">
+          <span class="tag live">Ongoing</span>
+          <figure class="job-shot" aria-label="Illustrative fragment of a conversation with the Raízes &amp; Escamas agent">
+            <div class="ui" data-ui>
+              <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>Raízes &amp; Escamas · WhatsApp</span></div>
+              <div class="ui-chat">
+                <div class="bubble me">Quero 6 neons e 2 corydoras<small>cliente</small></div>
+                <div class="bubble">Orçamento pronto, preço calculado pela regra da loja. Posso gerar o PIX?<small>agente · RAG 430 fichas</small></div>
+                <div class="bubble me">Pode sim<small>cliente</small></div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </article>
+
+      <article class="grid job">
+        <p class="job-when" style="--i:0">May 2026 – Present · Remote</p>
+        <div class="job-main" style="--i:1">
+          <h3 class="job-role">Development and Automation Intern</h3>
+          <p class="job-org">F5 Tecnologia</p>
+          <ul class="job-list">
+            <li>Development of AI agents on WhatsApp for selling digital products (credit and energy) and for customer relationship and after-sales, with guardrails in code, partner and CRM (Blip) integrations, and sensitive data handled in compliance with LGPD.</li>
+            <li>Production reliability: fixed critical failures (OCR, supplier identification, eligibility rules), unblocking over 170 customers, and rebuilt the CRM dashboard, cutting the dashboard's first call from 73.7 s to 0.08 s with 0 discrepancies across 1,960 items checked against the portals.</li>
+          </ul>
+        </div>
+        <div class="job-side" style="--i:2">
+          <span class="tag live">Current internship</span>
+          <button type="button" class="btn sm ghost" data-open="f5"><span>View case study</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
+        </div>
+      </article>
+
+      <article class="grid job" id="exp-neurodev">
+        <p class="job-when" style="--i:0">Sep – Nov 2025 · Hybrid</p>
+        <div class="job-main" style="--i:1">
+          <h3 class="job-role">Intern Automation Developer &amp; RPA Support Analyst</h3>
+          <p class="job-org">NEURODEV · Startup</p>
+          <ul class="job-list">
+            <li>Developed 15+ integrations in Python connecting external APIs, processing 800+ transactions per day.</li>
+            <li>Implemented retry patterns and fallback with monitoring via Linux CLI for high availability.</li>
+            <li>Optimized pipeline with OpenAI API reducing latency from 15 minutes to 27 seconds (97% reduction) through prompt engineering and intelligent caching.</li>
+            <li>Refactored RPA code in Python with Docker, reducing monthly downtime from 35h to 2.25h (93.5% reduction).</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="grid job">
+        <p class="job-when" style="--i:0">Aug – Sep 2025 · Remote</p>
+        <div class="job-main" style="--i:1">
+          <h3 class="job-role">Junior Process Automation Developer with AI</h3>
+          <p class="job-org">BNECT · Startup Early-Stage</p>
+          <ul class="job-list">
+            <li>Developed services in Python integrating CRM/ERP via APIs, applying Factory and Strategy patterns with event-driven architecture.</li>
+            <li>Used n8n and Python for workflow orchestration with LLM integration.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="grid job">
+        <p class="job-when" style="--i:0">Aug – Sep 2023 · Freelance</p>
+        <div class="job-main" style="--i:1">
+          <h3 class="job-role">Software Requirements Analyst</h3>
+          <p class="job-org">Volpatto Engenharia e Arquitetura de Guaíra LTDA</p>
+          <ul class="job-list">
+            <li>Specified functional and non-functional requirements in UML/BPMN for 6 services, focusing on performance and maintainability.</li>
+            <li>Objective: reduce rework and standardize engineering processes through complete technical documentation.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+
+    <section id="desafios" class="section wrap" aria-labelledby="ch-t">
+      <div class="grid challenges">
+        <div class="ch-aside">
+          <h2 class="sec-title" id="ch-t">Technical challenges</h2>
+          <p>Problems I ran into in real systems, what I did, and the result I can show.</p>
+          <div class="ch-progress" aria-hidden="true"><i></i></div>
+        </div>
+        <div class="ch-list">
+          <article class="ch">
+            <h3>8 GB GPU (AugustusApp)</h3>
+            <p>Transcription with WhisperX large-v3 and the local LLM do not fit together in 8 GB of VRAM. I built a GPU lease, a model degradation ladder, and a probe that only accepts the LLM if it runs 100% on the GPU.</p>
+            <dl class="ch-result"><dt>Result</dt><dd>One GPU owner at a time; reprocessing returns 409 instead of fighting over VRAM.</dd></dl>
+          </article>
+          <article class="ch">
+            <h3>SSH terminal with 220 ms of latency</h3>
+            <p>The VM terminal felt slow. I measured instead of guessing: about 221 ms RTT to the VPS in Europe and about 250 ms per keystroke even with plain ssh. I cut the app overhead with immediate output for small responses, a 6 ms tick, and a single UI dispatch, showed the RTT in the tab, and built a predictive local echo that draws each keystroke instantly and reconciles it with the server response.</p>
+            <dl class="ch-result"><dt>Result</dt><dd>App overhead reduced, the network floor explained on screen, and predictive local echo shipped: keystrokes appear instantly, without waiting for the 220 ms of network.</dd></dl>
+          </article>
+          <article class="ch">
+            <h3>Safe VPS backup and restore</h3>
+            <p>Daily backup with restic to Backblaze B2, managed from the app: list, run now, and restore by date. A destructive restore requires confirmation, takes a safety backup first, and runs as a detached operation that survives an SSH drop.</p>
+            <dl class="ch-result"><dt>Result</dt><dd>Own backup, with no paid provider backup, and restore by date without leaving the app.</dd></dl>
+          </article>
+          <article class="ch">
+            <h3>Lexical RAG instead of embeddings</h3>
+            <p>The bot answers technical questions from 430 curated entries. Since titles are descriptive and DeepSeek offers no embeddings, I used lexical search with IDF, synonyms, and a ranking that rewards the entry covering more of the question, at no per-query cost.</p>
+            <dl class="ch-result"><dt>Result</dt><dd>In the 100-question battery with a real LLM, related entries went from 96% to 100% after the search fixes.</dd></dl>
+          </article>
+          <article class="ch">
+            <h3>Connector with no automation trail</h3>
+            <p>To manage the WhatsApp agents without the automation trail OpenClaw leaves for Meta, I built my own modular connector: it only runs each bot's pairing and shows the QR, keeping no session of its own, and every connection is independent.</p>
+            <dl class="ch-result"><dt>Result</dt><dd>Adding a bot means editing a file, with 40 automated tests and the service listening only on loopback, with a token.</dd></dl>
+          </article>
+          <article class="ch">
+            <h3>Data that matches the portals (F5)</h3>
+            <p>In after-sales, the dashboard's first call took 73.7 s and it showed data diverging between portals, dashboard, and CRM. A thread that builds the data outside the request, with a ready response, ETag, and 304, plus continuous reconciliation every 10 minutes solved both problems.</p>
+            <dl class="ch-result"><dt>Result</dt><dd>First call from 73.7 s to 0.08 s and 0 discrepancies across 1,960 items checked against the portals.</dd></dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="formacao" class="section wrap" aria-labelledby="ed-t">
+      <div class="grid sec-head">
+        <h2 class="sec-title" id="ed-t">Education and courses</h2>
+        <p class="sec-note">Academic education, completed courses, courses in progress and planned certifications.</p>
+      </div>
+      <div class="grid edu">
+        <div class="edu-col edu-degrees">
+          <h3 style="--i:0">Academic education</h3>
+          <div class="degrees" style="--i:1">
+            <article class="degree">
+              <p class="degree-kind">Bachelor's degree · completing Dec 2026</p>
+              <h4>Software Engineering</h4>
+              <p class="degree-school">Estácio de Sá University · 2023 – 2026</p>
+              <p class="degree-grade"><span>9,3</span><small>overall average / 10</small></p>
+              <p class="degree-note">Focus on backend, process automation and systems integration.</p>
+            </article>
+            <article class="degree">
+              <p class="degree-kind">Technical degree · completed 2023</p>
+              <h4>Software Development (Fullstack)</h4>
+              <p class="degree-school">SENAI Juiz de Fora</p>
+              <p class="degree-grade"><span>8,0</span><small>overall average / 10</small></p>
+              <p class="degree-note">Complete training in web and desktop development, covering front-end and back-end.</p>
+            </article>
+          </div>
+        </div>
+        <div class="edu-col">
+          <h3 style="--i:0"><span>Completed courses</span></h3>
+          <ul class="rows2" style="--i:1">
+            <li><b>Advanced Python + Generative AI</b><span class="v">Udemy</span></li>
+            <li><b>Information Systems Programming</b><span class="v">Estácio</span></li>
+            <li><b>Artificial Intelligence Specialist</b><span class="v">Academia de IA</span></li>
+            <li><b>Web Programming</b><span class="v">Estácio</span></li>
+            <li><b>User Rights &amp; Privacy</b><span class="v">Estácio</span></li>
+          </ul>
+        </div>
+        <div class="edu-col">
+          <h3 style="--i:0"><span>In progress and planned</span></h3>
+          <ul class="rows2" style="--i:1">
+            <li><b>AI &amp; Machine Learning: Complete Guide</b><span class="v">Udemy · studying</span></li>
+            <li><b>Advanced FastAPI | TDD | PostgreSQL</b><span class="v">Udemy · studying</span></li>
+            <li><b>Power Apps + Power Automate + SharePoint</b><span class="v">Udemy · studying</span></li>
+            <li><b>AWS Cloud Practitioner</b><span class="v">Planned · starts Feb 2027</span></li>
+            <li><b>Microsoft Certified: Azure Fundamentals</b><span class="v">Planned · starts Feb 2027</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contato" class="section wrap" aria-labelledby="ct-t">
+      <div class="grid contact">
+        <div class="contact-head">
+          <h2 class="contact-title" id="ct-t" style="--i:0">Let's talk?</h2>
+          <p style="--i:1">Open to technical challenges and high-impact projects. Write here or reach me directly.</p>
+          <div class="contact-links" style="--i:2">
+            <a href="mailto:jonasaugustosantosoliveira@gmail.com" aria-label="Send email to jonasaugustosantosoliveira@gmail.com"><span>jonasaugustosantosoliveira@gmail.com</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            <a href="https://www.linkedin.com/in/jonasaaugusto" target="_blank" rel="noopener"><span>LinkedIn</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            <a href="https://www.instagram.com/jonasaaugusto/" target="_blank" rel="noopener" aria-label="Jonas&#x27;s Instagram"><span>Instagram (personal)</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            <a href="https://www.instagram.com/augustusaisolutions/" target="_blank" rel="noopener" aria-label="Augustus AI&#x27;s Instagram"><span>Instagram (Augustus AI)</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            <a href="https://github.com/JonasaAugusto" target="_blank" rel="noopener"><span>GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+          </div>
+          <p class="mono" style="--i:3;font-size:var(--t-small)">Juiz de Fora, MG · <span>Brazil</span></p>
+        </div>
+
+        <form id="contact-form" class="form" action="https://submit-form.com/1pIuu489V" method="POST">
+          <input type="hidden" name="_feedback.dark" value="true">
+          <input type="hidden" name="_feedback.primary_color" value="#ededeb">
+          <input type="hidden" name="_feedback.bg_color" value="#0b0b0b">
+          <input type="hidden" name="_feedback.success.title" value="Mensagem enviada!">
+          <input type="hidden" name="_feedback.success.message" value="Obrigado, Jonas entrará em contato em breve.">
+          <div class="two" style="--i:0">
+            <div class="field"><label for="f-nome">Name</label><input id="f-nome" type="text" name="Nome" autocomplete="name" placeholder="Your name" required></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="Email" autocomplete="email" placeholder="you@email.com" required></div>
+          </div>
+          <div class="field" style="--i:1"><label for="f-msg">Message</label><textarea id="f-msg" name="Conteúdo da Mensagem:" placeholder="How can I help?" required></textarea></div>
+          <button type="submit" class="btn" id="submit-btn" style="--i:2"><span>Send message</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <div class="footer-line">
+      <span>© 2026 Jonas Augusto · Software Engineer</span>
+      <nav aria-label="Footer">
+        <a href="https://www.linkedin.com/in/jonasaaugusto" target="_blank" rel="noopener" class="link">LinkedIn</a>
+        <a href="https://github.com/JonasaAugusto" target="_blank" rel="noopener" class="link">GitHub</a>
+        <a href="https://www.instagram.com/jonasaaugusto/" target="_blank" rel="noopener" class="link" aria-label="Jonas&#x27;s Instagram">Instagram</a>
+        <a href="https://www.instagram.com/augustusaisolutions/" target="_blank" rel="noopener" class="link" aria-label="Augustus AI&#x27;s Instagram">Augustus AI</a>
+        <a href="../cv.en.html" class="link" data-cv-page data-open="cv">Resume</a>
+      </nav>
+      <span class="end"><a href="#inicio" class="to-top link"><span>Back to top</span><svg aria-hidden="true"><use href="#i-right"/></svg></a></span>
+    </div>
+  </footer>
+
+  <!-- CV -->
+  <dialog id="dlg-cv" class="cv-dialog" aria-labelledby="cv-t">
+    <div class="dlg-head">
+      <h2 id="cv-t">Resume</h2>
+      <div class="controls">
+        <button type="button" class="ctrl" id="cv-lang-btn" aria-label="Switch resume language"><span id="cv-lang-label">EN</span></button>
+        <a id="cv-download" class="btn sm" href="../JonasAugusto_cv_m.pdf" download="JonasAugusto_CV_PT.pdf"><span>Download PDF</span><svg aria-hidden="true"><use href="#i-down"/></svg></a>
+        <button type="button" class="ctrl" data-close aria-label="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+    </div>
+    <iframe id="cv-frame" title="Jonas Augusto&#x27;s resume"></iframe>
+  </dialog>
+
+  <!-- ESTUDO DE CASO: IAPROVALE -->
+  <dialog id="dlg-ia" aria-labelledby="ia-case-t">
+    <div class="dlg-head">
+      <h2 id="ia-case-t">Case study · IAprovale</h2>
+      <div class="controls"><button type="button" class="ctrl" data-close aria-label="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    </div>
+    <div class="dlg-body case">
+      <section class="case-block" aria-labelledby="ia-main-t">
+      <h3 id="ia-main-t" style="margin-top:0;border-top:0;padding-top:0">Finding the right exam or job, and keeping up with deadlines</h3>
+      <p class="case-lead">Product built and run by me, in production. The front end is plain HTML, CSS and JavaScript, the back end is Python. This text only describes what is in the repository, the changelog and the public docs.</p>
+      <p><a class="link" href="https://augustusai.com.br/iaprovale/" target="_blank" rel="noopener"><span class="case-stack">augustusai.com.br/iaprovale</span></a></p>
+      <p><a class="link" href="https://github.com/JonasaAugusto/iaprovaledocs" target="_blank" rel="noopener"><span class="case-stack">github.com/JonasaAugusto/iaprovaledocs</span></a></p>
+
+      <h3>The problem</h3>
+      <ul>
+        <li>Public-exam candidates need to find an open notice that fits their education, and the information is scattered across many sites.</li>
+        <li>Finding it is not enough: registration and exam dates pass, and following them by hand is easy to get wrong.</li>
+        <li>People looking for a job have a similar need: knowing whether a resume fits a position before applying.</li>
+      </ul>
+
+      <h3>What I built</h3>
+      <ul>
+        <li>Notice search in natural language, filtered by education and state.</li>
+        <li>Alerts and Following: the user follows a notice and gets reminders about registration and exam dates.</li>
+        <li>Career and Companies: resume upload (PDF, DOCX or TXT), job search, and, for each position of a followed notice, a verdict of fits, partly fits or does not fit, with the reason and what is missing.</li>
+        <li>Optional e-mail, confirmed by a code, with Brevo as the sending operator, for the daily summary and account notices.</li>
+      </ul>
+
+      <h3>Engineering decisions</h3>
+      <ul>
+        <li><span><strong>Plain front end, no CDN, no bundler.</strong></span> <span> HTML, CSS and JavaScript with Alpine.js in its CSP build. Alpine and pdf.js are served from the project itself, so the content security policy no longer allows a third-party script host.</span></li>
+        <li><span><strong>Python only on the back end.</strong></span> <span> Any new server code is Python, which keeps one language to test, deploy and maintain.</span></li>
+        <li><span><strong>User data never goes to the development tools.</strong></span> <span> Development uses fictional data and local copies only; production data and secrets stay out of those tools.</span></li>
+        <li><span><strong>Versioned privacy policy and terms, with acceptance.</strong></span> <span> Each change in the texts gets a version, such as 1.3, which describes optional e-mail, Brevo as operator and the matching international transfer.</span></li>
+        <li><span><strong>Messages that say what happened.</strong></span> <span> Error and confirmation messages come from a single dictionary, and alert regions stay in the page so screen readers announce them.</span></li>
+      </ul>
+
+      <h3>Quality</h3>
+      <div class="case-metrics">
+        <div><strong>614/614</strong><span>checks passing in the automated accessibility suite</span></div>
+        <div><strong>CI</strong><span>front-end lint on every change to the front end</span></div>
+      </div>
+      <ul>
+        <li>End-to-end tests with Playwright against a fictional API, in light and dark themes at 1280, 390 and 320 px.</li>
+        <li>Labels contain the visible text, targets have a minimum touch size, and breakpoints are standardized.</li>
+      </ul>
+
+      <h3>What I learned</h3>
+      <ul>
+        <li>Accessibility found real bugs: clipped labels at 390 px, a hidden alert that was never announced, and focus landing outside a dialog.</li>
+        <li>Fewer dependencies mean fewer surprises: removing the CDN meant tests stopped downloading Alpine and the security policy got stricter.</li>
+        <li>Privacy is design work, not a footer: deciding what is stored and for how long came before the screen.</li>
+      </ul>
+
+      <h3>What is not ready</h3>
+      <ul>
+        <li>Part of the latest changes appears as unpublished in the changelog (version 3.13.0).</li>
+        <li>Automated accessibility checks do not prove conformance; only real assistive technology confirms some points.</li>
+        <li>The product has no published usage numbers, so this case makes no claim about audience.</li>
+      </ul>
+
+      <h3>Technologies</h3>
+      <p class="case-stack">Python, FastAPI, PostgreSQL, DeepSeek, HTML, CSS, JavaScript, Alpine.js (CSP), pdf.js, Playwright, axe, GitHub Actions, Brevo, Caddy.</p>
+      </section>
+    </div>
+  </dialog>
+
+  <!-- ESTUDO DE CASO: ORQUESTRADOR -->
+  <dialog id="dlg-orq" aria-labelledby="orq-t">
+    <div class="dlg-head">
+      <h2 id="orq-t">Case study · AI Agents Orchestrator</h2>
+      <div class="controls"><button type="button" class="ctrl" data-close aria-label="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    </div>
+    <div class="dlg-body case">
+      <section class="case-block" aria-labelledby="orq-main-t">
+      <h3 id="orq-main-t" style="margin-top:0;border-top:0;padding-top:0">Claude Code and Codex as one relay team</h3>
+      <p class="case-lead">Personal open-source project, version 1.4.0. It drives the official codex and claude CLIs with the user's own logins, with no API keys, and nothing is published without a human approval.</p>
+      <p><a class="link" href="https://github.com/JonasaAugusto/ai-agents-orchestrator" target="_blank" rel="noopener"><span class="case-stack">github.com/JonasaAugusto/ai-agents-orchestrator</span></a></p>
+
+      <h3>The problem</h3>
+      <ul>
+        <li>Anyone using Claude Code and Codex on paid subscriptions hits one limit in the middle of the work, and the task stops.</li>
+        <li>The two agents do not talk to each other: context and pending work are lost in the switch.</li>
+        <li>Delegating to an agent that writes code needs a clear checkpoint: what was really done and who authorized publishing.</li>
+      </ul>
+
+      <h3>The solution</h3>
+      <p>The Claude leads: it plans, talks to the user, and reviews. Codex works as a second engineer on isolated branches, picks up delegated tasks and cross-reviews Claude's branches. When Claude reaches its limit, Codex takes the baton and keeps going until Claude is back.</p>
+
+      <h3>Engineering decisions</h3>
+      <ul>
+        <li><span><strong>Relay by limit with persistent resumption.</strong></span> <span> The queue and the reset times live in SQLite. If the service or the machine restarts, pending work resumes where it stopped.</span></li>
+        <li><span><strong>Measured usage, without reading conversations.</strong></span> <span> Usage of both agents is counted with counters only, never with text. The target is a ratio between 0.7 and 1.4, configurable; outside it, routing moves review and test work to the other agent. The counters estimate quota use, not money.</span></li>
+        <li><span><strong>Publishing bound to the SHA.</strong></span> <span> The publish command shows the repository, destination and full SHA, and requires the human to type the id and the SHA in an interactive terminal. If the branch or destination changes, the approval stops being valid. The push is non-force and against the current remote base. New in 1.4.0: aao publish --pr pushes the approved SHA and opens a pull request instead of merging; it never merges.</span></li>
+        <li><span><strong>MCP server that never publishes.</strong></span> <span> New in 1.4.0: aao mcp exposes delegate, status, result and review to the user's agent over stdio, using only the Python standard library. Publishing stays a human approval in the CLI.</span></li>
+        <li><span><strong>Parallel Codex, off by default.</strong></span> <span> New in 1.4.0: with max_concurrent_codex above 1, several Codex tasks run at once only when repositories and declared files do not overlap, each with its own workspace, and merges stay serial.</span></li>
+        <li><span><strong>Honest results.</strong></span> <span> The task state comes from the first line of the report (completed, partial or blocked). A partial or blocked task is never shown as done, whatever the exit code.</span></li>
+        <li><span><strong>Permissions chosen by the user.</strong></span> <span> Codex starts restricted (own sandbox, no network, throwaway clones). On their own machine, the user can give it the same permissions as Claude. In either mode, publishing needs a human.</span></li>
+        <li><span><strong>Lite mode, no root.</strong></span> <span> A single user process, no systemd, on Linux, macOS and Windows, installed with pipx from GitHub. The full mode, with a privileged service and a remote channel, remains on Linux with systemd.</span></li>
+      </ul>
+
+      <h3>Verifiable results</h3>
+      <div class="case-metrics">
+        <div><strong>1.4.0</strong><span>published version, tag v1.4.0 on GitHub</span></div>
+        <div><strong>560</strong><span>tests collected in the suite (pytest)</span></div>
+        <div><strong>CI</strong><span>green on the tag commit, on Linux, macOS and Windows, Python 3.11 to 3.14</span></div>
+      </div>
+      <ul>
+        <li>CI runs the full suite on Linux and the lite mode on Linux, macOS and Windows, and also builds the packages and tests a clean installation.</li>
+        <li>There is a runnable example with a fake engine and a ten-minute walkthrough with output captured from a run without credentials.</li>
+      </ul>
+
+      <h3>What is not ready</h3>
+      <ul>
+        <li>The package is not on PyPI yet: installation is straight from GitHub. The release workflow is ready and stays off until the PyPI project exists.</li>
+        <li>On Windows, the lite mode is what CI proves; the full suite does not run there. The privileged service requires Linux with systemd.</li>
+        <li>Lite mode does not isolate agents from the user's account, files or Git credentials. The interactive confirmation is a workflow safeguard, not a barrier against malicious code from the same user.</li>
+        <li>The WhatsApp channel is an optional, unofficial extra with ban risk, tested only with fakes and not against a live account. Telegram is the recommended channel.</li>
+        <li>The new --pr publishing was tested only with a simulated gh, and parallel Codex only with a fake Codex, not against a live GitHub account or real Codex runs.</li>
+        <li>Detection of Codex's limit message is tolerant, but the format is not documented and may change.</li>
+      </ul>
+
+      <h3>Technologies</h3>
+      <p class="case-stack">Python 3.11+, SQLite, Git, pytest, Ruff, mypy, GitHub Actions, Telegram, Codex CLI, Claude Code, Linux, macOS, Windows.</p>
+      </section>
+    </div>
+  </dialog>
+
+  <!-- ESTUDO DE CASO F5 -->
+  <dialog id="dlg-f5" aria-labelledby="f5-t">
+    <div class="dlg-head">
+      <h2 id="f5-t">Case study · F5 Tecnologia</h2>
+      <div class="controls"><button type="button" class="ctrl" data-close aria-label="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    </div>
+    <div class="dlg-body case">
+      <nav class="case-nav" aria-label="Case studies">
+        <a href="#f5-caso-plataforma">Service platform</a>
+        <a href="#f5-caso-cadastro">Automated sales: ~89% of registrations</a>
+      </nav>
+      <section class="case-block" id="f5-caso-plataforma" aria-labelledby="f5-plat-t">
+      <h3 id="f5-plat-t">F5: automatic electricity-bill discount service</h3>
+      <p class="case-lead">Development: F5 Tecnologia. Delivered: a WhatsApp service bot, integration with the energy partners, and an operations dashboard.</p>
+      <h3>Results of the service platform</h3>
+      <div class="table-wrap results">
+        <table class="results-table">
+          <caption class="sr-only">Before and after the new service</caption>
+          <thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Data filled in automatically</th><td><span class="lbl" aria-hidden="true">Before</span><span>None</span></td><td class="after"><span class="lbl" aria-hidden="true">After</span><span>Name and date of birth from a CPF lookup (about 96% of cases); address, consumption, and utility read from the electricity bill by OCR with double reading and a tiebreak</span></td></tr>
+            <tr><th scope="row">Orchestration</th><td><span class="lbl" aria-hidden="true">Before</span><span>Free-form AI agent, unpredictable, hard to audit and test</span></td><td class="after"><span class="lbl" aria-hidden="true">After</span><span>Deterministic state machine; the AI only classifies and answers questions under rules</span></td></tr>
+            <tr><th scope="row">Registration pipeline with partners</th><td><span class="lbl" aria-hidden="true">Before</span><span>Steps that never ran</span></td><td class="after"><span class="lbl" aria-hidden="true">After</span><span>Complete pipeline, each step idempotent</span></td></tr>
+            <tr><th scope="row">Proposal tracking</th><td><span class="lbl" aria-hidden="true">Before</span><span>Depended on the customer telling us</span></td><td class="after"><span class="lbl" aria-hidden="true">After</span><span>Automatic reading of the portals, without depending on the customer telling us</span></td></tr>
+            <tr><th scope="row">A portal failure</th><td><span class="lbl" aria-hidden="true">Before</span><span>Reached the customer</span></td><td class="after"><span class="lbl" aria-hidden="true">After</span><span>Automatic retry and the last valid reading kept</span></td></tr>
+            <tr><th scope="row">Observability</th><td><span class="lbl" aria-hidden="true">Before</span><span>Scattered logs</span></td><td class="after"><span class="lbl" aria-hidden="true">After</span><span>Dashboard with funnel, integration health, and audit trail</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="case-metrics two">
+        <div><strong>320+</strong><span>Quality: over 320 automated tests</span></div>
+        <div><strong>A few days</strong><span>Timeline: from mapping to go-live, in development</span></div>
+      </div>
+      <h3>The challenge</h3>
+      <ul>
+        <li>Free-form AI service was unpredictable and hard to audit and test.</li>
+        <li>Integrations with partner portals, each with its own rules, required fields, and review.</li>
+        <li>Steps of the partners' pipeline that never ran, leaving proposals stalled without anyone noticing.</li>
+        <li>Scattered data, with no single view of the operation.</li>
+      </ul>
+      <h3>Engineering decisions</h3>
+      <ul>
+        <li><span><strong>Deterministic state machine instead of a free-form agent.</strong></span> <span> The AI is restricted to classification and questions, under strict rules and a table of approved answers, so the flow is testable and auditable.</span></li>
+        <li><span><strong>Idempotent integration.</strong></span> <span>Each step runs exactly once and a retry resumes exactly at the missing step, with a block on resubmissions that the partner penalizes.</span></li>
+        <li><span><strong>Partner query order and data minimization.</strong></span> <span>The primary partner is queried first; the secondary one only receives the registration if the primary does not approve, and no data goes to a partner without need.</span></li>
+        <li><span><strong>OCR with double reading and a tiebreak.</strong></span> <span>The electricity bill is read twice and a third reading breaks any disagreement.</span></li>
+        <li><span><strong>Registry lookup cross-checked with each portal's fields.</strong></span> <span>From the CPF, the system queries a registry database and cross-checks the result, field by field, with what each portal requires, so what is already known is not asked again.</span></li>
+        <li><span><strong>Data security.</strong></span> <span>Encrypted cache, CPF never in plain text on disk, data masked on screens, and credentials kept out of the code.</span></li>
+        <li><span><strong>Periodic portal reading.</strong></span> <span>The portals are read automatically, and if a portal fails the system keeps the last valid reading. A watchdog reapplies the integrations after updates.</span></li>
+        <li><span><strong>Operations dashboard.</strong></span> <span>Flow documentation generated from the code itself, call logs, the state of credentials, portals, and WhatsApp, and an audit trail of actions.</span></li>
+        <li><span><strong>MCP tools.</strong></span> <span>The integrations are exposed as MCP tools, with simulation by default and explicit confirmation to write.</span></li>
+      </ul>
+      <h3>Quality</h3>
+      <ul>
+        <li>Over 320 automated tests cover every step, every deviation, and every integration.</li>
+        <li>Mutation tests prove that each fix is actually detected.</li>
+        <li>A real rehearsal in production, with nothing sent to the partners, before switching the number on.</li>
+        <li>Audit of the integrations against the partners' official documentation, which revealed steps that never ran: document upload, payment method, and contact registration.</li>
+      </ul>
+      <h3>Technologies</h3>
+      <p class="case-stack">Python (FastAPI), WhatsApp through an in-house gateway, OCR with double reading, REST integrations, encrypted cache, React, Linux, MCP, pytest. Also in the earlier work: TypeScript, Node.js, BullMQ, Baileys, DeepSeek, PostgreSQL (pgvector), Redis, Blip, Playwright, Docker, nginx.</p>
+      <details class="case-more case-old" open><summary>Earlier case study, complete (lead conversion and after-sales platforms)</summary>
+      <p class="case-lead">Two platforms in production at F5 Tecnologia, both with AI agents on WhatsApp. The first converts leads: it receives the contact, runs the service with an AI agent, collects data, generates proposals through a financial partner, and registers customers in energy programs. The second handles customer relationship and after-sales: an AI agent with DeepSeek and tool calling, a rebuilt CRM dashboard, and cadence adjustments in Blip (the agent was validated in a sandbox and a staging stack on 10/23/2026, and the dashboard and Blip are in production). I worked end to end: architecture, agent, integrations, infrastructure, and reliability.</p>
+
+      <h3>Relationship and After-sales Platform</h3>
+      <p>After-sales relied on manual contact and a slow legacy dashboard: newly enabled customers got no guidance about the benefits they had already paid for, and invoice notices arrived late. The goal was to build a continuous relationship layer (welcome, benefits journey, daily briefing, and billing alerts) without growing the team, and to modernize the dashboard and the Blip integration without stopping operations.</p>
+      <ul>
+        <li>Architecture in 7 services with Docker Compose on an Ubuntu VPS: WhatsApp gateway (Baileys), AI agent, workers, dashboard API, PostgreSQL 16 with pgvector, and Redis (BullMQ). Only SSH and the dashboard API are exposed to the host, the WhatsApp session is encrypted with AES-256-GCM, and deploys go through GitHub Actions with a required reviewer.</li>
+        <li>Design decisions: deterministic rules before the model (cancellation, human request, dispute), model reasoning enabled by policy only where it pays off (average cost of US$ 0.0007 per turn), hybrid RAG with two confidence levels, and a sends table as the source of truth, with idempotency by key.</li>
+        <li>Over 750 automated tests and over 2,600 fuzz and attack cases, in a sandbox. Results include: 82 jailbreak and prompt-injection rounds with 0 failures, 60,000 messages from 3,000 senders through the gateway buffer with 0 lost, and 111 concurrent turns with the real DeepSeek, with a p95 of 8 s. The tests also found a ReDoS and a database pool without a timeout, both fixed.</li>
+        <li>Rebuilt CRM dashboard: 9-stage funnel with a single definition, data reconciled with the portals every 10 minutes (0 discrepancies across 1,960 items), first call from 73.7 s to 0.08 s with background build and ETag/304, and Blip conversation CRM mirrored in the dashboard, with Blip Desk synced in both directions.</li>
+      </ul>
+
+      <h3>Dashboard Optimization: Before and After</h3>
+      <p>Measured on 10/15/2026 on the production server (3:44 pm to 4:05 pm, commit 4524c3e).</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Metric</th><th>Before</th><th>After</th></tr></thead>
+          <tbody>
+            <tr><td>Open the dashboard (1st call)</td><td>73.7 s</td><td class="after">0.08 s</td></tr>
+            <tr><td>Snapshot after 31 s idle</td><td>41.8 s</td><td class="after">0.07 s</td></tr>
+            <tr><td>Refresh with no change</td><td>4.6 s · 1.0 MB</td><td class="after">0.01 s · 0 bytes (304)</td></tr>
+            <tr><td>Blip chatbot funnel</td><td>error 500</td><td class="after">0.03 s</td></tr>
+            <tr><td>First screen after restart</td><td>25–74 s</td><td class="after">5.6 s</td></tr>
+            <tr><td>Dashboard down during restart</td><td>95 s</td><td class="after">1 s</td></tr>
+            <tr><td>Full data build</td><td>41–74 s (in the request)</td><td class="after">31 s cold · 3.6–13.7 s after (outside the request)</td></tr>
+            <tr><td>Memory</td><td>268 MB + 410 MB swap</td><td class="after">264 MB, no swap</td></tr>
+            <tr><td>Blip lead record (cold cache)</td><td>~5 s</td><td class="after">0.05–0.07 s</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Causes and fixes: the 25 s cache expired before the next request (30 s) and rebuilt everything inside the request, with a lock; now a thread builds every 60 s (every 5 min when idle), outside the request. The build re-read about 7 thousand files, one stat per lead, and the .env 4,751 times; it moved to incremental reads (lead in memory by mtime and size, creation per file, .env by version). External waits (WhatsApp status up to 13 s, 268 Chatwoot calls, an unindexed Blip query) were fixed with a reused session, an indexed query, and a 3 min gateway status cache. The 11 MB converted and gzip level 9 compressed on every request became a ready response per variant (JSON and gzip) with ETag and 304.</p>
+      <p>Other changes: the service shuts down in 5 s (was 90 s); the browser refreshes every 60 s and pauses with a hidden tab; the dashboard opens instantly with the last copy saved to disk (permission 600); the 500 error was a KeyError on registration, with no period filter; 95 dashboard tests pass (6 new). Limits: numbers can be up to 60 s stale and, for about 30 s after a restart, the last copy (up to 6 h old) is shown.</p>
+
+      <h3>Distributed Architecture</h3>
+      <p>In an initial phase, I split the workload across 2 VPS: a light one for the webhook, AI agent, and orchestration; a dedicated one for browser automation (Playwright), which was CPU- and memory-heavy. To balance performance further, I built a self-hosted FastAPI API that offloaded part of the processing to the VPS with more memory, relieving the more limited one. Isolation removed resource contention and stabilized real-time service.</p>
+      <p>Later on, moving off the official WhatsApp channel (WABA) to unofficial numbers via Baileys changed the picture entirely: Baileys doesn't replicate the same conversation-handling and structuring architecture the official API offered. That forced a full infrastructure migration: I provisioned a third VPS and moved the entire operation there. In this new setup, the FastAPI load-balancing API stopped making sense, and that same migration period called for building an MCP tool server from scratch to close the new channel's structural gap (see section below).</p>
+
+      <h3>What I Built</h3>
+      <ul>
+        <li>Generative AI agent (LLM with fallback), with per-stage structured prompt engineering, per-lead isolated context, and anti-hallucination guardrails (never confirms a result without a real API response).</li>
+        <li>OCR pipeline that reads customer-submitted documents (photo or PDF, including password-protected), extracts the key eligibility field, and detects unreadable images by automatically requesting resubmission.</li>
+        <li>9-step state machine with per-lead isolated persistence, allowing the service to resume exactly where it left off if the conversation drops.</li>
+        <li>Integration with a financial partner API (pre-analysis, simulation, document upload, and async status polling) and web automation of external partner portals via Playwright.</li>
+        <li>Intelligent orchestration that routes each lead to the correct partner based on eligibility and location criteria, deriving the state from the ZIP code when missing.</li>
+      </ul>
+
+      <h3>Migration to a Tool Architecture (MCP)</h3>
+      <p>Switching from the official WhatsApp channel (WABA) to unofficial numbers via Baileys took away a structural capability the official API guaranteed natively: a standardized way to organize and interpret the conversation flow. Without it, the agent risked "faking" that it had executed actions internally, without actually completing the registration.</p>
+      <p>The solution was to build an MCP (Model Context Protocol) server from scratch, rebuilding the entire funnel as a set of tools the agent itself calls during the conversation, in the same turn it decides to act. Each tool (coverage check, data collection, proposal creation, simulation, offer selection, finalization) executes against the partner's real API and returns the result immediately, reusing the lead's phone session, independent of the conversation-structuring capability only the official WhatsApp API guaranteed.</p>
+      <p>The safety lock lives in code, not in the conversation: finalizing registration only executes with the lead's explicit confirmation. If the agent tries to complete it alone, the system blocks the call.</p>
+
+      <h3>Production Failure Audit &amp; Fixes</h3>
+      <ul>
+        <li>Incomplete data extraction: the agent read the customer's document but wasn't capturing a key eligibility field. Coverage rose from 2% to 91%, including 12 months of history so partners could decide on the average rather than a single month.</li>
+        <li>Customers rejected for no real reason: an entire segment was blocked when only one specific condition actually restricted that profile; a misreading identified customers from two regions as belonging to a supplier with suspended credit, wrongly blocking 34 customers; and a credit block stayed active even after its root cause was fixed, denying an already-approved high-value proposal.</li>
+        <li>142 registrations silently stuck: when a lead gave only a first name, the partner required a full name and the proposal was never created, with no one asking for the missing data. Fixed by extracting the full name directly from the customer's document (printed on it) and, when missing, asking for it explicitly.</li>
+        <li>Agent communication: eliminated unconfirmed-cause promises, denials announced before the cause was known, excessive emoji use (risk of WhatsApp flagging as spam), and form-style questions. I also implemented a context-cleanup routine to stop the agent repeating incorrect information already fixed in the system but still present in the conversation history.</li>
+      </ul>
+
+      <h3>Business Findings</h3>
+      <p>Testing the funnel with real customers, I identified a structural constraint: a specific customer profile is rejected by every partner in one segment, since their benefit doesn't stack with an equivalent government benefit, even though that profile is well accepted by the financial partner. Since a meaningful share of the base fits this profile, the real addressable market for that segment is much smaller than the raw numbers suggest, a finding brought to partner negotiations.</p>
+
+      <h3>Problems I Solved</h3>
+      <ul>
+        <li>Dead webhook: an outcome webhook stopped being delivered for 4 days, freezing dozens of proposals in 'processing'. I traced it from symptom to root cause (logs, database state, polling) and built a systemd job doing active polling every 5 minutes, recovering 43 approved proposals and cutting the stuck backlog from 28 to 3 leads.</li>
+        <li>Race condition in human takeover: when an agent joined the conversation, the bot did not pause and both replied together. I fixed it with robust phone normalization and a state re-check immediately before sending, making human handoff safe.</li>
+        <li>OCR latency: I cut OCR plus routing-decision time from 8s to 3.2s with smart caching (TTL) and request batching.</li>
+      </ul>
+
+      <h3>Reliability, Infra &amp; Security</h3>
+      <ul>
+        <li>systemd services with auto-restart, health checks, state-sync watchdogs, and automatic token renewal (auto-refresh before expiry).</li>
+        <li>Configurable network egress layer to ensure reliable delivery to external services with unstable connectivity, without coupling business logic to infrastructure.</li>
+        <li>Throttling with exponential backoff to respect rate limits and behave as a well-mannered client of partner services.</li>
+        <li>Sensitive data handling per LGPD: encryption at rest, HTTPS transmission with JWT, retention policy, and context isolation between leads.</li>
+        <li>Observability with structured logging (JSON), a real-time dashboard, and automatic alerts (Slack/Email) for VPS health and webhook failures.</li>
+      </ul>
+
+      <h3>Results</h3>
+      <div class="case-metrics">
+        <div><strong>43</strong><span>proposals recovered from a dead webhook</span></div>
+        <div><strong>91%</strong><span>key eligibility field capture (was 2%)</span></div>
+        <div><strong>170+</strong><span>customers recovered from wrongful blocks</span></div>
+        <div><strong>0.08 s</strong><span>dashboard first call (was 73.7 s)</span></div>
+        <div><strong>0</strong><span>discrepancies in 1,960 items checked against the portals</span></div>
+        <div><strong>82 / 0</strong><span>attack rounds against the agent / failures</span></div>
+      </div>
+      <p class="case-stack">Stack: Python, FastAPI, TypeScript, Node.js, Fastify, BullMQ, Baileys, DeepSeek (tool calling), LangChain, MCP, Playwright, PostgreSQL (pgvector), Redis, Blip, GitHub Actions, systemd, nginx, Docker, Linux.</p>
+      </details>
+      </section>
+      <section class="case-block" id="f5-caso-cadastro" aria-labelledby="f5-cad-t">
+      <h3 id="f5-cad-t">Automated sales on WhatsApp: from 43% to ~89% of registrations completed</h3>
+      <p class="case-lead">Work from my internship at F5 Tecnologia: find out, with production data, why the automated registration was failing, and fix the causes instead of the symptoms.</p>
+
+      <h4>Context</h4>
+      <p>A reseller for a pay-TV carrier sells plans on WhatsApp with a chatbot. The bot talks to the customer and collects the data, and a robot (Selenium) fills in the proposal on the carrier's portal: package, add-ons, registration, payment, and validation. When the registration fails, the sale stops and the customer is left without an answer.</p>
+
+      <h4>The problem</h4>
+      <p>The sales team raised four complaints:</p>
+      <ul>
+        <li>the bot stopped at the registration step with many customers;</li>
+        <li>answers to off-script questions took a long time to arrive;</li>
+        <li>registration was slow;</li>
+        <li>proposals were redone several times for no apparent reason.</li>
+      </ul>
+      <p>The share of registrations that became a proposal was <strong>43%</strong>, and it dropped as low as <strong>29%</strong>.</p>
+
+      <h4>Diagnosis: measure before changing anything</h4>
+      <p>I cross-checked three sources: the timestamped step-by-step log of every robot run, the API request log, and the message history of the conversations. Three findings came out of it:</p>
+      <ul>
+        <li><strong>Most failures had a single cause.</strong> A safety check blocked 44 of 54 registrations because it did not recognize the item selected on the screen: the screen had changed and the code had not kept up.</li>
+        <li><strong>The slow answers were not the AI's fault.</strong> The model answered in ~1.5 s. The time went into a fixed 15 s wait window, meant to gather a customer's message sent in pieces, which applied even to complete questions.</li>
+        <li><strong>The redone proposals came from an old rule.</strong> It re-drew security questions that no longer existed, and cost ~49 s per registration.</li>
+      </ul>
+
+      <h4>What was done</h4>
+      <ul>
+        <li><strong>Registration.</strong> I fixed how the selected item is recognized and removed the obsolete re-draw. Silent redos are now capped at 1.</li>
+        <li><strong>Adaptive wait window.</strong> A recognized question (price, channels, installation…) closes the wait in 4 s, a complete piece of data (ZIP code, CPF, email) in 8 s, and the overall ceiling went from 15 s to 8 s. The cutoff came from data: out of 4,078 messages, only 2% had a second message from the customer between 8 and 15 s later.</li>
+        <li><strong>Number porting with a different area code.</strong> I reproduced the failure live on the portal and found that the line's area code came from the registration's mobile number, not from the address. The robot now adjusts the area code and, if the carrier refuses, moves on with a new number instead of getting stuck. In the chatbot, the customer now confirms the number they typed and is told when the porting cannot go through.</li>
+        <li><strong>Add-ons by payment method.</strong> The item required by each payment method is now checked before the others, and a failure now saves full evidence (a screenshot and the list on the screen) for diagnosis.</li>
+      </ul>
+
+      <h4>Results</h4>
+      <div class="case-metrics">
+        <div><strong>~89%</strong><span>registrations that become a proposal, per attempt (was 29–43%)</span></div>
+        <div><strong>0</strong><span>silent redos per day (were 7)</span></div>
+        <div><strong>4 s</strong><span>wait to answer an off-script question (was a fixed 15 s)</span></div>
+      </div>
+      <div class="table-wrap results">
+        <table class="results-table">
+          <caption class="sr-only">Before and after the registration fixes</caption>
+          <thead><tr><th scope="col">Metric</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Registrations that become a proposal</th><td><span class="lbl" aria-hidden="true">Before</span><span>29–43%</span></td><td class="after"><span class="lbl" aria-hidden="true">After</span><span>~89% per attempt</span></td></tr>
+            <tr><th scope="row">Silent redos per day</th><td><span class="lbl" aria-hidden="true">Before</span><span>7</span></td><td class="after"><span class="lbl" aria-hidden="true">After</span><span>0</span></td></tr>
+            <tr><th scope="row">Wait to answer an off-script question</th><td><span class="lbl" aria-hidden="true">Before</span><span>Fixed 15 s</span></td><td class="after"><span class="lbl" aria-hidden="true">After</span><span>4 s (question) / 8 s (free text)</span></td></tr>
+            <tr><th scope="row">Response time after a button tap</th><td><span class="lbl" aria-hidden="true">Before</span><span>—</span></td><td class="after"><span class="lbl" aria-hidden="true">After</span><span>~2 s</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The median registration time went up slightly, and that is an effect of the success: before, half of the runs died early; now almost all of them go through to the final validation.</p>
+
+      <h4>How I worked</h4>
+      <ul>
+        <li><strong>Root cause, not a patch.</strong> Each fix applies to the whole flow and is locked in by automated tests (more than 2,300 in the robot's suite).</li>
+        <li><strong>Live proof.</strong> I reproduced the failures on the real portal, with test data, before stating the cause.</li>
+        <li><strong>Safe changes in production.</strong> Isolated commits, the chatbot flow validator passing with no failures before publishing, a restart without taking the API down, and a check of what was actually published.</li>
+        <li><strong>Decisions backed by data.</strong> The time cutoffs (4 s, 8 s) came from the real message history, not from a guess.</li>
+      </ul>
+
+      <h4>Technologies</h4>
+      <p class="case-stack">Python, Selenium, FastAPI, Blip (WhatsApp chatbot), Salesforce (carrier portal), pytest.</p>
+      </section>
+    </div>
+  </dialog>
+</body>
+</html>
