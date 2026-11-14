@@ -143,7 +143,7 @@
             <a class="pcard" href="#proj-orquestrador">
               <h3>AI Agents Orchestrator</h3>
               <p data-en="Open source: relay between Claude Code and Codex CLI when one hits its usage limit.">Open source: revezamento entre Claude Code e Codex CLI quando um bate o limite de uso.</p>
-              <span class="pcard-meta" data-en-html="Python · SQLite · 560 tests">Python · SQLite · 560 testes</span>
+              <span class="pcard-meta" data-en-html="Python · SQLite · 595 tests">Python · SQLite · 595 testes</span>
             </a>
           </li>
           <li>
@@ -191,7 +191,7 @@
         <header class="proj-head">
           <div>
             <h3 class="proj-title" id="orq-h">AI Agents Orchestrator</h3>
-            <p class="proj-sub" data-en="Personal open-source project · version 1.4.0">Projeto pessoal open source · versão 1.4.0</p>
+            <p class="proj-sub" data-en="Personal open-source project · version 1.5.1">Projeto pessoal open source · versão 1.5.1</p>
           </div>
           <div class="proj-links">
             <button type="button" class="btn sm" data-open="orq"><span data-en="Case study">Estudo de caso</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
@@ -203,7 +203,7 @@
           <div><dt data-en="What I did">O que eu fiz</dt><dd data-en="A Python orchestrator (SQLite, GitHub Actions) that drives the official CLIs with the user&#x27;s own logins, with no API keys. The queue and reset times live in SQLite, so pending work resumes where it stopped. Usage is measured with counters only, without reading conversations. Publishing requires the human to type the id and the commit SHA.">Orquestrador em Python (SQLite, GitHub Actions) que opera os CLIs oficiais com os logins do próprio usuário, sem chaves de API. A fila e os horários de reset ficam em SQLite, então o trabalho pendente retoma de onde parou. O gasto é medido só com contadores, sem ler conversas. Publicar exige o humano digitar o id e o SHA do commit.</dd></div>
           <div><dt data-en="What broke and how I fixed it">O que quebrou e como resolvi</dt><dd data-en="A security audit found that the service, running as root, called git with safe.directory=* on service-owned repositories, so a repository config (hooks, fsmonitor, credential helper) could run code as root. I fixed it in v1.0.1 with a hardened git helper and root-only mirrors, and in v1.0.2 publish approvals started binding the reviewed commit SHA. Later, in v1.5.1, a failing local socket could end the process with a segmentation fault because the threads were joined after the SQLite connection was closed; the order was fixed and it now exits with an error. The known weak point left is Codex&#x27;s limit message, whose format is not documented and may change; that is why detection is tolerant.">Uma auditoria de segurança achou que o serviço, rodando como root, chamava o git com safe.directory=* em repositórios do próprio serviço, então a configuração de um repositório (hooks, fsmonitor, credential helper) poderia executar código como root. Corrigi na v1.0.1 com um git endurecido e espelhos só do root, e na v1.0.2 as aprovações de publicação passaram a ficar presas ao SHA revisado. Depois, na v1.5.1, uma falha no socket local podia encerrar o processo com falha de segmentação, porque as threads eram encerradas depois de fechar a conexão do SQLite; a ordem foi corrigida e agora ele sai com erro. O ponto frágil que sobra é a mensagem de limite do Codex, cujo formato não é documentado e pode mudar; por isso a detecção é tolerante.</dd></div>
           <div><dt data-en="What I would do differently">O que faria diferente</dt><dd data-en="I would publish to PyPI and run the full suite on Windows before calling it done. Today installation is straight from GitHub and, on Windows, CI proves only the lite mode.">Publicaria no PyPI e rodaria a suíte completa no Windows antes de chamar de pronto. Hoje a instalação é direto do GitHub e, no Windows, só o modo leve é provado pela CI.</dd></div>
-          <div><dt data-en="Result">Resultado</dt><dd data-en="Version 1.4.0 (tag v1.4.0 on GitHub), 560 tests collected with pytest and CI green on the tag commit, on Linux, macOS and Windows, with Python 3.11 to 3.14. There is no before-and-after metric.">Versão 1.4.0 (tag v1.4.0 no GitHub), 560 testes coletados com pytest e CI verde no commit da tag, em Linux, macOS e Windows, com Python 3.11 a 3.14. Não há métrica de antes e depois.</dd></div>
+          <div><dt data-en="Result">Resultado</dt><dd data-en="Version 1.5.1 (tag v1.5.1 on GitHub), 595 tests collected with pytest and CI green on the tag commit, on Linux, macOS and Windows, with Python 3.11 to 3.14. There is no before-and-after metric.">Versão 1.5.1 (tag v1.5.1 no GitHub), 595 testes coletados com pytest e CI verde no commit da tag, em Linux, macOS e Windows, com Python 3.11 a 3.14. Não há métrica de antes e depois.</dd></div>
           <div><dt data-en="Limitation">Limitação</dt><dd data-en="Lite mode does not isolate the agents from the user&#x27;s account or Git credentials: the confirmation is a workflow safeguard, not a barrier against malicious code. The WhatsApp channel is optional, unofficial and tested only with fakes. Pull request publishing was tested only with a simulated gh.">O modo leve não isola os agentes da conta nem das credenciais Git do usuário: a confirmação é uma salvaguarda de fluxo, não uma barreira contra código malicioso. O canal de WhatsApp é opcional, não oficial e testado só com simulações. O envio de pull request foi testado só com um gh simulado.</dd></div>
         </dl>
       </article>
@@ -363,7 +363,7 @@
         <div>
           <h3 data-en="How I validate the result">Como valido o resultado</h3>
           <ul class="checks">
-            <li data-en="Tests that lock behavior in: over 320 on the F5 platform, 560 in the Orchestrator, about 200 in IAprovale.">Testes que travam o comportamento: mais de 320 na plataforma da F5, 560 no Orchestrator, cerca de 200 no IAprovale.</li>
+            <li data-en="Tests that lock behavior in: over 320 on the F5 platform, 595 in the Orchestrator, about 200 in IAprovale.">Testes que travam o comportamento: mais de 320 na plataforma da F5, 595 no Orchestrator, cerca de 200 no IAprovale.</li>
             <li data-en="Real data as a sample: 4,078 messages defined the wait window; a 100-question battery with a real LLM validated the Raízes &amp; Escamas search.">Dados reais como amostra: 4.078 mensagens definiram a janela de espera; uma bateria de 100 perguntas com LLM real validou a busca da Raízes &amp; Escamas.</li>
             <li data-en="Measurement before and after, and a production rehearsal with nothing sent to partners.">Medição antes e depois, e ensaio em produção sem enviar nada aos parceiros.</li>
             <li data-en="Fictional data in development: user data and secrets stay out of the development tools.">Dados fictícios no desenvolvimento: dados de usuários e segredos ficam fora das ferramentas de desenvolvimento.</li>
@@ -733,7 +733,7 @@
     <div class="dlg-body case">
       <section class="case-block" aria-labelledby="orq-main-t">
       <h3 id="orq-main-t" style="margin-top:0;border-top:0;padding-top:0" data-en="Claude Code and Codex as one relay team">Claude Code e Codex como um time em revezamento</h3>
-      <p class="case-lead" data-en="Personal open-source project, version 1.4.0. It drives the official codex and claude CLIs with the user's own logins, with no API keys, and nothing is published without a human approval.">Projeto pessoal open source, versão 1.4.0. Ele opera os CLIs oficiais codex e claude com os logins do próprio usuário, sem chaves de API, e nada é publicado sem aprovação humana.</p>
+      <p class="case-lead" data-en="Personal open-source project, version 1.5.1. It drives the official codex and claude CLIs with the user's own logins, with no API keys, and nothing is published without a human approval.">Projeto pessoal open source, versão 1.5.1. Ele opera os CLIs oficiais codex e claude com os logins do próprio usuário, sem chaves de API, e nada é publicado sem aprovação humana.</p>
       <p><a class="link" href="https://github.com/JonasaAugusto/ai-agents-orchestrator" target="_blank" rel="noopener"><span class="case-stack">github.com/JonasaAugusto/ai-agents-orchestrator</span></a></p>
 
       <h3 data-en="The problem">O problema</h3>
@@ -760,8 +760,8 @@
 
       <h3 data-en="Verifiable results">Resultados verificáveis</h3>
       <div class="case-metrics">
-        <div><strong>1.4.0</strong><span data-en="published version, tag v1.4.0 on GitHub">versão publicada, tag v1.4.0 no GitHub</span></div>
-        <div><strong>560</strong><span data-en="tests collected in the suite (pytest)">testes coletados na suíte (pytest)</span></div>
+        <div><strong>1.4.0</strong><span data-en="published version, tag v1.5.1 on GitHub">versão publicada, tag v1.5.1 no GitHub</span></div>
+        <div><strong>595</strong><span data-en="tests collected in the suite (pytest)">testes coletados na suíte (pytest)</span></div>
         <div><strong>CI</strong><span data-en="green on the tag commit, on Linux, macOS and Windows, Python 3.11 to 3.14">verde no commit da tag, em Linux, macOS e Windows, Python 3.11 a 3.14</span></div>
       </div>
       <ul>

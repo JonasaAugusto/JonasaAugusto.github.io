@@ -143,7 +143,7 @@
             <a class="pcard" href="#proj-orquestrador">
               <h3>AI Agents Orchestrator</h3>
               <p>Open source: relay between Claude Code and Codex CLI when one hits its usage limit.</p>
-              <span class="pcard-meta">Python · SQLite · 560 tests</span>
+              <span class="pcard-meta">Python · SQLite · 595 tests</span>
             </a>
           </li>
           <li>
@@ -191,7 +191,7 @@
         <header class="proj-head">
           <div>
             <h3 class="proj-title" id="orq-h">AI Agents Orchestrator</h3>
-            <p class="proj-sub">Personal open-source project · version 1.4.0</p>
+            <p class="proj-sub">Personal open-source project · version 1.5.1</p>
           </div>
           <div class="proj-links">
             <button type="button" class="btn sm" data-open="orq"><span>Case study</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
@@ -203,7 +203,7 @@
           <div><dt>What I did</dt><dd>A Python orchestrator (SQLite, GitHub Actions) that drives the official CLIs with the user's own logins, with no API keys. The queue and reset times live in SQLite, so pending work resumes where it stopped. Usage is measured with counters only, without reading conversations. Publishing requires the human to type the id and the commit SHA.</dd></div>
           <div><dt>What broke and how I fixed it</dt><dd>A security audit found that the service, running as root, called git with safe.directory=* on service-owned repositories, so a repository config (hooks, fsmonitor, credential helper) could run code as root. I fixed it in v1.0.1 with a hardened git helper and root-only mirrors, and in v1.0.2 publish approvals started binding the reviewed commit SHA. Later, in v1.5.1, a failing local socket could end the process with a segmentation fault because the threads were joined after the SQLite connection was closed; the order was fixed and it now exits with an error. The known weak point left is Codex's limit message, whose format is not documented and may change; that is why detection is tolerant.</dd></div>
           <div><dt>What I would do differently</dt><dd>I would publish to PyPI and run the full suite on Windows before calling it done. Today installation is straight from GitHub and, on Windows, CI proves only the lite mode.</dd></div>
-          <div><dt>Result</dt><dd>Version 1.4.0 (tag v1.4.0 on GitHub), 560 tests collected with pytest and CI green on the tag commit, on Linux, macOS and Windows, with Python 3.11 to 3.14. There is no before-and-after metric.</dd></div>
+          <div><dt>Result</dt><dd>Version 1.5.1 (tag v1.5.1 on GitHub), 595 tests collected with pytest and CI green on the tag commit, on Linux, macOS and Windows, with Python 3.11 to 3.14. There is no before-and-after metric.</dd></div>
           <div><dt>Limitation</dt><dd>Lite mode does not isolate the agents from the user's account or Git credentials: the confirmation is a workflow safeguard, not a barrier against malicious code. The WhatsApp channel is optional, unofficial and tested only with fakes. Pull request publishing was tested only with a simulated gh.</dd></div>
         </dl>
       </article>
@@ -363,7 +363,7 @@
         <div>
           <h3>How I validate the result</h3>
           <ul class="checks">
-            <li>Tests that lock behavior in: over 320 on the F5 platform, 560 in the Orchestrator, about 200 in IAprovale.</li>
+            <li>Tests that lock behavior in: over 320 on the F5 platform, 595 in the Orchestrator, about 200 in IAprovale.</li>
             <li>Real data as a sample: 4,078 messages defined the wait window; a 100-question battery with a real LLM validated the Raízes &amp; Escamas search.</li>
             <li>Measurement before and after, and a production rehearsal with nothing sent to partners.</li>
             <li>Fictional data in development: user data and secrets stay out of the development tools.</li>
@@ -733,7 +733,7 @@
     <div class="dlg-body case">
       <section class="case-block" aria-labelledby="orq-main-t">
       <h3 id="orq-main-t" style="margin-top:0;border-top:0;padding-top:0">Claude Code and Codex as one relay team</h3>
-      <p class="case-lead">Personal open-source project, version 1.4.0. It drives the official codex and claude CLIs with the user's own logins, with no API keys, and nothing is published without a human approval.</p>
+      <p class="case-lead">Personal open-source project, version 1.5.1. It drives the official codex and claude CLIs with the user's own logins, with no API keys, and nothing is published without a human approval.</p>
       <p><a class="link" href="https://github.com/JonasaAugusto/ai-agents-orchestrator" target="_blank" rel="noopener"><span class="case-stack">github.com/JonasaAugusto/ai-agents-orchestrator</span></a></p>
 
       <h3>The problem</h3>
@@ -760,8 +760,8 @@
 
       <h3>Verifiable results</h3>
       <div class="case-metrics">
-        <div><strong>1.4.0</strong><span>published version, tag v1.4.0 on GitHub</span></div>
-        <div><strong>560</strong><span>tests collected in the suite (pytest)</span></div>
+        <div><strong>1.4.0</strong><span>published version, tag v1.5.1 on GitHub</span></div>
+        <div><strong>595</strong><span>tests collected in the suite (pytest)</span></div>
         <div><strong>CI</strong><span>green on the tag commit, on Linux, macOS and Windows, Python 3.11 to 3.14</span></div>
       </div>
       <ul>
