@@ -102,7 +102,6 @@
     <section id="inicio" class="top wrap" aria-labelledby="hero-title">
       <div class="top-main">
         <div class="top-id">
-          <p class="status"><span class="dot" aria-hidden="true"></span><span>Open to a first software engineering job</span></p>
           <h1 class="top-name" id="hero-title">Jonas Augusto</h1>
           <p class="top-lead">Software engineer, graduating in Dec 2026. I build and run APIs, automations and AI integrations in production, with a Python backend.</p>
           <div class="top-actions">
@@ -122,13 +121,8 @@
               <a class="link n-src" href="#proj-f5" data-open="f5" data-anchor="#f5-caso-plataforma">See the measurement in the case study</a>
             </li>
             <li>
-              <p class="n"><span class="vh">35 hours to 2.25 hours</span><span aria-hidden="true"><span class="from">35 h</span><span class="arr">→</span><span>2.25 h</span></span></p>
-              <p class="n-what"><strong>Monthly RPA downtime.</strong> Internship at NEURODEV, after refactoring the Python code with Docker.</p>
-              <a class="link n-src" href="#exp-neurodev">See in experience (no case study)</a>
-            </li>
-            <li>
               <p class="n"><span class="vh">43% to about 89%</span><span aria-hidden="true"><span class="from">43%</span><span class="arr">→</span><span>~89%</span></span></p>
-              <p class="n-what"><strong>Registrations that become a proposal, per attempt.</strong> Automated WhatsApp sales, F5 Tecnologia. It had dropped as low as 29%.</p>
+              <p class="n-what"><strong>Registrations that become a proposal, per attempt.</strong> Automated WhatsApp sales, F5 Tecnologia. It was 43%, fell to 29% in October and, with the fix, reached about 89% in November.</p>
               <a class="link n-src" href="#proj-f5" data-open="f5" data-anchor="#f5-caso-cadastro">See the diagnosis in the case study</a>
             </li>
           </ul>
@@ -207,7 +201,7 @@
         <dl class="proj-dl">
           <div><dt>Problem</dt><dd>Anyone using Claude Code and Codex CLI on paid subscriptions hits one limit in the middle of the work, and the task stops. The two do not talk to each other, and context is lost in the switch.</dd></div>
           <div><dt>What I did</dt><dd>A Python orchestrator (SQLite, GitHub Actions) that drives the official CLIs with the user's own logins, with no API keys. The queue and reset times live in SQLite, so pending work resumes where it stopped. Usage is measured with counters only, without reading conversations. Publishing requires the human to type the id and the commit SHA.</dd></div>
-          <div><dt>What broke and how I fixed it</dt><dd>The case study does not record a failure in real use, and I will not invent one. The known weak point is Codex's limit message, whose format is not documented and may change; that is why detection is tolerant.</dd></div>
+          <div><dt>What broke and how I fixed it</dt><dd>A security audit found that the service, running as root, called git with safe.directory=* on service-owned repositories, so a repository config (hooks, fsmonitor, credential helper) could run code as root. I fixed it in v1.0.1 with a hardened git helper and root-only mirrors, and in v1.0.2 publish approvals started binding the reviewed commit SHA. Later, in v1.5.1, a failing local socket could end the process with a segmentation fault because the threads were joined after the SQLite connection was closed; the order was fixed and it now exits with an error. The known weak point left is Codex's limit message, whose format is not documented and may change; that is why detection is tolerant.</dd></div>
           <div><dt>What I would do differently</dt><dd>I would publish to PyPI and run the full suite on Windows before calling it done. Today installation is straight from GitHub and, on Windows, CI proves only the lite mode.</dd></div>
           <div><dt>Result</dt><dd>Version 1.4.0 (tag v1.4.0 on GitHub), 560 tests collected with pytest and CI green on the tag commit, on Linux, macOS and Windows, with Python 3.11 to 3.14. There is no before-and-after metric.</dd></div>
           <div><dt>Limitation</dt><dd>Lite mode does not isolate the agents from the user's account or Git credentials: the confirmation is a workflow safeguard, not a barrier against malicious code. The WhatsApp channel is optional, unofficial and tested only with fakes. Pull request publishing was tested only with a simulated gh.</dd></div>
@@ -229,7 +223,7 @@
           <div><dt>What I did</dt><dd>WhatsApp agents on a deterministic state machine (the AI only classifies and answers questions, under rules), idempotent partner integrations, OCR with double reading and a tiebreak, and an operations dashboard. Before touching code, I cross-checked execution logs, the API log and message history.</dd></div>
           <div><dt>What broke and how I fixed it</dt><dd>A safety check blocked 44 of 54 registrations because the carrier's screen had changed and the code had not kept up; I fixed how the item is recognized. Off-script answers were slow because of a fixed 15 s wait, not the AI (the model answered in ~1.5 s); it became 4 s for a recognized question, with an 8 s ceiling, and the cutoff came from 4,078 real messages. On the dashboard, the cache expired before the next request and rebuilt everything inside the request; a thread now builds outside it, with ETag and 304.</dd></div>
           <div><dt>What I would do differently</dt><dd>I would audit the integrations against the partners' official documentation before building. The audit done afterwards revealed steps that never ran: document upload, payment method and contact registration.</dd></div>
-          <div><dt>Result</dt><dd>Dashboard first call from 73.7 s to 0.08 s (measured in production on 10/15/2026). Registrations that become a proposal, per attempt, from 43% to ~89%. 0 discrepancies across 1,960 items checked against the portals every 10 minutes. Over 320 automated tests on the service platform.</dd></div>
+          <div><dt>Result</dt><dd>Dashboard first call from 73.7 s to 0.08 s (measured in production on 10/15/2026). Registrations that become a proposal, per attempt: 43%, down to 29% in October, about 89% in November after the fix. 0 discrepancies across 1,960 items checked against the portals every 10 minutes. Over 320 automated tests on the service platform.</dd></div>
           <div><dt>Limitation</dt><dd>The median registration time went up slightly: before, half of the runs died early; now almost all go through to the final validation. Dashboard numbers can be up to 60 s stale. The code belongs to the company, so there is no repository to inspect.</dd></div>
         </dl>
       </article>
@@ -278,7 +272,7 @@
         <li><strong>Python</strong><span>IAprovale, F5, Orchestrator</span></li>
         <li><strong>FastAPI</strong><span>IAprovale and the F5 platform</span></li>
         <li><strong>PostgreSQL</strong><span>IAprovale (with SQLModel)</span></li>
-        <li><strong>Docker</strong><span>NEURODEV: downtime from 35 h to 2.25 h</span></li>
+        <li><strong>Docker</strong><span>NEURODEV: RPA in Python refactored with containers.</span></li>
         <li><strong>Linux</strong><span>Ubuntu VPS with systemd and Caddy</span></li>
       </ul>
 
@@ -289,7 +283,7 @@
       <ul class="ai-stack">
         <li><strong>DeepSeek</strong><span>IAprovale (search and resume), the Raízes &amp; Escamas sales agent and the F5 after-sales agent.</span></li>
         <li><strong>OpenAI API</strong><span>NEURODEV: pipeline latency from 15 min to 27 s, with prompt engineering and caching.</span></li>
-        <li><strong>Groq, Mistral</strong><span>Listed in my earlier profile; no detailed project on this site.</span></li>
+        <li><strong>Groq, Mistral</strong><span>A snack-bar project and the F5 agents.</span></li>
         <li><strong>Ollama</strong><span>AugustusApp: meeting summary and briefing with a local LLM.</span></li>
         <li><strong>WhisperX, faster-whisper</strong><span>AugustusApp: local transcription with the large-v3 model.</span></li>
         <li><strong>pyannote</strong><span>AugustusApp: speaker separation (diarization).</span></li>
@@ -345,7 +339,7 @@
     <section id="ia-trabalho" class="section wrap" aria-labelledby="iat-t">
       <div class="grid sec-head">
         <h2 class="sec-title" id="iat-t">How I use AI in my work</h2>
-        <p class="sec-note">It writes drafts. What goes to production goes through me, through tests and through measurement.</p>
+        <p class="sec-note">It writes drafts. What goes to production goes through me, through tests and through measurement. This is not vibe coding: IAprovale alone has about 140 planning documents, written before and during development.</p>
       </div>
       <div class="ia-cols">
         <div>
@@ -495,7 +489,7 @@
             <li>Developed 15+ integrations in Python connecting external APIs, processing 800+ transactions per day.</li>
             <li>Implemented retry patterns and fallback with monitoring via Linux CLI for high availability.</li>
             <li>Optimized pipeline with OpenAI API reducing latency from 15 minutes to 27 seconds (97% reduction) through prompt engineering and intelligent caching.</li>
-            <li>Refactored RPA code in Python with Docker, reducing monthly downtime from 35h to 2.25h (93.5% reduction).</li>
+            <li>Refactored RPA code in Python with Docker.</li>
           </ul>
         </div>
       </article>
@@ -971,7 +965,7 @@
         <li>registration was slow;</li>
         <li>proposals were redone several times for no apparent reason.</li>
       </ul>
-      <p>The share of registrations that became a proposal was <strong>43%</strong>, and it dropped as low as <strong>29%</strong>.</p>
+      <p>The share of registrations that became a proposal was <strong>43%</strong>, and it dropped as low as <strong>29%</strong> in October. After the fix, in November, it reached about <strong>89%</strong>.</p>
 
       <h4>Diagnosis: measure before changing anything</h4>
       <p>I cross-checked three sources: the timestamped step-by-step log of every robot run, the API request log, and the message history of the conversations. Three findings came out of it:</p>
