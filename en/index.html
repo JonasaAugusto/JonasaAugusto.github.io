@@ -44,6 +44,7 @@
 </head>
 
 <body>
+  <div class="progress" aria-hidden="true"></div>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-ne" viewbox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-right" viewbox="0 0 16 16"><path d="M2.5 8h11M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -98,40 +99,51 @@
   <main id="conteudo">
 
 
-    <!-- TOPO: tudo o que um recrutador precisa nos primeiros segundos -->
-    <section id="inicio" class="top wrap" aria-labelledby="hero-title">
-      <div class="top-main">
-        <div class="top-id">
-          <h1 class="top-name" id="hero-title">Jonas Augusto</h1>
-          <p class="top-lead">Software engineer, graduating in Dec 2026. I build and run APIs, automations and AI integrations in production, with a Python backend.</p>
-          <div class="top-actions">
+    <!-- TOPO: nome, frase e botões; as métricas vêm na seção seguinte -->
+    <section id="inicio" class="hero wrap" aria-labelledby="hero-title">
+      <h1 class="hero-name" id="hero-title">
+        <span class="line"><span>Jonas</span></span>
+        <span class="line"><span>Augusto</span></span>
+      </h1>
+      <div class="grid hero-foot">
+        <div class="hero-lead">
+          <p data-r style="--i:1">Software engineer, graduating in Dec 2026. I build and run APIs, automations and AI integrations in production, with a Python backend.</p>
+          <div class="hero-actions" data-r style="--i:2">
             <a class="btn" href="mailto:jonasaugustosantosoliveira@gmail.com"><span>Email</span></a>
             <a class="btn ghost" href="https://github.com/JonasaAugusto" target="_blank" rel="noopener"><span>GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
             <a class="btn ghost" href="https://www.linkedin.com/in/jonasaaugusto" target="_blank" rel="noopener"><span>LinkedIn</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
             <a class="btn ghost" href="../cv.en.html" data-cv-page data-open="cv"><span>Resume</span></a>
           </div>
         </div>
+        <dl class="hero-facts" data-r style="--i:3">
+          <dt>Now</dt><dd>Founder, Augustus AI Solutions</dd>
+          <dt>Internship</dt><dd>Development and automation, F5 Tecnologia</dd>
+          <dt>Focus</dt><dd>Backend, automation and AI agents</dd>
+          <dt>Based in</dt><dd>Juiz de Fora, MG · Remote</dd>
+          <dt>Local time</dt><dd><time id="local-time" class="mono">--:--</time> <span>in Juiz de Fora (UTC−3)</span></dd>
+        </dl>
+      </div>
+    </section>
 
-        <section class="top-nums" aria-labelledby="top-n-t">
-          <h2 class="vh" id="top-n-t">Measured results, before and after</h2>
-          <ul class="nums">
+    <!-- RESULTADOS E PROJETOS: aparecem ao rolar -->
+    <section id="resultados" class="section wrap" aria-labelledby="res-t">
+      <div class="grid sec-head" data-reveal>
+        <h2 class="sec-title" id="res-t">Results and projects</h2>
+        <p class="sec-note">Measured results, before and after, and the three projects behind them.</p>
+      </div>
+      <ul class="nums" data-reveal>
             <li>
-              <p class="n"><span class="vh">73.7 seconds to 0.08 seconds</span><span aria-hidden="true"><span class="from">73.7 s</span><span class="arr">→</span><span>0.08 s</span></span></p>
+              <p class="n"><span class="vh">73.7 seconds to 0.08 seconds</span><span aria-hidden="true"><span class="from">73.7 s</span><span class="arr">→</span><span data-count="0.08" data-dec="2" data-unit=" s">0.08 s</span></span></p>
               <p class="n-what"><strong>First call of the CRM dashboard.</strong> Internship at F5 Tecnologia, measured in production on 10/15/2026.</p>
               <a class="link n-src" href="#proj-f5" data-open="f5" data-anchor="#f5-caso-plataforma">See the measurement in the case study</a>
             </li>
             <li>
-              <p class="n"><span class="vh">43% to about 89%</span><span aria-hidden="true"><span class="from">43%</span><span class="arr">→</span><span>~89%</span></span></p>
+              <p class="n"><span class="vh">43% to about 89%</span><span aria-hidden="true"><span class="from">43%</span><span class="arr">→</span><span>~</span><span data-count="89" data-unit="%">89%</span></span></p>
               <p class="n-what"><strong>Registrations that become a proposal, per attempt.</strong> Automated WhatsApp sales, F5 Tecnologia. It was 43%, fell to 29% in October and, with the fix, reached about 89% in November.</p>
               <a class="link n-src" href="#proj-f5" data-open="f5" data-anchor="#f5-caso-cadastro">See the diagnosis in the case study</a>
             </li>
           </ul>
-        </section>
-      </div>
-
-      <section class="top-proj" aria-labelledby="top-p-t">
-        <h2 class="vh" id="top-p-t">Featured projects, overview</h2>
-        <ul class="pcards">
+      <div class="top-proj"><ul class="pcards" data-reveal>
           <li>
             <a class="pcard" href="#proj-iaprovale">
               <h3>IAprovale</h3>
@@ -153,19 +165,18 @@
               <span class="pcard-meta">Python · FastAPI · pytest</span>
             </a>
           </li>
-        </ul>
-      </section>
+        </ul></div>
     </section>
 
 
     <!-- PROJETOS EM DESTAQUE -->
     <section id="projetos" class="section wrap" aria-labelledby="proj-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="proj-t">Featured projects</h2>
         <p class="sec-note">Each project follows the same order: problem, what I did, what broke, what I would do differently, result and limitation.</p>
       </div>
 
-      <article id="proj-iaprovale" class="proj" aria-labelledby="ia-t">
+      <article id="proj-iaprovale" class="proj" aria-labelledby="ia-t" data-reveal>
         <header class="proj-head">
           <div>
             <h3 class="proj-title" id="ia-t">IAprovale</h3>
@@ -187,7 +198,7 @@
         </dl>
       </article>
 
-      <article id="proj-orquestrador" class="proj" aria-labelledby="orq-h">
+      <article id="proj-orquestrador" class="proj" aria-labelledby="orq-h" data-reveal>
         <header class="proj-head">
           <div>
             <h3 class="proj-title" id="orq-h">AI Agents Orchestrator</h3>
@@ -208,7 +219,7 @@
         </dl>
       </article>
 
-      <article id="proj-f5" class="proj" aria-labelledby="f5-h">
+      <article id="proj-f5" class="proj" aria-labelledby="f5-h" data-reveal>
         <header class="proj-head">
           <div>
             <h3 class="proj-title" id="f5-h">F5 Tecnologia</h3>
@@ -230,26 +241,26 @@
 
       <details class="others" id="outros-projetos">
         <summary><span class="others-t">Other projects</span><span class="others-c">4 projects</span></summary>
-        <ul class="others-list">
+        <ul class="others-list" id="ledger">
           <li>
             <h3>AugustusApp</h3>
             <p>Augustus internal app: VPS SSH terminal, backup and 100% local meeting transcription. Private repository.</p>
             <p class="o-stack">.NET 10 MAUI · C# · Python · WhisperX · Ollama</p>
             <a class="link" href="#desafios"><span>Technical challenges</span></a>
           </li>
-          <li>
+          <li data-peek="notame">
             <h3>NotaME</h3>
             <p>Mobile and desktop app for PDF receipts, NFS-e and clients, offline-first with encrypted P2P sync.</p>
             <p class="o-stack">.NET MAUI · C# · SQLite · QuestPDF · AES-256</p>
             <a class="link" href="https://github.com/JonasaAugusto/NotaME" target="_blank" rel="noopener"><span>View on GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
           </li>
-          <li>
+          <li data-peek="conector">
             <h3>Modular WhatsApp Connector</h3>
             <p>Service that connects and disconnects WhatsApp bots via QR, each bot independent. Private code, demo on request.</p>
             <p class="o-stack">Python · FastAPI · WebSocket · Baileys · pytest</p>
             <a class="link" href="#desafios"><span>Technical challenges</span></a>
           </li>
-          <li>
+          <li data-peek="fabula">
             <h3>Fabula Coop</h3>
             <p>Cooperative real-time text RPG where the campaign master is an AI.</p>
             <p class="o-stack">Python · LLM Agent · Realtime · Multiplayer</p>
@@ -257,12 +268,40 @@
           </li>
         </ul>
       </details>
+
+      <div class="peek" id="peek" aria-hidden="true">
+        <div class="peek-item ui" data-id="notame" data-ui>
+          <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>NotaME · recibo</span></div>
+          <div class="ui-body">
+            <div class="ui-row"><span>Recibo nº 0142</span><span>PDF</span></div>
+            <div class="ui-row"><span>Cliente · Ateliê Central</span><span>NFS-e</span></div>
+            <div class="ui-row"><span>Serviço · manutenção</span><span>R$ 480,00</span></div>
+            <div class="ui-row"><span class="ok">sincronizado P2P</span><span>AES-256</span></div>
+          </div>
+        </div>
+        <div class="peek-item ui" data-id="conector" data-ui>
+          <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>Conector · bots</span><span style="margin-left:auto">127.0.0.1</span></div>
+          <div class="ui-body">
+            <div class="ui-row"><span>raizes-escamas</span><span class="ok">conectado</span></div>
+            <div class="ui-row"><span>atendimento-02</span><span class="y">aguardando QR</span></div>
+            <div class="ui-row"><span>vendas-03</span><span>desconectado</span></div>
+            <div class="ui-row"><span class="k">bots.json · sem recompilar</span><span>40 testes</span></div>
+          </div>
+        </div>
+        <div class="peek-item ui" data-id="fabula" data-ui>
+          <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>Fabula Coop · campanha</span></div>
+          <div class="ui-chat">
+            <div class="bubble">A ponte range. O mestre narra: algo se move na névoa.<small>mestre · IA</small></div>
+            <div class="bubble me">Acendo a tocha e sigo na frente.<small>jogador 2</small></div>
+          </div>
+        </div>
+      </div>
     </section>
 
 
     <!-- STACK -->
     <section id="stack" class="section wrap" aria-labelledby="st-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="st-t">Stack</h2>
         <p class="sec-note">What I use in production. Each item points to the project where it lives.</p>
       </div>
@@ -337,11 +376,11 @@
 
     <!-- COMO USO IA -->
     <section id="ia-trabalho" class="section wrap" aria-labelledby="iat-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="iat-t">How I use AI in my work</h2>
         <p class="sec-note">It writes drafts. What goes to production goes through me, through tests and through measurement. This is not vibe coding: IAprovale alone has about 140 planning documents, written before and during development.</p>
       </div>
-      <div class="ia-cols">
+      <div class="ia-cols" data-reveal>
         <div>
           <h3>What I delegate</h3>
           <ul class="checks">
@@ -374,11 +413,11 @@
 
     <!-- DEEPSEEK NO IAPROVALE (REVISÃO DO DONO) -->
     <section id="ia-deepseek" class="section wrap" aria-labelledby="ds-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="ds-t">How DeepSeek is used in IAprovale</h2>
         <p class="sec-note">Described from the backend code. It includes what is not ready yet.</p>
       </div>
-      <div class="ds-grid">
+      <div class="ds-grid" data-reveal>
         <div class="ds-block">
           <h3>Where it is used</h3>
           <ul class="checks">
@@ -427,12 +466,12 @@
 
 
     <section id="experiencia" class="section wrap" aria-labelledby="exp-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="exp-t">Experience</h2>
         <p class="sec-note">A little over 1 year of professional experience. Augustus AI Solutions is my own business, which I run alongside the F5 internship.</p>
       </div>
 
-      <article class="grid job">
+      <article class="grid job" data-reveal>
         <p class="job-when" style="--i:0">Jun 2026 – Present · Remote</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role">CEO &amp; Lead Developer</h3>
@@ -464,7 +503,7 @@
         </div>
       </article>
 
-      <article class="grid job">
+      <article class="grid job" data-reveal>
         <p class="job-when" style="--i:0">May 2026 – Present · Remote</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role">Development and Automation Intern</h3>
@@ -480,7 +519,7 @@
         </div>
       </article>
 
-      <article class="grid job" id="exp-neurodev">
+      <article class="grid job" id="exp-neurodev" data-reveal>
         <p class="job-when" style="--i:0">Sep – Nov 2025 · Hybrid</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role">Intern Automation Developer &amp; RPA Support Analyst</h3>
@@ -494,7 +533,7 @@
         </div>
       </article>
 
-      <article class="grid job">
+      <article class="grid job" data-reveal>
         <p class="job-when" style="--i:0">Aug – Sep 2025 · Remote</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role">Junior Process Automation Developer with AI</h3>
@@ -506,7 +545,7 @@
         </div>
       </article>
 
-      <article class="grid job">
+      <article class="grid job" data-reveal>
         <p class="job-when" style="--i:0">Aug – Sep 2023 · Freelance</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role">Software Requirements Analyst</h3>
@@ -528,32 +567,32 @@
           <div class="ch-progress" aria-hidden="true"><i></i></div>
         </div>
         <div class="ch-list">
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3>8 GB GPU (AugustusApp)</h3>
             <p>Transcription with WhisperX large-v3 and the local LLM do not fit together in 8 GB of VRAM. I built a GPU lease, a model degradation ladder, and a probe that only accepts the LLM if it runs 100% on the GPU.</p>
             <dl class="ch-result"><dt>Result</dt><dd>One GPU owner at a time; reprocessing returns 409 instead of fighting over VRAM.</dd></dl>
           </article>
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3>SSH terminal with 220 ms of latency</h3>
             <p>The VM terminal felt slow. I measured instead of guessing: about 221 ms RTT to the VPS in Europe and about 250 ms per keystroke even with plain ssh. I cut the app overhead with immediate output for small responses, a 6 ms tick, and a single UI dispatch, showed the RTT in the tab, and built a predictive local echo that draws each keystroke instantly and reconciles it with the server response.</p>
             <dl class="ch-result"><dt>Result</dt><dd>App overhead reduced, the network floor explained on screen, and predictive local echo shipped: keystrokes appear instantly, without waiting for the 220 ms of network.</dd></dl>
           </article>
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3>Safe VPS backup and restore</h3>
             <p>Daily backup with restic to Backblaze B2, managed from the app: list, run now, and restore by date. A destructive restore requires confirmation, takes a safety backup first, and runs as a detached operation that survives an SSH drop.</p>
             <dl class="ch-result"><dt>Result</dt><dd>Own backup, with no paid provider backup, and restore by date without leaving the app.</dd></dl>
           </article>
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3>Lexical RAG instead of embeddings</h3>
             <p>The bot answers technical questions from 430 curated entries. Since titles are descriptive and DeepSeek offers no embeddings, I used lexical search with IDF, synonyms, and a ranking that rewards the entry covering more of the question, at no per-query cost.</p>
             <dl class="ch-result"><dt>Result</dt><dd>In the 100-question battery with a real LLM, related entries went from 96% to 100% after the search fixes.</dd></dl>
           </article>
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3>Connector with no automation trail</h3>
             <p>To manage the WhatsApp agents without the automation trail OpenClaw leaves for Meta, I built my own modular connector: it only runs each bot's pairing and shows the QR, keeping no session of its own, and every connection is independent.</p>
             <dl class="ch-result"><dt>Result</dt><dd>Adding a bot means editing a file, with 40 automated tests and the service listening only on loopback, with a token.</dd></dl>
           </article>
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3>Data that matches the portals (F5)</h3>
             <p>In after-sales, the dashboard's first call took 73.7 s and it showed data diverging between portals, dashboard, and CRM. A thread that builds the data outside the request, with a ready response, ETag, and 304, plus continuous reconciliation every 10 minutes solved both problems.</p>
             <dl class="ch-result"><dt>Result</dt><dd>First call from 73.7 s to 0.08 s and 0 discrepancies across 1,960 items checked against the portals.</dd></dl>
@@ -564,7 +603,7 @@
 
 
     <section id="formacao" class="section wrap" aria-labelledby="ed-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="ed-t">Education and courses</h2>
         <p class="sec-note">Academic education, completed courses, courses in progress and planned certifications.</p>
       </div>
@@ -631,6 +670,7 @@
   </main>
 
   <footer class="site-footer wrap">
+    <p class="footer-word" aria-hidden="true" data-word="Jonas Augusto"></p>
     <div class="footer-line">
       <span>© 2026 Jonas Augusto · Software Engineer</span>
       <nav aria-label="Footer">

@@ -10,7 +10,8 @@
 - Inglês estático em `/en/`, gerado por `scripts/gerar-en.py`; alternador de idioma vira link; `hreflang`, `canonical` e metatags por idioma. Testes em `scripts/testar-site.py`.
 - Certificações AWS e Azure como "Planejado · início em fev/2027" (site e currículos); Claude e Codex só no projeto Orchestrator; PDFs do currículo regenerados.
 - Removido o formulário de contato (redundante com e-mail e links); o contato fica por e-mail, LinkedIn, Instagram e GitHub, sem serviço de terceiro.
-- Removidos: entradas animadas, números que contam, prévia que segue o cursor, hora local, palavra gigante do rodapé e quadros de interface decorativos.
+- Voltam as animações e os hovers do site anterior: nome que sobe ao carregar, entradas ao rolar, números que contam, prévia que segue o cursor nos outros projetos, botões magnéticos, hora local, barra de progresso e palavra do rodapé. O topo ocupa a tela inteira e as métricas aparecem ao rolar. Movimento reduzido só faz fade curto.
+- Removidos: quadros decorativos soltos e o formulário.
 
 ### Adicionado
 - Estudo de caso do AI Agents Orchestrator (v1.4.0) em "Mais projetos": problema, solução, decisões, resultados verificáveis e o que ainda não está pronto (PT/EN), em um novo diálogo.

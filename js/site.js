@@ -1,8 +1,9 @@
-/* Jonas Augusto · portfólio. Sem dependências. Tema, menu móvel, diálogos. */
+/* Jonas Augusto · portfólio. Sem dependências. Tema, menu móvel, entradas ao rolar, números, prévia, diálogos. */
 (function () {
   'use strict';
   var d = document, root = d.documentElement;
   var reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  var fine = matchMedia('(hover: hover) and (pointer: fine)');
   var lang = root.lang === 'en' ? 'en' : 'pt';
   var base = root.getAttribute('data-base') || '';
   /* O idioma é uma página estática por idioma (/ e /en/); o alternador é um link comum. */
@@ -64,6 +65,70 @@
     d.querySelectorAll('main section[id]').forEach(function (s) { navIO.observe(s); });
   }
 
+  /* ---------- entradas ---------- */
+  var revealEls = d.querySelectorAll('[data-reveal], [data-reveal-one], .shot');
+  function show(el) { el.classList.add('in'); if (el.querySelector('[data-count]') || el.hasAttribute('data-count')) countUp(el); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+    /* rede de segurança: nada fica escondido se o observer falhar */
+    setTimeout(function () { revealEls.forEach(function (el) { var r = el.getBoundingClientRect(); if (r.top < innerHeight) show(el); }); }, 2500);
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- números que contam ---------- */
+  function fmt(v, el) {
+    var dec = +(el.dataset.dec || 0);
+    var s = v.toFixed(dec);
+    if (lang === 'pt') s = s.replace('.', ',');
+    return s + (el.dataset.unit || '');
+  }
+  function countUp(scope) {
+    scope.querySelectorAll('[data-count]').forEach(function (el) {
+      if (el.dataset.done) return; el.dataset.done = '1';
+      var to = +el.dataset.count, from = 0, t0 = performance.now(), dur = 1400;
+      if (to < 1) from = 73.7; /* 73,7 s → 0,08 s */
+      else if (to === 27) from = 900;
+      else if (to === 2.25) from = 35;
+      else if (to === 89) from = 43;
+      (function tick(t) {
+        var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+        el.textContent = fmt(from + (to - from) * e, el);
+        if (p < 1) requestAnimationFrame(tick); else el.textContent = fmt(to, el);
+      })(t0);
+    });
+  }
+
+  /* ---------- prévia que segue o cursor no ledger ---------- */
+  var ledger = d.getElementById('ledger'), peek = d.getElementById('peek');
+  if (ledger && peek && fine.matches) {
+    var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0, active = false;
+    function loop() {
+      cx += (tx - cx) * 0.16; cy += (ty - cy) * 0.16;
+      peek.style.transform = 'translate3d(' + cx.toFixed(1) + 'px,' + cy.toFixed(1) + 'px,0)';
+      if (active || Math.abs(tx - cx) > .5) raf = requestAnimationFrame(loop); else raf = 0;
+    }
+    ledger.querySelectorAll('[data-peek]').forEach(function (row) {
+      row.addEventListener('mouseenter', function (e) {
+        var id = row.dataset.peek;
+        peek.querySelectorAll('.peek-item').forEach(function (p) { p.classList.toggle('on', p.dataset.id === id); });
+        if (!active) { cx = tx = e.clientX + 28; cy = ty = e.clientY - 70; }
+        active = true; peek.classList.add('on');
+        if (!raf) raf = requestAnimationFrame(loop);
+      });
+      row.addEventListener('mouseleave', function () { active = false; peek.classList.remove('on'); });
+    });
+    ledger.addEventListener('mousemove', function (e) {
+      var w = peek.offsetWidth || 340;
+      tx = Math.min(e.clientX + 28, innerWidth - w - 16);
+      ty = e.clientY - 70;
+      if (reduce.matches) { cx = tx; cy = ty; }
+    });
+  }
+
   /* ---------- diálogos ---------- */
   var CV = {
     pt: { pdf: base + 'JonasAugusto_cv_m.pdf', page: base + 'cv.html', dl: 'JonasAugusto_CV_PT.pdf' },
@@ -97,5 +162,27 @@
   });
   var cvLangBtn = d.getElementById('cv-lang-btn');
   if (cvLangBtn) cvLangBtn.addEventListener('click', function () { setCv(cvLang === 'pt' ? 'en' : 'pt'); });
+
+  /* ---------- botões magnéticos (ponteiro fino, sem reduced motion) ---------- */
+  if (fine.matches && !reduce.matches) {
+    d.querySelectorAll('.hero-actions .btn, .ctrl').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.18, y = (e.clientY - r.top - r.height / 2) * 0.28;
+        b.style.translate = x.toFixed(1) + 'px ' + y.toFixed(1) + 'px';
+      });
+      b.addEventListener('pointerleave', function () { b.style.translate = ''; });
+    });
+  }
+
+  /* ---------- hora local de Juiz de Fora ---------- */
+  var clock = d.getElementById('local-time');
+  function tickClock() {
+    try {
+      var t = new Intl.DateTimeFormat('pt-BR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo' }).format(new Date());
+      clock.textContent = t; clock.setAttribute('datetime', t);
+    } catch (e) { clock.parentNode.parentNode && (clock.textContent = ''); }
+  }
+  if (clock) { tickClock(); setInterval(tickClock, 15000); }
 
 })();

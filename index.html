@@ -44,6 +44,7 @@
 </head>
 
 <body>
+  <div class="progress" aria-hidden="true"></div>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-ne" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-right" viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5L13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -98,40 +99,51 @@
   <main id="conteudo">
 
 
-    <!-- TOPO: tudo o que um recrutador precisa nos primeiros segundos -->
-    <section id="inicio" class="top wrap" aria-labelledby="hero-title">
-      <div class="top-main">
-        <div class="top-id">
-          <h1 class="top-name" id="hero-title">Jonas Augusto</h1>
-          <p class="top-lead" data-en="Software engineer, graduating in Dec 2026. I build and run APIs, automations and AI integrations in production, with a Python backend.">Engenheiro de software, formação em dez/2026. Construo e opero APIs, automações e integrações de IA em produção, com backend em Python.</p>
-          <div class="top-actions">
+    <!-- TOPO: nome, frase e botões; as métricas vêm na seção seguinte -->
+    <section id="inicio" class="hero wrap" aria-labelledby="hero-title">
+      <h1 class="hero-name" id="hero-title">
+        <span class="line"><span>Jonas</span></span>
+        <span class="line"><span>Augusto</span></span>
+      </h1>
+      <div class="grid hero-foot">
+        <div class="hero-lead">
+          <p data-r style="--i:1" data-en="Software engineer, graduating in Dec 2026. I build and run APIs, automations and AI integrations in production, with a Python backend.">Engenheiro de software, formação em dez/2026. Construo e opero APIs, automações e integrações de IA em produção, com backend em Python.</p>
+          <div class="hero-actions" data-r style="--i:2">
             <a class="btn" href="mailto:jonasaugustosantosoliveira@gmail.com"><span data-en="Email">E-mail</span></a>
             <a class="btn ghost" href="https://github.com/JonasaAugusto" target="_blank" rel="noopener"><span>GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
             <a class="btn ghost" href="https://www.linkedin.com/in/jonasaaugusto" target="_blank" rel="noopener"><span>LinkedIn</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
             <a class="btn ghost" href="cv.html" data-cv-page data-en-href="../cv.en.html" data-open="cv"><span data-en="Resume">Currículo</span></a>
           </div>
         </div>
+        <dl class="hero-facts" data-r style="--i:3">
+          <dt data-en="Now">Agora</dt><dd data-en="Founder, Augustus AI Solutions">Fundador, Augustus AI Solutions</dd>
+          <dt data-en="Internship">Estágio</dt><dd data-en="Development and automation, F5 Tecnologia">Desenvolvimento e automação, F5 Tecnologia</dd>
+          <dt data-en="Focus">Foco</dt><dd data-en="Backend, automation and AI agents">Backend, automação e agentes de IA</dd>
+          <dt data-en="Based in">Base</dt><dd data-en="Juiz de Fora, MG · Remote">Juiz de Fora, MG · Remoto</dd>
+          <dt data-en="Local time">Hora local</dt><dd><time id="local-time" class="mono">--:--</time> <span data-en="in Juiz de Fora (UTC−3)">em Juiz de Fora (UTC−3)</span></dd>
+        </dl>
+      </div>
+    </section>
 
-        <section class="top-nums" aria-labelledby="top-n-t">
-          <h2 class="vh" id="top-n-t" data-en="Measured results, before and after">Resultados medidos, antes e depois</h2>
-          <ul class="nums">
+    <!-- RESULTADOS E PROJETOS: aparecem ao rolar -->
+    <section id="resultados" class="section wrap" aria-labelledby="res-t">
+      <div class="grid sec-head" data-reveal>
+        <h2 class="sec-title" id="res-t" data-en="Results and projects">Resultados e projetos</h2>
+        <p class="sec-note" data-en="Measured results, before and after, and the three projects behind them.">Resultados medidos, antes e depois, e os três projetos por trás deles.</p>
+      </div>
+      <ul class="nums" data-reveal>
             <li>
-              <p class="n"><span class="vh" data-en="73.7 seconds to 0.08 seconds">73,7 segundos para 0,08 segundo</span><span aria-hidden="true"><span class="from" data-en="73.7 s">73,7 s</span><span class="arr">→</span><span data-en="0.08 s">0,08 s</span></span></p>
+              <p class="n"><span class="vh" data-en="73.7 seconds to 0.08 seconds">73,7 segundos para 0,08 segundo</span><span aria-hidden="true"><span class="from" data-en="73.7 s">73,7 s</span><span class="arr">→</span><span data-count="0.08" data-dec="2" data-unit=" s" data-en="0.08 s">0,08 s</span></span></p>
               <p class="n-what" data-en-html="&lt;strong&gt;First call of the CRM dashboard.&lt;/strong&gt; Internship at F5 Tecnologia, measured in production on 10/15/2026."><strong>Primeira chamada do painel CRM.</strong> Estágio na F5 Tecnologia, medido em produção em 15/10/2026.</p>
               <a class="link n-src" href="#proj-f5" data-open="f5" data-anchor="#f5-caso-plataforma" data-en="See the measurement in the case study">Ver a medição no estudo de caso</a>
             </li>
             <li>
-              <p class="n"><span class="vh" data-en="43% to about 89%">43% para cerca de 89%</span><span aria-hidden="true"><span class="from">43%</span><span class="arr">→</span><span>~89%</span></span></p>
+              <p class="n"><span class="vh" data-en="43% to about 89%">43% para cerca de 89%</span><span aria-hidden="true"><span class="from">43%</span><span class="arr">→</span><span>~</span><span data-count="89" data-unit="%">89%</span></span></p>
               <p class="n-what" data-en-html="&lt;strong&gt;Registrations that become a proposal, per attempt.&lt;/strong&gt; Automated WhatsApp sales, F5 Tecnologia. It was 43%, fell to 29% in October and, with the fix, reached about 89% in November."><strong>Cadastros que viram proposta, por tentativa.</strong> Venda automatizada no WhatsApp, F5 Tecnologia. Era 43%, caiu para 29% em outubro e, com a correção, chegou a ~89% em novembro.</p>
               <a class="link n-src" href="#proj-f5" data-open="f5" data-anchor="#f5-caso-cadastro" data-en="See the diagnosis in the case study">Ver o diagnóstico no estudo de caso</a>
             </li>
           </ul>
-        </section>
-      </div>
-
-      <section class="top-proj" aria-labelledby="top-p-t">
-        <h2 class="vh" id="top-p-t" data-en="Featured projects, overview">Projetos em destaque, resumo</h2>
-        <ul class="pcards">
+      <div class="top-proj"><ul class="pcards" data-reveal>
           <li>
             <a class="pcard" href="#proj-iaprovale">
               <h3>IAprovale</h3>
@@ -153,19 +165,18 @@
               <span class="pcard-meta">Python · FastAPI · pytest</span>
             </a>
           </li>
-        </ul>
-      </section>
+        </ul></div>
     </section>
 
 
     <!-- PROJETOS EM DESTAQUE -->
     <section id="projetos" class="section wrap" aria-labelledby="proj-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="proj-t" data-en="Featured projects">Projetos em destaque</h2>
         <p class="sec-note" data-en="Each project follows the same order: problem, what I did, what broke, what I would do differently, result and limitation.">Cada projeto segue a mesma ordem: problema, o que fiz, o que quebrou, o que faria diferente, resultado e limitação.</p>
       </div>
 
-      <article id="proj-iaprovale" class="proj" aria-labelledby="ia-t">
+      <article id="proj-iaprovale" class="proj" aria-labelledby="ia-t" data-reveal>
         <header class="proj-head">
           <div>
             <h3 class="proj-title" id="ia-t">IAprovale</h3>
@@ -187,7 +198,7 @@
         </dl>
       </article>
 
-      <article id="proj-orquestrador" class="proj" aria-labelledby="orq-h">
+      <article id="proj-orquestrador" class="proj" aria-labelledby="orq-h" data-reveal>
         <header class="proj-head">
           <div>
             <h3 class="proj-title" id="orq-h">AI Agents Orchestrator</h3>
@@ -208,7 +219,7 @@
         </dl>
       </article>
 
-      <article id="proj-f5" class="proj" aria-labelledby="f5-h">
+      <article id="proj-f5" class="proj" aria-labelledby="f5-h" data-reveal>
         <header class="proj-head">
           <div>
             <h3 class="proj-title" id="f5-h">F5 Tecnologia</h3>
@@ -230,26 +241,26 @@
 
       <details class="others" id="outros-projetos">
         <summary><span class="others-t" data-en="Other projects">Outros projetos</span><span class="others-c" data-en="4 projects">4 projetos</span></summary>
-        <ul class="others-list">
+        <ul class="others-list" id="ledger">
           <li>
             <h3>AugustusApp</h3>
             <p data-en="Augustus internal app: VPS SSH terminal, backup and 100% local meeting transcription. Private repository.">App interno da Augustus: terminal SSH da VPS, backup e transcrição de reuniões 100% local. Repositório privado.</p>
             <p class="o-stack">.NET 10 MAUI · C# · Python · WhisperX · Ollama</p>
             <a class="link" href="#desafios"><span data-en="Technical challenges">Desafios técnicos</span></a>
           </li>
-          <li>
+          <li data-peek="notame">
             <h3>NotaME</h3>
             <p data-en="Mobile and desktop app for PDF receipts, NFS-e and clients, offline-first with encrypted P2P sync.">App mobile e desktop para recibos em PDF, NFS-e e clientes, offline-first com sincronização P2P cifrada.</p>
             <p class="o-stack">.NET MAUI · C# · SQLite · QuestPDF · AES-256</p>
             <a class="link" href="https://github.com/JonasaAugusto/NotaME" target="_blank" rel="noopener"><span data-en="View on GitHub">Ver no GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
           </li>
-          <li>
+          <li data-peek="conector">
             <h3 data-en="Modular WhatsApp Connector">Conector WhatsApp Modular</h3>
             <p data-en="Service that connects and disconnects WhatsApp bots via QR, each bot independent. Private code, demo on request.">Serviço que conecta e desconecta bots de WhatsApp por QR, cada bot independente. Código privado, demonstração sob pedido.</p>
             <p class="o-stack">Python · FastAPI · WebSocket · Baileys · pytest</p>
             <a class="link" href="#desafios"><span data-en="Technical challenges">Desafios técnicos</span></a>
           </li>
-          <li>
+          <li data-peek="fabula">
             <h3>Fabula Coop</h3>
             <p data-en="Cooperative real-time text RPG where the campaign master is an AI.">RPG de texto cooperativo, em tempo real, em que o mestre da campanha é uma IA.</p>
             <p class="o-stack">Python · LLM Agent · Realtime · Multiplayer</p>
@@ -257,12 +268,40 @@
           </li>
         </ul>
       </details>
+
+      <div class="peek" id="peek" aria-hidden="true">
+        <div class="peek-item ui" data-id="notame" data-ui>
+          <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>NotaME · recibo</span></div>
+          <div class="ui-body">
+            <div class="ui-row"><span>Recibo nº 0142</span><span>PDF</span></div>
+            <div class="ui-row"><span>Cliente · Ateliê Central</span><span>NFS-e</span></div>
+            <div class="ui-row"><span>Serviço · manutenção</span><span>R$ 480,00</span></div>
+            <div class="ui-row"><span class="ok">sincronizado P2P</span><span>AES-256</span></div>
+          </div>
+        </div>
+        <div class="peek-item ui" data-id="conector" data-ui>
+          <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>Conector · bots</span><span style="margin-left:auto">127.0.0.1</span></div>
+          <div class="ui-body">
+            <div class="ui-row"><span>raizes-escamas</span><span class="ok">conectado</span></div>
+            <div class="ui-row"><span>atendimento-02</span><span class="y">aguardando QR</span></div>
+            <div class="ui-row"><span>vendas-03</span><span>desconectado</span></div>
+            <div class="ui-row"><span class="k">bots.json · sem recompilar</span><span>40 testes</span></div>
+          </div>
+        </div>
+        <div class="peek-item ui" data-id="fabula" data-ui>
+          <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>Fabula Coop · campanha</span></div>
+          <div class="ui-chat">
+            <div class="bubble">A ponte range. O mestre narra: algo se move na névoa.<small>mestre · IA</small></div>
+            <div class="bubble me">Acendo a tocha e sigo na frente.<small>jogador 2</small></div>
+          </div>
+        </div>
+      </div>
     </section>
 
 
     <!-- STACK -->
     <section id="stack" class="section wrap" aria-labelledby="st-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="st-t">Stack</h2>
         <p class="sec-note" data-en="What I use in production. Each item points to the project where it lives.">O que uso em produção. Cada item aponta o projeto onde está.</p>
       </div>
@@ -337,11 +376,11 @@
 
     <!-- COMO USO IA -->
     <section id="ia-trabalho" class="section wrap" aria-labelledby="iat-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="iat-t" data-en="How I use AI in my work">Como eu uso IA no meu trabalho</h2>
         <p class="sec-note" data-en="It writes drafts. What goes to production goes through me, through tests and through measurement. This is not vibe coding: IAprovale alone has about 140 planning documents, written before and during development.">Ela escreve rascunhos. O que vai para produção passa por mim, por testes e por medição. Não é vibe coding: só o IAprovale tem cerca de 140 documentos de planejamento, escritos antes e durante o desenvolvimento.</p>
       </div>
-      <div class="ia-cols">
+      <div class="ia-cols" data-reveal>
         <div>
           <h3 data-en="What I delegate">O que eu delego</h3>
           <ul class="checks">
@@ -374,11 +413,11 @@
 
     <!-- DEEPSEEK NO IAPROVALE (REVISÃO DO DONO) -->
     <section id="ia-deepseek" class="section wrap" aria-labelledby="ds-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="ds-t" data-en="How DeepSeek is used in IAprovale">Como o DeepSeek é usado no IAprovale</h2>
         <p class="sec-note" data-en="Described from the backend code. It includes what is not ready yet.">Descrito a partir do código do backend. Inclui o que ainda não está pronto.</p>
       </div>
-      <div class="ds-grid">
+      <div class="ds-grid" data-reveal>
         <div class="ds-block">
           <h3 data-en="Where it is used">Onde é usado</h3>
           <ul class="checks">
@@ -427,12 +466,12 @@
 
 
     <section id="experiencia" class="section wrap" aria-labelledby="exp-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="exp-t" data-en="Experience">Experiência</h2>
         <p class="sec-note" data-en="A little over 1 year of professional experience. Augustus AI Solutions is my own business, which I run alongside the F5 internship.">Pouco mais de 1 ano de experiência profissional. A Augustus AI Solutions é um negócio meu, que mantenho em paralelo ao estágio na F5.</p>
       </div>
 
-      <article class="grid job">
+      <article class="grid job" data-reveal>
         <p class="job-when" style="--i:0" data-en="Jun 2026 – Present · Remote">Jun 2026 – Presente · Remoto</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role" data-en="CEO &amp; Lead Developer">CEO &amp; Desenvolvedor Principal</h3>
@@ -464,7 +503,7 @@
         </div>
       </article>
 
-      <article class="grid job">
+      <article class="grid job" data-reveal>
         <p class="job-when" style="--i:0" data-en="May 2026 – Present · Remote">Mai 2026 – Presente · Remoto</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role" data-en="Development and Automation Intern">Estagiário em Desenvolvimento e Automação</h3>
@@ -480,7 +519,7 @@
         </div>
       </article>
 
-      <article class="grid job" id="exp-neurodev">
+      <article class="grid job" id="exp-neurodev" data-reveal>
         <p class="job-when" style="--i:0" data-en="Sep – Nov 2025 · Hybrid">Set – Nov 2025 · Semipresencial</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role" data-en="Intern Automation Developer &amp; RPA Support Analyst">Estagiário Desenvolvedor de Automação de Processos e Analista de Suporte RPA</h3>
@@ -494,7 +533,7 @@
         </div>
       </article>
 
-      <article class="grid job">
+      <article class="grid job" data-reveal>
         <p class="job-when" style="--i:0" data-en="Aug – Sep 2025 · Remote">Ago – Set 2025 · Remoto</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role" data-en="Junior Process Automation Developer with AI">Desenvolvedor Júnior de Automação de Processos com IA</h3>
@@ -506,7 +545,7 @@
         </div>
       </article>
 
-      <article class="grid job">
+      <article class="grid job" data-reveal>
         <p class="job-when" style="--i:0" data-en="Aug – Sep 2023 · Freelance">Ago – Set 2023 · Freelance</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role" data-en="Software Requirements Analyst">Analista de Requisitos de Software</h3>
@@ -528,32 +567,32 @@
           <div class="ch-progress" aria-hidden="true"><i></i></div>
         </div>
         <div class="ch-list">
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3 data-en="8 GB GPU (AugustusApp)">GPU de 8 GB (AugustusApp)</h3>
             <p data-en="Transcription with WhisperX large-v3 and the local LLM do not fit together in 8 GB of VRAM. I built a GPU lease, a model degradation ladder, and a probe that only accepts the LLM if it runs 100% on the GPU.">A transcrição com WhisperX large-v3 e o LLM local não cabem juntos em 8 GB de VRAM. Criei uma trava de uso da GPU, uma escada de degradação de modelo e uma sonda que só aceita o LLM se ele rodar 100% na GPU.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="One GPU owner at a time; reprocessing returns 409 instead of fighting over VRAM.">Um dono da GPU por vez; o reprocessamento responde 409 em vez de disputar a VRAM.</dd></dl>
           </article>
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3 data-en="SSH terminal with 220 ms of latency">Terminal SSH com 220 ms de latência</h3>
             <p data-en="The VM terminal felt slow. I measured instead of guessing: about 221 ms RTT to the VPS in Europe and about 250 ms per keystroke even with plain ssh. I cut the app overhead with immediate output for small responses, a 6 ms tick, and a single UI dispatch, showed the RTT in the tab, and built a predictive local echo that draws each keystroke instantly and reconciles it with the server response.">O terminal da VM parecia lento. Medi em vez de supor: cerca de 221 ms de RTT até a VPS na Europa e cerca de 250 ms por tecla até com o ssh puro. Cortei o overhead do app com saída imediata para respostas pequenas, tick de 6 ms e despacho único à UI, mostrei o RTT na aba e implementei um eco local preditivo que desenha cada tecla na hora e confirma com a resposta do servidor.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="App overhead reduced, the network floor explained on screen, and predictive local echo shipped: keystrokes appear instantly, without waiting for the 220 ms of network.">Overhead do app reduzido, piso de rede explicado na própria tela e eco local preditivo aplicado: as letras aparecem na hora, sem esperar os 220 ms da rede.</dd></dl>
           </article>
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3 data-en="Safe VPS backup and restore">Backup da VPS com restauração segura</h3>
             <p data-en="Daily backup with restic to Backblaze B2, managed from the app: list, run now, and restore by date. A destructive restore requires confirmation, takes a safety backup first, and runs as a detached operation that survives an SSH drop.">Backup diário com restic para o Backblaze B2, administrado pelo app: listar, fazer agora e recuperar por data. A restauração destrutiva exige confirmação, faz backup de segurança antes e roda numa operação destacada que sobrevive à queda do SSH.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="Own backup, with no paid provider backup, and restore by date without leaving the app.">Backup próprio, sem depender de backup pago do provedor, e recuperação por data sem sair do app.</dd></dl>
           </article>
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3 data-en="Lexical RAG instead of embeddings">RAG lexical em vez de embeddings</h3>
             <p data-en="The bot answers technical questions from 430 curated entries. Since titles are descriptive and DeepSeek offers no embeddings, I used lexical search with IDF, synonyms, and a ranking that rewards the entry covering more of the question, at no per-query cost.">O bot responde dúvidas técnicas com 430 fichas curadas. Como os títulos são descritivos e a DeepSeek não oferece embeddings, usei busca lexical com IDF, sinônimos e ranking que premia a ficha que cobre mais da pergunta, sem custo por consulta.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="In the 100-question battery with a real LLM, related entries went from 96% to 100% after the search fixes.">Na bateria de 100 perguntas com LLM real, fichas relacionadas foram de 96% para 100% depois das correções na busca.</dd></dl>
           </article>
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3 data-en="Connector with no automation trail">Conector sem rastro de automação</h3>
             <p data-en="To manage the WhatsApp agents without the automation trail OpenClaw leaves for Meta, I built my own modular connector: it only runs each bot's pairing and shows the QR, keeping no session of its own, and every connection is independent.">Para administrar os agentes de WhatsApp sem o rastro de automação que o OpenClaw deixa para a Meta, construí um conector próprio e modular: ele só executa o pareamento de cada bot e mostra o QR, sem manter sessão própria, e cada conexão é independente.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="Adding a bot means editing a file, with 40 automated tests and the service listening only on loopback, with a token.">Adicionar um bot é editar um arquivo, com 40 testes automatizados e o serviço escutando só em loopback, com token.</dd></dl>
           </article>
-          <article class="ch">
+          <article class="ch" data-reveal>
             <h3 data-en="Data that matches the portals (F5)">Dados que batem com os portais (F5)</h3>
             <p data-en="In after-sales, the dashboard's first call took 73.7 s and it showed data diverging between portals, dashboard, and CRM. A thread that builds the data outside the request, with a ready response, ETag, and 304, plus continuous reconciliation every 10 minutes solved both problems.">No pós-venda, a primeira chamada do painel levava 73,7 s e ele mostrava dados divergentes entre portais, painel e CRM. Uma thread que monta os dados fora da requisição, com resposta pronta, ETag e 304, e uma conferência contínua a cada 10 minutos resolveram os dois problemas.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="First call from 73.7 s to 0.08 s and 0 discrepancies across 1,960 items checked against the portals.">Primeira chamada de 73,7 s para 0,08 s e 0 divergências em 1.960 itens conferidos com os portais.</dd></dl>
@@ -564,7 +603,7 @@
 
 
     <section id="formacao" class="section wrap" aria-labelledby="ed-t">
-      <div class="grid sec-head">
+      <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="ed-t" data-en="Education and courses">Formação e cursos</h2>
         <p class="sec-note" data-en="Academic education, completed courses, courses in progress and planned certifications.">Formação acadêmica, cursos concluídos, cursos em andamento e certificações planejadas.</p>
       </div>
@@ -631,6 +670,7 @@
   </main>
 
   <footer class="site-footer wrap">
+    <p class="footer-word" aria-hidden="true" data-word="Jonas Augusto"></p>
     <div class="footer-line">
       <span data-en="© 2026 Jonas Augusto · Software Engineer">© 2026 Jonas Augusto · Engenheiro de Software</span>
       <nav aria-label="Rodapé" data-en-aria="Footer">
