@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-base="">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title data-en="Jonas Augusto | Backend Developer · Automation &amp; AI Agents">Jonas Augusto | Desenvolvedor Backend · Automação &amp; Agentes de IA</title>
-  <meta name="description" content="Jonas Augusto, desenvolvedor backend e fundador da Augustus AI Solutions: agentes de IA e automações no WhatsApp, apps internos e sistemas web B2B em produção." data-en-content="Jonas Augusto, backend developer and founder of Augustus AI Solutions: AI agents and WhatsApp automations, internal apps and B2B web systems in production.">
+  <title data-en="Jonas Augusto | Software Engineer · Python Backend, Automation &amp; AI">Jonas Augusto | Engenheiro de Software · Backend Python, Automação &amp; IA</title>
+  <meta name="description" content="Jonas Augusto, engenheiro de software (formação em dez/2026). Construo e opero APIs, automações e integrações de IA em produção, com backend em Python." data-en-content="Jonas Augusto, software engineer (graduating Dec 2026). I build and run APIs, automations and AI integrations in production, with a Python backend.">
   <meta name="theme-color" content="#0b0b0b">
+  <link rel="canonical" href="https://jonasaaugusto.github.io/" data-en-href="https://jonasaaugusto.github.io/en/">
+  <link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/">
+  <link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/">
+  <link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/">
 
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3">
   <link rel="icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Jonas Augusto | Desenvolvedor Backend · Automação & Agentes de IA">
-  <meta property="og:description" content="Agentes de IA e automações no WhatsApp, apps internos e sistemas web B2B em produção.">
+  <meta property="og:locale" content="pt_BR" data-en-content="en_US">
+  <meta property="og:site_name" content="Jonas Augusto">
+  <meta property="og:title" content="Jonas Augusto | Engenheiro de Software · Backend Python" data-en-content="Jonas Augusto | Software Engineer · Python Backend">
+  <meta property="og:description" content="APIs, automações e integrações de IA em produção, com backend em Python." data-en-content="APIs, automations and AI integrations in production, with a Python backend.">
   <meta property="og:image" content="https://jonasaaugusto.github.io/assets/img/og-image.png?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://jonasaaugusto.github.io/">
+  <meta property="og:url" content="https://jonasaaugusto.github.io/" data-en-content="https://jonasaaugusto.github.io/en/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://jonasaaugusto.github.io/assets/img/og-image.png?v=2">
 
@@ -29,7 +35,6 @@
       if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       d.setAttribute('data-theme', t);
       d.classList.add('js');
-      try { if (localStorage.getItem('preferredLang') === 'en') d.lang = 'en'; } catch (e) {}
     })();
   </script>
 
@@ -50,7 +55,6 @@
   </svg>
 
   <a href="#conteudo" class="skip-link" data-en="Skip to content">Ir para o conteúdo</a>
-  <div class="progress" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="wrap header-in">
@@ -59,15 +63,15 @@
         <span class="brand-name">Jonas Augusto</span>
       </a>
       <nav class="nav" aria-label="Principal" data-en-aria="Main">
-        <a href="#projetos" data-en="Work">Projetos</a>
-        <a href="#experiencia" data-en="Experience">Experiência</a>
-        <a href="#desafios" data-en="Challenges">Desafios</a>
+        <a href="#projetos" data-en="Projects">Projetos</a>
         <a href="#stack">Stack</a>
+        <a href="#ia-trabalho" data-en="AI">IA</a>
+        <a href="#experiencia" data-en="Experience">Experiência</a>
         <a href="#contato" data-en="Contact">Contato</a>
       </nav>
       <div class="controls">
-        <button type="button" class="ctrl cv-btn" data-open="cv" data-en="CV">CV</button>
-        <button type="button" class="ctrl" id="lang-btn" aria-label="Mudar idioma para inglês" data-en-aria="Switch language to Portuguese"><span id="lang-label">EN</span></button>
+        <a class="ctrl cv-btn" href="cv.html" data-cv-page data-en-href="../cv.en.html" data-open="cv" data-en="CV">CV</a>
+        <a class="ctrl" id="lang-btn" href="en/" hreflang="en" lang="en" data-en-href="../" data-en-hreflang="pt-BR" data-en-lang="pt-BR" aria-label="Mudar idioma para inglês (English)" data-en-aria="Switch language to Portuguese (Português)"><span id="lang-label" data-en="PT">EN</span></a>
         <button type="button" class="ctrl" id="theme-btn" aria-label="Alternar tema claro e escuro" data-en-aria="Toggle light and dark theme">
           <svg class="theme-moon" aria-hidden="true"><use href="#i-moon"/></svg>
           <svg class="theme-sun" aria-hidden="true"><use href="#i-sun"/></svg>
@@ -81,283 +85,360 @@
   </header>
 
   <nav id="mobile-menu" class="mobile-menu" aria-label="Menu" hidden>
-    <a href="#sobre"><b data-en="About">Sobre</b></a>
-    <a href="#projetos"><b data-en="Work">Projetos</b></a>
-    <a href="#experiencia"><b data-en="Experience">Experiência</b></a>
-    <a href="#desafios"><b data-en="Challenges">Desafios</b></a>
+    <a href="#projetos"><b data-en="Projects">Projetos</b></a>
     <a href="#stack"><b>Stack</b></a>
+    <a href="#ia-trabalho"><b data-en="AI">IA</b></a>
+    <a href="#experiencia"><b data-en="Experience">Experiência</b></a>
     <a href="#formacao"><b data-en="Education">Formação e cursos</b></a>
     <a href="#contato"><b data-en="Contact">Contato</b></a>
-    <a href="#" data-open="cv"><b data-en="Open CV">Abrir CV</b><span>PDF</span></a>
+    <a href="cv.html" data-cv-page data-en-href="../cv.en.html" data-open="cv"><b data-en="Open resume">Abrir currículo</b><span>PDF</span></a>
   </nav>
+
 
   <main id="conteudo">
 
-    <!-- HERO -->
-    <section id="inicio" class="hero wrap" aria-labelledby="hero-title">
-      <p class="status" data-r style="--i:0"><span class="dot" aria-hidden="true"></span><span data-en="Open to technical challenges and high-impact projects">Aberto a desafios técnicos e projetos de alto impacto</span></p>
-      <h1 class="hero-name" id="hero-title">
-        <span class="line"><span>Jonas</span></span>
-        <span class="line"><span>Augusto</span></span>
-      </h1>
-      <div class="grid hero-foot">
-        <div class="hero-lead">
-          <p data-r style="--i:1" data-en="From prototype to production service: AI agents, APIs and automations that keep working after delivery.">Do protótipo ao serviço em produção: agentes de IA, APIs e automações que continuam funcionando depois da entrega.</p>
-          <div class="hero-actions" data-r style="--i:2">
-            <a href="#contato" class="btn"><span data-en="Get in touch">Fale comigo</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></a>
-            <button type="button" class="btn ghost" data-open="cv"><span data-en="Open CV">Abrir CV</span></button>
-            <a href="https://github.com/JonasaAugusto" target="_blank" rel="noopener" class="btn ghost">GitHub<svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+
+    <!-- TOPO: tudo o que um recrutador precisa nos primeiros segundos -->
+    <section id="inicio" class="top wrap" aria-labelledby="hero-title">
+      <div class="top-main">
+        <div class="top-id">
+          <p class="status"><span class="dot" aria-hidden="true"></span><span data-en="Open to a first software engineering job">Aberto ao primeiro emprego como engenheiro de software</span></p>
+          <h1 class="top-name" id="hero-title">Jonas Augusto</h1>
+          <p class="top-lead" data-en="Software engineer, graduating in Dec 2026. I build and run APIs, automations and AI integrations in production, with a Python backend.">Engenheiro de software, formação em dez/2026. Construo e opero APIs, automações e integrações de IA em produção, com backend em Python.</p>
+          <div class="top-actions">
+            <a class="btn" href="mailto:jonasaugustosantosoliveira@gmail.com"><span data-en="Email">E-mail</span></a>
+            <a class="btn ghost" href="https://github.com/JonasaAugusto" target="_blank" rel="noopener"><span>GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/jonasaaugusto" target="_blank" rel="noopener"><span>LinkedIn</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            <a class="btn ghost" href="cv.html" data-cv-page data-en-href="../cv.en.html" data-open="cv"><span data-en="Resume">Currículo</span></a>
           </div>
         </div>
-        <dl class="hero-facts" data-r style="--i:3">
-          <dt data-en="Now">Agora</dt><dd data-en="Founder, Augustus AI Solutions">Fundador, Augustus AI Solutions</dd>
-          <dt data-en="Internship">Estágio</dt><dd data-en="Development and automation, F5 Tecnologia">Desenvolvimento e automação, F5 Tecnologia</dd>
-          <dt data-en="Focus">Foco</dt><dd data-en="Backend, automation and AI agents">Backend, automação e agentes de IA</dd>
-          <dt data-en="Based in">Base</dt><dd data-en="Juiz de Fora, MG · Remote">Juiz de Fora, MG · Remoto</dd>
-          <dt data-en="Local time">Hora local</dt><dd><time id="local-time" class="mono">--:--</time> <span data-en="in Juiz de Fora (UTC−3)">em Juiz de Fora (UTC−3)</span></dd>
-        </dl>
+
+        <section class="top-nums" aria-labelledby="top-n-t">
+          <h2 class="vh" id="top-n-t" data-en="Measured results, before and after">Resultados medidos, antes e depois</h2>
+          <ul class="nums">
+            <li>
+              <p class="n"><span class="vh" data-en="73.7 seconds to 0.08 seconds">73,7 segundos para 0,08 segundo</span><span aria-hidden="true"><span class="from" data-en="73.7 s">73,7 s</span><span class="arr">→</span><span data-en="0.08 s">0,08 s</span></span></p>
+              <p class="n-what" data-en-html="&lt;strong&gt;First call of the CRM dashboard.&lt;/strong&gt; Internship at F5 Tecnologia, measured in production on 10/15/2026."><strong>Primeira chamada do painel CRM.</strong> Estágio na F5 Tecnologia, medido em produção em 15/10/2026.</p>
+              <a class="link n-src" href="#proj-f5" data-open="f5" data-anchor="#f5-caso-plataforma" data-en="See the measurement in the case study">Ver a medição no estudo de caso</a>
+            </li>
+            <li>
+              <p class="n"><span class="vh" data-en="35 hours to 2.25 hours">35 horas para 2,25 horas</span><span aria-hidden="true"><span class="from" data-en="35 h">35 h</span><span class="arr">→</span><span data-en="2.25 h">2,25 h</span></span></p>
+              <p class="n-what" data-en-html="&lt;strong&gt;Monthly RPA downtime.&lt;/strong&gt; Internship at NEURODEV, after refactoring the Python code with Docker."><strong>Downtime mensal do RPA.</strong> Estágio na NEURODEV, depois de refatorar o código em Python com Docker.</p>
+              <a class="link n-src" href="#exp-neurodev" data-en="See in experience (no case study)">Ver na experiência (sem estudo de caso)</a>
+            </li>
+            <li>
+              <p class="n"><span class="vh" data-en="43% to about 89%">43% para cerca de 89%</span><span aria-hidden="true"><span class="from">43%</span><span class="arr">→</span><span>~89%</span></span></p>
+              <p class="n-what" data-en-html="&lt;strong&gt;Registrations that become a proposal, per attempt.&lt;/strong&gt; Automated WhatsApp sales, F5 Tecnologia. It had dropped as low as 29%."><strong>Cadastros que viram proposta, por tentativa.</strong> Venda automatizada no WhatsApp, F5 Tecnologia. Chegou a cair para 29%.</p>
+              <a class="link n-src" href="#proj-f5" data-open="f5" data-anchor="#f5-caso-cadastro" data-en="See the diagnosis in the case study">Ver o diagnóstico no estudo de caso</a>
+            </li>
+          </ul>
+        </section>
       </div>
+
+      <section class="top-proj" aria-labelledby="top-p-t">
+        <h2 class="vh" id="top-p-t" data-en="Featured projects, overview">Projetos em destaque, resumo</h2>
+        <ul class="pcards">
+          <li>
+            <a class="pcard" href="#proj-iaprovale">
+              <h3>IAprovale</h3>
+              <p data-en="Public-exam and job finder, in production. Python and FastAPI backend.">Buscador de concursos públicos e vagas, em produção. Backend em Python e FastAPI.</p>
+              <span class="pcard-meta">Python · FastAPI · PostgreSQL</span>
+            </a>
+          </li>
+          <li>
+            <a class="pcard" href="#proj-orquestrador">
+              <h3>AI Agents Orchestrator</h3>
+              <p data-en="Open source: relay between Claude Code and Codex CLI when one hits its usage limit.">Open source: revezamento entre Claude Code e Codex CLI quando um bate o limite de uso.</p>
+              <span class="pcard-meta" data-en-html="Python · SQLite · 560 tests">Python · SQLite · 560 testes</span>
+            </a>
+          </li>
+          <li>
+            <a class="pcard" href="#proj-f5">
+              <h3>F5 Tecnologia</h3>
+              <p data-en="WhatsApp agents, partner integrations and an operations dashboard, in my current internship.">Agentes de WhatsApp, integrações com parceiros e painel de operação, no estágio atual.</p>
+              <span class="pcard-meta">Python · FastAPI · pytest</span>
+            </a>
+          </li>
+        </ul>
+      </section>
     </section>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="section wrap" aria-labelledby="sobre-t">
-      <div class="grid sec-head" data-reveal>
-        <h2 class="sec-title" id="sobre-t" data-en="About">Sobre</h2>
-        <p class="sec-note" data-en="A little over 1 year of professional experience as an intern and freelancer.">Pouco mais de 1 ano de experiência profissional em estágio e freelancer.</p>
-      </div>
-      <div class="grid" data-reveal>
-        <dl class="about-facts" style="--i:1">
-          <div><dt data-en="Company">Empresa</dt><dd>Augustus AI Solutions</dd></div>
-          <div><dt data-en="Degree">Formação</dt><dd data-en="Software Engineering, 9.3 GPA">Engenharia de Software, CR 9,3</dd></div>
-          <div><dt data-en="Graduating">Formatura</dt><dd data-en="Dec 2026">Dez 2026</dd></div>
-          <div><dt data-en="Languages">Idiomas</dt><dd data-en="Portuguese (native), English C1">Português (nativo), inglês C1</dd></div>
-        </dl>
-        <div class="about-body" style="--i:2">
-          <p data-en="I'm Jonas Augusto, founder of Augustus AI Solutions, with a little over 1 year of professional experience as an intern and freelancer. I design, implement and run in production AI agents integrated with language models (DeepSeek, OpenAI, Groq, Mistral), APIs in Python (FastAPI, SQLModel, pytest) and Node.js, and WhatsApp automations, plus internal apps and B2B web systems. Deployment is on a Linux VPS with systemd and Caddy, with backups and anti-block limits on the bots.">Sou Jonas Augusto, fundador da Augustus AI Solutions, com pouco mais de 1 ano de experiência profissional em estágio e freelancer. Projeto, implemento e opero em produção agentes de IA integrados a modelos de linguagem (DeepSeek, OpenAI, Groq, Mistral), APIs em Python (FastAPI, SQLModel, pytest) e Node.js e automações no WhatsApp, além de aplicativos internos e sistemas web B2B. O deploy é em VPS Linux com systemd e Caddy, com backups e limites anti-bloqueio nos bots.</p>
-          <p data-en="As a developer, I value shipping to production, low running costs, documentation, and tests that protect what already works. I prefer to own the infrastructure (own VPS, monitored services, backups) so I can deliver and sustain what I build end to end. Software Engineering (9.3 GPA, graduating Dec 2026).">Como desenvolvedor, valorizo produto em produção, custo baixo de operação, documentação e testes que protegem o que já funciona. Prefiro ter autonomia sobre a infraestrutura (VPS própria, serviços monitorados, backup) para entregar e sustentar o que construo de ponta a ponta. Engenharia de Software (CR 9,3, formatura dez 2026).</p>
-        </div>
-      </div>
-    </section>
 
-    <!-- NÚMEROS -->
-    <section id="numeros" class="section wrap" aria-labelledby="num-t">
-      <div class="grid sec-head" data-reveal>
-        <h2 class="sec-title" id="num-t" data-en="Measured, not guessed">Medido, não suposto</h2>
-        <p class="sec-note" data-en="Results from production systems, measured before and after each change.">Resultados de sistemas em produção, medidos antes e depois de cada mudança.</p>
-      </div>
-      <div class="figures">
-        <div class="figure" data-reveal-one>
-          <p class="figure-n" aria-label="73,7 s para 0,08 s" data-en-aria="73.7 s to 0.08 s"><span class="from" data-en="73.7 s">73,7 s</span><span class="to-arrow" aria-hidden="true">→</span><span data-count="0.08" data-dec="2" data-unit=" s">0,08 s</span></p>
-          <div class="figure-bar" aria-hidden="true"><i style="--v:.02"></i></div>
-          <p data-en-html="&lt;strong&gt;CRM dashboard first call&lt;/strong&gt;, with a background build, ETag and 304 (F5 Tecnologia)."><strong>Primeira chamada do painel CRM</strong>, com montagem em segundo plano, ETag e 304 (F5 Tecnologia).</p>
-        </div>
-        <div class="figure" data-reveal-one>
-          <p class="figure-n"><span data-count="170" data-unit="+">170+</span></p>
-          <div class="figure-bar" aria-hidden="true"><i style="--v:1"></i></div>
-          <p data-en-html="&lt;strong&gt;Customers unblocked&lt;/strong&gt; after fixing critical failures in OCR, supplier identification and eligibility rules (F5)."><strong>Clientes destravados</strong> depois da correção de falhas críticas de OCR, fornecedor e regras de elegibilidade (F5).</p>
-        </div>
-        <div class="figure" data-reveal-one>
-          <p class="figure-n"><span data-count="0">0</span><span class="from"> / 1.960</span></p>
-          <div class="figure-bar" aria-hidden="true"><i style="--v:0"></i></div>
-          <p data-en-html="&lt;strong&gt;Discrepancies&lt;/strong&gt; across 1,960 items reconciled with the portals every 10 minutes (F5)."><strong>Divergências</strong> em 1.960 itens conferidos com os portais a cada 10 minutos (F5).</p>
-        </div>
-        <div class="figure" data-reveal-one>
-          <p class="figure-n" aria-label="15 minutos para 27 segundos" data-en-aria="15 minutes to 27 seconds"><span class="from">15 min</span><span class="to-arrow" aria-hidden="true">→</span><span data-count="27" data-unit=" s">27 s</span></p>
-          <div class="figure-bar" aria-hidden="true"><i style="--v:.03"></i></div>
-          <p data-en-html="&lt;strong&gt;OpenAI API pipeline latency&lt;/strong&gt;, 97% lower with prompt engineering and caching (NEURODEV)."><strong>Latência do pipeline com OpenAI API</strong>, 97% menor com engenharia de prompt e cache (NEURODEV).</p>
-        </div>
-        <div class="figure" data-reveal-one>
-          <p class="figure-n" aria-label="35 horas para 2,25 horas" data-en-aria="35 hours to 2.25 hours"><span class="from">35 h</span><span class="to-arrow" aria-hidden="true">→</span><span data-count="2.25" data-dec="2" data-unit=" h">2,25 h</span></p>
-          <div class="figure-bar" aria-hidden="true"><i style="--v:.065"></i></div>
-          <p data-en-html="&lt;strong&gt;Monthly RPA downtime&lt;/strong&gt;, 93.5% lower after refactoring with Docker (NEURODEV)."><strong>Downtime mensal do RPA</strong>, 93,5% menor depois da refatoração com Docker (NEURODEV).</p>
-        </div>
-        <div class="figure" data-reveal-one>
-          <p class="figure-n" aria-label="96% para 100%" data-en-aria="96% to 100%"><span class="from">96%</span><span class="to-arrow" aria-hidden="true">→</span><span data-count="100" data-unit="%">100%</span></p>
-          <div class="figure-bar" aria-hidden="true"><i style="--v:1"></i></div>
-          <p data-en-html="&lt;strong&gt;Related entries&lt;/strong&gt; in a 100-question battery with a real LLM, after the search fixes (Raízes &amp;amp; Escamas)."><strong>Fichas relacionadas</strong> na bateria de 100 perguntas com LLM real, depois das correções na busca (Raízes &amp; Escamas).</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJETOS -->
+    <!-- PROJETOS EM DESTAQUE -->
     <section id="projetos" class="section wrap" aria-labelledby="proj-t">
-      <div class="grid sec-head" data-reveal>
-        <h2 class="sec-title" id="proj-t" data-en="Real projects">Projetos reais</h2>
-        <p class="sec-note" data-en="Main projects first. Private repositories have no code link; a demo is available on request.">Os principais primeiro. Repositórios privados não têm link de código; a demonstração fica disponível sob pedido.</p>
+      <div class="grid sec-head">
+        <h2 class="sec-title" id="proj-t" data-en="Featured projects">Projetos em destaque</h2>
+        <p class="sec-note" data-en="Each project follows the same order: problem, what I did, what broke, what I would do differently, result and limitation.">Cada projeto segue a mesma ordem: problema, o que fiz, o que quebrou, o que faria diferente, resultado e limitação.</p>
       </div>
 
-      <!-- AUGUSTUSAPP -->
-      <article id="proj-augustusapp" class="grid feature" aria-labelledby="aa-t">
-        <div class="feature-meta" data-reveal>
-          <h3 class="feature-title" id="aa-t" style="--i:0">AugustusApp</h3>
-          <p class="feature-sub" style="--i:1" data-en="Augustus AI Solutions internal app">App interno da Augustus AI Solutions</p>
-          <div class="tags" style="--i:2"><span class="tag solid" data-en="Featured project">Projeto em destaque</span><span class="tag" data-en="Private repository">Repositório privado</span></div>
-          <p class="feature-why" style="--i:3" data-en="Instead of stitching together loose tools, I chose to build an internal app for my own company, with the features that make a difference in day-to-day development and operations: accessing and managing the VPS, transcribing meetings without sending audio to the cloud, controlling the WhatsApp bots, and protecting data with backups.">Em vez de juntar ferramentas soltas, escolhi construir um app interno para a própria empresa, com as funcionalidades que fazem diferença no dia a dia do desenvolvimento e da operação: acessar e administrar a VPS, transcrever reuniões sem enviar áudio para a nuvem, controlar os bots de WhatsApp e proteger os dados com backup.</p>
-          <div class="tags" style="--i:4"><span class="tag">.NET 10</span><span class="tag">MAUI</span><span class="tag">C#</span><span class="tag">CommunityToolkit.Mvvm</span><span class="tag">Python</span><span class="tag">WhisperX</span><span class="tag">pyannote</span><span class="tag">Ollama</span><span class="tag">SSH.NET</span><span class="tag">xterm.js</span><span class="tag">restic</span><span class="tag">Backblaze B2</span><span class="tag">systemd</span></div>
-          <p class="row-static" style="--i:5" data-en="Private project">Projeto privado</p>
-        </div>
-        <figure class="feature-shot shot" data-reveal-one aria-label="Fragmento de interface ilustrando o AugustusApp" data-en-aria="Interface fragment illustrating AugustusApp">
-          <div class="ui ui-drift" data-ui>
-            <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span class="ui-tabs"><b data-en="Terminal">Terminal</b><span>Clara</span><span>Bots</span><span>Backup</span></span><span style="margin-left:auto">RTT 221 ms</span></div>
-            <div class="ui-split">
-              <div class="ui-term">
-                <div class="ui-h">vps-eu · tmux</div>
-                <span><span class="k">$</span> systemctl is-active raizes-bot</span>
-                <span class="ok">active</span>
-                <span><span class="k">$</span> restic snapshots --latest 1</span>
-                <span>a1f3c9e2  2026-10-24 03:00  /srv</span>
-                <span><span class="k">$</span> journalctl -u raizes-bot -n 1</span>
-                <span class="k">restarts=0 · conexão aberta</span>
-              </div>
-              <div>
-                <div class="ui-h" data-en="Clara · meeting transcription">Clara · transcrição da reunião</div>
-                <span class="ui-line"><span class="y">S1</span> 00:12  Vamos fechar o escopo hoje.</span>
-                <span class="ui-line"><span class="y">S2</span> 00:17  Mando o briefing depois.</span>
-                <span class="ui-line"><span class="y">S1</span> 00:21  Perfeito, combinado.</span>
-                <span class="ui-line k">large-v3 · diarização · pt</span>
-                <span class="ui-line k">GPU 8 GB · um dono por vez</span>
-              </div>
-            </div>
+      <article id="proj-iaprovale" class="proj" aria-labelledby="ia-t">
+        <header class="proj-head">
+          <div>
+            <h3 class="proj-title" id="ia-t">IAprovale</h3>
+            <p class="proj-sub" data-en="Public-exam and job finder · in production">Buscador de concursos públicos e vagas · em produção</p>
           </div>
-        </figure>
-        <div class="feature-cols" data-reveal>
-          <div style="--i:0">
-            <h4 data-en="How it works">Como funciona</h4>
-            <p data-en="Desktop app in .NET 10 MAUI (Windows) with MVVM, handling the UI and orchestration. Heavy work runs in local Python services (HTTP/WebSocket on 127.0.0.1), tied to a Windows Job Object so they die with the app. The VPS is reached through an SSH tunnel, and nothing but SSH is exposed on it.">App desktop em .NET 10 MAUI (Windows) com MVVM, que cuida da interface e da orquestração. O trabalho pesado roda em serviços Python locais (HTTP/WebSocket em 127.0.0.1), presos a um Job Object do Windows para morrerem junto com o app. A VPS é acessada por túnel SSH, e nada além do SSH fica exposto nela.</p>
+          <div class="proj-links">
+            <button type="button" class="btn sm" data-open="ia"><span data-en="Case study">Estudo de caso</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
+            <a href="https://augustusai.com.br/iaprovale/" target="_blank" rel="noopener" class="btn sm ghost"><span data-en="Live site">Site no ar</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+            <a href="https://github.com/JonasaAugusto/iaprovaledocs" target="_blank" rel="noopener" class="btn sm ghost"><span data-en="Public docs">Documentação pública</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
           </div>
-          <div style="--i:1" class="checks-wrap">
-            <h4 data-en="Features">Funcionalidades</h4>
-            <ul class="checks">
-              <li data-en="Built-in VPS SSH terminal (xterm.js and tmux), with project shortcuts">Terminal SSH interno da VPS (xterm.js e tmux), com atalhos de projetos</li>
-              <li data-en="100% local meeting transcription: WhisperX large-v3 with diarization, summary and next-meeting briefing with a local LLM, no API cost">Transcrição de reuniões 100% local: WhisperX large-v3 com diarização, resumo e briefing da próxima reunião com LLM local, sem custo de API</li>
-              <li data-en="Modular WhatsApp connector to connect and disconnect bots via QR">Conector de WhatsApp modular para conectar e desconectar bots por QR</li>
-              <li data-en="Bot management on the VPS: start, stop, and pair from the app">Gestão dos bots na VPS: ligar, desligar e parear pelo app</li>
-              <li data-en="VPS backup administration (restic to Backblaze B2): list, run now, and restore by date">Administração de backup da VPS (restic para Backblaze B2): listar, fazer agora e recuperar por data</li>
-              <li data-en="Meeting history with time, VRAM, and energy metrics">Histórico de reuniões com métricas de tempo, VRAM e energia</li>
-              <li data-en="8 GB GPU: transcription and LLM never run at the same time">GPU de 8 GB: transcrição e LLM nunca ao mesmo tempo</li>
-              <li data-en="Versioned releases: semver, tests, tag, and CHANGELOG on every release">Publicação versionada: semver, testes, tag e CHANGELOG a cada release</li>
-            </ul>
-          </div>
-        </div>
+        </header>
+        <dl class="proj-dl">
+          <div><dt data-en="Problem">Problema</dt><dd data-en="Public-exam candidates need to find an open notice that fits their education, and the information is scattered across many sites. Finding it is not enough: registration and exam dates pass.">Quem estuda para concurso precisa achar um edital aberto que combine com a formação, e a informação está espalhada em muitos sites. Achar não basta: inscrições e provas têm data.</dd></div>
+          <div><dt data-en="What I did">O que eu fiz</dt><dd data-en="I build and maintain the product. A Python backend (FastAPI, PostgreSQL) with natural-language search filtered by education and state, deadline alerts and a Career area that compares a resume with a position. Plain HTML, CSS and JavaScript on the front end, no CDN.">Construo e mantenho o produto. Backend em Python (FastAPI, PostgreSQL) com busca em linguagem natural filtrada por formação e estado, alertas de prazo e uma área de Carreira que compara currículo e cargo. Front-end em HTML, CSS e JavaScript puros, sem CDN.</dd></div>
+          <div><dt data-en="What broke and how I fixed it">O que quebrou e como resolvi</dt><dd data-en="The automated accessibility suite found real bugs: clipped labels at 390 px, a hidden alert that was never announced, and focus landing outside a dialog. In the AI extraction, the model sometimes returned an empty answer because its reasoning used up the output limit; I turned reasoning off and left a single retry, with the validation error handed back to the model.">A suíte automatizada de acessibilidade achou bugs reais: rótulos cortados em 390 px, um alerta oculto que nunca era anunciado e foco caindo fora de um diálogo. Na extração com IA, o modelo às vezes devolvia resposta vazia porque o raciocínio consumia o limite de saída; desliguei o modo de raciocínio e deixei uma única nova tentativa, com o erro de validação devolvido ao modelo.</dd></div>
+          <div><dt data-en="What I would do differently">O que faria diferente</dt><dd data-en="I would have the specific consent for the Career area ready at launch. Today it is planned and under legal review.">Teria o consentimento específico da área de Carreira pronto no lançamento. Hoje ele está planejado e em validação jurídica.</dd></div>
+          <div><dt data-en="Result">Resultado</dt><dd data-en="In production. 614/614 checks in the automated accessibility suite, about 200 automated tests and end-to-end tests with Playwright at 1280, 390 and 320 px, in light and dark themes. There is no before-and-after metric.">Em produção. 614/614 verificações na suíte automatizada de acessibilidade, cerca de 200 testes automatizados e testes ponta a ponta com Playwright em 1280, 390 e 320 px, nos temas claro e escuro. Não há métrica de antes e depois.</dd></div>
+          <div><dt data-en="Limitation">Limitação</dt><dd data-en="The product has no published usage numbers. Automated accessibility checks do not prove conformance. Part of the latest changes appears as unpublished in the changelog (3.13.0). The use of AI is described in the section below, including what is still missing.">O produto não tem números de uso publicados. Verificação automática de acessibilidade não prova conformidade. Parte das mudanças mais recentes consta como não publicada no changelog (3.13.0). O uso de IA está descrito na seção abaixo, com o que ainda falta.</dd></div>
+        </dl>
       </article>
 
-      <!-- IAPROVALE -->
-      <article class="grid feature" aria-labelledby="ia-t">
-        <div class="feature-meta" data-reveal>
-          <h3 class="feature-title" id="ia-t" style="--i:0">IAprovale</h3>
-          <p class="feature-sub" style="--i:1">Concurso Finder</p>
-          <div class="tags" style="--i:2"><span class="tag solid" data-en="Featured project">Projeto em destaque</span><span class="tag live" data-en="Live deploy">Live deploy</span></div>
-          <p class="feature-why" style="--i:3" data-en="AI-powered public-exam finder. Users describe what they want in natural language (e.g., a health-sector exam for a nursing graduate) and the system automatically filters only open exams compatible with their education.">Buscador de concursos públicos com IA. O usuário descreve em linguagem natural o que procura (ex: concurso na área de saúde com graduação em enfermagem) e o sistema filtra automaticamente apenas os concursos com inscrições abertas compatíveis com a formação.</p>
-          <div class="tags" style="--i:4"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">DeepSeek</span><span class="tag">MCP</span><span class="tag">SQLModel</span><span class="tag">PostgreSQL</span><span class="tag">PySide6</span><span class="tag">Playwright</span><span class="tag">Caddy</span></div>
-          <div class="feature-links" style="--i:5">
-            <button type="button" class="btn sm ghost" data-open="ia"><span data-en="View case study">Ver estudo de caso</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
-            <a href="https://augustusai.com.br/iaprovale/" target="_blank" rel="noopener" class="btn sm"><span data-en="Home page">Home page</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+      <article id="proj-orquestrador" class="proj" aria-labelledby="orq-h">
+        <header class="proj-head">
+          <div>
+            <h3 class="proj-title" id="orq-h">AI Agents Orchestrator</h3>
+            <p class="proj-sub" data-en="Personal open-source project · version 1.4.0">Projeto pessoal open source · versão 1.4.0</p>
           </div>
-        </div>
-        <figure class="feature-shot shot" data-reveal-one aria-label="Fragmento de interface ilustrando a busca do IAprovale" data-en-aria="Interface fragment illustrating the IAprovale search">
-          <div class="ui ui-drift" data-ui>
-            <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>iaprovale · busca</span><span style="margin-left:auto">DeepSeek → MCP</span></div>
-            <div class="ui-input">concurso na área de saúde com graduação em enfermagem<span class="caret"></span></div>
-            <div class="ui-result"><span>Enfermeiro · Prefeitura Municipal</span><small>saúde · superior · inscrições abertas</small><em>aberto</em></div>
-            <div class="ui-result"><span>Enfermeiro Plantonista · Hospital Regional</span><small>saúde · superior · inscrições abertas</small><em>aberto</em></div>
-            <div class="ui-result"><span>Técnico em Enfermagem · Consórcio de Saúde</span><small>saúde · técnico · inscrições abertas</small><em>aberto</em></div>
+          <div class="proj-links">
+            <button type="button" class="btn sm" data-open="orq"><span data-en="Case study">Estudo de caso</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
+            <a href="https://github.com/JonasaAugusto/ai-agents-orchestrator" target="_blank" rel="noopener" class="btn sm ghost"><span>GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
           </div>
-        </figure>
-        <div class="feature-cols" data-reveal>
-          <div style="--i:0">
-            <h4 data-en="How it works">Como funciona</h4>
-            <p data-en="Async FastAPI backend that translates the query with AI (DeepSeek) and uses an MCP server integrated with an AI agent to research each exam and its relevant details (openings, dates, fees and positions), delivering the direct link to the registration portal. Persistence with SQLModel and PostgreSQL, session auth and user administration. Desktop (PySide6) and web clients, deployed on a VPS behind Caddy.">Backend assíncrono em FastAPI que traduz a busca com IA (DeepSeek) e usa um servidor MCP integrado a um agente de IA para pesquisar cada concurso e as informações relevantes de cada um (vagas, datas, taxas e cargos), entregando o link direto do portal de inscrição. Persistência com SQLModel e PostgreSQL, autenticação por sessão e administração de usuários. Clientes desktop (PySide6) e web, com deploy em VPS atrás do Caddy.</p>
-          </div>
-          <div style="--i:1">
-            <h4 data-en="Engineering highlights">Destaques de engenharia</h4>
-            <ul class="checks">
-              <li data-en="Modular architecture (auth, profile, search, cep, core)">Arquitetura modular (auth, profile, search, cep, core)</li>
-              <li data-en="~200 automated tests">~200 testes automatizados</li>
-              <li data-en="E2E suite with Playwright against the real backend">Suíte E2E com Playwright contra o backend real</li>
-              <li data-en="Local PDF export and natural-language search">Exportação de PDF local e busca em linguagem natural</li>
-            </ul>
-          </div>
-        </div>
+        </header>
+        <dl class="proj-dl">
+          <div><dt data-en="Problem">Problema</dt><dd data-en="Anyone using Claude Code and Codex CLI on paid subscriptions hits one limit in the middle of the work, and the task stops. The two do not talk to each other, and context is lost in the switch.">Quem usa o Claude Code e o Codex CLI em assinaturas pagas bate o limite de um deles no meio do trabalho, e a tarefa para. Os dois não conversam, e o contexto se perde na troca.</dd></div>
+          <div><dt data-en="What I did">O que eu fiz</dt><dd data-en="A Python orchestrator (SQLite, GitHub Actions) that drives the official CLIs with the user&#x27;s own logins, with no API keys. The queue and reset times live in SQLite, so pending work resumes where it stopped. Usage is measured with counters only, without reading conversations. Publishing requires the human to type the id and the commit SHA.">Orquestrador em Python (SQLite, GitHub Actions) que opera os CLIs oficiais com os logins do próprio usuário, sem chaves de API. A fila e os horários de reset ficam em SQLite, então o trabalho pendente retoma de onde parou. O gasto é medido só com contadores, sem ler conversas. Publicar exige o humano digitar o id e o SHA do commit.</dd></div>
+          <div><dt data-en="What broke and how I fixed it">O que quebrou e como resolvi</dt><dd data-en="The case study does not record a failure in real use, and I will not invent one. The known weak point is Codex&#x27;s limit message, whose format is not documented and may change; that is why detection is tolerant.">O estudo de caso não registra uma falha em uso real, e não vou inventar uma. O ponto frágil conhecido é a mensagem de limite do Codex, cujo formato não é documentado e pode mudar; por isso a detecção é tolerante.</dd></div>
+          <div><dt data-en="What I would do differently">O que faria diferente</dt><dd data-en="I would publish to PyPI and run the full suite on Windows before calling it done. Today installation is straight from GitHub and, on Windows, CI proves only the lite mode.">Publicaria no PyPI e rodaria a suíte completa no Windows antes de chamar de pronto. Hoje a instalação é direto do GitHub e, no Windows, só o modo leve é provado pela CI.</dd></div>
+          <div><dt data-en="Result">Resultado</dt><dd data-en="Version 1.4.0 (tag v1.4.0 on GitHub), 560 tests collected with pytest and CI green on the tag commit, on Linux, macOS and Windows, with Python 3.11 to 3.14. There is no before-and-after metric.">Versão 1.4.0 (tag v1.4.0 no GitHub), 560 testes coletados com pytest e CI verde no commit da tag, em Linux, macOS e Windows, com Python 3.11 a 3.14. Não há métrica de antes e depois.</dd></div>
+          <div><dt data-en="Limitation">Limitação</dt><dd data-en="Lite mode does not isolate the agents from the user&#x27;s account or Git credentials: the confirmation is a workflow safeguard, not a barrier against malicious code. The WhatsApp channel is optional, unofficial and tested only with fakes. Pull request publishing was tested only with a simulated gh.">O modo leve não isola os agentes da conta nem das credenciais Git do usuário: a confirmação é uma salvaguarda de fluxo, não uma barreira contra código malicioso. O canal de WhatsApp é opcional, não oficial e testado só com simulações. O envio de pull request foi testado só com um gh simulado.</dd></div>
+        </dl>
       </article>
 
-      <!-- OUTROS PROJETOS -->
-      <div class="ledger-wrap">
-        <h3 class="ledger-title" data-en="More projects">Mais projetos</h3>
-        <div class="ledger" id="ledger">
-          <article class="row" data-reveal-one>
-            <h4 class="row-name">AI Agents Orchestrator</h4>
-            <p class="row-text" data-en="Open-source orchestrator that makes Claude Code and Codex CLI work as one team on the user's own subscriptions: relay by usage limit with persistent resumption, measured usage, and publishing bound to the commit SHA.">Orquestrador open source que faz o Claude Code e o Codex CLI trabalharem como um time, nas assinaturas do próprio usuário: revezamento por limite com retomada persistente, gasto medido e publicação presa ao SHA do commit.</p>
-            <div class="row-side">
-              <div class="tags"><span class="tag solid" data-en="Open source">Open source</span><span class="tag">Python</span><span class="tag">SQLite</span><span class="tag">GitHub Actions</span></div>
-              <button type="button" class="btn sm ghost" data-open="orq"><span data-en="View case study">Ver estudo de caso</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
-              <a class="row-link link" href="https://github.com/JonasaAugusto/ai-agents-orchestrator" target="_blank" rel="noopener"><span data-en="View on GitHub">Ver no GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
-            </div>
-          </article>
-          <article class="row" data-peek="notame" data-reveal-one>
-            <h4 class="row-name">NotaME</h4>
-            <p class="row-text" data-en="Mobile/desktop app (EIS) for PDF receipt generation, NFS-e issuance, and client management. Offline-first with SQLite and P2P sync on local network with AES-256 encryption.">App mobile/desktop (EIS) para geração de recibos em PDF, emissão de NFS-e e gestão de clientes. Offline-first com SQLite e sincronização P2P em rede local com criptografia AES-256.</p>
-            <div class="row-side">
-              <div class="tags"><span class="tag">.NET MAUI</span><span class="tag">C#</span><span class="tag">SQLite</span><span class="tag">QuestPDF</span><span class="tag">AES-256</span></div>
-              <a class="row-link link" href="https://github.com/JonasaAugusto/NotaME" target="_blank" rel="noopener"><span data-en="View on GitHub">Ver no GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
-            </div>
-          </article>
-          <article class="row" data-peek="conector" data-reveal-one>
-            <h4 class="row-name" data-en="Modular WhatsApp Connector">Conector WhatsApp Modular</h4>
-            <p class="row-text" data-en="Python service that connects and disconnects WhatsApp bots (Baileys) via QR, with live logs and each bot independent, registered in a file editable without recompiling. I chose not to use OpenClaw to administer and manage WhatsApp AI agents because it leaves an automation trail for Meta, so I built my own modular connector, a product Augustus can sell.">Serviço Python que conecta e desconecta bots de WhatsApp (Baileys) por QR, com log ao vivo e cada bot independente, registrados em um arquivo editável sem recompilar. Preferi não usar o OpenClaw para administrar e gerir os agentes de IA no WhatsApp porque ele gera rastro de automação para a Meta, e construí o meu próprio conector modular, um produto que a Augustus pode vender.</p>
-            <div class="row-side">
-              <div class="tags"><span class="tag solid" data-en="B2B Product">Produto B2B</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">WebSocket</span><span class="tag">Baileys</span><span class="tag">PyInstaller</span><span class="tag">pytest</span></div>
-              <span class="row-static" data-en="Private code · demo on request">Código privado · demonstração sob pedido</span>
-            </div>
-          </article>
-          <article class="row" data-peek="fabula" data-reveal-one>
-            <h4 class="row-name">Fabula Coop</h4>
-            <p class="row-text" data-en="Cooperative, dynamic text RPG with no turns, where the campaign master is an AI that narrates and reacts to player actions in real time.">RPG de texto cooperativo e dinâmico, sem turnos, onde o mestre da campanha é uma IA que narra e reage às ações dos jogadores em tempo real.</p>
-            <div class="row-side">
-              <div class="tags"><span class="tag">Python</span><span class="tag">LLM Agent</span><span class="tag">Realtime</span><span class="tag">Multiplayer</span></div>
-              <a class="row-link link" href="https://github.com/JonasaAugusto/FabulaCoop" target="_blank" rel="noopener"><span data-en="View on GitHub">Ver no GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
-            </div>
-          </article>
-        </div>
+      <article id="proj-f5" class="proj" aria-labelledby="f5-h">
+        <header class="proj-head">
+          <div>
+            <h3 class="proj-title" id="f5-h">F5 Tecnologia</h3>
+            <p class="proj-sub" data-en="Current internship since May 2026 · company code and data, no public repository">Estágio atual desde maio de 2026 · código e dados da empresa, sem repositório público</p>
+          </div>
+          <div class="proj-links">
+            <button type="button" class="btn sm" data-open="f5"><span data-en="Case study">Estudo de caso</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
+          </div>
+        </header>
+        <dl class="proj-dl">
+          <div><dt data-en="Problem">Problema</dt><dd data-en="Free-form AI service was unpredictable and hard to audit. The automated registration stopped for many customers: the share of registrations that became a proposal was 43% and dropped to 29%. The after-sales dashboard took 73.7 s on the first call and showed diverging data.">Atendimento por IA livre era imprevisível e difícil de auditar. O cadastro automático parava com vários clientes: a taxa de cadastros que viravam proposta estava em 43% e chegou a 29%. O painel de pós-venda levava 73,7 s na primeira chamada e mostrava dados divergentes.</dd></div>
+          <div><dt data-en="What I did">O que eu fiz</dt><dd data-en="WhatsApp agents on a deterministic state machine (the AI only classifies and answers questions, under rules), idempotent partner integrations, OCR with double reading and a tiebreak, and an operations dashboard. Before touching code, I cross-checked execution logs, the API log and message history.">Agentes de WhatsApp com máquina de estados determinística (a IA só classifica e responde dúvidas, sob regras), integrações idempotentes com parceiros, OCR com dupla leitura e desempate e um painel de operação. Antes de mexer no código, cruzei logs de execução, log da API e histórico de mensagens.</dd></div>
+          <div><dt data-en="What broke and how I fixed it">O que quebrou e como resolvi</dt><dd data-en="A safety check blocked 44 of 54 registrations because the carrier&#x27;s screen had changed and the code had not kept up; I fixed how the item is recognized. Off-script answers were slow because of a fixed 15 s wait, not the AI (the model answered in ~1.5 s); it became 4 s for a recognized question, with an 8 s ceiling, and the cutoff came from 4,078 real messages. On the dashboard, the cache expired before the next request and rebuilt everything inside the request; a thread now builds outside it, with ETag and 304.">Uma verificação de segurança barrava 44 de 54 cadastros porque a tela da operadora mudou e o código não acompanhou; corrigi o reconhecimento do item. A resposta fora do roteiro demorava por uma espera fixa de 15 s, não pela IA (o modelo respondia em ~1,5 s); passou a 4 s para pergunta reconhecida, com teto de 8 s, e o corte saiu de 4.078 mensagens reais. No painel, o cache vencia antes do pedido e remontava tudo dentro da requisição; uma thread passou a montar fora dela, com ETag e 304.</dd></div>
+          <div><dt data-en="What I would do differently">O que faria diferente</dt><dd data-en="I would audit the integrations against the partners&#x27; official documentation before building. The audit done afterwards revealed steps that never ran: document upload, payment method and contact registration.">Auditaria as integrações contra a documentação oficial dos parceiros antes de construir. A auditoria feita depois revelou etapas que nunca rodavam: envio do documento, forma de pagamento e cadastro dos contatos.</dd></div>
+          <div><dt data-en="Result">Resultado</dt><dd data-en="Dashboard first call from 73.7 s to 0.08 s (measured in production on 10/15/2026). Registrations that become a proposal, per attempt, from 43% to ~89%. 0 discrepancies across 1,960 items checked against the portals every 10 minutes. Over 320 automated tests on the service platform.">Primeira chamada do painel de 73,7 s para 0,08 s (medido em produção em 15/10/2026). Cadastros que viram proposta, por tentativa, de 43% para ~89%. 0 divergências em 1.960 itens conferidos com os portais a cada 10 minutos. Mais de 320 testes automatizados na plataforma de atendimento.</dd></div>
+          <div><dt data-en="Limitation">Limitação</dt><dd data-en="The median registration time went up slightly: before, half of the runs died early; now almost all go through to the final validation. Dashboard numbers can be up to 60 s stale. The code belongs to the company, so there is no repository to inspect.">O tempo mediano do cadastro subiu um pouco: antes, metade das execuções morria cedo; agora quase todas vão até a validação final. Os números do painel podem ter até 60 s de atraso. O código é da empresa, então não há repositório para consultar.</dd></div>
+        </dl>
+      </article>
+
+      <details class="others" id="outros-projetos">
+        <summary><span class="others-t" data-en="Other projects">Outros projetos</span><span class="others-c" data-en="4 projects">4 projetos</span></summary>
+        <ul class="others-list">
+          <li>
+            <h3>AugustusApp</h3>
+            <p data-en="Augustus internal app: VPS SSH terminal, backup and 100% local meeting transcription. Private repository.">App interno da Augustus: terminal SSH da VPS, backup e transcrição de reuniões 100% local. Repositório privado.</p>
+            <p class="o-stack">.NET 10 MAUI · C# · Python · WhisperX · Ollama</p>
+            <a class="link" href="#desafios"><span data-en="Technical challenges">Desafios técnicos</span></a>
+          </li>
+          <li>
+            <h3>NotaME</h3>
+            <p data-en="Mobile and desktop app for PDF receipts, NFS-e and clients, offline-first with encrypted P2P sync.">App mobile e desktop para recibos em PDF, NFS-e e clientes, offline-first com sincronização P2P cifrada.</p>
+            <p class="o-stack">.NET MAUI · C# · SQLite · QuestPDF · AES-256</p>
+            <a class="link" href="https://github.com/JonasaAugusto/NotaME" target="_blank" rel="noopener"><span data-en="View on GitHub">Ver no GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+          </li>
+          <li>
+            <h3 data-en="Modular WhatsApp Connector">Conector WhatsApp Modular</h3>
+            <p data-en="Service that connects and disconnects WhatsApp bots via QR, each bot independent. Private code, demo on request.">Serviço que conecta e desconecta bots de WhatsApp por QR, cada bot independente. Código privado, demonstração sob pedido.</p>
+            <p class="o-stack">Python · FastAPI · WebSocket · Baileys · pytest</p>
+            <a class="link" href="#desafios"><span data-en="Technical challenges">Desafios técnicos</span></a>
+          </li>
+          <li>
+            <h3>Fabula Coop</h3>
+            <p data-en="Cooperative real-time text RPG where the campaign master is an AI.">RPG de texto cooperativo, em tempo real, em que o mestre da campanha é uma IA.</p>
+            <p class="o-stack">Python · LLM Agent · Realtime · Multiplayer</p>
+            <a class="link" href="https://github.com/JonasaAugusto/FabulaCoop" target="_blank" rel="noopener"><span data-en="View on GitHub">Ver no GitHub</span><svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+          </li>
+        </ul>
+      </details>
+    </section>
+
+
+    <!-- STACK -->
+    <section id="stack" class="section wrap" aria-labelledby="st-t">
+      <div class="grid sec-head">
+        <h2 class="sec-title" id="st-t">Stack</h2>
+        <p class="sec-note" data-en="What I use in production. Each item points to the project where it lives.">O que uso em produção. Cada item aponta o projeto onde está.</p>
       </div>
 
-      <!-- prévias que seguem o cursor (só ponteiro fino) -->
-      <div class="peek" id="peek" aria-hidden="true">
-        <div class="peek-item ui" data-id="notame" data-ui>
-          <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>NotaME · recibo</span></div>
-          <div class="ui-body">
-            <div class="ui-row"><span>Recibo nº 0142</span><span>PDF</span></div>
-            <div class="ui-row"><span>Cliente · Ateliê Central</span><span>NFS-e</span></div>
-            <div class="ui-row"><span>Serviço · manutenção</span><span>R$ 480,00</span></div>
-            <div class="ui-row"><span class="ok">sincronizado P2P</span><span>AES-256</span></div>
-          </div>
+      <h3 class="sub-t" data-en="Main">Principais</h3>
+      <ul class="main-stack">
+        <li><strong>Python</strong><span data-en="IAprovale, F5, Orchestrator">IAprovale, F5, Orchestrator</span></li>
+        <li><strong>FastAPI</strong><span data-en="IAprovale and the F5 platform">IAprovale e a plataforma da F5</span></li>
+        <li><strong>PostgreSQL</strong><span data-en="IAprovale (with SQLModel)">IAprovale (com SQLModel)</span></li>
+        <li><strong>Docker</strong><span data-en="NEURODEV: downtime from 35 h to 2.25 h">NEURODEV: downtime de 35 h para 2,25 h</span></li>
+        <li><strong>Linux</strong><span data-en="Ubuntu VPS with systemd and Caddy">VPS Ubuntu com systemd e Caddy</span></li>
+      </ul>
+
+      <h3 class="sub-t" data-en="Secondary">Secundárias</h3>
+      <p class="second-stack" data-en="C# and .NET MAUI, TypeScript and Node.js (Fastify), SQL, SQLite, Redis, pytest, Playwright, GitHub Actions, Git, systemd, Caddy, React, WebSocket.">C# e .NET MAUI, TypeScript e Node.js (Fastify), SQL, SQLite, Redis, pytest, Playwright, GitHub Actions, Git, systemd, Caddy, React, WebSocket.</p>
+
+      <h3 class="sub-t" id="stack-ia" data-en="AI: tools and where I used them">IA: ferramentas e onde usei</h3>
+      <ul class="ai-stack">
+        <li><strong>DeepSeek</strong><span data-en="IAprovale (search and resume), the Raízes &amp; Escamas sales agent and the F5 after-sales agent.">IAprovale (busca e currículo), agente de vendas da Raízes &amp; Escamas e agente de pós-venda da F5.</span></li>
+        <li><strong>OpenAI API</strong><span data-en="NEURODEV: pipeline latency from 15 min to 27 s, with prompt engineering and caching.">NEURODEV: pipeline com latência de 15 min para 27 s, com engenharia de prompt e cache.</span></li>
+        <li><strong>Groq, Mistral</strong><span data-en="Listed in my earlier profile; no detailed project on this site.">Citados no meu perfil anterior; sem projeto detalhado neste site.</span></li>
+        <li><strong>Ollama</strong><span data-en="AugustusApp: meeting summary and briefing with a local LLM.">AugustusApp: resumo e briefing de reuniões com LLM local.</span></li>
+        <li><strong>WhisperX, faster-whisper</strong><span data-en="AugustusApp: local transcription with the large-v3 model.">AugustusApp: transcrição local com o modelo large-v3.</span></li>
+        <li><strong>pyannote</strong><span data-en="AugustusApp: speaker separation (diarization).">AugustusApp: separação de quem fala (diarização).</span></li>
+        <li><strong>LangChain</strong><span data-en="F5, in the earlier blocks of the case study.">F5, nos blocos anteriores do estudo de caso.</span></li>
+        <li><strong data-en="Techniques">Técnicas</strong><span data-en="Lexical RAG (Raízes &amp; Escamas, 430 entries), tool calling and MCP (F5), guardrails in code (F5).">RAG lexical (Raízes &amp; Escamas, 430 fichas), tool calling e MCP (F5), guardrails em código (F5).</span></li>
+      </ul>
+
+      <details class="full-stack">
+        <summary data-en="See the full list by layer">Ver a lista completa por camada</summary>
+        <div class="stack-grid">
+<div class="stack-group">
+<h3 data-en="Programming languages">Linguagens de programação</h3>
+<ul><li data-en="Python (backend and automation)">Python (backend e automação)</li><li>C#</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li></ul>
+</div>
+<div class="stack-group">
+<h3 data-en="Generative AI">IA Generativa</h3>
+<ul><li>DeepSeek (tool calling)</li><li>OpenAI API</li><li data-en="Ollama (local LLM)">Ollama (LLM local)</li><li data-en="WhisperX and faster-whisper">WhisperX e faster-whisper</li><li data-en="pyannote (diarization)">pyannote (diarização)</li><li data-en="RAG (lexical and hybrid)">RAG (lexical e híbrido)</li><li>MCP</li><li>LangChain</li><li>Prompt Engineering</li><li>Guardrails</li><li data-en="LLM Agents">Agentes com LLMs</li></ul>
+</div>
+<div class="stack-group">
+<h3>Backend &amp; Frameworks</h3>
+<ul><li>FastAPI</li><li data-en="Node.js and TypeScript (Fastify)">Node.js e TypeScript (Fastify)</li><li data-en="RESTful APIs">APIs RESTful</li><li>WebSocket</li><li>Webhooks</li><li>Baileys (WhatsApp)</li><li data-en="Queues (BullMQ)">Filas (BullMQ)</li><li>Playwright</li><li>n8n</li><li>Retry patterns</li><li data-en="Idempotency">Idempotência</li><li data-en="Robust error handling">Tratamento robusto de erro</li></ul>
+</div>
+<div class="stack-group">
+<h3 data-en="Tools &amp; Infrastructure">Ferramentas &amp; Infraestrutura</h3>
+<ul><li>Git/GitHub</li><li>GitHub Actions</li><li data-en="Docker and Docker Compose">Docker e Docker Compose</li><li data-en="Linux VPS (Ubuntu)">VPS Linux (Ubuntu)</li><li>systemd</li><li data-en="SSH and tmux">SSH e tmux</li><li>PM2</li><li>nginx</li><li data-en="restic and Backblaze B2">restic e Backblaze B2</li><li>Crontab</li></ul>
+</div>
+<div class="stack-group">
+<h3 data-en="Databases">Bancos de dados</h3>
+<ul><li>PostgreSQL (pgvector)</li><li>SQLite</li><li>Redis</li><li data-en="Data structure modeling and optimization">Modelagem e otimização de estruturas de dados</li></ul>
+</div>
+<div class="stack-group">
+<h3>Desktop, Front-End &amp; UI</h3>
+<ul><li data-en=".NET 10 and MAUI">.NET 10 e MAUI</li><li>MVVM (CommunityToolkit.Mvvm)</li><li>SSH.NET</li><li>xterm.js</li><li>PySide6</li><li>HTML5, CSS3</li><li>JavaScript (ES6+)</li><li>Tailwind CSS</li><li data-en="Responsive design">Design responsivo</li></ul>
+</div>
+<div class="stack-group">
+<h3 data-en="DevOps &amp; others">DevOps &amp; outros</h3>
+<ul><li data-en="Advanced troubleshooting">Troubleshooting avançado</li><li data-en="Performance optimization">Otimização de performance</li><li data-en="Backup and restore">Backup e restauração</li><li data-en="Structured logging">Logs estruturados</li><li data-en="Automated testing (xUnit, pytest, Vitest)">Testes automatizados (xUnit, pytest, Vitest)</li><li data-en="Security and LGPD">Segurança e LGPD</li></ul>
+</div>
+<div class="stack-group">
+<h3 data-en="Methodologies">Metodologias</h3>
+<ul><li>Scrum</li><li>UML</li><li>BPMN</li><li data-en="Technical documentation (READMEs and decision records)">Documentação técnica (READMEs e registros de decisão)</li><li data-en="Business process modeling">Modelagem de processos de negócio</li></ul>
+</div>
+<div class="stack-group">
+<h3 data-en="Languages">Idiomas</h3>
+<ul><li data-en="Portuguese: native">Português: nativo</li><li data-en="English: C1 (Advanced)">Inglês: C1 (Advanced)</li></ul>
+</div>
+</div>
         </div>
-        <div class="peek-item ui" data-id="conector" data-ui>
-          <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>Conector · bots</span><span style="margin-left:auto">127.0.0.1</span></div>
-          <div class="ui-body">
-            <div class="ui-row"><span>raizes-escamas</span><span class="ok">conectado</span></div>
-            <div class="ui-row"><span>atendimento-02</span><span class="y">aguardando QR</span></div>
-            <div class="ui-row"><span>vendas-03</span><span>desconectado</span></div>
-            <div class="ui-row"><span class="k">bots.json · sem recompilar</span><span>40 testes</span></div>
-          </div>
+      </details>
+    </section>
+
+    <!-- COMO USO IA -->
+    <section id="ia-trabalho" class="section wrap" aria-labelledby="iat-t">
+      <div class="grid sec-head">
+        <h2 class="sec-title" id="iat-t" data-en="How I use AI in my work">Como eu uso IA no meu trabalho</h2>
+        <p class="sec-note" data-en="It writes drafts. What goes to production goes through me, through tests and through measurement.">Ela escreve rascunhos. O que vai para produção passa por mim, por testes e por medição.</p>
+      </div>
+      <div class="ia-cols">
+        <div>
+          <h3 data-en="What I delegate">O que eu delego</h3>
+          <ul class="checks">
+            <li data-en="Drafts of repetitive code and of tests.">Rascunhos de código repetitivo e de testes.</li>
+            <li data-en="Research on documentation and alternatives.">Pesquisa de documentação e de alternativas.</li>
+            <li data-en="A second read of a set of changes.">Uma segunda leitura de um conjunto de mudanças.</li>
+            <li data-en="Meeting transcription and summary, running locally, without sending audio to the cloud.">Transcrição e resumo de reuniões, rodando localmente, sem enviar áudio para a nuvem.</li>
+          </ul>
         </div>
-        <div class="peek-item ui" data-id="fabula" data-ui>
-          <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>Fabula Coop · campanha</span></div>
-          <div class="ui-chat">
-            <div class="bubble">A ponte range. O mestre narra: algo se move na névoa.<small>mestre · IA</small></div>
-            <div class="bubble me">Acendo a tocha e sigo na frente.<small>jogador 2</small></div>
-          </div>
+        <div>
+          <h3 data-en="What I review by hand">O que eu reviso à mão</h3>
+          <ul class="checks">
+            <li data-en="Every code change before it lands.">Toda mudança de código antes de entrar.</li>
+            <li data-en="Architecture decisions and what personal data is stored.">Decisões de arquitetura e do que se guarda de dados pessoais.</li>
+            <li data-en="What gets published and when: publishing needs human approval.">O que é publicado e quando: publicar exige aprovação humana.</li>
+            <li data-en="Rules that must be exact (price, eligibility, deadlines): they stay in deterministic code, not in the model.">Regras que precisam ser exatas (preço, elegibilidade, prazos): ficam em código determinístico, não no modelo.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-en="How I validate the result">Como valido o resultado</h3>
+          <ul class="checks">
+            <li data-en="Tests that lock behavior in: over 320 on the F5 platform, 560 in the Orchestrator, about 200 in IAprovale.">Testes que travam o comportamento: mais de 320 na plataforma da F5, 560 no Orchestrator, cerca de 200 no IAprovale.</li>
+            <li data-en="Real data as a sample: 4,078 messages defined the wait window; a 100-question battery with a real LLM validated the Raízes &amp; Escamas search.">Dados reais como amostra: 4.078 mensagens definiram a janela de espera; uma bateria de 100 perguntas com LLM real validou a busca da Raízes &amp; Escamas.</li>
+            <li data-en="Measurement before and after, and a production rehearsal with nothing sent to partners.">Medição antes e depois, e ensaio em produção sem enviar nada aos parceiros.</li>
+            <li data-en="Fictional data in development: user data and secrets stay out of the development tools.">Dados fictícios no desenvolvimento: dados de usuários e segredos ficam fora das ferramentas de desenvolvimento.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIÊNCIA -->
+    <!-- DEEPSEEK NO IAPROVALE (REVISÃO DO DONO) -->
+    <section id="ia-deepseek" class="section wrap" aria-labelledby="ds-t">
+      <div class="grid sec-head">
+        <h2 class="sec-title" id="ds-t" data-en="How DeepSeek is used in IAprovale">Como o DeepSeek é usado no IAprovale</h2>
+        <p class="sec-note" data-en="Described from the backend code. It includes what is not ready yet.">Descrito a partir do código do backend. Inclui o que ainda não está pronto.</p>
+      </div>
+      <div class="ds-grid">
+        <div class="ds-block">
+          <h3 data-en="Where it is used">Onde é usado</h3>
+          <ul class="checks">
+            <li data-en="In search: the typed sentence becomes a term or position, state(s) and the education mentioned. The model does not run the search or decide the result.">Na busca: a frase digitada vira termo ou cargo, estado(s) e formação citada. O modelo não faz a busca nem decide o resultado.</li>
+            <li data-en="In Career: reads the resume and builds a structured profile, extracts a job&#x27;s requirements (with a shared cache, without storing the job text) and writes the reason for &quot;partly fits&quot; results.">Na Carreira: lê o currículo e monta um perfil estruturado, extrai os requisitos de uma vaga (com cache compartilhado, sem guardar o texto da vaga) e redige o motivo dos resultados &quot;combina em parte&quot;.</li>
+            <li data-en="In exam information: reads the public notice to extract openings, dates and fees.">Nas informações do concurso: lê a matéria pública para extrair vagas, datas e taxas.</li>
+          </ul>
+        </div>
+        <div class="ds-block">
+          <h3 data-en="What it decides and what it does not">O que decide e o que não decide</h3>
+          <ul class="checks">
+            <li data-en="The list of exams comes from an external source. Filters and ranking are deterministic, tested code.">A lista de concursos vem de uma fonte externa. Filtros e ordenação são código determinístico e testado.</li>
+            <li data-en="The result &quot;fits&quot;, &quot;partly fits&quot; or &quot;does not fit&quot; comes from Python rules. If the model suggests another level, it is ignored.">O resultado &quot;combina&quot;, &quot;combina em parte&quot; ou &quot;não combina&quot; vem de regras em Python. Se o modelo sugerir outro nível, ele é ignorado.</li>
+            <li data-en="Years of experience are computed in Python. Tools and numbers in the profile only stay if they appear in the resume text.">Anos de experiência são calculados em Python. Ferramentas e números do perfil só ficam se aparecem no texto do currículo.</li>
+          </ul>
+        </div>
+        <div class="ds-block">
+          <h3 data-en="What is sent">O que é enviado</h3>
+          <ul class="checks">
+            <li data-en="In search: the typed text and, as context, education, technical course, postgraduate degree, schooling level, future education, areas of interest and city/state. Account name, e-mail, phone and CPF are not sent.">Na busca: o texto digitado e, como contexto, formação, curso técnico, pós-graduação, escolaridade, formação futura, áreas de interesse e cidade/UF. Não vão nome, e-mail, telefone nem CPF da conta.</li>
+            <li data-en="In Career: the resume text, up to 12,000 characters, after e-mail, phone, links and CPF are replaced by placeholders.">Na Carreira: o texto do currículo, até 12.000 caracteres, depois que e-mail, telefone, links e CPF são trocados por marcadores.</li>
+            <li data-en="To explain a gap: the education fields of the profile and the position&#x27;s requirements, without the whole resume.">Para explicar uma lacuna: os campos de formação do perfil e os requisitos do cargo, sem o currículo inteiro.</li>
+          </ul>
+        </div>
+        <div class="ds-block">
+          <h3 data-en="Safeguards">Cuidados</h3>
+          <ul class="checks">
+            <li data-en="The provider key lives only in the server environment. The app does not start without it, and it never goes into the repository or the front end.">A chave do provedor fica só no ambiente do servidor. O app não inicia sem ela, e ela não vai para o repositório nem para o front-end.</li>
+            <li data-en="Limits: 10 searches per minute per user; in Career, up to 17 calls or US$ 0.01 per day per account, reserved before each call.">Limites: 10 buscas por minuto por usuário; na Carreira, até 17 chamadas ou US$ 0,01 por dia por conta, reservados antes de cada chamada.</li>
+            <li data-en="In Career, a 40 s limit per call, no automatic SDK retry and at most one repeat for invalid JSON. In search, one repeat. A failure becomes a message to the user, never a 500 error.">Na Carreira, limite de 40 s por chamada, sem nova tentativa automática do SDK e no máximo uma repetição por JSON inválido. Na busca, uma repetição. Falha vira mensagem ao usuário, nunca erro 500.</li>
+            <li data-en="The cost of each search is measured from the tokens of each attempt. The model&#x27;s answer is validated against a schema, and the user&#x27;s text is treated as data, not as instructions.">O custo de cada busca é medido pelos tokens de cada tentativa. A resposta do modelo é validada por esquema, e o texto do usuário é tratado como dado, não como instrução.</li>
+            <li data-en="Tests with fictional data. User data never goes to development tools.">Testes com dados fictícios. Dados de usuários nunca vão para ferramentas de desenvolvimento.</li>
+          </ul>
+        </div>
+        <div class="ds-block ds-limits">
+          <h3 data-en="What is not ready yet">O que ainda não está pronto</h3>
+          <ul class="checks">
+            <li data-en="DeepSeek is a provider outside Brazil. Today the sending is covered by the terms of use. A specific consent on first use of Career is planned and under legal review; it does not exist yet.">O DeepSeek é um provedor fora do Brasil. Hoje o envio está coberto pelos termos de uso. Um consentimento específico no primeiro uso da Carreira está planejado e em validação jurídica; ele ainda não existe.</li>
+            <li data-en="The removal covers e-mail, phone, links and CPF. The name and address in the resume are not yet removed before sending, and the removal does not guarantee anonymization.">A remoção cobre e-mail, telefone, links e CPF. Nome e endereço do currículo ainda não são removidos antes do envio, e a remoção não garante anonimização.</li>
+            <li data-en="In search with the use-my-resume option on, the saved text (up to 6,000 characters) goes without that contact removal.">Na busca com a opção de usar o currículo marcada, o texto salvo (até 6.000 caracteres) vai sem essa remoção de contatos.</li>
+            <li data-en="The model can be wrong. The result helps read the notice; confirmation is always in the notice and on the official portal.">O modelo pode errar. O resultado ajuda a ler o edital; a confirmação é sempre no edital e no portal oficial.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
     <section id="experiencia" class="section wrap" aria-labelledby="exp-t">
-      <div class="grid sec-head" data-reveal>
+      <div class="grid sec-head">
         <h2 class="sec-title" id="exp-t" data-en="Experience">Experiência</h2>
-        <p class="sec-note" data-en="Company, internships and freelance work, most recent first.">Empresa, estágios e freelance, do mais recente para o mais antigo.</p>
+        <p class="sec-note" data-en="A little over 1 year of professional experience. Augustus AI Solutions is my own business, which I run alongside the F5 internship.">Pouco mais de 1 ano de experiência profissional. A Augustus AI Solutions é um negócio meu, que mantenho em paralelo ao estágio na F5.</p>
       </div>
 
-      <article class="grid job" data-reveal>
+      <article class="grid job">
         <p class="job-when" style="--i:0" data-en="Jun 2026 – Present · Remote">Jun 2026 – Presente · Remoto</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role" data-en="CEO &amp; Lead Developer">CEO &amp; Desenvolvedor Principal</h3>
@@ -389,7 +470,7 @@
         </div>
       </article>
 
-      <article class="grid job" data-reveal>
+      <article class="grid job">
         <p class="job-when" style="--i:0" data-en="May 2026 – Present · Remote">Mai 2026 – Presente · Remoto</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role" data-en="Development and Automation Intern">Estagiário em Desenvolvimento e Automação</h3>
@@ -405,7 +486,7 @@
         </div>
       </article>
 
-      <article class="grid job" data-reveal>
+      <article class="grid job" id="exp-neurodev">
         <p class="job-when" style="--i:0" data-en="Sep – Nov 2025 · Hybrid">Set – Nov 2025 · Semipresencial</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role" data-en="Intern Automation Developer &amp; RPA Support Analyst">Estagiário Desenvolvedor de Automação de Processos e Analista de Suporte RPA</h3>
@@ -419,7 +500,7 @@
         </div>
       </article>
 
-      <article class="grid job" data-reveal>
+      <article class="grid job">
         <p class="job-when" style="--i:0" data-en="Aug – Sep 2025 · Remote">Ago – Set 2025 · Remoto</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role" data-en="Junior Process Automation Developer with AI">Desenvolvedor Júnior de Automação de Processos com IA</h3>
@@ -431,7 +512,7 @@
         </div>
       </article>
 
-      <article class="grid job" data-reveal>
+      <article class="grid job">
         <p class="job-when" style="--i:0" data-en="Aug – Sep 2023 · Freelance">Ago – Set 2023 · Freelance</p>
         <div class="job-main" style="--i:1">
           <h3 class="job-role" data-en="Software Requirements Analyst">Analista de Requisitos de Software</h3>
@@ -444,41 +525,41 @@
       </article>
     </section>
 
-    <!-- DESAFIOS -->
+
     <section id="desafios" class="section wrap" aria-labelledby="ch-t">
       <div class="grid challenges">
-        <div class="ch-aside" data-reveal>
+        <div class="ch-aside">
           <h2 class="sec-title" id="ch-t" data-en="Technical challenges">Desafios técnicos</h2>
           <p data-en="Problems I ran into in real systems, what I did, and the result I can show.">Problemas que encontrei em sistemas reais, o que fiz e o resultado que consigo mostrar.</p>
           <div class="ch-progress" aria-hidden="true"><i></i></div>
         </div>
         <div class="ch-list">
-          <article class="ch" data-reveal>
+          <article class="ch">
             <h3 data-en="8 GB GPU (AugustusApp)">GPU de 8 GB (AugustusApp)</h3>
             <p data-en="Transcription with WhisperX large-v3 and the local LLM do not fit together in 8 GB of VRAM. I built a GPU lease, a model degradation ladder, and a probe that only accepts the LLM if it runs 100% on the GPU.">A transcrição com WhisperX large-v3 e o LLM local não cabem juntos em 8 GB de VRAM. Criei uma trava de uso da GPU, uma escada de degradação de modelo e uma sonda que só aceita o LLM se ele rodar 100% na GPU.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="One GPU owner at a time; reprocessing returns 409 instead of fighting over VRAM.">Um dono da GPU por vez; o reprocessamento responde 409 em vez de disputar a VRAM.</dd></dl>
           </article>
-          <article class="ch" data-reveal>
+          <article class="ch">
             <h3 data-en="SSH terminal with 220 ms of latency">Terminal SSH com 220 ms de latência</h3>
             <p data-en="The VM terminal felt slow. I measured instead of guessing: about 221 ms RTT to the VPS in Europe and about 250 ms per keystroke even with plain ssh. I cut the app overhead with immediate output for small responses, a 6 ms tick, and a single UI dispatch, showed the RTT in the tab, and built a predictive local echo that draws each keystroke instantly and reconciles it with the server response.">O terminal da VM parecia lento. Medi em vez de supor: cerca de 221 ms de RTT até a VPS na Europa e cerca de 250 ms por tecla até com o ssh puro. Cortei o overhead do app com saída imediata para respostas pequenas, tick de 6 ms e despacho único à UI, mostrei o RTT na aba e implementei um eco local preditivo que desenha cada tecla na hora e confirma com a resposta do servidor.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="App overhead reduced, the network floor explained on screen, and predictive local echo shipped: keystrokes appear instantly, without waiting for the 220 ms of network.">Overhead do app reduzido, piso de rede explicado na própria tela e eco local preditivo aplicado: as letras aparecem na hora, sem esperar os 220 ms da rede.</dd></dl>
           </article>
-          <article class="ch" data-reveal>
+          <article class="ch">
             <h3 data-en="Safe VPS backup and restore">Backup da VPS com restauração segura</h3>
             <p data-en="Daily backup with restic to Backblaze B2, managed from the app: list, run now, and restore by date. A destructive restore requires confirmation, takes a safety backup first, and runs as a detached operation that survives an SSH drop.">Backup diário com restic para o Backblaze B2, administrado pelo app: listar, fazer agora e recuperar por data. A restauração destrutiva exige confirmação, faz backup de segurança antes e roda numa operação destacada que sobrevive à queda do SSH.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="Own backup, with no paid provider backup, and restore by date without leaving the app.">Backup próprio, sem depender de backup pago do provedor, e recuperação por data sem sair do app.</dd></dl>
           </article>
-          <article class="ch" data-reveal>
+          <article class="ch">
             <h3 data-en="Lexical RAG instead of embeddings">RAG lexical em vez de embeddings</h3>
             <p data-en="The bot answers technical questions from 430 curated entries. Since titles are descriptive and DeepSeek offers no embeddings, I used lexical search with IDF, synonyms, and a ranking that rewards the entry covering more of the question, at no per-query cost.">O bot responde dúvidas técnicas com 430 fichas curadas. Como os títulos são descritivos e a DeepSeek não oferece embeddings, usei busca lexical com IDF, sinônimos e ranking que premia a ficha que cobre mais da pergunta, sem custo por consulta.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="In the 100-question battery with a real LLM, related entries went from 96% to 100% after the search fixes.">Na bateria de 100 perguntas com LLM real, fichas relacionadas foram de 96% para 100% depois das correções na busca.</dd></dl>
           </article>
-          <article class="ch" data-reveal>
+          <article class="ch">
             <h3 data-en="Connector with no automation trail">Conector sem rastro de automação</h3>
             <p data-en="To manage the WhatsApp agents without the automation trail OpenClaw leaves for Meta, I built my own modular connector: it only runs each bot's pairing and shows the QR, keeping no session of its own, and every connection is independent.">Para administrar os agentes de WhatsApp sem o rastro de automação que o OpenClaw deixa para a Meta, construí um conector próprio e modular: ele só executa o pareamento de cada bot e mostra o QR, sem manter sessão própria, e cada conexão é independente.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="Adding a bot means editing a file, with 40 automated tests and the service listening only on loopback, with a token.">Adicionar um bot é editar um arquivo, com 40 testes automatizados e o serviço escutando só em loopback, com token.</dd></dl>
           </article>
-          <article class="ch" data-reveal>
+          <article class="ch">
             <h3 data-en="Data that matches the portals (F5)">Dados que batem com os portais (F5)</h3>
             <p data-en="In after-sales, the dashboard's first call took 73.7 s and it showed data diverging between portals, dashboard, and CRM. A thread that builds the data outside the request, with a ready response, ETag, and 304, plus continuous reconciliation every 10 minutes solved both problems.">No pós-venda, a primeira chamada do painel levava 73,7 s e ele mostrava dados divergentes entre portais, painel e CRM. Uma thread que monta os dados fora da requisição, com resposta pronta, ETag e 304, e uma conferência contínua a cada 10 minutos resolveram os dois problemas.</p>
             <dl class="ch-result"><dt data-en="Result">Resultado</dt><dd data-en="First call from 73.7 s to 0.08 s and 0 discrepancies across 1,960 items checked against the portals.">Primeira chamada de 73,7 s para 0,08 s e 0 divergências em 1.960 itens conferidos com os portais.</dd></dl>
@@ -487,60 +568,14 @@
       </div>
     </section>
 
-    <!-- STACK -->
-    <section id="stack" class="section wrap" aria-labelledby="st-t">
-      <div class="grid sec-head" data-reveal>
-        <h2 class="sec-title" id="st-t" data-en="Technology stack">Stack tecnológica</h2>
-        <p class="sec-note" data-en="What I use in production, grouped by layer.">O que uso em produção, agrupado por camada.</p>
-      </div>
-      <div class="grid stack">
-        <div class="stack-group" data-reveal>
-          <h3 style="--i:0" data-en="Programming languages">Linguagens de programação</h3>
-          <ul style="--i:1"><li data-en="Python (backend and automation)">Python (backend e automação)</li><li>C#</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h3 style="--i:0" data-en="Generative AI">IA Generativa</h3>
-          <ul style="--i:1"><li>DeepSeek (tool calling)</li><li>OpenAI API</li><li>Anthropic Claude</li><li data-en="Ollama (local LLM)">Ollama (LLM local)</li><li data-en="WhisperX and faster-whisper">WhisperX e faster-whisper</li><li data-en="pyannote (diarization)">pyannote (diarização)</li><li data-en="RAG (lexical and hybrid)">RAG (lexical e híbrido)</li><li>MCP</li><li>LangChain</li><li>Prompt Engineering</li><li>Guardrails</li><li data-en="LLM Agents">Agentes com LLMs</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h3 style="--i:0">Backend &amp; Frameworks</h3>
-          <ul style="--i:1"><li>FastAPI</li><li data-en="Node.js and TypeScript (Fastify)">Node.js e TypeScript (Fastify)</li><li data-en="RESTful APIs">APIs RESTful</li><li>WebSocket</li><li>Webhooks</li><li>Baileys (WhatsApp)</li><li data-en="Queues (BullMQ)">Filas (BullMQ)</li><li>Playwright</li><li>n8n</li><li>Retry patterns</li><li data-en="Idempotency">Idempotência</li><li data-en="Robust error handling">Tratamento robusto de erro</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h3 style="--i:0" data-en="Tools &amp; Infrastructure">Ferramentas &amp; Infraestrutura</h3>
-          <ul style="--i:1"><li>Git/GitHub</li><li>GitHub Actions</li><li data-en="Docker and Docker Compose">Docker e Docker Compose</li><li data-en="Linux VPS (Ubuntu)">VPS Linux (Ubuntu)</li><li>systemd</li><li data-en="SSH and tmux">SSH e tmux</li><li>PM2</li><li>nginx</li><li data-en="restic and Backblaze B2">restic e Backblaze B2</li><li>Crontab</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h3 style="--i:0" data-en="Databases">Bancos de dados</h3>
-          <ul style="--i:1"><li>PostgreSQL (pgvector)</li><li>SQLite</li><li>Redis</li><li data-en="Data structure modeling and optimization">Modelagem e otimização de estruturas de dados</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h3 style="--i:0">Desktop, Front-End &amp; UI</h3>
-          <ul style="--i:1"><li data-en=".NET 10 and MAUI">.NET 10 e MAUI</li><li>MVVM (CommunityToolkit.Mvvm)</li><li>SSH.NET</li><li>xterm.js</li><li>PySide6</li><li>HTML5, CSS3</li><li>JavaScript (ES6+)</li><li>Tailwind CSS</li><li data-en="Responsive design">Design responsivo</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h3 style="--i:0" data-en="DevOps &amp; others">DevOps &amp; outros</h3>
-          <ul style="--i:1"><li data-en="Advanced troubleshooting">Troubleshooting avançado</li><li data-en="Performance optimization">Otimização de performance</li><li data-en="Backup and restore">Backup e restauração</li><li data-en="Structured logging">Logs estruturados</li><li data-en="Automated testing (xUnit, pytest, Vitest)">Testes automatizados (xUnit, pytest, Vitest)</li><li data-en="Security and LGPD">Segurança e LGPD</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h3 style="--i:0" data-en="Methodologies">Metodologias</h3>
-          <ul style="--i:1"><li>Scrum</li><li>UML</li><li>BPMN</li><li data-en="Technical documentation (READMEs and decision records)">Documentação técnica (READMEs e registros de decisão)</li><li data-en="Business process modeling">Modelagem de processos de negócio</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h3 style="--i:0" data-en="Languages">Idiomas</h3>
-          <ul style="--i:1"><li data-en="Portuguese: native">Português: nativo</li><li data-en="English: C1 (Advanced)">Inglês: C1 (Advanced)</li></ul>
-        </div>
-      </div>
-    </section>
 
-    <!-- FORMAÇÃO E CURSOS -->
     <section id="formacao" class="section wrap" aria-labelledby="ed-t">
-      <div class="grid sec-head" data-reveal>
+      <div class="grid sec-head">
         <h2 class="sec-title" id="ed-t" data-en="Education and courses">Formação e cursos</h2>
-        <p class="sec-note" data-en="Academic education, completed courses and certifications in progress.">Formação acadêmica, cursos concluídos e certificações em andamento.</p>
+        <p class="sec-note" data-en="Academic education, completed courses, courses in progress and planned certifications.">Formação acadêmica, cursos concluídos, cursos em andamento e certificações planejadas.</p>
       </div>
       <div class="grid edu">
-        <div class="edu-col edu-degrees" data-reveal>
+        <div class="edu-col edu-degrees">
           <h3 style="--i:0" data-en="Academic education">Formação acadêmica</h3>
           <div class="degrees" style="--i:1">
             <article class="degree">
@@ -559,7 +594,7 @@
             </article>
           </div>
         </div>
-        <div class="edu-col" data-reveal>
+        <div class="edu-col">
           <h3 style="--i:0"><span data-en="Completed courses">Cursos concluídos</span></h3>
           <ul class="rows2" style="--i:1">
             <li><b data-en="Advanced Python + Generative AI">Python Avançado + IA Generativa</b><span class="v">Udemy</span></li>
@@ -569,23 +604,23 @@
             <li><b data-en="User Rights &amp; Privacy">Direito e Privacidade dos Usuários</b><span class="v">Estácio</span></li>
           </ul>
         </div>
-        <div class="edu-col" data-reveal>
-          <h3 style="--i:0"><span data-en="In progress (2025–2026)">Em andamento (2025–2026)</span></h3>
+        <div class="edu-col">
+          <h3 style="--i:0"><span data-en="In progress and planned">Em andamento e planejado</span></h3>
           <ul class="rows2" style="--i:1">
-            <li><b>AWS Cloud Practitioner</b><span class="v" data-en="Expected 2026">Previsto 2026</span></li>
-            <li><b>Microsoft Certified: Azure Fundamentals</b><span class="v" data-en="Planned 2026">Planejado 2026</span></li>
             <li><b data-en="AI &amp; Machine Learning: Complete Guide">IA &amp; Machine Learning: Guia Completo</b><span class="v" data-en="Udemy · studying">Udemy · em estudo</span></li>
             <li><b data-en="Advanced FastAPI | TDD | PostgreSQL">FastAPI Avançado | TDD | PostgreSQL</b><span class="v" data-en="Udemy · studying">Udemy · em estudo</span></li>
             <li><b>Power Apps + Power Automate + SharePoint</b><span class="v" data-en="Udemy · studying">Udemy · em estudo</span></li>
+            <li><b>AWS Cloud Practitioner</b><span class="v" data-en="Planned · starts Feb 2027">Planejado · início em fev/2027</span></li>
+            <li><b>Microsoft Certified: Azure Fundamentals</b><span class="v" data-en="Planned · starts Feb 2027">Planejado · início em fev/2027</span></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- CONTATO -->
+
     <section id="contato" class="section wrap" aria-labelledby="ct-t">
       <div class="grid contact">
-        <div class="contact-head" data-reveal>
+        <div class="contact-head">
           <h2 class="contact-title" id="ct-t" style="--i:0" data-en="Let's talk?">Vamos conversar?</h2>
           <p style="--i:1" data-en="Open to technical challenges and high-impact projects. Write here or reach me directly.">Aberto a desafios técnicos e projetos de alto impacto. Escreva aqui ou fale comigo direto.</p>
           <div class="contact-links" style="--i:2">
@@ -598,7 +633,7 @@
           <p class="mono" style="--i:3;font-size:var(--t-small)">Juiz de Fora, MG · <span data-en="Brazil">Brasil</span></p>
         </div>
 
-        <form id="contact-form" class="form" action="https://submit-form.com/1pIuu489V" method="POST" data-reveal>
+        <form id="contact-form" class="form" action="https://submit-form.com/1pIuu489V" method="POST">
           <input type="hidden" name="_feedback.dark" value="true">
           <input type="hidden" name="_feedback.primary_color" value="#ededeb">
           <input type="hidden" name="_feedback.bg_color" value="#0b0b0b">
@@ -616,15 +651,14 @@
   </main>
 
   <footer class="site-footer wrap">
-    <p class="footer-word" aria-hidden="true" data-word="Jonas Augusto"></p>
     <div class="footer-line">
-      <span data-en="© 2026 Jonas Augusto · Backend Developer | Automation &amp; AI Agents">© 2026 Jonas Augusto · Desenvolvedor Backend | Automação &amp; Agentes de IA</span>
+      <span data-en="© 2026 Jonas Augusto · Software Engineer">© 2026 Jonas Augusto · Engenheiro de Software</span>
       <nav aria-label="Rodapé" data-en-aria="Footer">
         <a href="https://www.linkedin.com/in/jonasaaugusto" target="_blank" rel="noopener" class="link">LinkedIn</a>
         <a href="https://github.com/JonasaAugusto" target="_blank" rel="noopener" class="link">GitHub</a>
         <a href="https://www.instagram.com/jonasaaugusto/" target="_blank" rel="noopener" class="link" aria-label="Instagram do Jonas" data-en-aria="Jonas's Instagram">Instagram</a>
         <a href="https://www.instagram.com/augustusaisolutions/" target="_blank" rel="noopener" class="link" aria-label="Instagram da Augustus AI" data-en-aria="Augustus AI's Instagram">Augustus AI</a>
-        <a href="cv.html" class="link" data-cv-page>CV</a>
+        <a href="cv.html" class="link" data-cv-page data-en-href="../cv.en.html" data-open="cv" data-en="Resume">Currículo</a>
       </nav>
       <span class="end"><a href="#inicio" class="to-top link"><span data-en="Back to top">Voltar ao topo</span><svg aria-hidden="true"><use href="#i-right"/></svg></a></span>
     </div>
@@ -673,11 +707,11 @@
 
       <h3 data-en="Engineering decisions">Decisões de engenharia</h3>
       <ul>
-        <li><span data-en="Plain front end, no CDN, no bundler."><strong>Front-end puro, sem CDN e sem bundler.</strong></span> <span data-en=" HTML, CSS and JavaScript with Alpine.js in its CSP build. Alpine and pdf.js are served from the project itself, so the content security policy no longer allows a third-party script host.">HTML, CSS e JavaScript com Alpine.js na versão CSP. O Alpine e o pdf.js são servidos pelo próprio projeto, e a política de segurança de conteúdo deixou de permitir um servidor de scripts de terceiros.</span></li>
-        <li><span data-en="Python only on the back end."><strong>Só Python no backend.</strong></span> <span data-en=" Any new server code is Python, which keeps one language to test, deploy and maintain.">Todo código novo de servidor é Python, o que deixa uma linguagem só para testar, publicar e manter.</span></li>
-        <li><span data-en="User data never goes to the coding agents."><strong>Dados de usuários nunca vão para os agentes de código.</strong></span> <span data-en=" Development with OpenAI Codex and Claude uses fictional data and local copies only; production data and secrets stay out of those tools.">O desenvolvimento com o Codex (OpenAI) e o Claude usa só dados fictícios e cópias locais; dados de produção e segredos ficam fora dessas ferramentas.</span></li>
-        <li><span data-en="Versioned privacy policy and terms, with acceptance."><strong>Privacidade e termos versionados, com aceite.</strong></span> <span data-en=" Each change in the texts gets a version, such as 1.3, which describes optional e-mail, Brevo as operator and the matching international transfer.">Cada mudança nos textos ganha uma versão, como a 1.3, que descreve o e-mail opcional, a Brevo como operadora e a transferência internacional correspondente.</span></li>
-        <li><span data-en="Messages that say what happened."><strong>Mensagens que dizem o que houve.</strong></span> <span data-en=" Error and confirmation messages come from a single dictionary, and alert regions stay in the page so screen readers announce them.">Mensagens de erro e confirmação saem de um dicionário único, e as regiões de alerta ficam sempre na página para o leitor de tela anunciá-las.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Plain front end, no CDN, no bundler.&lt;/strong&gt;"><strong>Front-end puro, sem CDN e sem bundler.</strong></span> <span data-en=" HTML, CSS and JavaScript with Alpine.js in its CSP build. Alpine and pdf.js are served from the project itself, so the content security policy no longer allows a third-party script host.">HTML, CSS e JavaScript com Alpine.js na versão CSP. O Alpine e o pdf.js são servidos pelo próprio projeto, e a política de segurança de conteúdo deixou de permitir um servidor de scripts de terceiros.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Python only on the back end.&lt;/strong&gt;"><strong>Só Python no backend.</strong></span> <span data-en=" Any new server code is Python, which keeps one language to test, deploy and maintain.">Todo código novo de servidor é Python, o que deixa uma linguagem só para testar, publicar e manter.</span></li>
+        <li><span data-en-html="&lt;strong&gt;User data never goes to the development tools.&lt;/strong&gt;"><strong>Dados de usuários nunca vão para as ferramentas de desenvolvimento.</strong></span> <span data-en=" Development uses fictional data and local copies only; production data and secrets stay out of those tools.">O desenvolvimento usa só dados fictícios e cópias locais; dados de produção e segredos ficam fora dessas ferramentas.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Versioned privacy policy and terms, with acceptance.&lt;/strong&gt;"><strong>Privacidade e termos versionados, com aceite.</strong></span> <span data-en=" Each change in the texts gets a version, such as 1.3, which describes optional e-mail, Brevo as operator and the matching international transfer.">Cada mudança nos textos ganha uma versão, como a 1.3, que descreve o e-mail opcional, a Brevo como operadora e a transferência internacional correspondente.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Messages that say what happened.&lt;/strong&gt;"><strong>Mensagens que dizem o que houve.</strong></span> <span data-en=" Error and confirmation messages come from a single dictionary, and alert regions stay in the page so screen readers announce them.">Mensagens de erro e confirmação saem de um dicionário único, e as regiões de alerta ficam sempre na página para o leitor de tela anunciá-las.</span></li>
       </ul>
 
       <h3 data-en="Quality">Qualidade</h3>
@@ -734,14 +768,14 @@
 
       <h3 data-en="Engineering decisions">Decisões de engenharia</h3>
       <ul>
-        <li><span data-en="Relay by limit with persistent resumption."><strong>Revezamento por limite com retomada persistente.</strong></span> <span data-en=" The queue and the reset times live in SQLite. If the service or the machine restarts, pending work resumes where it stopped.">A fila e os horários de reset ficam em SQLite. Se o serviço ou a máquina reinicia, o trabalho pendente retoma do ponto em que parou.</span></li>
-        <li><span data-en="Measured usage, without reading conversations."><strong>Gasto medido, sem ler conversas.</strong></span> <span data-en=" Usage of both agents is counted with counters only, never with text. The target is a ratio between 0.7 and 1.4, configurable; outside it, routing moves review and test work to the other agent. The counters estimate quota use, not money.">O uso dos dois agentes é contado só com contadores, nunca com o texto. A meta é uma razão entre 0,7 e 1,4, configurável; fora dela, o roteamento passa trabalho de revisão e teste para o outro agente. Os contadores estimam consumo de cota, não dinheiro.</span></li>
-        <li><span data-en="Publishing bound to the SHA."><strong>Publicação presa ao SHA.</strong></span> <span data-en=" The publish command shows the repository, destination and full SHA, and requires the human to type the id and the SHA in an interactive terminal. If the branch or destination changes, the approval stops being valid. The push is non-force and against the current remote base. New in 1.4.0: aao publish --pr pushes the approved SHA and opens a pull request instead of merging; it never merges.">O comando de publicar mostra o repositório, o destino e o SHA completo, e exige que o humano digite o id e o SHA num terminal interativo. Mudou o branch ou o destino, a aprovação deixa de valer. O push é sem force e contra a base remota atual. Novo na 1.4.0: aao publish --pr envia o SHA aprovado e abre um pull request em vez de fazer merge; ele nunca faz merge.</span></li>
-        <li><span data-en="MCP server that never publishes."><strong>Servidor MCP que nunca publica.</strong></span> <span data-en=" New in 1.4.0: aao mcp exposes delegate, status, result and review to the user's agent over stdio, using only the Python standard library. Publishing stays a human approval in the CLI.">Novo na 1.4.0: o aao mcp expõe delegate, status, result e review ao agente do usuário por stdio, só com a biblioteca padrão do Python. Publicar continua sendo uma aprovação humana na CLI.</span></li>
-        <li><span data-en="Parallel Codex, off by default."><strong>Codex em paralelo, desligado por padrão.</strong></span> <span data-en=" New in 1.4.0: with max_concurrent_codex above 1, several Codex tasks run at once only when repositories and declared files do not overlap, each with its own workspace, and merges stay serial.">Novo na 1.4.0: com max_concurrent_codex maior que 1, várias tarefas do Codex rodam juntas só quando repositórios e arquivos declarados não se tocam, cada uma com seu workspace, e os merges continuam em série.</span></li>
-        <li><span data-en="Honest results."><strong>Resultado honesto.</strong></span> <span data-en=" The task state comes from the first line of the report (completed, partial or blocked). A partial or blocked task is never shown as done, whatever the exit code.">O estado da tarefa vem da primeira linha do relatório (completed, partial ou blocked). Uma tarefa partial ou blocked nunca aparece como concluída, qualquer que seja o código de saída.</span></li>
-        <li><span data-en="Permissions chosen by the user."><strong>Permissões à escolha do usuário.</strong></span> <span data-en=" Codex starts restricted (own sandbox, no network, throwaway clones). On their own machine, the user can give it the same permissions as Claude. In either mode, publishing needs a human.">O Codex começa restrito (sandbox própria, sem rede, clones descartáveis). Na própria máquina, o usuário pode dar a ele as mesmas permissões do Claude. Em qualquer modo, publicar exige um humano.</span></li>
-        <li><span data-en="Lite mode, no root."><strong>Modo leve, sem root.</strong></span> <span data-en=" A single user process, no systemd, on Linux, macOS and Windows, installed with pipx from GitHub. The full mode, with a privileged service and a remote channel, remains on Linux with systemd.">Um único processo do usuário, sem systemd, em Linux, macOS e Windows, instalado com pipx a partir do GitHub. O modo completo, com serviço privilegiado e canal remoto, continua em Linux com systemd.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Relay by limit with persistent resumption.&lt;/strong&gt;"><strong>Revezamento por limite com retomada persistente.</strong></span> <span data-en=" The queue and the reset times live in SQLite. If the service or the machine restarts, pending work resumes where it stopped.">A fila e os horários de reset ficam em SQLite. Se o serviço ou a máquina reinicia, o trabalho pendente retoma do ponto em que parou.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Measured usage, without reading conversations.&lt;/strong&gt;"><strong>Gasto medido, sem ler conversas.</strong></span> <span data-en=" Usage of both agents is counted with counters only, never with text. The target is a ratio between 0.7 and 1.4, configurable; outside it, routing moves review and test work to the other agent. The counters estimate quota use, not money.">O uso dos dois agentes é contado só com contadores, nunca com o texto. A meta é uma razão entre 0,7 e 1,4, configurável; fora dela, o roteamento passa trabalho de revisão e teste para o outro agente. Os contadores estimam consumo de cota, não dinheiro.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Publishing bound to the SHA.&lt;/strong&gt;"><strong>Publicação presa ao SHA.</strong></span> <span data-en=" The publish command shows the repository, destination and full SHA, and requires the human to type the id and the SHA in an interactive terminal. If the branch or destination changes, the approval stops being valid. The push is non-force and against the current remote base. New in 1.4.0: aao publish --pr pushes the approved SHA and opens a pull request instead of merging; it never merges.">O comando de publicar mostra o repositório, o destino e o SHA completo, e exige que o humano digite o id e o SHA num terminal interativo. Mudou o branch ou o destino, a aprovação deixa de valer. O push é sem force e contra a base remota atual. Novo na 1.4.0: aao publish --pr envia o SHA aprovado e abre um pull request em vez de fazer merge; ele nunca faz merge.</span></li>
+        <li><span data-en-html="&lt;strong&gt;MCP server that never publishes.&lt;/strong&gt;"><strong>Servidor MCP que nunca publica.</strong></span> <span data-en=" New in 1.4.0: aao mcp exposes delegate, status, result and review to the user's agent over stdio, using only the Python standard library. Publishing stays a human approval in the CLI.">Novo na 1.4.0: o aao mcp expõe delegate, status, result e review ao agente do usuário por stdio, só com a biblioteca padrão do Python. Publicar continua sendo uma aprovação humana na CLI.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Parallel Codex, off by default.&lt;/strong&gt;"><strong>Codex em paralelo, desligado por padrão.</strong></span> <span data-en=" New in 1.4.0: with max_concurrent_codex above 1, several Codex tasks run at once only when repositories and declared files do not overlap, each with its own workspace, and merges stay serial.">Novo na 1.4.0: com max_concurrent_codex maior que 1, várias tarefas do Codex rodam juntas só quando repositórios e arquivos declarados não se tocam, cada uma com seu workspace, e os merges continuam em série.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Honest results.&lt;/strong&gt;"><strong>Resultado honesto.</strong></span> <span data-en=" The task state comes from the first line of the report (completed, partial or blocked). A partial or blocked task is never shown as done, whatever the exit code.">O estado da tarefa vem da primeira linha do relatório (completed, partial ou blocked). Uma tarefa partial ou blocked nunca aparece como concluída, qualquer que seja o código de saída.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Permissions chosen by the user.&lt;/strong&gt;"><strong>Permissões à escolha do usuário.</strong></span> <span data-en=" Codex starts restricted (own sandbox, no network, throwaway clones). On their own machine, the user can give it the same permissions as Claude. In either mode, publishing needs a human.">O Codex começa restrito (sandbox própria, sem rede, clones descartáveis). Na própria máquina, o usuário pode dar a ele as mesmas permissões do Claude. Em qualquer modo, publicar exige um humano.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Lite mode, no root.&lt;/strong&gt;"><strong>Modo leve, sem root.</strong></span> <span data-en=" A single user process, no systemd, on Linux, macOS and Windows, installed with pipx from GitHub. The full mode, with a privileged service and a remote channel, remains on Linux with systemd.">Um único processo do usuário, sem systemd, em Linux, macOS e Windows, instalado com pipx a partir do GitHub. O modo completo, com serviço privilegiado e canal remoto, continua em Linux com systemd.</span></li>
       </ul>
 
       <h3 data-en="Verifiable results">Resultados verificáveis</h3>
@@ -813,15 +847,15 @@
       </ul>
       <h3 data-en="Engineering decisions">Decisões de engenharia</h3>
       <ul>
-        <li><span data-en="Deterministic state machine instead of a free-form agent."><strong>Máquina de estados determinística no lugar de agente livre.</strong></span> <span data-en=" The AI is restricted to classification and questions, under strict rules and a table of approved answers, so the flow is testable and auditable.">A IA fica restrita a classificação e dúvidas, sob regras rígidas e uma tabela de respostas aprovadas, para que o fluxo seja testável e auditável.</span></li>
-        <li><span data-en="Idempotent integration."><strong>Integração idempotente.</strong></span> <span data-en="Each step runs exactly once and a retry resumes exactly at the missing step, with a block on resubmissions that the partner penalizes.">Cada passo roda uma única vez e uma nova tentativa retoma exatamente do passo que faltou, com bloqueio de reenvios que o parceiro penaliza.</span></li>
-        <li><span data-en="Partner query order and data minimization."><strong>Ordem de consulta entre parceiros e minimização de dados.</strong></span> <span data-en="The primary partner is queried first; the secondary one only receives the registration if the primary does not approve, and no data goes to a partner without need.">O parceiro principal é consultado primeiro; o secundário só recebe o cadastro se o principal não aprovar, e nenhum dado vai a um parceiro sem necessidade.</span></li>
-        <li><span data-en="OCR with double reading and a tiebreak."><strong>OCR com dupla leitura e desempate.</strong></span> <span data-en="The electricity bill is read twice and a third reading breaks any disagreement.">A conta de luz é lida duas vezes e uma terceira leitura desempata divergências.</span></li>
-        <li><span data-en="Registry lookup cross-checked with each portal&#x27;s fields."><strong>Consulta cadastral cruzada com os campos de cada portal.</strong></span> <span data-en="From the CPF, the system queries a registry database and cross-checks the result, field by field, with what each portal requires, so what is already known is not asked again.">A partir do CPF, o sistema consulta uma base cadastral e cruza o resultado, campo por campo, com o que cada portal exige, de modo que o que já se sabe não é pedido de novo.</span></li>
-        <li><span data-en="Data security."><strong>Segurança de dados.</strong></span> <span data-en="Encrypted cache, CPF never in plain text on disk, data masked on screens, and credentials kept out of the code.">Cache cifrado, CPF nunca em claro em disco, dados mascarados nas telas e credenciais fora do código.</span></li>
-        <li><span data-en="Periodic portal reading."><strong>Leitura periódica dos portais.</strong></span> <span data-en="The portals are read automatically, and if a portal fails the system keeps the last valid reading. A watchdog reapplies the integrations after updates.">Os portais são lidos automaticamente, e se um portal falha o sistema mantém a última leitura válida. Um vigia reaplica as integrações após atualizações.</span></li>
-        <li><span data-en="Operations dashboard."><strong>Painel de operação.</strong></span> <span data-en="Flow documentation generated from the code itself, call logs, the state of credentials, portals, and WhatsApp, and an audit trail of actions.">Documentação do fluxo gerada a partir do próprio código, registros de chamadas, estado de credenciais, portais e WhatsApp, e auditoria das ações.</span></li>
-        <li><span data-en="MCP tools."><strong>Ferramentas MCP.</strong></span> <span data-en="The integrations are exposed as MCP tools, with simulation by default and explicit confirmation to write.">As integrações são expostas como ferramentas MCP, com simulação por padrão e confirmação explícita para gravar.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Deterministic state machine instead of a free-form agent.&lt;/strong&gt;"><strong>Máquina de estados determinística no lugar de agente livre.</strong></span> <span data-en=" The AI is restricted to classification and questions, under strict rules and a table of approved answers, so the flow is testable and auditable.">A IA fica restrita a classificação e dúvidas, sob regras rígidas e uma tabela de respostas aprovadas, para que o fluxo seja testável e auditável.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Idempotent integration.&lt;/strong&gt;"><strong>Integração idempotente.</strong></span> <span data-en="Each step runs exactly once and a retry resumes exactly at the missing step, with a block on resubmissions that the partner penalizes.">Cada passo roda uma única vez e uma nova tentativa retoma exatamente do passo que faltou, com bloqueio de reenvios que o parceiro penaliza.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Partner query order and data minimization.&lt;/strong&gt;"><strong>Ordem de consulta entre parceiros e minimização de dados.</strong></span> <span data-en="The primary partner is queried first; the secondary one only receives the registration if the primary does not approve, and no data goes to a partner without need.">O parceiro principal é consultado primeiro; o secundário só recebe o cadastro se o principal não aprovar, e nenhum dado vai a um parceiro sem necessidade.</span></li>
+        <li><span data-en-html="&lt;strong&gt;OCR with double reading and a tiebreak.&lt;/strong&gt;"><strong>OCR com dupla leitura e desempate.</strong></span> <span data-en="The electricity bill is read twice and a third reading breaks any disagreement.">A conta de luz é lida duas vezes e uma terceira leitura desempata divergências.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Registry lookup cross-checked with each portal&#x27;s fields.&lt;/strong&gt;"><strong>Consulta cadastral cruzada com os campos de cada portal.</strong></span> <span data-en="From the CPF, the system queries a registry database and cross-checks the result, field by field, with what each portal requires, so what is already known is not asked again.">A partir do CPF, o sistema consulta uma base cadastral e cruza o resultado, campo por campo, com o que cada portal exige, de modo que o que já se sabe não é pedido de novo.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Data security.&lt;/strong&gt;"><strong>Segurança de dados.</strong></span> <span data-en="Encrypted cache, CPF never in plain text on disk, data masked on screens, and credentials kept out of the code.">Cache cifrado, CPF nunca em claro em disco, dados mascarados nas telas e credenciais fora do código.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Periodic portal reading.&lt;/strong&gt;"><strong>Leitura periódica dos portais.</strong></span> <span data-en="The portals are read automatically, and if a portal fails the system keeps the last valid reading. A watchdog reapplies the integrations after updates.">Os portais são lidos automaticamente, e se um portal falha o sistema mantém a última leitura válida. Um vigia reaplica as integrações após atualizações.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Operations dashboard.&lt;/strong&gt;"><strong>Painel de operação.</strong></span> <span data-en="Flow documentation generated from the code itself, call logs, the state of credentials, portals, and WhatsApp, and an audit trail of actions.">Documentação do fluxo gerada a partir do próprio código, registros de chamadas, estado de credenciais, portais e WhatsApp, e auditoria das ações.</span></li>
+        <li><span data-en-html="&lt;strong&gt;MCP tools.&lt;/strong&gt;"><strong>Ferramentas MCP.</strong></span> <span data-en="The integrations are exposed as MCP tools, with simulation by default and explicit confirmation to write.">As integrações são expostas como ferramentas MCP, com simulação por padrão e confirmação explícita para gravar.</span></li>
       </ul>
       <h3 data-en="Quality">Qualidade</h3>
       <ul>
