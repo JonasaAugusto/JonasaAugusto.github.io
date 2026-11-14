@@ -10,6 +10,7 @@
 - Inglês estático em `/en/`, gerado por `scripts/gerar-en.py`; alternador de idioma vira link; `hreflang`, `canonical` e metatags por idioma. Testes em `scripts/testar-site.py`.
 - Certificações AWS e Azure como "Planejado · início em fev/2027" (site e currículos); Claude e Codex só no projeto Orchestrator; PDFs do currículo regenerados.
 - Leitura em camadas: resultados em produção e experiência primeiro (F5 em destaque), projetos com problema e resultado à vista e o restante em "Ver detalhes" (abre no próprio lugar); stack com a IA recolhida; IA no trabalho, DeepSeek, desafios e formação viram extras fechados por padrão. Links para dentro de blocos fechados abrem o bloco.
+- Header sem fundo translúcido e que só esconde depois de uma rolagem contínua (sem piscar ao rolar ou abrir blocos); separação maior e título "Os projetos por trás desses números" antes da lista de projetos.
 - Removido o formulário de contato (redundante com e-mail e links); o contato fica por e-mail, LinkedIn, Instagram e GitHub, sem serviço de terceiro.
 - Voltam as animações e os hovers do site anterior: nome que sobe ao carregar, entradas ao rolar, números que contam, prévia que segue o cursor nos outros projetos, botões magnéticos, hora local, barra de progresso e palavra do rodapé. O topo ocupa a tela inteira e as métricas aparecem ao rolar. Movimento reduzido só faz fade curto.
 - Removidos: quadros decorativos soltos e o formulário.

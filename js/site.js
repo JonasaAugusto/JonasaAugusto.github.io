@@ -31,16 +31,26 @@
   });
 
   /* ---------- header: borda ao rolar, some ao descer ---------- */
-  var header = d.querySelector('.site-header'), lastY = 0, ticking = false;
+  /* Só esconde depois de 40 px seguidos para baixo e só volta depois de 24 px para cima; mudanças de
+     altura da página (abrir "ver detalhes", barra do navegador no celular) não contam como rolagem. */
+  var header = d.querySelector('.site-header'), lastY = scrollY, acc = 0, ticking = false, settleUntil = 0;
   function onScroll() {
-    var y = scrollY;
+    var y = scrollY, dy = y - lastY;
     header.classList.toggle('scrolled', y > 8);
     var menuOpen = menu && menu.classList.contains('open');
-    header.classList.toggle('hide', !menuOpen && y > 480 && y > lastY + 4);
-    if (y < lastY - 4 || y < 480) header.classList.remove('hide');
+    if (performance.now() < settleUntil) { lastY = y; acc = 0; ticking = false; return; }
+    if (y < 480 || menuOpen || header.contains(d.activeElement)) { header.classList.remove('hide'); acc = 0; }
+    else {
+      acc = (dy > 0) === (acc >= 0) ? acc + dy : dy;
+      if (acc > 40) header.classList.add('hide');
+      else if (acc < -24) header.classList.remove('hide');
+    }
     lastY = y; ticking = false;
   }
   addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  addEventListener('resize', function () { settleUntil = performance.now() + 400; });
+  d.addEventListener('toggle', function () { settleUntil = performance.now() + 700; }, true);
+  onScroll();
 
   /* ---------- menu móvel ---------- */
   var menu = d.getElementById('mobile-menu'), menuBtn = d.getElementById('menu-btn');
