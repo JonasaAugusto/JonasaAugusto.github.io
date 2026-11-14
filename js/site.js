@@ -185,4 +185,21 @@
   }
   if (clock) { tickClock(); setInterval(tickClock, 15000); }
 
+  /* ---------- links para dentro de "ver detalhes": abre o bloco e rola ---------- */
+  function abrirAte(el) {
+    var ok = false;
+    for (var n = el; n && n !== d.body; n = n.parentElement) if (n.tagName === 'DETAILS' && !n.open) { n.open = true; ok = true; }
+    return ok;
+  }
+  function irPara(hash) {
+    if (!hash || hash.length < 2) return;
+    var el = d.getElementById(decodeURIComponent(hash.slice(1)));
+    if (el && abrirAte(el)) setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 30);
+  }
+  d.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (a) irPara(a.getAttribute('href'));
+  });
+  addEventListener('hashchange', function () { irPara(location.hash); });
+  irPara(location.hash);
 })();

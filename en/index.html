@@ -64,10 +64,10 @@
         <span class="brand-name">Jonas Augusto</span>
       </a>
       <nav class="nav" aria-label="Main">
+        <a href="#experiencia">Experience</a>
         <a href="#projetos">Projects</a>
         <a href="#stack">Stack</a>
-        <a href="#ia-trabalho">AI</a>
-        <a href="#experiencia">Experience</a>
+        <a href="#extras">More</a>
         <a href="#contato">Contact</a>
       </nav>
       <div class="controls">
@@ -86,10 +86,10 @@
   </header>
 
   <nav id="mobile-menu" class="mobile-menu" aria-label="Menu" hidden>
+    <a href="#experiencia"><b>Experience</b></a>
     <a href="#projetos"><b>Projects</b></a>
     <a href="#stack"><b>Stack</b></a>
     <a href="#ia-trabalho"><b>AI</b></a>
-    <a href="#experiencia"><b>Experience</b></a>
     <a href="#formacao"><b>Education</b></a>
     <a href="#contato"><b>Contact</b></a>
     <a href="../cv.en.html" data-cv-page data-open="cv"><b>Open resume</b><span>PDF</span></a>
@@ -169,11 +169,113 @@
     </section>
 
 
-    <!-- PROJETOS EM DESTAQUE -->
+    <section id="experiencia" class="section wrap" aria-labelledby="exp-t">
+      <div class="grid sec-head" data-reveal>
+        <h2 class="sec-title" id="exp-t">Experience</h2>
+        <p class="sec-note">A little over 1 year of professional experience. Augustus AI Solutions is my own business, which I run alongside the F5 internship.</p>
+      </div>
+
+      <article class="grid job" data-reveal>
+        <p class="job-when" style="--i:0">May 2026 – Present · Remote</p>
+        <div class="job-main" style="--i:1">
+          <h3 class="job-role">Development and Automation Intern</h3>
+          <p class="job-org">F5 Tecnologia</p>
+          <p class="job-intro">Development of AI agents on WhatsApp for selling digital products (credit and energy) and for customer relationship and after-sales, with guardrails in code, partner and CRM (Blip) integrations, and sensitive data handled in compliance with LGPD.</p>
+          <details class="more">
+            <summary><span>See details</span></summary>
+          <ul class="job-list">            <li>Production reliability: fixed critical failures (OCR, supplier identification, eligibility rules), unblocking over 170 customers, and rebuilt the CRM dashboard, cutting the dashboard's first call from 73.7 s to 0.08 s with 0 discrepancies across 1,960 items checked against the portals.</li>
+          </ul>
+                <div class="job-side" style="--i:2">
+          <span class="tag live">Current internship</span>
+          <button type="button" class="btn sm ghost" data-open="f5"><span>View case study</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
+        </div>
+          </details>
+        </div>
+      </article>
+      <article class="grid job" data-reveal>
+        <p class="job-when" style="--i:0">Jun 2026 – Present · Remote</p>
+        <div class="job-main" style="--i:1">
+          <h3 class="job-role">CEO &amp; Lead Developer</h3>
+          <p class="job-org">Augustus AI Solutions · AI Agents, Automation &amp; B2B Web</p>
+          <p class="job-intro">AI agents, automations, and B2B web systems for companies, on self-managed VPS infrastructure.</p>
+          <details class="more">
+            <summary><span>See details</span></summary>
+          <div class="subproj">
+            <div>
+              <h4>Raízes &amp; Escamas · WhatsApp AI Agent</h4>
+              <p>Professional project for an aquarium store (real client). Sales and support agent in TypeScript, Baileys, and DeepSeek, with prices computed by rules in code, a 430-entry RAG, quote quantity guard, and PIX payments. The owner registers products in bulk through WhatsApp (text, audio, and photo). Runs as a systemd service on the company's own VPS.</p>
+            </div>
+            <div>
+              <h4>Monobloco · Commercial landing page</h4>
+              <p>A custom commercial landing page built to present the client's offer clearly and turn visitors into leads, from briefing to production launch.</p>
+            </div>
+          </div>
+                <div class="job-side" style="--i:2">
+          <span class="tag live">Ongoing</span>
+          <figure class="job-shot" aria-label="Illustrative fragment of a conversation with the Raízes &amp; Escamas agent">
+            <div class="ui" data-ui>
+              <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>Raízes &amp; Escamas · WhatsApp</span></div>
+              <div class="ui-chat">
+                <div class="bubble me">Quero 6 neons e 2 corydoras<small>cliente</small></div>
+                <div class="bubble">Orçamento pronto, preço calculado pela regra da loja. Posso gerar o PIX?<small>agente · RAG 430 fichas</small></div>
+                <div class="bubble me">Pode sim<small>cliente</small></div>
+              </div>
+            </div>
+          </figure>
+        </div>
+          </details>
+        </div>
+      </article>
+      <article class="grid job" id="exp-neurodev" data-reveal>
+        <p class="job-when" style="--i:0">Sep – Nov 2025 · Hybrid</p>
+        <div class="job-main" style="--i:1">
+          <h3 class="job-role">Intern Automation Developer &amp; RPA Support Analyst</h3>
+          <p class="job-org">NEURODEV · Startup</p>
+          <p class="job-intro">Developed 15+ integrations in Python connecting external APIs, processing 800+ transactions per day.</p>
+          <details class="more">
+            <summary><span>See details</span></summary>
+          <ul class="job-list">            <li>Implemented retry patterns and fallback with monitoring via Linux CLI for high availability.</li>
+            <li>Optimized pipeline with OpenAI API reducing latency from 15 minutes to 27 seconds (97% reduction) through prompt engineering and intelligent caching.</li>
+            <li>Refactored RPA code in Python with Docker.</li>
+          </ul>
+        
+          </details>
+        </div>
+      </article>
+      <article class="grid job" data-reveal>
+        <p class="job-when" style="--i:0">Aug – Sep 2025 · Remote</p>
+        <div class="job-main" style="--i:1">
+          <h3 class="job-role">Junior Process Automation Developer with AI</h3>
+          <p class="job-org">BNECT · Startup Early-Stage</p>
+          <p class="job-intro">Developed services in Python integrating CRM/ERP via APIs, applying Factory and Strategy patterns with event-driven architecture.</p>
+          <details class="more">
+            <summary><span>See details</span></summary>
+          <ul class="job-list">            <li>Used n8n and Python for workflow orchestration with LLM integration.</li>
+          </ul>
+        
+          </details>
+        </div>
+      </article>
+      <article class="grid job" data-reveal>
+        <p class="job-when" style="--i:0">Aug – Sep 2023 · Freelance</p>
+        <div class="job-main" style="--i:1">
+          <h3 class="job-role">Software Requirements Analyst</h3>
+          <p class="job-org">Volpatto Engenharia e Arquitetura de Guaíra LTDA</p>
+          <p class="job-intro">Specified functional and non-functional requirements in UML/BPMN for 6 services, focusing on performance and maintainability.</p>
+          <details class="more">
+            <summary><span>See details</span></summary>
+          <ul class="job-list">            <li>Objective: reduce rework and standardize engineering processes through complete technical documentation.</li>
+          </ul>
+        
+          </details>
+        </div>
+      </article>
+    </section>
+
     <section id="projetos" class="section wrap" aria-labelledby="proj-t">
       <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="proj-t">Featured projects</h2>
-        <p class="sec-note">Each project follows the same order: problem, what I did, what broke, what I would do differently, result and limitation.</p>
+        <p class="sec-note">Problem and result up front. What I did, what broke, what I would do differently and the limitation are under See details.</p>
       </div>
 
       <article id="proj-iaprovale" class="proj" aria-labelledby="ia-t" data-reveal>
@@ -189,13 +291,18 @@
           </div>
         </header>
         <dl class="proj-dl">
-          <div><dt>Problem</dt><dd>Public-exam candidates need to find an open notice that fits their education, and the information is scattered across many sites. Finding it is not enough: registration and exam dates pass.</dd></div>
-          <div><dt>What I did</dt><dd>I build and maintain the product. A Python backend (FastAPI, PostgreSQL) with natural-language search filtered by education and state, deadline alerts and a Career area that compares a resume with a position. Plain HTML, CSS and JavaScript on the front end, no CDN.</dd></div>
-          <div><dt>What broke and how I fixed it</dt><dd>The automated accessibility suite found real bugs: clipped labels at 390 px, a hidden alert that was never announced, and focus landing outside a dialog. In the AI extraction, the model sometimes returned an empty answer because its reasoning used up the output limit; I turned reasoning off and left a single retry, with the validation error handed back to the model.</dd></div>
-          <div><dt>What I would do differently</dt><dd>I would have the specific consent for the Career area ready at launch. Today it is planned and under legal review.</dd></div>
-          <div><dt>Result</dt><dd>In production. 614/614 checks in the automated accessibility suite, about 200 automated tests and end-to-end tests with Playwright at 1280, 390 and 320 px, in light and dark themes. There is no before-and-after metric.</dd></div>
-          <div><dt>Limitation</dt><dd>The product has no published usage numbers. Automated accessibility checks do not prove conformance. Part of the latest changes appears as unpublished in the changelog (3.13.0). The use of AI is described in the section below, including what is still missing.</dd></div>
+          <div class="k1"><dt>Problem</dt><dd>Public-exam candidates need to find an open notice that fits their education, and the information is scattered across many sites. Finding it is not enough: registration and exam dates pass.</dd></div>
+          <div class="k5"><dt>Result</dt><dd>In production. 614/614 checks in the automated accessibility suite, about 200 automated tests and end-to-end tests with Playwright at 1280, 390 and 320 px, in light and dark themes. There is no before-and-after metric.</dd></div>
         </dl>
+        <details class="more">
+          <summary><span>See details</span></summary>
+          <dl class="proj-dl rest">
+          <div class="k2"><dt>What I did</dt><dd>I build and maintain the product. A Python backend (FastAPI, PostgreSQL) with natural-language search filtered by education and state, deadline alerts and a Career area that compares a resume with a position. Plain HTML, CSS and JavaScript on the front end, no CDN.</dd></div>
+          <div class="k3"><dt>What broke and how I fixed it</dt><dd>The automated accessibility suite found real bugs: clipped labels at 390 px, a hidden alert that was never announced, and focus landing outside a dialog. In the AI extraction, the model sometimes returned an empty answer because its reasoning used up the output limit; I turned reasoning off and left a single retry, with the validation error handed back to the model.</dd></div>
+          <div class="k4"><dt>What I would do differently</dt><dd>I would have the specific consent for the Career area ready at launch. Today it is planned and under legal review.</dd></div>
+          <div class="k6"><dt>Limitation</dt><dd>The product has no published usage numbers. Automated accessibility checks do not prove conformance. Part of the latest changes appears as unpublished in the changelog (3.13.0). The use of AI is described in the section below, including what is still missing.</dd></div>
+          </dl>
+        </details>
       </article>
 
       <article id="proj-orquestrador" class="proj" aria-labelledby="orq-h" data-reveal>
@@ -210,13 +317,18 @@
           </div>
         </header>
         <dl class="proj-dl">
-          <div><dt>Problem</dt><dd>Anyone using Claude Code and Codex CLI on paid subscriptions hits one limit in the middle of the work, and the task stops. The two do not talk to each other, and context is lost in the switch.</dd></div>
-          <div><dt>What I did</dt><dd>A Python orchestrator (SQLite, GitHub Actions) that drives the official CLIs with the user's own logins, with no API keys. The queue and reset times live in SQLite, so pending work resumes where it stopped. Usage is measured with counters only, without reading conversations. Publishing requires the human to type the id and the commit SHA.</dd></div>
-          <div><dt>What broke and how I fixed it</dt><dd>A security audit found that the service, running as root, called git with safe.directory=* on service-owned repositories, so a repository config (hooks, fsmonitor, credential helper) could run code as root. I fixed it in v1.0.1 with a hardened git helper and root-only mirrors, and in v1.0.2 publish approvals started binding the reviewed commit SHA. Later, in v1.5.1, a failing local socket could end the process with a segmentation fault because the threads were joined after the SQLite connection was closed; the order was fixed and it now exits with an error. The known weak point left is Codex's limit message, whose format is not documented and may change; that is why detection is tolerant.</dd></div>
-          <div><dt>What I would do differently</dt><dd>I would publish to PyPI and run the full suite on Windows before calling it done. Today installation is straight from GitHub and, on Windows, CI proves only the lite mode.</dd></div>
-          <div><dt>Result</dt><dd>Version 1.5.1 (tag v1.5.1 on GitHub), 595 tests collected with pytest and CI green on the tag commit, on Linux, macOS and Windows, with Python 3.11 to 3.14. There is no before-and-after metric.</dd></div>
-          <div><dt>Limitation</dt><dd>Lite mode does not isolate the agents from the user's account or Git credentials: the confirmation is a workflow safeguard, not a barrier against malicious code. The WhatsApp channel is optional, unofficial and tested only with fakes. Pull request publishing was tested only with a simulated gh.</dd></div>
+          <div class="k1"><dt>Problem</dt><dd>Anyone using Claude Code and Codex CLI on paid subscriptions hits one limit in the middle of the work, and the task stops. The two do not talk to each other, and context is lost in the switch.</dd></div>
+          <div class="k5"><dt>Result</dt><dd>Version 1.5.1 (tag v1.5.1 on GitHub), 595 tests collected with pytest and CI green on the tag commit, on Linux, macOS and Windows, with Python 3.11 to 3.14. There is no before-and-after metric.</dd></div>
         </dl>
+        <details class="more">
+          <summary><span>See details</span></summary>
+          <dl class="proj-dl rest">
+          <div class="k2"><dt>What I did</dt><dd>A Python orchestrator (SQLite, GitHub Actions) that drives the official CLIs with the user's own logins, with no API keys. The queue and reset times live in SQLite, so pending work resumes where it stopped. Usage is measured with counters only, without reading conversations. Publishing requires the human to type the id and the commit SHA.</dd></div>
+          <div class="k3"><dt>What broke and how I fixed it</dt><dd>A security audit found that the service, running as root, called git with safe.directory=* on service-owned repositories, so a repository config (hooks, fsmonitor, credential helper) could run code as root. I fixed it in v1.0.1 with a hardened git helper and root-only mirrors, and in v1.0.2 publish approvals started binding the reviewed commit SHA. Later, in v1.5.1, a failing local socket could end the process with a segmentation fault because the threads were joined after the SQLite connection was closed; the order was fixed and it now exits with an error. The known weak point left is Codex's limit message, whose format is not documented and may change; that is why detection is tolerant.</dd></div>
+          <div class="k4"><dt>What I would do differently</dt><dd>I would publish to PyPI and run the full suite on Windows before calling it done. Today installation is straight from GitHub and, on Windows, CI proves only the lite mode.</dd></div>
+          <div class="k6"><dt>Limitation</dt><dd>Lite mode does not isolate the agents from the user's account or Git credentials: the confirmation is a workflow safeguard, not a barrier against malicious code. The WhatsApp channel is optional, unofficial and tested only with fakes. Pull request publishing was tested only with a simulated gh.</dd></div>
+          </dl>
+        </details>
       </article>
 
       <article id="proj-f5" class="proj" aria-labelledby="f5-h" data-reveal>
@@ -230,13 +342,18 @@
           </div>
         </header>
         <dl class="proj-dl">
-          <div><dt>Problem</dt><dd>Free-form AI service was unpredictable and hard to audit. The automated registration stopped for many customers: the share of registrations that became a proposal was 43% and dropped to 29%. The after-sales dashboard took 73.7 s on the first call and showed diverging data.</dd></div>
-          <div><dt>What I did</dt><dd>WhatsApp agents on a deterministic state machine (the AI only classifies and answers questions, under rules), idempotent partner integrations, OCR with double reading and a tiebreak, and an operations dashboard. Before touching code, I cross-checked execution logs, the API log and message history.</dd></div>
-          <div><dt>What broke and how I fixed it</dt><dd>A safety check blocked 44 of 54 registrations because the carrier's screen had changed and the code had not kept up; I fixed how the item is recognized. Off-script answers were slow because of a fixed 15 s wait, not the AI (the model answered in ~1.5 s); it became 4 s for a recognized question, with an 8 s ceiling, and the cutoff came from 4,078 real messages. On the dashboard, the cache expired before the next request and rebuilt everything inside the request; a thread now builds outside it, with ETag and 304.</dd></div>
-          <div><dt>What I would do differently</dt><dd>I would audit the integrations against the partners' official documentation before building. The audit done afterwards revealed steps that never ran: document upload, payment method and contact registration.</dd></div>
-          <div><dt>Result</dt><dd>Dashboard first call from 73.7 s to 0.08 s (measured in production on 10/15/2026). Registrations that become a proposal, per attempt: 43%, down to 29% in October, about 89% in November after the fix. 0 discrepancies across 1,960 items checked against the portals every 10 minutes. Over 320 automated tests on the service platform.</dd></div>
-          <div><dt>Limitation</dt><dd>The median registration time went up slightly: before, half of the runs died early; now almost all go through to the final validation. Dashboard numbers can be up to 60 s stale. The code belongs to the company, so there is no repository to inspect.</dd></div>
+          <div class="k1"><dt>Problem</dt><dd>Free-form AI service was unpredictable and hard to audit. The automated registration stopped for many customers: the share of registrations that became a proposal was 43% and dropped to 29%. The after-sales dashboard took 73.7 s on the first call and showed diverging data.</dd></div>
+          <div class="k5"><dt>Result</dt><dd>Dashboard first call from 73.7 s to 0.08 s (measured in production on 10/15/2026). Registrations that become a proposal, per attempt: 43%, down to 29% in October, about 89% in November after the fix. 0 discrepancies across 1,960 items checked against the portals every 10 minutes. Over 320 automated tests on the service platform.</dd></div>
         </dl>
+        <details class="more">
+          <summary><span>See details</span></summary>
+          <dl class="proj-dl rest">
+          <div class="k2"><dt>What I did</dt><dd>WhatsApp agents on a deterministic state machine (the AI only classifies and answers questions, under rules), idempotent partner integrations, OCR with double reading and a tiebreak, and an operations dashboard. Before touching code, I cross-checked execution logs, the API log and message history.</dd></div>
+          <div class="k3"><dt>What broke and how I fixed it</dt><dd>A safety check blocked 44 of 54 registrations because the carrier's screen had changed and the code had not kept up; I fixed how the item is recognized. Off-script answers were slow because of a fixed 15 s wait, not the AI (the model answered in ~1.5 s); it became 4 s for a recognized question, with an 8 s ceiling, and the cutoff came from 4,078 real messages. On the dashboard, the cache expired before the next request and rebuilt everything inside the request; a thread now builds outside it, with ETag and 304.</dd></div>
+          <div class="k4"><dt>What I would do differently</dt><dd>I would audit the integrations against the partners' official documentation before building. The audit done afterwards revealed steps that never ran: document upload, payment method and contact registration.</dd></div>
+          <div class="k6"><dt>Limitation</dt><dd>The median registration time went up slightly: before, half of the runs died early; now almost all go through to the final validation. Dashboard numbers can be up to 60 s stale. The code belongs to the company, so there is no repository to inspect.</dd></div>
+          </dl>
+        </details>
       </article>
 
       <details class="others" id="outros-projetos">
@@ -298,8 +415,6 @@
       </div>
     </section>
 
-
-    <!-- STACK -->
     <section id="stack" class="section wrap" aria-labelledby="st-t">
       <div class="grid sec-head" data-reveal>
         <h2 class="sec-title" id="st-t">Stack</h2>
@@ -318,7 +433,8 @@
       <h3 class="sub-t">Secondary</h3>
       <p class="second-stack">C# and .NET MAUI, TypeScript and Node.js (Fastify), SQL, SQLite, Redis, pytest, Playwright, GitHub Actions, Git, systemd, Caddy, React, WebSocket.</p>
 
-      <h3 class="sub-t" id="stack-ia">AI: tools and where I used them</h3>
+      <details class="more" id="stack-ia">
+        <summary><span>AI: tools and where I used them</span></summary>
       <ul class="ai-stack">
         <li><strong>DeepSeek</strong><span>IAprovale (search and resume), the Raízes &amp; Escamas sales agent and the F5 after-sales agent.</span></li>
         <li><strong>OpenAI API</strong><span>NEURODEV: pipeline latency from 15 min to 27 s, with prompt engineering and caching.</span></li>
@@ -329,6 +445,8 @@
         <li><strong>LangChain</strong><span>F5, in the earlier blocks of the case study.</span></li>
         <li><strong>Techniques</strong><span>Lexical RAG (Raízes &amp; Escamas, 430 entries), tool calling and MCP (F5), guardrails in code (F5).</span></li>
       </ul>
+
+      </details>
 
       <details class="full-stack">
         <summary>See the full list by layer</summary>
@@ -374,13 +492,16 @@
       </details>
     </section>
 
-    <!-- COMO USO IA -->
-    <section id="ia-trabalho" class="section wrap" aria-labelledby="iat-t">
+    <section id="extras" class="section wrap" aria-labelledby="ex-t">
       <div class="grid sec-head" data-reveal>
-        <h2 class="sec-title" id="iat-t">How I use AI in my work</h2>
-        <p class="sec-note">It writes drafts. What goes to production goes through me, through tests and through measurement. This is not vibe coding: IAprovale alone has about 140 planning documents, written before and during development.</p>
+        <h2 class="sec-title" id="ex-t">More about how I work</h2>
+        <p class="sec-note">Extra information, closed by default. Open what interests you.</p>
       </div>
-      <div class="ia-cols" data-reveal>
+      <details class="extra" id="ia-trabalho">
+        <summary><span class="extra-t">How I use AI in my work</span><span class="extra-n">It writes drafts. What goes to production goes through me, through tests and through measurement.</span></summary>
+        <div class="extra-body">
+      <p class="ia-note">This is not vibe coding: IAprovale alone has about 140 planning documents, written before and during development.</p>
+        <div class="ia-cols" data-reveal>
         <div>
           <h3>What I delegate</h3>
           <ul class="checks">
@@ -409,14 +530,11 @@
           </ul>
         </div>
       </div>
-    </section>
-
-    <!-- DEEPSEEK NO IAPROVALE (REVISÃO DO DONO) -->
-    <section id="ia-deepseek" class="section wrap" aria-labelledby="ds-t">
-      <div class="grid sec-head" data-reveal>
-        <h2 class="sec-title" id="ds-t">How DeepSeek is used in IAprovale</h2>
-        <p class="sec-note">Described from the backend code. It includes what is not ready yet.</p>
-      </div>
+        </div>
+      </details>
+      <details class="extra" id="ia-deepseek">
+        <summary><span class="extra-t">How DeepSeek is used in IAprovale</span><span class="extra-n">Described from the backend code. It includes what is not ready yet.</span></summary>
+        <div class="extra-body">
       <div class="ds-grid" data-reveal>
         <div class="ds-block">
           <h3>Where it is used</h3>
@@ -462,108 +580,13 @@
           </ul>
         </div>
       </div>
-    </section>
-
-
-    <section id="experiencia" class="section wrap" aria-labelledby="exp-t">
-      <div class="grid sec-head" data-reveal>
-        <h2 class="sec-title" id="exp-t">Experience</h2>
-        <p class="sec-note">A little over 1 year of professional experience. Augustus AI Solutions is my own business, which I run alongside the F5 internship.</p>
-      </div>
-
-      <article class="grid job" data-reveal>
-        <p class="job-when" style="--i:0">Jun 2026 – Present · Remote</p>
-        <div class="job-main" style="--i:1">
-          <h3 class="job-role">CEO &amp; Lead Developer</h3>
-          <p class="job-org">Augustus AI Solutions · AI Agents, Automation &amp; B2B Web</p>
-          <p class="job-intro">AI agents, automations, and B2B web systems for companies, on self-managed VPS infrastructure.</p>
-          <div class="subproj">
-            <div>
-              <h4>Raízes &amp; Escamas · WhatsApp AI Agent</h4>
-              <p>Professional project for an aquarium store (real client). Sales and support agent in TypeScript, Baileys, and DeepSeek, with prices computed by rules in code, a 430-entry RAG, quote quantity guard, and PIX payments. The owner registers products in bulk through WhatsApp (text, audio, and photo). Runs as a systemd service on the company's own VPS.</p>
-            </div>
-            <div>
-              <h4>Monobloco · Commercial landing page</h4>
-              <p>A custom commercial landing page built to present the client's offer clearly and turn visitors into leads, from briefing to production launch.</p>
-            </div>
-          </div>
         </div>
-        <div class="job-side" style="--i:2">
-          <span class="tag live">Ongoing</span>
-          <figure class="job-shot" aria-label="Illustrative fragment of a conversation with the Raízes &amp; Escamas agent">
-            <div class="ui" data-ui>
-              <div class="ui-bar"><span class="ui-dots"><i></i><i></i><i></i></span><span>Raízes &amp; Escamas · WhatsApp</span></div>
-              <div class="ui-chat">
-                <div class="bubble me">Quero 6 neons e 2 corydoras<small>cliente</small></div>
-                <div class="bubble">Orçamento pronto, preço calculado pela regra da loja. Posso gerar o PIX?<small>agente · RAG 430 fichas</small></div>
-                <div class="bubble me">Pode sim<small>cliente</small></div>
-              </div>
-            </div>
-          </figure>
-        </div>
-      </article>
-
-      <article class="grid job" data-reveal>
-        <p class="job-when" style="--i:0">May 2026 – Present · Remote</p>
-        <div class="job-main" style="--i:1">
-          <h3 class="job-role">Development and Automation Intern</h3>
-          <p class="job-org">F5 Tecnologia</p>
-          <ul class="job-list">
-            <li>Development of AI agents on WhatsApp for selling digital products (credit and energy) and for customer relationship and after-sales, with guardrails in code, partner and CRM (Blip) integrations, and sensitive data handled in compliance with LGPD.</li>
-            <li>Production reliability: fixed critical failures (OCR, supplier identification, eligibility rules), unblocking over 170 customers, and rebuilt the CRM dashboard, cutting the dashboard's first call from 73.7 s to 0.08 s with 0 discrepancies across 1,960 items checked against the portals.</li>
-          </ul>
-        </div>
-        <div class="job-side" style="--i:2">
-          <span class="tag live">Current internship</span>
-          <button type="button" class="btn sm ghost" data-open="f5"><span>View case study</span><svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg></button>
-        </div>
-      </article>
-
-      <article class="grid job" id="exp-neurodev" data-reveal>
-        <p class="job-when" style="--i:0">Sep – Nov 2025 · Hybrid</p>
-        <div class="job-main" style="--i:1">
-          <h3 class="job-role">Intern Automation Developer &amp; RPA Support Analyst</h3>
-          <p class="job-org">NEURODEV · Startup</p>
-          <ul class="job-list">
-            <li>Developed 15+ integrations in Python connecting external APIs, processing 800+ transactions per day.</li>
-            <li>Implemented retry patterns and fallback with monitoring via Linux CLI for high availability.</li>
-            <li>Optimized pipeline with OpenAI API reducing latency from 15 minutes to 27 seconds (97% reduction) through prompt engineering and intelligent caching.</li>
-            <li>Refactored RPA code in Python with Docker.</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="grid job" data-reveal>
-        <p class="job-when" style="--i:0">Aug – Sep 2025 · Remote</p>
-        <div class="job-main" style="--i:1">
-          <h3 class="job-role">Junior Process Automation Developer with AI</h3>
-          <p class="job-org">BNECT · Startup Early-Stage</p>
-          <ul class="job-list">
-            <li>Developed services in Python integrating CRM/ERP via APIs, applying Factory and Strategy patterns with event-driven architecture.</li>
-            <li>Used n8n and Python for workflow orchestration with LLM integration.</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="grid job" data-reveal>
-        <p class="job-when" style="--i:0">Aug – Sep 2023 · Freelance</p>
-        <div class="job-main" style="--i:1">
-          <h3 class="job-role">Software Requirements Analyst</h3>
-          <p class="job-org">Volpatto Engenharia e Arquitetura de Guaíra LTDA</p>
-          <ul class="job-list">
-            <li>Specified functional and non-functional requirements in UML/BPMN for 6 services, focusing on performance and maintainability.</li>
-            <li>Objective: reduce rework and standardize engineering processes through complete technical documentation.</li>
-          </ul>
-        </div>
-      </article>
-    </section>
-
-
-    <section id="desafios" class="section wrap" aria-labelledby="ch-t">
+      </details>
+      <details class="extra" id="desafios">
+        <summary><span class="extra-t">Technical challenges</span><span class="extra-n">Problems I ran into in real systems, what I did, and the result I can show.</span></summary>
+        <div class="extra-body">
       <div class="grid challenges">
         <div class="ch-aside">
-          <h2 class="sec-title" id="ch-t">Technical challenges</h2>
-          <p>Problems I ran into in real systems, what I did, and the result I can show.</p>
           <div class="ch-progress" aria-hidden="true"><i></i></div>
         </div>
         <div class="ch-list">
@@ -599,14 +622,11 @@
           </article>
         </div>
       </div>
-    </section>
-
-
-    <section id="formacao" class="section wrap" aria-labelledby="ed-t">
-      <div class="grid sec-head" data-reveal>
-        <h2 class="sec-title" id="ed-t">Education and courses</h2>
-        <p class="sec-note">Academic education, completed courses, courses in progress and planned certifications.</p>
-      </div>
+        </div>
+      </details>
+      <details class="extra" id="formacao">
+        <summary><span class="extra-t">Education and courses</span><span class="extra-n">Academic education, completed courses, courses in progress and planned certifications.</span></summary>
+        <div class="extra-body">
       <div class="grid edu">
         <div class="edu-col edu-degrees">
           <h3 style="--i:0">Academic education</h3>
@@ -648,8 +668,9 @@
           </ul>
         </div>
       </div>
+        </div>
+      </details>
     </section>
-
 
     <section id="contato" class="section wrap" aria-labelledby="ct-t">
       <div class="grid contact">
