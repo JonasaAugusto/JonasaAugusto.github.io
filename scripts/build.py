@@ -156,8 +156,8 @@ def jsonld(lang):
         "url": SITE + ("/" if pt else "/en/"),
         "image": SITE + "/assets/img/og-image.png",
         "jobTitle": "Engenheiro de software" if pt else "Software engineer",
-        "description": ("Engenheiro de software (formação em dez/2026). Construo e opero APIs, automações e integrações de IA em produção, com backend em Python e C#."
-                        if pt else "Software engineer (graduating Dec 2026). I build and run APIs, automations and AI integrations in production, with a Python and C# backend."),
+        "description": ("Engenheiro de software (formação em dez/2026). Construo e opero APIs, automações e integrações de IA em produção, com backend em Python e apps em C#/.NET."
+                        if pt else "Software engineer (graduating Dec 2026). I build and run APIs, automations and AI integrations in production, with a Python backend and C#/.NET apps."),
         "worksFor": [
             {"@type": "Organization", "name": "Augustus AI Solutions"},
             {"@type": "Organization", "name": "F5 Tecnologia"},
