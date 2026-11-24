@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Testes estruturais do portfólio (só biblioteca padrão): python3 scripts/testar-site.py
 
-- en/index.html está em dia com index.html (gerado por scripts/gerar-en.py);
-- PT e EN têm os mesmos blocos (ids, landmarks, headings, links, diálogos, formulário);
-- EN não tem restos de data-en*, tem lang/canonical/hreflang corretos e caminhos que resolvem;
+- as saídas publicadas estão em dia com src/ (scripts/build.py --check);
+- cada página PT tem a gêmea EN com os mesmos ids, landmarks, headings e links;
+- PT e EN não têm restos de data-en*, têm lang/canonical/hreflang corretos e caminhos que resolvem;
 - um h1 por página, headings sem pulo de nível, sem Claude/Codex fora do projeto Orchestrator;
-- o alternador de idioma é um link comum (funciona sem JavaScript).
+- o alternador de idioma é um link comum (funciona sem JavaScript);
+- sitemap, robots e 404 existem; todo link interno (incluindo âncoras) resolve.
 """
 import re
 import subprocess
@@ -15,6 +16,10 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 falhas = []
+CASOS = ("f5", "iaprovale", "orquestrador")
+PARES = [("index.html", "en/index.html")] + [(f"casos/{c}/index.html", f"en/cases/{c}/index.html") for c in CASOS]
+URL_PT = {"index.html": "", **{f"casos/{c}/index.html": f"casos/{c}/" for c in CASOS}}
+URL_EN = {"en/index.html": "en/", **{f"en/cases/{c}/index.html": f"en/cases/{c}/" for c in CASOS}}
 
 
 def checa(ok, msg):
@@ -28,10 +33,9 @@ class Mapa(HTMLParser):
         super().__init__()
         self.ids, self.heads, self.landmarks, self.links, self.srcs, self.dialogs = [], [], [], [], [], []
         self.attrs_en = 0
-        self.stack = []
-        self.h1 = 0
         self.form = 0
         self.lang = None
+        self.lang_btn = None
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -39,6 +43,8 @@ class Mapa(HTMLParser):
             self.lang = a.get("lang")
         if a.get("id"):
             self.ids.append(a["id"])
+        if a.get("id") == "lang-btn":
+            self.lang_btn = a.get("href")
         if any(k.startswith("data-en") for k in a):
             self.attrs_en += 1
         if tag in ("h1", "h2", "h3", "h4"):
@@ -56,54 +62,76 @@ class Mapa(HTMLParser):
                 self.srcs.append(a[k])
 
 
-def le(p):
+def ler(p):
+    return (RAIZ / p).read_text(encoding="utf-8")
+
+
+def mapa(p):
     m = Mapa()
-    m.feed((RAIZ / p).read_text(encoding="utf-8"))
+    m.feed(ler(p))
     return m
 
 
-pt, en = le("index.html"), le("en/index.html")
+build = subprocess.run([sys.executable, str(RAIZ / "scripts/build.py"), "--check"], capture_output=True, text=True)
+checa(build.returncode == 0, "saídas em dia com src/ " + (build.stderr.strip() or build.stdout.strip()))
+for extra in ("sitemap.xml", "robots.txt", "404.html"):
+    checa((RAIZ / extra).exists(), f"{extra} existe")
 
-atual = subprocess.run([sys.executable, str(RAIZ / "scripts/gerar-en.py"), "--check"], capture_output=True, text=True)
-checa(atual.returncode == 0, "en/index.html está em dia com index.html")
-checa(pt.ids == en.ids, "PT e EN têm os mesmos ids, na mesma ordem")
-checa(pt.heads == en.heads, "PT e EN têm a mesma sequência de headings")
-checa(pt.landmarks == en.landmarks, "PT e EN têm os mesmos landmarks")
-checa(pt.dialogs == en.dialogs, "PT e EN têm os mesmos diálogos")
-checa(pt.form == en.form == 0, "PT e EN sem formulário de contato (contato por e-mail e links)")
-checa(len(pt.links) == len(en.links), "PT e EN têm o mesmo número de links")
-checa(en.attrs_en == 0, "EN não tem atributos data-en* sobrando")
-checa(pt.lang == "pt-BR" and en.lang == "en", "html lang: pt-BR em / e en em /en/")
-for nome, m in (("PT", pt), ("EN", en)):
-    checa(m.heads.count(1) == 1, f"{nome}: um único h1")
-    pulos = [(a, b) for a, b in zip(m.heads, m.heads[1:]) if b - a > 1]
-    checa(not pulos, f"{nome}: headings sem pulo de nível {pulos[:3]}")
-en_txt = (RAIZ / "en/index.html").read_text(encoding="utf-8")
-pt_txt = (RAIZ / "index.html").read_text(encoding="utf-8")
-checa('rel="canonical" href="https://jonasaaugusto.github.io/en/"' in en_txt, "EN: canonical aponta para /en/")
-checa('rel="canonical" href="https://jonasaaugusto.github.io/"' in pt_txt, "PT: canonical aponta para /")
-for h in ('hreflang="pt-BR"', 'hreflang="en"', 'hreflang="x-default"'):
-    checa(h in pt_txt and h in en_txt, f"hreflang {h} nas duas páginas")
-checa('id="lang-btn" href="en/"' in pt_txt and 'id="lang-btn" href="../"' in en_txt, "alternador de idioma é um link (sem JS)")
-# caminhos de EN resolvem a partir de /en/
-quebrados = []
-for ref in en.srcs + [l for l in en.links]:
-    ref = ref.split("#")[0].split("?")[0]
-    if not ref or re.match(r"^([a-z][a-z0-9+.-]*:|//)", ref, re.I):
-        continue
-    if not (RAIZ / "en" / ref).resolve().exists():
-        quebrados.append(ref)
-checa(not quebrados, f"EN: caminhos relativos existem {quebrados[:5]}")
-# nomes de ferramentas: só dentro do projeto Orchestrator (card, artigo e diálogo)
-fora = []
-for nome, txt in (("PT", pt_txt), ("EN", en_txt)):
-    corpo = re.sub(r'<dialog id="dlg-orq".*?</dialog>', "", txt, flags=re.S)
-    corpo = re.sub(r'<article id="proj-orquestrador".*?</article>', "", corpo, flags=re.S)
-    corpo = re.sub(r'<li>\s*<a class="pcard" href="#proj-orquestrador">.*?</li>', "", corpo, flags=re.S)
-    corpo = re.sub(r'<script.*?</script>', "", corpo, flags=re.S)
-    if re.search(r"claude|codex|anthropic", corpo, re.I):
-        fora.append(nome)
-checa(not fora, f"Claude/Codex só dentro do projeto Orchestrator {fora}")
+orq_re = [r'<article id="proj-orquestrador".*?</article>',
+          r'<li>\s*<a class="pcard" href="#proj-orquestrador">.*?</li>',
+          r'<script.*?</script>']
+
+for ppt, pen in PARES:
+    pt, en = mapa(ppt), mapa(pen)
+    n = f"[{ppt}]"
+    checa(pt.ids == en.ids, f"{n} PT e EN têm os mesmos ids, na mesma ordem")
+    checa(pt.heads == en.heads, f"{n} mesma sequência de headings")
+    checa(pt.landmarks == en.landmarks, f"{n} mesmos landmarks")
+    checa(pt.dialogs == en.dialogs, f"{n} mesmos diálogos")
+    checa(pt.form == en.form == 0, f"{n} sem formulário")
+    checa(len(pt.links) == len(en.links), f"{n} mesmo número de links")
+    checa(pt.attrs_en == 0 and en.attrs_en == 0, f"{n} sem atributos data-en* sobrando")
+    checa(pt.lang == "pt-BR" and en.lang == "en", f"{n} html lang pt-BR / en")
+    for nome, m in (("PT", pt), ("EN", en)):
+        checa(m.heads.count(1) == 1, f"{n} {nome}: um único h1")
+        pulos = [(a, b) for a, b in zip(m.heads, m.heads[1:]) if b - a > 1]
+        checa(not pulos, f"{n} {nome}: headings sem pulo de nível {pulos[:3]}")
+    tpt, ten = ler(ppt), ler(pen)
+    cpt, cen = "https://jonasaaugusto.github.io/" + URL_PT[ppt], "https://jonasaaugusto.github.io/" + URL_EN[pen]
+    checa(f'rel="canonical" href="{cpt}"' in tpt, f"{n} PT: canonical {cpt}")
+    checa(f'rel="canonical" href="{cen}"' in ten, f"{n} EN: canonical {cen}")
+    for h in ('hreflang="pt-BR"', 'hreflang="en"', 'hreflang="x-default"'):
+        checa(h in tpt and h in ten, f"{n} hreflang {h}")
+    checa(pt.lang_btn is not None and en.lang_btn is not None, f"{n} alternador de idioma é um link (sem JS)")
+    # caminhos relativos resolvem a partir da pasta de cada saída; âncoras existem na página de destino
+    for pasta, m in ((Path(ppt).parent, pt), (Path(pen).parent, en)):
+        quebrados = []
+        for ref in m.srcs + m.links:
+            base = ref.split("#")[0].split("?")[0]
+            if not base or re.match(r"^([a-z][a-z0-9+.-]*:|//)", base, re.I):
+                continue
+            alvo = (RAIZ / pasta / base).resolve() if not base.startswith("/") else (RAIZ / base.lstrip("/")).resolve()
+            if alvo.is_dir():
+                alvo = alvo / "index.html"
+            if not alvo.exists():
+                quebrados.append(ref)
+            elif "#" in ref and alvo.suffix == ".html":
+                frag = ref.split("#", 1)[1]
+                if frag and f'id="{frag}"' not in alvo.read_text(encoding="utf-8"):
+                    quebrados.append(ref)
+        checa(not quebrados, f"{n} {pasta.as_posix()}: links e âncoras internos existem {quebrados[:5]}")
+    # nomes de ferramentas: só dentro do projeto Orchestrator
+    if "orquestrador" not in ppt:
+        for nome, txt in (("PT", tpt), ("EN", ten)):
+            corpo = txt
+            for r in orq_re:
+                corpo = re.sub(r, "", corpo, flags=re.S)
+            corpo = re.sub(r'<link[^>]*>|<meta[^>]*>', "", corpo)
+            checa(not re.search(r"claude|codex|anthropic", corpo, re.I), f"{n} {nome}: Claude/Codex só dentro do projeto Orchestrator")
+
 for cv in ("cv.html", "cv.en.html"):
-    checa(not re.search(r"claude|codex|anthropic", (RAIZ / cv).read_text(encoding="utf-8"), re.I), f"{cv} sem Claude/Codex")
+    checa(not re.search(r"claude|codex|anthropic", ler(cv), re.I), f"{cv} sem Claude/Codex")
+    checa(not re.search(r"\bCEO\b", ler(cv)), f"{cv} sem o título 'CEO'")
+site = ler("index.html") + ler("en/index.html")
+checa(not re.search(r"\bCEO\b|vibe coding", site), "site sem 'CEO' nem 'vibe coding'")
 sys.exit(1 if falhas else 0)

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://jonasaaugusto.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/"/>
+  </url>
+  <url>
+    <loc>https://jonasaaugusto.github.io/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/"/>
+  </url>
+  <url>
+    <loc>https://jonasaaugusto.github.io/casos/f5/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/casos/f5/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/cases/f5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/casos/f5/"/>
+  </url>
+  <url>
+    <loc>https://jonasaaugusto.github.io/en/cases/f5/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/casos/f5/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/cases/f5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/casos/f5/"/>
+  </url>
+  <url>
+    <loc>https://jonasaaugusto.github.io/casos/iaprovale/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/casos/iaprovale/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/cases/iaprovale/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/casos/iaprovale/"/>
+  </url>
+  <url>
+    <loc>https://jonasaaugusto.github.io/en/cases/iaprovale/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/casos/iaprovale/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/cases/iaprovale/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/casos/iaprovale/"/>
+  </url>
+  <url>
+    <loc>https://jonasaaugusto.github.io/casos/orquestrador/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/casos/orquestrador/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/cases/orquestrador/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/casos/orquestrador/"/>
+  </url>
+  <url>
+    <loc>https://jonasaaugusto.github.io/en/cases/orquestrador/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/casos/orquestrador/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/cases/orquestrador/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/casos/orquestrador/"/>
+  </url>
+</urlset>

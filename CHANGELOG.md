@@ -2,6 +2,16 @@
 
 ## [Não publicado] - 1.1.0
 
+### Auditoria de portfólio (posicionamento, credibilidade, performance)
+- Cargo "CEO" virou "Fundador e Engenheiro de Software" no site e nos CVs; posicionamento "Engenheiro de Software, backend em Python e C#" (título, metatags, JSON-LD, og-image).
+- Topo com a prova na primeira tela: 73,7 s para 0,08 s, 43% para ~89% e 595 testes do Orchestrator, cada um com link para a fonte.
+- Removidas frases defensivas ("Não é vibe coding", "Não há métrica de antes e depois").
+- Corrigido contra repositórios, PyPI e CI: Orchestrator está no PyPI (v1.5.1), suíte completa roda também no Windows, contagem de 595 testes, versão 1.4.0 vs 1.5.1.
+- Estudos de caso saem dos modais para páginas próprias (`/casos/<caso>/`, `/en/cases/<caso>/`); HTML principal menor.
+- Nova pipeline `src/` + `scripts/build.py` (substitui `scripts/gerar-en.py`): CSS inline, caminhos por profundidade, `sitemap.xml` com hreflang, JSON-LD, `robots.txt`, `404.html`.
+- Contato refeito (links grandes, currículo em PDF logo abaixo do e-mail); CV com IAprovale e Orchestrator, ainda em 1 página.
+- Acessibilidade: axe (WCAG 2.2 AA) sem violações em 9 páginas, 2 temas, 390 e 1440 px; região rolável da tabela da F5 focável; botões do topo em grade 2x2 no celular.
+
 ### Reformulação para leitura rápida (recrutador)
 - Topo sem rolar: frase de apresentação, botões (e-mail, GitHub, LinkedIn, currículo), 3 números com antes e depois e 3 projetos em destaque (IAprovale, AI Agents Orchestrator, F5 Tecnologia).
 - Projetos em destaque no formato problema, o que fiz, o que quebrou, o que faria diferente, resultado e limitação. AugustusApp, NotaME, Conector WhatsApp e Fabula Coop passam para "Outros projetos" (`<details>` fechado).
