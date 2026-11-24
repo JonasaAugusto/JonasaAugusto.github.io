@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-base="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada · Page not found | Jonas Augusto</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3">
+  <script>
+    (function () {
+      var d = document.documentElement, t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      d.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preload" href="assets/fonts/geist-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <main id="conteudo" class="wrap notfound">
+    <h1>404</h1>
+    <p lang="pt-BR">Essa página não existe. <a class="link" href="./">Voltar ao portfólio</a></p>
+    <p lang="en">This page does not exist. <a class="link" href="en/">Back to the portfolio</a></p>
+  </main>
+</body>
+</html>

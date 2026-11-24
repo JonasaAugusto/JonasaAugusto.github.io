@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-base="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-en="AI Agents Orchestrator case study | Jonas Augusto">Estudo de caso AI Agents Orchestrator | Jonas Augusto</title>
+  <meta name="description" content="AI Agents Orchestrator (v1.5.1, no PyPI): revezamento entre Claude Code e Codex CLI quando um bate o limite de uso, com decisões, testes e limitações." data-en-content="AI Agents Orchestrator (v1.5.1, on PyPI): a relay between Claude Code and Codex CLI when one hits its usage limit, with decisions, tests and limitations.">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="canonical" href="https://jonasaaugusto.github.io/casos/orquestrador/" data-en-href="https://jonasaaugusto.github.io/en/cases/orquestrador/">
+  <link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/casos/orquestrador/">
+  <link rel="alternate" hreflang="en" href="https://jonasaaugusto.github.io/en/cases/orquestrador/">
+  <link rel="alternate" hreflang="x-default" href="https://jonasaaugusto.github.io/casos/orquestrador/">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3">
+  <link rel="icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR" data-en-content="en_US">
+  <meta property="og:site_name" content="Jonas Augusto">
+  <meta property="og:title" content="Estudo de caso AI Agents Orchestrator | Jonas Augusto" data-en-content="AI Agents Orchestrator case study | Jonas Augusto">
+  <meta property="og:description" content="AI Agents Orchestrator (v1.5.1, no PyPI): revezamento entre Claude Code e Codex CLI quando um bate o limite de uso, com decisões, testes e limitações." data-en-content="AI Agents Orchestrator (v1.5.1, on PyPI): a relay between Claude Code and Codex CLI when one hits its usage limit, with decisions, tests and limitations.">
+  <meta property="og:image" content="https://jonasaaugusto.github.io/assets/img/og-image.png?v=3">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://jonasaaugusto.github.io/casos/orquestrador/" data-en-content="https://jonasaaugusto.github.io/en/cases/orquestrador/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jonasaaugusto.github.io/assets/img/og-image.png?v=3">
+  <script>
+    (function () {
+      var d = document.documentElement, t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      d.setAttribute('data-theme', t);
+      d.classList.add('js');
+    })();
+  </script>
+  <link rel="preload" href="assets/fonts/geist-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
+</head>
+<body>
+<!--include:case-header-->
+  <main id="conteudo" class="wrap case-page">
+    <h1 class="case-title" data-en="Case study · AI Agents Orchestrator">Estudo de caso · AI Agents Orchestrator</h1>
+    <div class="case">
+      <section class="case-block" aria-labelledby="orq-main-t">
+      <h2 id="orq-main-t" data-en="Claude Code and Codex as one relay team">Claude Code e Codex como um time em revezamento</h2>
+      <p class="case-lead" data-en="Personal open-source project, version 1.5.1, published on PyPI. It drives the official codex and claude CLIs with the user's own logins, with no API keys, and nothing is published without a human approval.">Projeto pessoal open source, versão 1.5.1, publicado no PyPI. Ele opera os CLIs oficiais codex e claude com os logins do próprio usuário, sem chaves de API, e nada é publicado sem aprovação humana.</p>
+      <p class="case-links"><a class="link" href="https://github.com/JonasaAugusto/ai-agents-orchestrator" target="_blank" rel="noopener"><span class="case-stack">github.com/JonasaAugusto/ai-agents-orchestrator</span></a> <a class="link" href="https://pypi.org/project/ai-agents-orchestrator/" target="_blank" rel="noopener"><span class="case-stack">pypi.org/project/ai-agents-orchestrator</span></a> <a class="link" href="https://github.com/JonasaAugusto/ai-agents-orchestrator/releases/tag/v1.5.1" target="_blank" rel="noopener"><span class="case-stack" data-en="release v1.5.1">release v1.5.1</span></a></p>
+      <p><code class="case-stack">pipx install ai-agents-orchestrator</code></p>
+
+      <h3 data-en="The problem">O problema</h3>
+      <ul>
+        <li data-en="Anyone using Claude Code and Codex on paid subscriptions hits one limit in the middle of the work, and the task stops.">Quem usa o Claude Code e o Codex em assinaturas pagas bate o limite de um deles no meio do trabalho, e a tarefa para.</li>
+        <li data-en="The two agents do not talk to each other: context and pending work are lost in the switch.">Os dois agentes não conversam: o contexto e o que ficou pendente se perdem na troca.</li>
+        <li data-en="Delegating to an agent that writes code needs a clear checkpoint: what was really done and who authorized publishing.">Delegar a um agente que escreve código exige um ponto de controle claro: o que foi feito de verdade e quem autorizou a publicação.</li>
+      </ul>
+
+      <h3 data-en="The solution">A solução</h3>
+      <p data-en="The Claude leads: it plans, talks to the user, and reviews. Codex works as a second engineer on isolated branches, picks up delegated tasks and cross-reviews Claude's branches. When Claude reaches its limit, Codex takes the baton and keeps going until Claude is back.">O Claude lidera: planeja, conversa com o usuário e revisa. O Codex trabalha como segundo engenheiro em branches isolados, assume tarefas delegadas e faz revisão cruzada dos branches do Claude. Quando o Claude chega ao limite, o Codex assume o bastão e segue até o Claude voltar.</p>
+
+      <h3 data-en="Engineering decisions">Decisões de engenharia</h3>
+      <ul>
+        <li><span data-en-html="&lt;strong&gt;Relay by limit with persistent resumption.&lt;/strong&gt;"><strong>Revezamento por limite com retomada persistente.</strong></span> <span data-en=" The queue and the reset times live in SQLite. If the service or the machine restarts, pending work resumes where it stopped.">A fila e os horários de reset ficam em SQLite. Se o serviço ou a máquina reinicia, o trabalho pendente retoma do ponto em que parou.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Measured usage, without reading conversations.&lt;/strong&gt;"><strong>Gasto medido, sem ler conversas.</strong></span> <span data-en=" Usage of both agents is counted with counters only, never with text. The target is a ratio between 0.7 and 1.4, configurable; outside it, routing moves review and test work to the other agent. The counters estimate quota use, not money.">O uso dos dois agentes é contado só com contadores, nunca com o texto. A meta é uma razão entre 0,7 e 1,4, configurável; fora dela, o roteamento passa trabalho de revisão e teste para o outro agente. Os contadores estimam consumo de cota, não dinheiro.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Publishing bound to the SHA.&lt;/strong&gt;"><strong>Publicação presa ao SHA.</strong></span> <span data-en=" The publish command shows the repository, destination and full SHA, and requires the human to type the id and the SHA in an interactive terminal. If the branch or destination changes, the approval stops being valid. The push is non-force and against the current remote base. New in 1.4.0: aao publish --pr pushes the approved SHA and opens a pull request instead of merging; it never merges.">O comando de publicar mostra o repositório, o destino e o SHA completo, e exige que o humano digite o id e o SHA num terminal interativo. Mudou o branch ou o destino, a aprovação deixa de valer. O push é sem force e contra a base remota atual. Novo na 1.4.0: aao publish --pr envia o SHA aprovado e abre um pull request em vez de fazer merge; ele nunca faz merge.</span></li>
+        <li><span data-en-html="&lt;strong&gt;MCP server that never publishes.&lt;/strong&gt;"><strong>Servidor MCP que nunca publica.</strong></span> <span data-en=" New in 1.4.0: aao mcp exposes delegate, status, result and review to the user's agent over stdio, using only the Python standard library. Publishing stays a human approval in the CLI.">Novo na 1.4.0: o aao mcp expõe delegate, status, result e review ao agente do usuário por stdio, só com a biblioteca padrão do Python. Publicar continua sendo uma aprovação humana na CLI.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Parallel Codex, off by default.&lt;/strong&gt;"><strong>Codex em paralelo, desligado por padrão.</strong></span> <span data-en=" New in 1.4.0: with max_concurrent_codex above 1, several Codex tasks run at once only when repositories and declared files do not overlap, each with its own workspace, and merges stay serial.">Novo na 1.4.0: com max_concurrent_codex maior que 1, várias tarefas do Codex rodam juntas só quando repositórios e arquivos declarados não se tocam, cada uma com seu workspace, e os merges continuam em série.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Honest results.&lt;/strong&gt;"><strong>Resultado honesto.</strong></span> <span data-en=" The task state comes from the first line of the report (completed, partial or blocked). A partial or blocked task is never shown as done, whatever the exit code.">O estado da tarefa vem da primeira linha do relatório (completed, partial ou blocked). Uma tarefa partial ou blocked nunca aparece como concluída, qualquer que seja o código de saída.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Permissions chosen by the user.&lt;/strong&gt;"><strong>Permissões à escolha do usuário.</strong></span> <span data-en=" Codex starts restricted (own sandbox, no network, throwaway clones). On their own machine, the user can give it the same permissions as Claude. In either mode, publishing needs a human.">O Codex começa restrito (sandbox própria, sem rede, clones descartáveis). Na própria máquina, o usuário pode dar a ele as mesmas permissões do Claude. Em qualquer modo, publicar exige um humano.</span></li>
+        <li><span data-en-html="&lt;strong&gt;Lite mode, no root.&lt;/strong&gt;"><strong>Modo leve, sem root.</strong></span> <span data-en=" A single user process, no systemd, on Linux, macOS and Windows, installed with pipx from PyPI. The full mode, with a privileged service and a remote channel, remains on Linux with systemd.">Um único processo do usuário, sem systemd, em Linux, macOS e Windows, instalado com pipx a partir do PyPI. O modo completo, com serviço privilegiado e canal remoto, continua em Linux com systemd.</span></li>
+      </ul>
+
+      <h3 data-en="Verifiable results">Resultados verificáveis</h3>
+      <div class="case-metrics">
+        <div><strong>1.5.1</strong><span data-en="published on PyPI and as a GitHub release (tag v1.5.1)">publicada no PyPI e como release no GitHub (tag v1.5.1)</span></div>
+        <div><strong>595</strong><span data-en="tests run by the Linux CI on the tag commit, all passing (3 skipped)">testes executados na CI do Linux no commit da tag, todos passando (3 pulados)</span></div>
+        <div><strong>CI</strong><span data-en="green on the tag commit, on Linux, macOS and Windows, Python 3.11 to 3.14">verde no commit da tag, em Linux, macOS e Windows, Python 3.11 a 3.14</span></div>
+      </div>
+      <ul>
+        <li data-en="CI runs the full suite on Linux and on Windows (the Linux-only cases are skipped explicitly there), the lite mode on Linux, macOS and Windows, and also builds the packages and tests a clean installation.">A CI roda a suíte completa no Linux e no Windows (lá, os casos exclusivos de Linux são pulados de forma explícita), o modo leve em Linux, macOS e Windows, e também gera os pacotes e testa a instalação limpa.</li>
+        <li data-en="There is a runnable example with a fake engine and a ten-minute walkthrough with output captured from a run without credentials.">Há um exemplo executável com um motor falso e um tutorial de dez minutos com a saída capturada de uma execução sem credenciais.</li>
+      </ul>
+
+      <h3 data-en="What is not ready">O que não está pronto</h3>
+      <ul>
+        <li data-en="The privileged service (full mode) requires Linux with systemd; on Windows and macOS only the lite mode exists, and the tests that need the privileged service are skipped there.">O serviço privilegiado (modo completo) exige Linux com systemd; no Windows e no macOS existe só o modo leve, e os testes que dependem do serviço privilegiado são pulados lá.</li>
+        <li data-en="Lite mode does not isolate agents from the user's account, files or Git credentials. The interactive confirmation is a workflow safeguard, not a barrier against malicious code from the same user.">O modo leve não isola os agentes da conta, dos arquivos nem das credenciais Git do usuário. A confirmação interativa é uma salvaguarda de fluxo, não uma barreira contra código malicioso do mesmo usuário.</li>
+        <li data-en="The WhatsApp channel is an optional, unofficial extra with ban risk, tested only with fakes and not against a live account. Telegram is the recommended channel.">O canal do WhatsApp é um extra opcional e não oficial, com risco de banimento, testado só com simulações e não contra uma conta real. O Telegram é o canal recomendado.</li>
+        <li data-en="The new --pr publishing was tested only with a simulated gh, and parallel Codex only with a fake Codex, not against a live GitHub account or real Codex runs.">O novo --pr foi testado só com um gh simulado, e o Codex em paralelo só com um Codex falso, não contra uma conta real do GitHub nem execuções reais do Codex.</li>
+        <li data-en="Detection of Codex's limit message is tolerant, but the format is not documented and may change.">A detecção da mensagem de limite do Codex é tolerante, mas o formato não é documentado e pode mudar.</li>
+      </ul>
+
+      <h3 data-en="Technologies">Tecnologias</h3>
+      <p class="case-stack">Python 3.11+, SQLite, Git, pytest, Ruff, mypy, GitHub Actions, Telegram, Codex CLI, Claude Code, Linux, macOS, Windows.</p>
+      </section>
+    </div>
+  </main>
+<!--include:case-footer-->
+</body>
+</html>
