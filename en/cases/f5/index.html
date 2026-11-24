@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>F5 Tecnologia case study | Jonas Augusto</title>
-  <meta name="description" content="Internship at F5 Tecnologia: CRM dashboard first call from 73.7 s to 0.08 s and automated WhatsApp registrations from 43% to ~89%, with diagnosis, fixes and limits.">
+  <meta name="description" content="Internship at F5 Tecnologia: CRM dashboard first call from 73.7 s to 0.08 s, automated WhatsApp registrations from 43% to ~89% and an after-sales agent rebuilt and tested over 17 rounds, with diagnosis, fixes and limits.">
   <meta name="theme-color" content="#0b0b0b">
   <link rel="canonical" href="https://jonasaaugusto.github.io/en/cases/f5/">
   <link rel="alternate" hreflang="pt-BR" href="https://jonasaaugusto.github.io/casos/f5/">
@@ -17,7 +17,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Jonas Augusto">
   <meta property="og:title" content="F5 Tecnologia case study | Jonas Augusto">
-  <meta property="og:description" content="Internship at F5 Tecnologia: CRM dashboard first call from 73.7 s to 0.08 s and automated WhatsApp registrations from 43% to ~89%, with diagnosis, fixes and limits.">
+  <meta property="og:description" content="Internship at F5 Tecnologia: CRM dashboard first call from 73.7 s to 0.08 s, automated WhatsApp registrations from 43% to ~89% and an after-sales agent rebuilt and tested over 17 rounds, with diagnosis, fixes and limits.">
   <meta property="og:image" content="https://jonasaaugusto.github.io/assets/img/og-image.png?v=3">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -71,7 +71,10 @@
       <nav class="case-nav" aria-label="Case studies">
         <a href="#f5-caso-plataforma">Service platform</a>
         <a href="#f5-caso-cadastro">Automated sales: ~89% of registrations</a>
+        <a href="#f5-caso-posvenda">After-sales agent: rebuild and mega test</a>
+        <a href="#f5-caso-conducao">How the work was run</a>
       </nav>
+      <p class="case-lead">In my internship at F5 Tecnologia (May 2026 – Present · Remote) I work on three fronts of WhatsApp agents: selling pay-TV plans (a Blip chatbot and a robot that fills in the proposal on the carrier's portal), registering customers in electricity-bill discount programs, with energy partners, and a relationship and after-sales agent, rebuilt from scratch in November 2026.</p>
       <section class="case-block" id="f5-caso-plataforma" aria-labelledby="f5-plat-t">
       <h2 id="f5-plat-t">F5: automatic electricity-bill discount service</h2>
       <p class="case-lead">Development: F5 Tecnologia. Delivered: a WhatsApp service bot, integration with the energy partners, and an operations dashboard.</p>
@@ -125,7 +128,7 @@
       <details class="case-more case-old"><summary>Earlier case study, complete (lead conversion and after-sales platforms)</summary>
       <p class="case-lead">Two platforms in production at F5 Tecnologia, both with AI agents on WhatsApp. The first converts leads: it receives the contact, runs the service with an AI agent, collects data, generates proposals through a financial partner, and registers customers in energy programs. The second handles customer relationship and after-sales: an AI agent with DeepSeek and tool calling, a rebuilt CRM dashboard, and cadence adjustments in Blip (the agent was validated in a sandbox and a staging stack on 10/23/2026, and the dashboard and Blip are in production). I worked end to end: architecture, agent, integrations, infrastructure, and reliability.</p>
 
-      <h3>Relationship and After-sales Platform</h3>
+      <h3>Relationship and After-sales Platform: first version (10/23/2026)</h3>
       <p>After-sales relied on manual contact and a slow legacy dashboard: newly enabled customers got no guidance about the benefits they had already paid for, and invoice notices arrived late. The goal was to build a continuous relationship layer (welcome, benefits journey, daily briefing, and billing alerts) without growing the team, and to modernize the dashboard and the Blip integration without stopping operations.</p>
       <ul>
         <li>Architecture in 7 services with Docker Compose on an Ubuntu VPS: WhatsApp gateway (Baileys), AI agent, workers, dashboard API, PostgreSQL 16 with pgvector, and Redis (BullMQ). Only SSH and the dashboard API are exposed to the host, the WhatsApp session is encrypted with AES-256-GCM, and deploys go through GitHub Actions with a required reviewer.</li>
@@ -265,9 +268,23 @@
       </div>
       <p>The median registration time went up slightly, and that is an effect of the success: before, half of the runs died early; now almost all of them go through to the final validation.</p>
 
+      <h3>November: diagnosing a conversion drop with a control group</h3>
+<p>Measuring before and after by cohort, with the human team (which does not use the robot) as a control group, I showed that the drop came from a change in the carrier's policy: from 11/10/2026, almost every CPF started going to identity confirmation by document (from ~30% to ~84%), and both fronts fell the same night.</p>
+      <p><strong>On our side:</strong></p>
+      <ul>
+        <li>Email check before registration (misspelled domain, email belonging to another CPF), with the link sent by SMS when the email does not match.</li>
+        <li>The robot stopped clicking “Send” on top of the carrier's automatic link.</li>
+        <li>Flexible ZIP code, with a search by street and city (an invalid ZIP code caused 120 of 151 closed conversations).</li>
+        <li>An explanation of why the CPF is asked for.</li>
+        <li>An option to go back to the summary.</li>
+        <li>“I did not receive the link”: the robot redoes it and resends it automatically.</li>
+        <li>Dashboard: the “Waiting” stage now shows “arrived” and “is there today”. The carrier cancels stalled proposals after ~4.5 days, and the daily number “shrank”; by the correct criterion, conversion was stable: 15.6% → 14.8%.</li>
+        <li>Tests: the suite for the robot and the rules went from 2,300 to over 2,500.</li>
+      </ul>
+
       <h3>How I worked</h3>
       <ul>
-        <li><strong>Root cause, not a patch.</strong> Each fix applies to the whole flow and is locked in by automated tests (more than 2,300 in the robot's suite).</li>
+        <li><strong>Root cause, not a patch.</strong> Each fix applies to the whole flow and is locked in by automated tests (more than 2,500 in the suite for the robot and the rules).</li>
         <li><strong>Live proof.</strong> I reproduced the failures on the real portal, with test data, before stating the cause.</li>
         <li><strong>Safe changes in production.</strong> Isolated commits, the chatbot flow validator passing with no failures before publishing, a restart without taking the API down, and a check of what was actually published.</li>
         <li><strong>Decisions backed by data.</strong> The time cutoffs (4 s, 8 s) came from the real message history, not from a guess.</li>
@@ -275,6 +292,83 @@
 
       <h3>Technologies</h3>
       <p class="case-stack">Python, Selenium, FastAPI, Blip (WhatsApp chatbot), Salesforce (carrier portal), pytest.</p>
+      </section>
+
+      <section class="case-block" id="f5-caso-posvenda" aria-labelledby="f5-pos-t">
+      <h2 id="f5-pos-t">After-sales agent: rebuild and mega test</h2>
+<p class="case-lead">After a requirements meeting (11/13/2026), I rebuilt the relationship and after-sales agent as a 100% autonomous assistant. The first version, validated on 10/23/2026, is in the earlier case study, above.</p>
+      <div class="case-metrics">
+        <div><strong>44 → 99</strong><span>LLM-judge score, from the first round to the best (99 out of 100), over 17 rounds</span></div>
+        <div><strong>172</strong><span>fixes cataloged, each one retested</span></div>
+        <div><strong>6.000+</strong><span>automated tests</span></div>
+      </div>
+      <h3>The 6-month journey after the sale</h3>
+<p>Welcome, benefit activation, programming based on the customer's taste, billing, monthly satisfaction and retention. The billing texts are fixed and approved, never rewritten by the AI.</p>
+      <h3>Reading the customer's tone</h3>
+<p>The agent reads formality, mood and irritation. It uses “sir” or “ma'am” with formal customers, uses emoji only if the customer does, and does not mistake affection (“my love”, “my girl”) for flirting.</p>
+      <h3>Guardrails in code, with tests</h3>
+      <ul>
+        <li>No fact without a source (channel, schedule, price).</li>
+        <li>The amount quoted comes only from the customer's record or invoice.</li>
+        <li>It does not confirm what the customer has not confirmed.</li>
+        <li>A maximum message frequency.</li>
+        <li>A pause after 3 messages with no reply, keeping only billing.</li>
+      </ul>
+      <h3>Sandbox with time travel</h3>
+<p>A simulated customer, manual conversation, a “next message” button, advancing by days and months, and approval and editing of each text in the bubble itself.</p>
+      <h3>CRM dashboard</h3>
+<p>New areas: Indicators, Conversations, Sandbox and Corrections. Corrections is a table with the finding, the description, the solution and the retest of each fix, with search and filters.</p>
+      <details class="case-more" id="f5-megateste">
+        <summary>Mega test: 100 conversations per round, 17 rounds</summary>
+<p>Each round has 100 conversations with 10 personas (synthetic profiles and anonymized profiles): a customer AI talks to the real agent, 10 LLM judges evaluate it, and an automatic consolidator merges the result. The production gate is ≥95% and 0 critical failures.</p>
+<p>Judges' score, rounds 1 to 17, from 11/18/2026 to 11/23/2026:</p>
+        <p><code class="case-stack">44 → 70 → 85 → 88 → 94 → 93 → 95 → 93 → 97 → 96 → 94 → 98 → 96 → 99 → 99 → 98 → 97</code></p>
+<p>AI cost: about US$ 0.40 per round, about US$ 6.50 across all of them. There are 172 cataloged fixes, each one retested.</p>
+<p>Quality: over 6,000 automated tests and a 180-day journey simulator (15 scenarios, 0 violations).</p>
+        <h3>Defect categories and the structural response</h3>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Defect categories and structural response">
+          <table>
+            <thead><tr><th scope="col">Defect</th><th scope="col">Structural response</th></tr></thead>
+            <tbody>
+            <tr><th scope="row">Fact with no source (wrong channel or sport)</th><td>Fixed text, a guardrail, and an answer only with a source from the tool.</td></tr>
+            <tr><th scope="row">Confirmation with no basis (“already fixed”, porting treated as done)</th><td>It only confirms with a real report from the customer.</td></tr>
+            <tr><th scope="row">Estimated invoice treated as real</th><td>Answer by template.</td></tr>
+            <tr><th scope="row">A request to stop misread</th><td>Deterministic rules and, when in doubt, the agent asks what to stop.</td></tr>
+            <tr><th scope="row">Style (formal without a form of address, jargon, emoji)</th><td>A formal variant of every text.</td></tr>
+            <tr><th scope="row">Guardrail in a loop</th><td>Keeps what is good in the draft, sentence by sentence.</td></tr>
+            <tr><th scope="row">Dirty model output</th><td>Output cleaning.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Engineering findings</h3>
+        <ul>
+        <li>The real holiday of the next day postponed every message in the sandbox. The calendar is now evaluated on the customer's virtual clock.</li>
+        <li>The week was counted on the recorded date, not the virtual one, and let 6 messages out in a week with a cap of 5.</li>
+        <li>“Tá caro, não? Tô pensando em cancelar” (“Pricey, isn't it? I'm thinking of canceling”) was read as a negation. Now negation only counts inside the sentence.</li>
+        <li>The battery run at night produced false defects. With a fixed virtual clock, it runs at any time.</li>
+        </ul>
+      </details>
+      <h3>Technologies</h3>
+<p class="case-stack">Python (FastAPI), DeepSeek, Blip, WhatsApp, pytest, Vitest, LLM judges (automatic evaluation) and Claude Code with parallel agents (development orchestration).</p>
+      </section>
+
+      <section class="case-block" id="f5-caso-conducao" aria-labelledby="f5-cond-t">
+      <h2 id="f5-cond-t">How the work was run</h2>
+      <ul>
+        <li><span><strong>Development orchestration with AI.</strong></span> <span> A coordinating session plans, integrates and reports; parallel agents (different models for planning and for development) work in separate worktrees, with merges in waves.</span></li>
+        <li><span><strong>State in a file.</strong></span> <span> The state of the work always lives in a file, so it can resume after a crash or a limit.</span></li>
+        <li><span><strong>Root cause, not a patch.</strong></span> <span> Every fix applies to the whole class of the defect, with a test that locks the class.</span></li>
+        <li><span><strong>Protected production.</strong></span> <span> Changes stay as drafts until approved, and nothing is announced to the customer before it is live.</span></li>
+        <li><span><strong>Transparency.</strong></span> <span> A decisions document, a status deck, a corrections tab in the dashboard and a living case study, reviewed in full with each update.</span></li>
+      </ul>
+      <h3>Lessons</h3>
+      <ul>
+        <li>A replaced decision is swapped in place, never stacked.</li>
+        <li>A rule in code, with a test, is worth more than an instruction in the prompt.</li>
+        <li>Where risk is high, fixed text instead of the model.</li>
+        <li>An LLM judge has variance: the gate looks at critical failures over more than one round and with varied scenarios. Two identical rounds scored 99; the same battery on other days of the week found 2 critical failures.</li>
+        <li>A vendor's documentation does not replace testing.</li>
+      </ul>
       </section>
     </div>
   </main>

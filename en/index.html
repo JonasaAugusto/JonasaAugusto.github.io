@@ -134,6 +134,11 @@
             <p class="n-what"><strong>AI Agents Orchestrator, open source.</strong> Published on PyPI (v1.5.1), CI green on Linux, macOS and Windows.</p>
             <span class="n-links"><a class="link n-src" href="https://pypi.org/project/ai-agents-orchestrator/" target="_blank" rel="noopener">PyPI</a><a class="link n-src" href="https://github.com/JonasaAugusto/ai-agents-orchestrator/releases/tag/v1.5.1" target="_blank" rel="noopener">GitHub</a></span>
           </li>
+          <li data-reveal-one style="--i:3">
+            <p class="n"><span class="vh">44 to 99 out of 100</span><span aria-hidden="true"><span class="from">44</span><span class="arr">→</span><span>99/100</span></span></p>
+            <p class="n-what"><strong>LLM-judge score, from the first round to the best.</strong> Rounds of 100 adversarial conversations. After-sales agent, F5 Tecnologia, Nov 2026.</p>
+            <a class="link n-src" href="cases/f5/#f5-caso-posvenda">See the mega test</a>
+          </li>
         </ul>
       </div>
       <dl class="hero-facts" data-r style="--i:4">
@@ -174,8 +179,8 @@
           <a class="pcard" href="#proj-f5">
             <h3>F5 Tecnologia</h3>
             <div class="pcard-body">
-              <p>WhatsApp agents, partner integrations and an operations dashboard, in my current internship.</p>
-              <p class="pcard-proof">Dashboard from 73.7 s to 0.08 s · registrations from 43% to ~89%</p>
+              <p>Three fronts of WhatsApp agents: pay-TV sales, electricity-bill discount and after-sales. In my current internship.</p>
+              <p class="pcard-proof">Dashboard from 73.7 s to 0.08 s · registrations from 43% to ~89% · after-sales judged from 44 to up to 99 out of 100</p>
             </div>
             <span class="pcard-meta">Python · FastAPI · pytest</span>
           </a>
@@ -195,10 +200,10 @@
         <div class="job-main" style="--i:1">
           <h3 class="job-role">Development and Automation Intern</h3>
           <p class="job-org">F5 Tecnologia</p>
-          <p class="job-intro">Development of AI agents on WhatsApp for selling digital products and for customer relationship and after-sales, with guardrails in code, partner and CRM (Blip) integrations, and sensitive data handled in compliance with LGPD.</p>
+          <p class="job-intro">Three fronts of AI agents on WhatsApp: selling pay-TV plans (a Blip chatbot plus a robot that fills in the proposal on the carrier's portal), registering customers in electricity-bill discount programs with energy partners, and a relationship and after-sales agent, rebuilt from scratch in November 2026. Guardrails in code, partner and CRM (Blip) integrations, and sensitive data handled in compliance with LGPD.</p>
           <details class="more">
             <summary><span>See details</span></summary>
-          <ul class="job-list">            <li>Production reliability: fixed critical failures (OCR, supplier identification, eligibility rules), unblocking over 170 customers, and rebuilt the CRM dashboard, cutting the dashboard's first call from 73.7 s to 0.08 s with 0 discrepancies across 1,960 items checked against the portals.</li>
+          <ul class="job-list">            <li>Production reliability: fixed critical failures (OCR, supplier identification, eligibility rules), unblocking over 170 customers, and rebuilt the CRM dashboard, cutting the dashboard's first call from 73.7 s to 0.08 s with 0 discrepancies across 1,960 items checked against the portals. The dashboard gained Indicators, Conversations, Sandbox and Corrections areas.</li>
           </ul>
                 <div class="job-side" style="--i:2">
           <span class="tag live">Current internship</span>
@@ -351,12 +356,12 @@
         </header>
         <dl class="proj-dl">
           <div class="k1"><dt>Problem</dt><dd>Free-form AI service was unpredictable and hard to audit. The automated registration stopped for many customers: the share of registrations that became a proposal was 43% and dropped to 29%. The after-sales dashboard took 73.7 s on the first call and showed diverging data.</dd></div>
-          <div class="k5"><dt>Result</dt><dd>Dashboard first call from 73.7 s to 0.08 s (measured in production on 10/15/2026). Registrations that become a proposal, per attempt: 43%, down to 29% in October, about 89% in November after the fix. 0 discrepancies across 1,960 items checked against the portals every 10 minutes. Over 320 automated tests on the service platform.</dd></div>
+          <div class="k5"><dt>Result</dt><dd>Dashboard first call from 73.7 s to 0.08 s (measured in production on 10/15/2026). Registrations that become a proposal, per attempt: 43%, down to 29% in October, about 89% in November after the fix. 0 discrepancies across 1,960 items checked against the portals every 10 minutes. After-sales agent rebuilt in November: LLM-judge score from 44 to up to 99 out of 100 over 17 rounds of 100 conversations, with over 6,000 automated tests. Over 320 automated tests on the service platform.</dd></div>
         </dl>
         <details class="more">
           <summary><span>See details</span></summary>
           <dl class="proj-dl rest">
-          <div class="k2"><dt>What I did</dt><dd>WhatsApp agents on a deterministic state machine (the AI only classifies and answers questions, under rules), idempotent partner integrations, OCR with double reading and a tiebreak, and an operations dashboard. Before touching code, I cross-checked execution logs, the API log and message history.</dd></div>
+          <div class="k2"><dt>What I did</dt><dd>WhatsApp agents on a deterministic state machine (the AI only classifies and answers questions, under rules), idempotent partner integrations, OCR with double reading and a tiebreak, and an operations dashboard. In after-sales, I rebuilt the agent with guardrails in code and validated it with 17 rounds of adversarial testing (100 conversations and 10 LLM judges per round). Before touching code, I cross-checked execution logs, the API log and message history.</dd></div>
           <div class="k3"><dt>What broke and how I fixed it</dt><dd>A safety check blocked 44 of 54 registrations because the carrier's screen had changed and the code had not kept up; I fixed how the item is recognized. Off-script answers were slow because of a fixed 15 s wait, not the AI (the model answered in ~1.5 s); it became 4 s for a recognized question, with an 8 s ceiling, and the cutoff came from 4,078 real messages. On the dashboard, the cache expired before the next request and rebuilt everything inside the request; a thread now builds outside it, with ETag and 304.</dd></div>
           <div class="k4"><dt>What I would do differently</dt><dd>I would audit the integrations against the partners' official documentation before building. The audit done afterwards revealed steps that never ran: document upload, payment method and contact registration.</dd></div>
           <div class="k6"><dt>Limitation</dt><dd>The median registration time went up slightly: before, half of the runs died early; now almost all go through to the final validation. Dashboard numbers can be up to 60 s stale. The code belongs to the company, so there is no repository to inspect.</dd></div>
@@ -439,7 +444,7 @@
       </ul>
 
       <h3 class="sub-t">Secondary</h3>
-      <p class="second-stack">C# and .NET MAUI, TypeScript and Node.js (Fastify), SQL, SQLite, Redis, pytest, Playwright, GitHub Actions, Git, systemd, Caddy, React, WebSocket.</p>
+      <p class="second-stack">C# and .NET MAUI, TypeScript and Node.js (Fastify), SQL, SQLite, Redis, pytest, Vitest, Playwright, GitHub Actions, Git, systemd, Caddy, React, WebSocket.</p>
 
       <details class="more" id="stack-ia">
         <summary><span>AI: tools and where I used them</span></summary>
@@ -450,6 +455,8 @@
         <li><strong>Ollama</strong><span>AugustusApp: meeting summary and briefing with a local LLM.</span></li>
         <li><strong>WhisperX, faster-whisper</strong><span>AugustusApp: local transcription with the large-v3 model.</span></li>
         <li><strong>pyannote</strong><span>AugustusApp: speaker separation (diarization).</span></li>
+        <li><strong>LLM judges</strong><span>F5: automatic evaluation of the after-sales agent, in rounds of 100 conversations.</span></li>
+        <li><strong>Claude Code</strong><span>F5: development orchestration with parallel agents.</span></li>
         <li><strong>LangChain</strong><span>F5, in the earlier blocks of the case study.</span></li>
         <li><strong>Techniques</strong><span>Lexical RAG (Raízes &amp; Escamas, 430 entries), tool calling and MCP (F5), guardrails in code (F5).</span></li>
       </ul>
@@ -465,7 +472,7 @@
 </div>
 <div class="stack-group">
 <h3>Generative AI</h3>
-<ul><li>DeepSeek (tool calling)</li><li>OpenAI API</li><li>Ollama (local LLM)</li><li>WhisperX and faster-whisper</li><li>pyannote (diarization)</li><li>RAG (lexical and hybrid)</li><li>MCP</li><li>LangChain</li><li>Prompt Engineering</li><li>Guardrails</li><li>LLM Agents</li></ul>
+<ul><li>DeepSeek (tool calling)</li><li>OpenAI API</li><li>Ollama (local LLM)</li><li>WhisperX and faster-whisper</li><li>pyannote (diarization)</li><li>RAG (lexical and hybrid)</li><li>MCP</li><li>LangChain</li><li>Prompt Engineering</li><li>Guardrails</li><li>LLM Agents</li><li>LLM judges (automatic evaluation)</li><li>Claude Code with parallel agents (development orchestration)</li></ul>
 </div>
 <div class="stack-group">
 <h3>Backend &amp; Frameworks</h3>
@@ -530,7 +537,7 @@
         <div>
           <h3>How I validate the result</h3>
           <ul class="checks">
-            <li>Tests that lock behavior in: over 320 on the F5 platform, 595 in the Orchestrator, about 200 in IAprovale.</li>
+            <li>Tests that lock behavior in: over 6,000 on the F5 after-sales agent, over 320 on the F5 service platform, 595 in the Orchestrator, about 200 in IAprovale.</li>
             <li>Real data as a sample: 4,078 messages defined the wait window; a 100-question battery with a real LLM validated the Raízes &amp; Escamas search.</li>
             <li>Measurement before and after, and a production rehearsal with nothing sent to partners.</li>
             <li>Fictional data in development: user data and secrets stay out of the development tools.</li>

@@ -127,6 +127,8 @@ for ppt, pen in PARES:
             for r in orq_re:
                 corpo = re.sub(r, "", corpo, flags=re.S)
             corpo = re.sub(r'<link[^>]*>|<meta[^>]*>', "", corpo)
+            if "iaprovale" not in ppt:
+                corpo = corpo.replace("Claude Code", "")  # permitido: stack e orquestração de desenvolvimento (F5)
             checa(not re.search(r"claude|codex|anthropic", corpo, re.I), f"{n} {nome}: Claude/Codex só dentro do projeto Orchestrator")
 
 for cv in ("cv.html", "cv.en.html"):

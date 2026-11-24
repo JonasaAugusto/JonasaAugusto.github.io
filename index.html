@@ -134,6 +134,11 @@
             <p class="n-what"><strong>AI Agents Orchestrator, open source.</strong> Publicado no PyPI (v1.5.1), CI verde em Linux, macOS e Windows.</p>
             <span class="n-links"><a class="link n-src" href="https://pypi.org/project/ai-agents-orchestrator/" target="_blank" rel="noopener">PyPI</a><a class="link n-src" href="https://github.com/JonasaAugusto/ai-agents-orchestrator/releases/tag/v1.5.1" target="_blank" rel="noopener">GitHub</a></span>
           </li>
+          <li data-reveal-one style="--i:3">
+            <p class="n"><span class="vh">44 até 99 de 100</span><span aria-hidden="true"><span class="from">44</span><span class="arr">→</span><span>99/100</span></span></p>
+            <p class="n-what"><strong>Nota de juízes LLM, da primeira rodada à melhor.</strong> Rodadas de 100 conversas adversariais. Agente de pós-venda, F5 Tecnologia, nov/2026.</p>
+            <a class="link n-src" href="casos/f5/#f5-caso-posvenda">Ver o mega teste</a>
+          </li>
         </ul>
       </div>
       <dl class="hero-facts" data-r style="--i:4">
@@ -174,8 +179,8 @@
           <a class="pcard" href="#proj-f5">
             <h3>F5 Tecnologia</h3>
             <div class="pcard-body">
-              <p>Agentes de WhatsApp, integrações com parceiros e painel de operação, no estágio atual.</p>
-              <p class="pcard-proof">Painel de 73,7 s para 0,08 s · cadastros de 43% para ~89%</p>
+              <p>Três frentes de agentes de WhatsApp: venda de TV por assinatura, desconto na conta de luz e pós-venda. No estágio atual.</p>
+              <p class="pcard-proof">Painel de 73,7 s para 0,08 s · cadastros de 43% para ~89% · pós-venda avaliado de 44 até 99 de 100</p>
             </div>
             <span class="pcard-meta">Python · FastAPI · pytest</span>
           </a>
@@ -195,10 +200,10 @@
         <div class="job-main" style="--i:1">
           <h3 class="job-role">Estagiário em Desenvolvimento e Automação</h3>
           <p class="job-org">F5 Tecnologia</p>
-          <p class="job-intro">Desenvolvimento de agentes de IA sobre WhatsApp para venda de produtos digitais e para relacionamento e pós-venda, com guardrails em código, integrações com parceiros e CRM (Blip) e dados sensíveis tratados conforme a LGPD.</p>
+          <p class="job-intro">Três frentes de agentes de IA sobre WhatsApp: venda de planos de TV por assinatura (chatbot na Blip e robô que preenche a proposta no portal da operadora), cadastro de clientes em programas de desconto na conta de luz com parceiros de energia e um agente de relacionamento e pós-venda, reconstruído do zero em novembro de 2026. Guardrails em código, integrações com parceiros e CRM (Blip) e dados sensíveis tratados conforme a LGPD.</p>
           <details class="more">
             <summary><span>Ver detalhes</span></summary>
-          <ul class="job-list">            <li>Confiabilidade em produção: correção de falhas críticas (OCR, identificação de fornecedor, regras de elegibilidade), com mais de 170 clientes destravados, e reformulação do painel CRM, com primeira chamada do painel de 73,7 s para 0,08 s e 0 divergências em 1.960 itens conferidos com os portais.</li>
+          <ul class="job-list">            <li>Confiabilidade em produção: correção de falhas críticas (OCR, identificação de fornecedor, regras de elegibilidade), com mais de 170 clientes destravados, e reformulação do painel CRM, com primeira chamada do painel de 73,7 s para 0,08 s e 0 divergências em 1.960 itens conferidos com os portais. O painel ganhou as áreas Indicadores, Conversas, Sandbox e Correções.</li>
           </ul>
                 <div class="job-side" style="--i:2">
           <span class="tag live">Estágio atual</span>
@@ -351,12 +356,12 @@
         </header>
         <dl class="proj-dl">
           <div class="k1"><dt>Problema</dt><dd>Atendimento por IA livre era imprevisível e difícil de auditar. O cadastro automático parava com vários clientes: a taxa de cadastros que viravam proposta estava em 43% e chegou a 29%. O painel de pós-venda levava 73,7 s na primeira chamada e mostrava dados divergentes.</dd></div>
-          <div class="k5"><dt>Resultado</dt><dd>Primeira chamada do painel de 73,7 s para 0,08 s (medido em produção em 15/10/2026). Cadastros que viram proposta, por tentativa: 43%, caiu para 29% em outubro, ~89% em novembro, depois da correção. 0 divergências em 1.960 itens conferidos com os portais a cada 10 minutos. Mais de 320 testes automatizados na plataforma de atendimento.</dd></div>
+          <div class="k5"><dt>Resultado</dt><dd>Primeira chamada do painel de 73,7 s para 0,08 s (medido em produção em 15/10/2026). Cadastros que viram proposta, por tentativa: 43%, caiu para 29% em outubro, ~89% em novembro, depois da correção. 0 divergências em 1.960 itens conferidos com os portais a cada 10 minutos. Agente de pós-venda reconstruído em novembro: nota dos juízes LLM de 44 até 99 de 100 em 17 rodadas de 100 conversas, com mais de 6.000 testes automatizados. Mais de 320 testes automatizados na plataforma de atendimento.</dd></div>
         </dl>
         <details class="more">
           <summary><span>Ver detalhes</span></summary>
           <dl class="proj-dl rest">
-          <div class="k2"><dt>O que eu fiz</dt><dd>Agentes de WhatsApp com máquina de estados determinística (a IA só classifica e responde dúvidas, sob regras), integrações idempotentes com parceiros, OCR com dupla leitura e desempate e um painel de operação. Antes de mexer no código, cruzei logs de execução, log da API e histórico de mensagens.</dd></div>
+          <div class="k2"><dt>O que eu fiz</dt><dd>Agentes de WhatsApp com máquina de estados determinística (a IA só classifica e responde dúvidas, sob regras), integrações idempotentes com parceiros, OCR com dupla leitura e desempate e um painel de operação. No pós-venda, reconstruí o agente com guardrails em código e o validei com 17 rodadas de teste adversarial (100 conversas e 10 juízes LLM por rodada). Antes de mexer no código, cruzei logs de execução, log da API e histórico de mensagens.</dd></div>
           <div class="k3"><dt>O que quebrou e como resolvi</dt><dd>Uma verificação de segurança barrava 44 de 54 cadastros porque a tela da operadora mudou e o código não acompanhou; corrigi o reconhecimento do item. A resposta fora do roteiro demorava por uma espera fixa de 15 s, não pela IA (o modelo respondia em ~1,5 s); passou a 4 s para pergunta reconhecida, com teto de 8 s, e o corte saiu de 4.078 mensagens reais. No painel, o cache vencia antes do pedido e remontava tudo dentro da requisição; uma thread passou a montar fora dela, com ETag e 304.</dd></div>
           <div class="k4"><dt>O que faria diferente</dt><dd>Auditaria as integrações contra a documentação oficial dos parceiros antes de construir. A auditoria feita depois revelou etapas que nunca rodavam: envio do documento, forma de pagamento e cadastro dos contatos.</dd></div>
           <div class="k6"><dt>Limitação</dt><dd>O tempo mediano do cadastro subiu um pouco: antes, metade das execuções morria cedo; agora quase todas vão até a validação final. Os números do painel podem ter até 60 s de atraso. O código é da empresa, então não há repositório para consultar.</dd></div>
@@ -439,7 +444,7 @@
       </ul>
 
       <h3 class="sub-t">Secundárias</h3>
-      <p class="second-stack">C# e .NET MAUI, TypeScript e Node.js (Fastify), SQL, SQLite, Redis, pytest, Playwright, GitHub Actions, Git, systemd, Caddy, React, WebSocket.</p>
+      <p class="second-stack">C# e .NET MAUI, TypeScript e Node.js (Fastify), SQL, SQLite, Redis, pytest, Vitest, Playwright, GitHub Actions, Git, systemd, Caddy, React, WebSocket.</p>
 
       <details class="more" id="stack-ia">
         <summary><span>IA: ferramentas e onde usei</span></summary>
@@ -450,6 +455,8 @@
         <li><strong>Ollama</strong><span>AugustusApp: resumo e briefing de reuniões com LLM local.</span></li>
         <li><strong>WhisperX, faster-whisper</strong><span>AugustusApp: transcrição local com o modelo large-v3.</span></li>
         <li><strong>pyannote</strong><span>AugustusApp: separação de quem fala (diarização).</span></li>
+        <li><strong>Juízes LLM</strong><span>F5: avaliação automática do agente de pós-venda, em rodadas de 100 conversas.</span></li>
+        <li><strong>Claude Code</strong><span>F5: orquestração de desenvolvimento com agentes paralelos.</span></li>
         <li><strong>LangChain</strong><span>F5, nos blocos anteriores do estudo de caso.</span></li>
         <li><strong>Técnicas</strong><span>RAG lexical (Raízes &amp; Escamas, 430 fichas), tool calling e MCP (F5), guardrails em código (F5).</span></li>
       </ul>
@@ -465,7 +472,7 @@
 </div>
 <div class="stack-group">
 <h3>IA Generativa</h3>
-<ul><li>DeepSeek (tool calling)</li><li>OpenAI API</li><li>Ollama (LLM local)</li><li>WhisperX e faster-whisper</li><li>pyannote (diarização)</li><li>RAG (lexical e híbrido)</li><li>MCP</li><li>LangChain</li><li>Prompt Engineering</li><li>Guardrails</li><li>Agentes com LLMs</li></ul>
+<ul><li>DeepSeek (tool calling)</li><li>OpenAI API</li><li>Ollama (LLM local)</li><li>WhisperX e faster-whisper</li><li>pyannote (diarização)</li><li>RAG (lexical e híbrido)</li><li>MCP</li><li>LangChain</li><li>Prompt Engineering</li><li>Guardrails</li><li>Agentes com LLMs</li><li>Juízes LLM (avaliação automática)</li><li>Claude Code com agentes paralelos (orquestração de desenvolvimento)</li></ul>
 </div>
 <div class="stack-group">
 <h3>Backend &amp; Frameworks</h3>
@@ -530,7 +537,7 @@
         <div>
           <h3>Como valido o resultado</h3>
           <ul class="checks">
-            <li>Testes que travam o comportamento: mais de 320 na plataforma da F5, 595 no Orchestrator, cerca de 200 no IAprovale.</li>
+            <li>Testes que travam o comportamento: mais de 6.000 no agente de pós-venda da F5, mais de 320 na plataforma de atendimento da F5, 595 no Orchestrator, cerca de 200 no IAprovale.</li>
             <li>Dados reais como amostra: 4.078 mensagens definiram a janela de espera; uma bateria de 100 perguntas com LLM real validou a busca da Raízes &amp; Escamas.</li>
             <li>Medição antes e depois, e ensaio em produção sem enviar nada aos parceiros.</li>
             <li>Dados fictícios no desenvolvimento: dados de usuários e segredos ficam fora das ferramentas de desenvolvimento.</li>
